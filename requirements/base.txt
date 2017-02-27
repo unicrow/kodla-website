@@ -1,0 +1,2 @@
+# General
+Django==1.9.12
