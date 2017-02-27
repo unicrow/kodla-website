@@ -15,7 +15,7 @@ import os
 import sys
 
 # Local Django
-from .secret import SECRET_KEY
+from .secret import SECRET_KEY, GOOGLE_MAP_API_KEY
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'source',
 
-    # Internal Applications
-    'core'
-
     # External Applications
+    'geoposition',
+
+    # Internal Applications
+    'core',
+    'activity'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -80,6 +82,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'source.wsgi.application'
+
+
+# Django Geoposition
+GEOPOSITION_GOOGLE_MAPS_API_KEY = GOOGLE_MAP_API_KEY
 
 
 

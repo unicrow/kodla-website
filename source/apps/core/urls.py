@@ -17,6 +17,8 @@ Including another URLconf
 # Django
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.views.static import serve
 
 # Local Django
 from core.views import *
@@ -27,5 +29,15 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Pages
-    url(r'^$', IndexView.as_view(), name='index')
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^(?P<year>\w+)?/$', IndexView.as_view(), name='index-year')
 ]
+
+
+# Media
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]

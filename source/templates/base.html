@@ -5,14 +5,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Kodla — 30 Nisan - 1 Mayıs 2016</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:locale"content="tr_TR" />
-	<meta property="og:title" content="Kodla — 30 Nisan - 1 Mayıs 2016" />
-	<meta property="og:site_name" content="Kodla"/>
-	<meta property="og:url" content="http://kodla.co"/>
-	<meta property="og:description" content="Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin düzenleneceği etkinliğimiz 30 Nisan - 01 Mayıs'da KTÜ Prof. Dr. Osman Turan Kültür ve Konferans Merkezi'nde gerçekleşecek. Siz de bir şeyler ile uğraşmak istiyor ve ne ile başlayacağınızı bilmiyorsanız bu etkinliği kaçırmayın." />
-	<meta property="og:image" content="http://www.kodla.co/static/img/logos/kodla.png" />
+
+	<title>{{ title|default:"Kodla" }}</title>
+
+	{{ activity.meta_tags|safe }}
 
 	{% block style %}
 		<link rel="stylesheet" href="{% static 'css/main.css' %}">
