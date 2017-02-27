@@ -1,0 +1,110 @@
+/*=============================
+=            BASIC            =
+=============================*/
+$body-text: #717171;
+$default-font-size: 16px;
+$default-line-height: 24px;
+
+
+
+/*===================================
+=            FONT STACKS            =
+===================================*/
+$helvetica-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$default-font-stack: "Open Sans", $helvetica-stack;
+$serif-font-stack: "Palatino Linotype", Times, "Times New Roman", serif;
+$roboto-font-stack: "Roboto Condensed", $helvetica-stack;
+$ptserif-font-stack: "PT Serif", $serif-font-stack;
+$opensans-font-stack: "Open Sans", $helvetica-stack;
+
+
+
+/*==============================
+=            COMMON            =
+==============================*/
+$link: #55acee;
+$default-transition-time: .2s;
+$h1-border: #f58423;
+
+
+
+/*===============================
+=            BUTTONS            =
+===============================*/
+$btn-bg: #02aed0;
+$btn-text: #fff;
+
+
+
+/*=====================================
+=            FORM ELEMENTS            =
+=====================================*/
+$input-bg: #f7f7f7;
+$input-border: #a7b5b1;
+$input-text: #878484;
+$input-error: #e43a15;
+$input-placeholder: #bab7b7;
+$label-text: #a7b5b1;
+
+
+/*================================
+=            HEADINGS            =
+================================*/
+$h1: #343534;
+$h2: #343534;
+
+
+
+
+/*==============================
+=            HEADER            =
+==============================*/
+$main-nav-text: #8a8a8a;
+$main-nav-border: #f2f2f2;
+
+
+
+/*====================================
+=            LATEST TWEET            =
+====================================*/
+$latest-tweet-bg: #1a1919;
+$latest-tweet-text: #fff;
+
+
+/*===============================
+=            PROGRAM            =
+===============================*/
+$program-bg: (start: #e43a15, end: #e65245);
+$day-select-border: #e6e5c8;
+$day-select-text: #e6e5c8;
+$day-select-active-bg: #e6e5c8;
+$day-select-active-text: #343534;
+$time-item-passed: .3;
+$time-text: #ffd3a1;
+$topic-text: #fff;
+$speaker-text: #ffd3a1;
+$timeline-line: #ff7961;
+$timeline-point: #e6e5c8;
+$timeline-point-border: #fff;
+
+
+/*================================
+=            SPEAKERS            =
+================================*/
+$speaker-border: #eef1f5;
+$speaker-info: #b6b6b6;
+
+/*======================================
+=            TRANSPORTATION            =
+======================================*/
+$section-border-top: #f2f2f2;
+
+
+
+/*===============================
+=            CONTACT            =
+===============================*/
+$contact-bg: #f7f7f7;
+$accounts-link: #717171;
+$icon-fb: #3b5998;
+$icon-tw: #55acee;

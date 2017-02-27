@@ -1,0 +1,59 @@
+/*=============================
+=            BASIC            =
+=============================*/
+@import url(http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:300,400,600|Roboto+Condensed:300,400&subset=latin,latin-ext);
+
+body {
+	font: $default-font-size $default-font-stack;
+	line-height: $default-line-height;
+	@include antialias;
+	color: $body-text;
+}
+
+a {
+	color: $link;
+	text-decoration: none;
+	&:hover { color: darken($link, 25%) }
+}
+
+input, textarea, button {
+	@include antialias;
+}
+
+
+/*================================
+=            HEADINGS            =
+================================*/
+h1 {
+	margin-bottom: 40px;
+	font: 100 32px $roboto-font-stack;
+	color: $h1;
+	letter-spacing: 3px;
+	text-align: center;
+	&:after {
+		display: block;
+		margin: 5px auto 0;
+		width: 60px;
+		border-bottom: 4px solid $h1-border;
+		text-align: center;
+		content: "";
+	}
+}
+
+h2 {
+	margin-bottom: 15px;
+	font: 24px $roboto-font-stack;
+	color: $h2;
+}
+
+
+
+
+
+/*==============================
+=            HEADER            =
+==============================*/
+.intro p {
+	font-size: 20px;
+	line-height: 28px;
+}

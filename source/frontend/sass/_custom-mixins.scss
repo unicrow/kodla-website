@@ -1,0 +1,29 @@
+/*=====================================
+=            CUSTOM MIXINS            =
+=====================================*/
+@mixin hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+@mixin visible {
+	visibility: visible;
+	opacity: 1;
+}
+
+@mixin antialias {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $body-text;
+}
+
+@mixin text-overflow-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@mixin center-on-screen {
+	@include position(absolute, 50% null null 50%);
+	@include transform(translate(-50%, -50%));
+}

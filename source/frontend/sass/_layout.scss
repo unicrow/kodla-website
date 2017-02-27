@@ -1,0 +1,353 @@
+/*=============================
+=            BASIC            =
+=============================*/
+* { margin: 0; padding: 0}
+html { box-sizing: border-box }
+*, *:before, *:after { box-sizing: inherit }
+html, body {height: 100% }
+.hide { display: none }
+.show { display: block }
+.no-scroll { overflow: hidden }
+.wrap {
+	margin: 0 auto;
+	max-width: 940px;
+}
+// .wrap { @include outer-container }
+// .row { @include span-columns(12) }
+
+section { padding: 50px 0 }
+
+
+/*==============================
+=            HEADER            =
+==============================*/
+header {
+	padding: 72px 0 80px;
+	background: url(../img/bg/header-pattern.png) no-repeat center 145px;
+	text-align: center;
+}
+.intro {
+	img {
+		margin: 100px 0 30px;
+	}
+	p {
+		margin: auto auto 38px;
+		padding: 0 20px;
+		max-width: 670px;
+	}
+}
+
+
+/*====================================
+=            LATEST TWEET            =
+====================================*/
+.latest-tweet {
+	padding: 0;
+	background-color: $latest-tweet-bg;
+	@include transition(all $default-transition-time);
+	&:hover { background-color: lighten($latest-tweet-bg, 10%); }
+	a {	color: #fff	}
+	.wrap {
+		position: relative;
+		padding: 25px;
+		width: 100%;
+	}
+	.icon-tw {
+		@include position(absolute, 50% null null 25px);
+		@include transform(translate(0, -50%));
+		float: left;
+		margin-right: 30px;
+		font-size: 40px;
+		color: #fff;
+	}
+	p {
+		padding-left: 55px;
+		font: 18px/24px $ptserif-font-stack;
+		color: $latest-tweet-text;
+	}
+}
+
+
+
+/*===============================
+=            PROGRAM            =
+===============================*/
+#program {
+	.wrap { }
+	@include linear-gradient(-180deg, map-get($program-bg, start) 0%, map-get($program-bg, end) 100%);
+	h1 { color: #fff }
+}
+
+.day-select {
+	text-align: center;
+	font-size: 0;
+	white-space: nowrap;
+	a {
+		display: inline-block;
+		margin-right: 10px;
+		padding: 0 20px;
+		height: 36px;
+		font-size: 18px;
+		font-weight: 100;
+		line-height: 34px;
+		color: $day-select-text;
+		border-radius: 36px;
+		border: 1px solid $day-select-border;
+		@include transition(all $default-transition-time);
+		&:hover, &.active {
+			background-color: $day-select-active-bg;
+			color: $day-select-active-text;
+		}
+	}
+}
+
+.timeline-wrap {
+	position: relative;
+	//@include transition(all $default-transition-time);
+	//min-height: 800px;
+}
+
+.timeline {
+	//@include hidden;
+	display: none;
+	opacity: 1;
+	//opacity: 0;
+	//margin: 52px 100px 50px 80px;
+	//@include position(absolute, 52px null null 0);
+	width: 100%;
+	@include transition(all .5s);
+	&.swap {
+		@include visible;
+	}
+	li {
+		@include clearfix;
+		list-style: none;
+		@include transition(all $default-transition-time);
+		&:hover {
+			.time span, .item {
+				@include transform(scale(1.090));
+			}
+			.time:before { @include visible }
+		}
+		&.passed { opacity: $time-item-passed }
+		&:first-child .time, &:first-child .item {
+			padding-top: 30px;
+			&:after { @include position(absolute, 46px -7px null null) }
+			&:before { @include position(absolute, 36px -17px null null); }
+		}
+		&:last-child .time { padding-bottom: 30px }
+	}
+	.time {
+		position: relative;
+		float: left;
+		padding: 0 40px 60px 80px;
+		max-width: 24%;
+		border-right: 2px solid $timeline-line;
+		span {
+			display: block;
+			font-size: 20px;
+			font-weight: 600;
+			color: $time-text;
+			@include transition(all $default-transition-time);
+		}
+		&:after {
+			@include position(absolute, 16px -7px null null);
+			@include size(12px);
+			background-color: $timeline-point;
+			border-radius: 50%;
+			content: "";
+		}
+		&:before {
+			@include hidden;
+			@include position(absolute, 6px -17px null null);
+			@include size(32px);
+			border: 2px solid $timeline-point-border;
+			border-radius: 50%;
+			content: "";
+			@include transition(all $default-transition-time);
+		}
+	}
+	.item {
+		float: left;
+		padding-left: 45px;
+		max-width: 76%;
+		@include transition(all $default-transition-time);
+	}
+	.topic {
+		font-size: 22px;
+		font-weight: 600;
+		color: $topic-text;
+		&.single-line { @include position(relative, 8px null null null) }
+	}
+	.speaker {
+		display: block;
+		font-size: 20px;
+		color: $speaker-text;
+	}
+}
+
+/*================================
+=            SPEAKERS            =
+================================*/
+.speaker-list {
+	@include clearfix;
+	overflow: hidden;
+	padding: 0 25px 25px;
+	li {
+		float: left;
+		//margin: 0 0 130px 25px;
+		padding: 25px;
+		width: 50%;
+		list-style: none;
+		text-align: center;
+		&:nth-child(odd) { clear: left }
+		&:hover {
+			img {
+
+			}
+			figure {
+				border-color: #4a90e2;
+				@include transform(scale(1.1));
+			}
+		}
+	}
+	figure {
+		border: 6px solid $speaker-border;
+		border-radius: 50%;
+		@include transition(border 150ms);
+		@include transform(scale(1));
+		@include transition(all 150ms ease-in-out);
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 50%;
+
+		@include filter(grayscale(100%));
+
+	}
+	p {
+		margin-top: 20px;
+		font-size: 24px;
+		font-weight: normal;
+	}
+	.speaker-info {
+		margin-top: 15px;
+		text-align: center;
+		a {
+			display: inline-block;
+			margin-right: 5px;
+			color: $speaker-info;
+			@include transition(color $default-transition-time);
+			&:hover { color: darken($speaker-info, 15%) }
+			&:last-child { margin: 0 }
+			i {
+				font-size: 24px
+			}
+		}
+	}
+}
+
+
+
+/*======================================
+=            TRANSPORTATION            =
+======================================*/
+#transportation {
+	padding-top: 40px;
+	border-top: 1px solid $section-border-top;
+	iframe {
+		margin-bottom: 40px;
+		width: 100%
+	}
+	.desc {
+		@include clearfix;
+		div {
+			float: left;
+			margin-right: 2%;
+			padding: 0 10px;
+			width: 48%;
+		}
+		div + div {
+			float: right !important;
+			margin-right: 0 !important;
+		}
+		p + p { margin-top: 10px; }
+		.intro {
+			font-size: 18px;
+			line-height: 28px;
+			font-weight: 300;
+		}
+	}
+}
+
+
+/*===============================
+=            CONTACT            =
+===============================*/
+#contact { background-color: $contact-bg }
+
+.contact-inner { @include clearfix }
+
+.contact-form {
+	float: left;
+	width: 620px;
+	label { padding-bottom: 10px }
+	div {
+		position: relative;
+		margin-bottom: 65px;
+	}
+	input, textarea {
+		width: 100%;
+	}
+	textarea {
+		height: 230px;
+	}
+}
+
+.contact-info {
+	float: right;
+	width: 220px;
+	.accounts {
+		margin: 30px 0 50px;
+		@include clearfix;
+		a {
+			float: left;
+			margin-right: 15px;
+			font-size: 16px;
+			font-weight: 600;
+			color: $accounts-link;
+			&:last-child { margin-right: 0 }
+			&:hover { color: darken($accounts-link, 25%) }
+		}
+		i {
+			margin-right: 5px;
+			font-size: 32px;
+			vertical-align: middle;
+		}
+		.icon-fb { color: $icon-fb }
+		.icon-tw { color: $icon-tw }
+	}
+}
+
+
+/*================================
+=            SPONSORS            =
+================================*/
+#sponsors {
+	.other-sponsors, div {
+		max-width: 990px;
+		margin: 80px auto;
+		&:last-child { margin-bottom: 50px }
+	}
+	a {
+		display: inline-block;
+		margin-right: 80px;
+		&:last-child { margin-right: 0 }
+		@include transition(all $default-transition-time);
+		&:hover { @include transform(scale(1.25)) }
+		vertical-align: middle;
+	}
+	text-align: center;
+}

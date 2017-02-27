@@ -1,0 +1,146 @@
+/*=====================================
+=            FORM ELEMENTS            =
+=====================================*/
+input, textarea, button {
+	font: $default-font-size $default-font-stack;
+	line-height: $default-line-height;
+	@include antialias;
+	color: $body-text;
+	border: 0;
+}
+
+input[type="text"], textarea {
+	padding: 0 10px;
+	@include transition(all $default-transition-time);
+	background-color: $input-bg;
+	-webkit-appearance: none;
+	border-radius: 0;
+	&:focus {
+		border-color: darken($input-border, 25%);
+		outline: 0;
+		&+.input-edges:after, &+.input-edges:before {
+			border-color: darken($input-border, 25%);
+		}
+	}
+}
+
+.error {
+	label { color: $input-error }
+	input[type="text"], textarea {
+		border-color: $input-error;
+		&+.input-edges:after, &+.input-edges:before {
+			border-color: $input-error;
+		}
+	}
+}
+
+input[type="text"] {
+	position: relative;
+	height: 40px;
+	border-bottom: 2px solid $input-border;
+
+}
+
+.input-edges {
+	@include position(absolute, null 0 0 null);
+	display: block;
+	@include size(100% 4px);
+	&:before, &:after {
+		@include size(2px 4px);
+		content: "";
+	}
+	&:before {
+		@include position(absolute, null null 2px 0);
+		border-left: 2px solid $input-border;
+	}
+	&:after {
+		@include position(absolute, null 0 2px null);
+		border-right: 2px solid $input-border;
+	}
+}
+
+textarea {
+	padding-top: 10px;
+	border: 2px solid $input-border;
+}
+
+label {
+	display: block;
+	color: $label-text;
+	font-size: 18px;
+}
+
+a { cursor: pointer }
+
+
+
+/*===============================
+=            BUTTONS            =
+===============================*/
+.btn, button {
+	display: inline-block;
+	padding: 0 34px;
+	height: 45px;
+	margin-bottom: 5px;
+	background: $btn-bg;
+	border-radius: 45px;
+	font: 600 20px/45px $default-font-stack;
+	color: $btn-text !important;
+	@include transition(all $default-transition-time);
+	&:hover { background-color: lighten($btn-bg, 3%) }
+	&:active { background-color: darken($btn-bg, 5%) }
+	cursor: pointer;
+
+	&.btn-red {
+		background-color: #E73800;
+		&:hover {
+			background-color: shade(#E73800, 10%);
+		}
+	}
+
+	.fa {
+		margin-left: -5px;
+		margin-right: 10px;
+	}
+}
+
+
+
+/*==============================
+=            HEADER            =
+==============================*/
+.main-nav {
+	@include position(fixed, 0 null null 0);
+	@include size(100% 72px);
+	border-bottom: 1px solid $main-nav-border;
+	background: rgba(255,255,255, .95);
+	z-index: 9999;
+	ul { text-align: center }
+	li {
+		display: inline-block;
+		margin-right: 80px;
+		&:last-child { margin: 0 }
+	}
+	a {
+		display: block;
+		height: 72px;
+		font: normal 18px/72px $roboto-font-stack;
+		color: $main-nav-text;
+		@include transition(color $default-transition-time);
+		&:hover {
+			color: darken($main-nav-text, 30%);
+		}
+	}
+}
+
+#logo {	margin: 50px 0 }
+
+@include keyframes(hideshow) {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#cursor { @include animation(hideshow 1s ease infinite) }
+
+.toggle-mobile-nav { display: none }

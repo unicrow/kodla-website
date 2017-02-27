@@ -1,0 +1,184 @@
+/*==============================
+=            COMMON            =
+==============================*/
+@media screen and (min-width: 766px) and (max-width: 920px) {
+	.main-nav li {
+		margin-right: 40px;
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 766px) {
+	.toggle-mobile-nav {
+		display: block;
+		@include position(fixed, 0 null null 0);
+		z-index: 2;
+		@include size(100% 72px);
+		background-color: #fff;
+		font: 18px/72px $roboto-font-stack;
+		color: $main-nav-text;
+		text-align: left;
+		border-bottom: 1px solid $main-nav-border;
+		&:hover, .active { color: darken($main-nav-text, 30%) }
+		i {
+			@include position(relative, 8px null null null);
+			margin: 0 6px 0 23px;
+			font-size: 32px
+		}
+	}
+
+	.main-nav {
+		display: none;
+		top: 72px;
+		height: 100%;
+		background-color: rgba(0,0,0, .8);
+		li {
+			display: block;
+			float: none;
+			margin: 0;
+			border-bottom: 1px solid $main-nav-border;
+		}
+		a {
+			display: block;
+			background-color: #fff;
+			&:active { background-color: #f8f8f8 }
+		}
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+	/* HEADER */
+	#logo {
+		margin: 20px 0 10px;
+		width: 250px;
+	}
+
+	.intro {
+		p {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+
+	/* PROGRAM */
+	.timeline-wrap { width: 100% }
+
+	.timeline {
+		li, .time, .item { @include transition(none) }
+		li {
+			padding: 5px 20px;
+			border-bottom: 1px solid $timeline-line;
+			&:last-child { border: 0 }
+			&:hover .time span, &:hover .item { @include transform(scale(1)) }
+		}
+		.time {
+			float: none;
+			padding: 10px 0 !important;
+			width: auto;
+			border: 0;
+			&:after, &:before {	display: none }
+			span {
+				display: inline;
+				font-size: 17px;
+				&:first-child:after { content: " -" }
+			}
+		}
+		.item {
+			float: none;
+			padding: 0 0 10px !important;
+			width: auto;
+			.topic {
+				display: block;
+				margin-bottom: 10px;
+				font-size: 20px;
+			}
+			.speaker {
+				font-size: 16px;
+			}
+		}
+	}
+
+	/* TRANSPORTATION */
+	#transportation {
+		.desc div {
+			float: none;
+			width: 100%;
+			&:first-child { margin-bottom: 30px }
+		}
+	}
+
+	/* CONTACT */
+	.contact-form, .contact-info {
+		float: none;
+		padding: 0 10px;
+		width: 100%;
+	}
+	.contact-form {
+		div { margin-bottom: 30px }
+		button { width: 100% }
+	}
+
+	.contact-info {
+		.accounts {
+			text-align: center;
+			a {
+				float: none;
+				display: inline-block
+			}
+		}
+	}
+
+	/* SPONSORS */
+	#sponsors {
+		div {
+			margin-bottom: 20px;
+			&:last-child {
+				margin-top: 50px;
+				margin-bottom: 20px;
+			}
+		}
+		a {
+			display: block;
+			margin: 0 0 20px;
+			text-align: center;
+			&:hover { @include transform(scale(1)) }
+		}
+	}
+}
+
+
+
+
+
+/*================================
+=            SPEAKERS            =
+================================*/
+@media screen and (min-width: 320px) and (max-width: 599px){
+	.speaker-list {
+		li { padding: 10px }
+		p {
+			margin-top: 5px;
+			font-size: 16px;
+			line-height: 20px;
+		}
+	}
+}
+@media screen and (min-width: 600px) {
+	.speaker-list {
+		li  {
+			width: 33.3333333333333333%;
+			&:nth-child(3n+1) { clear: left }
+			&:nth-child(odd) { clear: none }
+		}
+	}
+}
+
+@media screen and (min-width: 55em) {
+	.speaker-list {
+		li  {
+			width: 25%;
+			&:nth-child(4n+1) { clear: left }
+			&:nth-child(3n+1) { clear: none }
+		}
+	}
+}
