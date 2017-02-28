@@ -15,10 +15,10 @@ Including another URLconf
 """
 
 # Django
-from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
+from django.conf.urls import url, include
 
 # Local Django
 from core.views import *
@@ -27,6 +27,9 @@ from core.views import *
 urlpatterns = [
     # Admin
     url(r'^admin/', admin.site.urls),
+
+    # Editor
+    url(r'^redactor/', include('redactor.urls')),
 
     # Pages
     url(r'^$', IndexView.as_view(), name='index'),

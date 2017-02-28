@@ -5,14 +5,21 @@ from geoposition.fields import GeopositionField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+# Local Django
+from core.models import DateModel
 
-class Activity(models.Model):
+
+class Activity(DateModel):
+    # Base
     year = models.PositiveSmallIntegerField(verbose_name=_('Year'))
-    logo = models.TextField(
-        verbose_name=_('Logo'), null=True, blank=True
-    )
+    is_active = models.BooleanField(verbose_name=_('Active'))
+
+    # Extra
     meta_tags = models.TextField(
         verbose_name=_('Meta Tags'), null=True, blank=True
+    )
+    logo = models.TextField(
+        verbose_name=_('Logo'), null=True, blank=True
     )
     short_description = models.CharField(
         verbose_name=_('Short Description'),
@@ -23,6 +30,17 @@ class Activity(models.Model):
     )
     register_url = models.URLField(
         verbose_name=_('Register URL'), null=True, blank=True
+    )
+
+    # Transportation
+    address = models.TextField(
+        verbose_name=_('Address'), null=True, blank=True
+    )
+    transportation = models.TextField(
+        verbose_name=_('Transportation'), null=True, blank=True
+    )
+    accommodation = models.TextField(
+        verbose_name=_('Accommodation'), null=True, blank=True
     )
 
     class Meta:
@@ -42,7 +60,7 @@ class Activity(models.Model):
     show_register_url.short_description = _('Register URL')
 
 
-class ActivityMap(models.Model):
+class ActivityMap(DateModel):
     description = models.CharField(
         verbose_name=_('Description'), max_length=250, null=True, blank=True
     )
@@ -61,7 +79,7 @@ def set_activity_upload_path(instance, filename):
     )
 
 
-class ActivityDocument(models.Model):
+class ActivityDocument(DateModel):
     document = models.FileField(
         verbose_name=_('Document'), upload_to=set_activity_upload_path
     )

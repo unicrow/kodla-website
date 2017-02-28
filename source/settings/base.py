@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # External Applications
     'geoposition',
+    'redactor',
 
     # Internal Applications
     'core',
@@ -86,6 +87,13 @@ WSGI_APPLICATION = 'source.wsgi.application'
 
 # Django Geoposition
 GEOPOSITION_GOOGLE_MAPS_API_KEY = GOOGLE_MAP_API_KEY
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 6,
+    'center': {'lat': 41, 'lng': 39.71}
+}
+GEOPOSITION_MARKER_OPTIONS = {
+    'position': {'lat': 41, 'lng': 39.71}
+}
 
 
 
@@ -93,6 +101,10 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY = GOOGLE_MAP_API_KEY
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'tr-TR'
+
+LOCALE_PATHS = [
+    os.path.join(PACKAGE_ROOT, 'locale')
+]
 
 TIME_ZONE = 'Europe/Istanbul'
 

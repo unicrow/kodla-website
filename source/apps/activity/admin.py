@@ -3,11 +3,14 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
+from activity.forms import ActivityAdminForm
 from activity.models import Activity, ActivityMap, ActivityDocument
 
 
 class ActivityMapInline(admin.StackedInline):
     model = ActivityMap
+    fields = ('description', ('create_date', 'update_date'), 'coordinates')
+    readonly_fields = ('create_date', 'update_date')
     extra = 1
     max_num = 1
     verbose_name_plural = _('Activity Map')
@@ -15,6 +18,8 @@ class ActivityMapInline(admin.StackedInline):
 
 class ActivityDocumentInline(admin.StackedInline):
     model = ActivityDocument
+    fields = ('document', ('create_date', 'update_date'))
+    readonly_fields = ('create_date', 'update_date')
     extra = 0
     max_num = 1
     verbose_name_plural = _('Activity Document')
@@ -22,6 +27,21 @@ class ActivityDocumentInline(admin.StackedInline):
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
-    inlines = (ActivityDocumentInline, ActivityMapInline,)
+    fieldsets = (
+        (_(u'Base'), {
+            'fields' : (
+                'year', 'short_description', 'register_url',
+                'description', 'meta_tags', 'logo', 'is_active',
+                ('create_date', 'update_date')
+            ),
+        }),
+        (_(u'Transportation'), {
+            'fields' : ('address', 'transportation', 'accommodation'),
+        })
+    )
 
-    list_display = ('year', 'show_register_url', 'short_description')
+    form = ActivityAdminForm
+
+    list_display = ('year', 'show_register_url', 'short_description', 'is_active')
+    readonly_fields = ('create_date', 'update_date')
+    inlines = (ActivityDocumentInline, ActivityMapInline)
