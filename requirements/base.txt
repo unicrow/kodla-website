@@ -13,3 +13,7 @@ django-geoposition==0.3.0
 # Image
 Pillow==4.0.0
 #olefile==0.44
+
+
+# Sortable
+django-admin-sortable==2.0.21

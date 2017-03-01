@@ -1,4 +1,5 @@
 # Third-Party
+from adminsortable.models import SortableMixin
 from geoposition.fields import GeopositionField
 
 # Django
@@ -66,15 +67,20 @@ class Activity(DateModel):
     show_register_url.short_description = _('Register URL')
 
 
-class ActivitySocialAccount(DateModel):
+class ActivitySocialAccount(DateModel, SortableMixin):
     url = models.URLField(verbose_name=_('URL'))
     activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
     account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
 
+    # ordering field
+    order_id = models.PositiveSmallIntegerField(
+        default=0, editable=False, db_index=True
+    )
+
     class Meta:
         verbose_name = _('Activity Social Account')
         verbose_name_plural = _('Activity Social Accounts')
-        ordering = ('activity',)
+        ordering = ('order_id', 'activity')
         unique_together = ('activity', 'account')
 
     def __str__(self):

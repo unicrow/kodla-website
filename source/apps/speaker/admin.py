@@ -1,3 +1,7 @@
+# Third-Party
+from adminsortable.admin import SortableAdmin
+from adminsortable.admin import SortableStackedInline
+
 # Django
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
@@ -6,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 from speaker.models import Speaker, SpeakerSocialAccount
 
 
-class SpeakerSocialAccountInline(admin.StackedInline):
+class SpeakerSocialAccountInline(SortableStackedInline):
     model = SpeakerSocialAccount
     fields = ('url', 'account', ('create_date', 'update_date'))
     readonly_fields = ('create_date', 'update_date')
@@ -15,7 +19,7 @@ class SpeakerSocialAccountInline(admin.StackedInline):
 
 
 @admin.register(Speaker)
-class SpeakerAdmin(admin.ModelAdmin):
+class SpeakerAdmin(SortableAdmin):
     fieldsets = (
         (_(u'Base'), {
             'fields' : ('first_name', 'last_name', ('image', 'image_prev')),

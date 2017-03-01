@@ -1,3 +1,6 @@
+# Third-Party
+from adminsortable.models import SortableMixin
+
 # Django
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -10,7 +13,7 @@ def set_speaker_image_upload_path(instance, filename):
     return '/'.join(['speakers', 'speaker_%d' % instance.id, filename])
 
 
-class Speaker(DateModel):
+class Speaker(DateModel, SortableMixin):
     first_name = models.CharField(verbose_name=_('First Name'), max_length=50)
     last_name = models.CharField(verbose_name=_('Last Name'), max_length=50)
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
@@ -19,10 +22,15 @@ class Speaker(DateModel):
         upload_to=set_speaker_image_upload_path
     )
 
+    # ordering field
+    order_id = models.PositiveSmallIntegerField(
+        default=0, editable=False, db_index=True
+    )
+
     class Meta:
         verbose_name = _('Speaker')
         verbose_name_plural = _('Speakers')
-        ordering = ('first_name', 'last_name')
+        ordering = ('order_id', 'first_name', 'last_name')
         unique_together = ('first_name', 'last_name')
 
     def save(self, *args, **kwargs):
@@ -66,15 +74,20 @@ class Speaker(DateModel):
     social_accounts.allow_tags = True
 
 
-class SpeakerSocialAccount(DateModel):
+class SpeakerSocialAccount(DateModel, SortableMixin):
     url = models.URLField(verbose_name=_('URL'))
     speaker = models.ForeignKey(verbose_name=_('Speaker'), to=Speaker)
     account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
 
+    # ordering field
+    order_id = models.PositiveSmallIntegerField(
+        default=0, editable=False, db_index=True
+    )
+
     class Meta:
         verbose_name = _('Speaker Social Account')
         verbose_name_plural = _('Speaker Social Accounts')
-        ordering = ('speaker',)
+        ordering = ('order_id',)
         unique_together = ('speaker', 'account')
 
     def __str__(self):

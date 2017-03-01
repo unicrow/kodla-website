@@ -1,3 +1,6 @@
+# Third-Party
+from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
+
 # Django
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
@@ -9,7 +12,7 @@ from activity.models import (
 )
 
 
-class ActivitySocialAccountInline(admin.StackedInline):
+class ActivitySocialAccountInline(SortableStackedInline):
     model = ActivitySocialAccount
     fields = ('url', 'account', ('create_date', 'update_date'))
     readonly_fields = ('create_date', 'update_date')
@@ -36,7 +39,7 @@ class ActivityDocumentInline(admin.StackedInline):
 
 
 @admin.register(Activity)
-class ActivityAdmin(admin.ModelAdmin):
+class ActivityAdmin(NonSortableParentAdmin):
     fieldsets = (
         (_(u'Base'), {
             'fields' : (

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # External Applications
     'geoposition',
     'redactor',
+    'adminsortable',
 
     # Internal Applications
     'core',
@@ -74,6 +75,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.core.context_processors.static',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
