@@ -6,12 +6,13 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
-from core.models import DateModel
+from speaker.models import Speaker
+from core.models import DateModel, SocialAccount
 
 
 class Activity(DateModel):
     # Base
-    year = models.PositiveSmallIntegerField(verbose_name=_('Year'))
+    year = models.PositiveSmallIntegerField(verbose_name=_('Year'), unique=True)
     is_active = models.BooleanField(verbose_name=_('Active'))
 
     # Extra
@@ -43,6 +44,11 @@ class Activity(DateModel):
         verbose_name=_('Accommodation'), null=True, blank=True
     )
 
+    # Speaker
+    speakers = models.ManyToManyField(
+        verbose_name=_('Speakers'), to=Speaker, blank=True
+    )
+
     class Meta:
         verbose_name = _('Activity')
         verbose_name_plural = _('Activities')
@@ -60,6 +66,23 @@ class Activity(DateModel):
     show_register_url.short_description = _('Register URL')
 
 
+class ActivitySocialAccount(DateModel):
+    url = models.URLField(verbose_name=_('URL'))
+    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+    account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
+
+    class Meta:
+        verbose_name = _('Activity Social Account')
+        verbose_name_plural = _('Activity Social Accounts')
+        ordering = ('activity',)
+        unique_together = ('activity', 'account')
+
+    def __str__(self):
+        return '{activity} - {account}'.format(
+            activity=self.activity.__str__(), account=self.account.__str__()
+        )
+
+
 class ActivityMap(DateModel):
     description = models.CharField(
         verbose_name=_('Description'), max_length=250, null=True, blank=True
@@ -73,15 +96,16 @@ class ActivityMap(DateModel):
         ordering = ('activity',)
 
 
-def set_activity_upload_path(instance, filename):
-    return '/'.join(
-        ['activity', str(instance.activity.id), 'sponsor_docs', filename]
-    )
+def set_activity_documents_upload_path(instance, filename):
+    return '/'.join([
+        'activities', 'activity_%d' % instance.activity.id,
+        'sponsor_docs', filename
+    ])
 
 
 class ActivityDocument(DateModel):
     document = models.FileField(
-        verbose_name=_('Document'), upload_to=set_activity_upload_path
+        verbose_name=_('Document'), upload_to=set_activity_documents_upload_path
     )
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to=Activity, related_name='activity_documents'

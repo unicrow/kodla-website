@@ -35,7 +35,8 @@ class IndexView(TemplateView):
                 'activity': self.activity,
                 'activities': self.activities,
                 'activity_map': self.activity.activitymap_set.first(),
-                'activity_map_key': settings.GOOGLE_MAP_API_KEY
+                'activity_map_key': settings.GOOGLE_MAP_API_KEY,
+                'speakers': self.activity.speakers.filter(is_active=True)
             })
 
         return context

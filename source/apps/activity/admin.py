@@ -4,7 +4,17 @@ from django.utils.translation import ugettext_lazy as _
 
 # Local Django
 from activity.forms import ActivityAdminForm
-from activity.models import Activity, ActivityMap, ActivityDocument
+from activity.models import (
+    Activity, ActivitySocialAccount, ActivityMap, ActivityDocument
+)
+
+
+class ActivitySocialAccountInline(admin.StackedInline):
+    model = ActivitySocialAccount
+    fields = ('url', 'account', ('create_date', 'update_date'))
+    readonly_fields = ('create_date', 'update_date')
+    extra = 0
+    verbose_name_plural = _('Activity Social Account')
 
 
 class ActivityMapInline(admin.StackedInline):
@@ -35,6 +45,9 @@ class ActivityAdmin(admin.ModelAdmin):
                 ('create_date', 'update_date')
             ),
         }),
+        (_(u'Speaker'), {
+            'fields' : ('speakers',),
+        }),
         (_(u'Transportation'), {
             'fields' : ('address', 'transportation', 'accommodation'),
         })
@@ -42,6 +55,9 @@ class ActivityAdmin(admin.ModelAdmin):
 
     form = ActivityAdminForm
 
+    filter_horizontal = ('speakers',)
     list_display = ('year', 'show_register_url', 'short_description', 'is_active')
     readonly_fields = ('create_date', 'update_date')
-    inlines = (ActivityDocumentInline, ActivityMapInline)
+    inlines = (
+        ActivitySocialAccountInline, ActivityDocumentInline, ActivityMapInline
+    )

@@ -352,115 +352,31 @@
 		<div class="wrap">
 			<h1>{% trans "SPEAKERS" %}</h1>
 			<ul class="speaker-list">
-				<li>
-					<figure><img src="{% static 'img/speakers/adem_ilter.jpg' %}" width="213" height="213"></figure>
-					<p>Adem İlter</p>
-					<div class="speaker-info">
-						<a href="http://ademilter.com/" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://twitter.com/ademilter" target="_blank"><i class="icon-tw"></i></a>
-						<a href="https://github.com/ademilter" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://tr.linkedin.com/in/ademilter" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/ahmet_mentes.jpg' %}" width="213" height="213"></figure>
-					<p>Ahmet Menteş</p>
-					<div class="speaker-info">
-						<a href="https://github.com/ahmet_mentes" target="_blank"><i class="icon-tw"></i></a>
-						<a href="https://tr.linkedin.com/in/ahmet-menteş-9657a72a" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/aybars_badur.jpg' %}" width="213" height="213"></figure>
-					<p>Aybars Badur</p>
-					<div class="speaker-info">
-						<a href="https://about.me/ybrs" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://github.com/ybrs" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://tr.linkedin.com/in/aybarsb" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/birge_elif_basik.jpg' %}" width="213" height="213"></figure>
-					<p>Birge Elif Basık</p>
-					<div class="speaker-info">
-						<a href="https://github.com/birgeelif" target="_blank"><i class="icon-tw"></i></a>
-						<a href="https://tr.linkedin.com/in/birgeelif" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/burak_can.jpg' %}" width="213" height="213"></figure>
-					<p>Burak Can</p>
-					<div class="speaker-info">
-						<a href="https://burakcan.me/" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://twitter.com/neoberg" target="_blank"><i class="icon-tw"></i></a>
-						<a href="https://github.com/burakcan" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://tr.linkedin.com/in/brkcan" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/fatih-erikli.png' %}" width="213" height="213"></figure>
-					<p>Fatih Erikli</p>
-					<div class="speaker-info">
-						<a href="http://fatiherikli.com/" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://github.com/fatiherikli" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://twitter.com/fthrkl" target="_blank"><i class="icon-tw"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/fehmi_can_saglam.jpg' %}" width="213" height="213"></figure>
-					<p>Fehmi Can Sağlam</p>
-					<div class="speaker-info">
-						<a href="http://fehmicansaglam.net/" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://github.com/fehmicansaglam" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://twitter.com/fehmicans" target="_blank"><i class="icon-tw"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/sadi_evren_seker.jpg' %}" width="213" height="213"></figure>
-					<p>Şadi Evren Şeker</p>
-					<div class="speaker-info">
-						<a href="http://sadievrenseker.com/" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://twitter.com/sadievrenseker" target="_blank"><i class="icon-tw"></i></a>
-						<a href="https://tr.linkedin.com/in/sadiseker" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/serdardogruyol.png' %}" width="213" height="213"></figure>
-					<p>Serdar Doğruyol</p>
-					<div class="speaker-info">
-						<a href="http://serdardogruyol.com" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://github.com/sdogruyol" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://tr.linkedin.com/in/serdardogruyol" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/serhat_bolsu.jpg' %}" width="213" height="213"></figure>
-					<p>Serhat Bolsu</p>
-					<div class="speaker-info">
-						<a href="https://github.com/serhatbolsu" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://tr.linkedin.com/in/serhatbolsu" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
-				<li>
-					<figure><img src="{% static 'img/speakers/tuna_vagri.jpg' %}" width="213" height="213"></figure>
-					<p>Tuna Vargı</p>
-					<div class="speaker-info">
-						<a href="https://github.com/vargi" target="_blank"><i class="icon-gh"></i></a>
-						<a href="https://twitter.com/tunavargi" target="_blank"><i class="icon-tw"></i></a>
-					</div>
-				</li>
+				{% for speaker in speakers %}
+					<li>
+						{% if speaker.image %}
+							<figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
+						{% endif %}
+						<p>{{ speaker.get_full_name }}</p>
 
-				<li>
-					<figure><img src="{% static 'img/speakers/ugur_arici.jpg' %}" width="213" height="213"></figure>
-					<p>Uğur Arıcı</p>
-					<div class="speaker-info">
-						<a href="http://ugurarici.com/" target="_blank"><i class="icon-web"></i></a>
-						<a href="https://twitter.com/ugursus" target="_blank"><i class="icon-tw"></i></a>
-						<a href="https://tr.linkedin.com/in/ugurarici" target="_blank"><i class="icon-li"></i></a>
-					</div>
-				</li>
+						{% with social_accounts=speaker.speakersocialaccount_set.all %}
+							{% if social_accounts %}
+								<div class="speaker-info">
+									{% for social_account in social_accounts %}
+										<a href="{{ social_account.url}}" target="_blank">
+											{% if social_account.account.style_class %}
+												<i class="{{ social_account.account.style_class }}"></i>
+											{% else %}
+												{{ social_account.account.name }}
+											{% endif %}
+										</a>
+									{% endfor %}
+								</div>
+							{% endif %}
+						{% endwith %}
 
-
+					</li>
+				{% endfor %}
 			</ul>
 		</div>
 	</section>
@@ -572,10 +488,17 @@
 						<h2>{% trans "Social Media" %}</h2>
 						<p>{% trans "You can follow updates about the event with social links below." %}</p>
 
-						<div class="accounts">
-							<a href="https://facebook.com/kodlaco" class="facebook"><i class="icon-fb"></i>Facebook</a>
-							<a href="https://twitter.com/kodlaco" class="twitter"><i class="icon-tw"></i>Twitter</a>
-						</div>
+						{% with social_accounts=activity.activitysocialaccount_set.all %}
+							{% if social_accounts%}
+								<div class="accounts">
+									{% for social_account in social_accounts %}
+										<a href="{{ social_account.url }}">
+											<i class="{{ social_account.account.style_class }}"></i>{{ social_account.account.name }}
+										</a>
+									{% endfor %}
+								</div>
+							{% endif %}
+						{% endwith%}
 					</div>
 
 					<div>

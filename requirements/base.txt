@@ -8,3 +8,8 @@ django-wysiwyg-redactor==0.4.9.1
 
 # Map
 django-geoposition==0.3.0
+
+
+# Image
+Pillow==4.0.0
+#olefile==0.44
