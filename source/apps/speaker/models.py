@@ -78,6 +78,7 @@ class SpeakerSocialAccount(DateModel, SortableMixin):
     url = models.URLField(verbose_name=_('URL'))
     speaker = models.ForeignKey(verbose_name=_('Speaker'), to=Speaker)
     account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
 
     # ordering field
     order_id = models.PositiveSmallIntegerField(

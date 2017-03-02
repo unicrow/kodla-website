@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     # Internal Applications
     'core',
     'activity',
-    'speaker'
+    'speaker',
+    'program'
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -26,6 +26,7 @@ class SocialAccount(DateModel, SortableMixin):
     style_class = models.CharField(
         verbose_name=_('Style Class'), max_length=100, null=True, blank=True
     )
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
 
     # ordering field
     order_id = models.PositiveSmallIntegerField(

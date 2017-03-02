@@ -14,7 +14,7 @@ from activity.models import (
 
 class ActivitySocialAccountInline(SortableStackedInline):
     model = ActivitySocialAccount
-    fields = ('url', 'account', ('create_date', 'update_date'))
+    fields = ('url', 'account', 'is_active', ('create_date', 'update_date'))
     readonly_fields = ('create_date', 'update_date')
     extra = 0
     verbose_name_plural = _('Activity Social Account')
@@ -22,7 +22,9 @@ class ActivitySocialAccountInline(SortableStackedInline):
 
 class ActivityMapInline(admin.StackedInline):
     model = ActivityMap
-    fields = ('description', ('create_date', 'update_date'), 'coordinates')
+    fields = (
+        'description', 'is_active', ('create_date', 'update_date'), 'coordinates'
+    )
     readonly_fields = ('create_date', 'update_date')
     extra = 1
     max_num = 1
@@ -31,7 +33,7 @@ class ActivityMapInline(admin.StackedInline):
 
 class ActivityDocumentInline(admin.StackedInline):
     model = ActivityDocument
-    fields = ('document', ('create_date', 'update_date'))
+    fields = ('document', 'is_active', ('create_date', 'update_date'))
     readonly_fields = ('create_date', 'update_date')
     extra = 0
     max_num = 1

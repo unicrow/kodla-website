@@ -71,6 +71,7 @@ class ActivitySocialAccount(DateModel, SortableMixin):
     url = models.URLField(verbose_name=_('URL'))
     activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
     account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
 
     # ordering field
     order_id = models.PositiveSmallIntegerField(
@@ -94,6 +95,7 @@ class ActivityMap(DateModel):
         verbose_name=_('Description'), max_length=250, null=True, blank=True
     )
     coordinates = GeopositionField(verbose_name=_('Coordinates'))
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
     activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
 
     class Meta:
@@ -113,9 +115,8 @@ class ActivityDocument(DateModel):
     document = models.FileField(
         verbose_name=_('Document'), upload_to=set_activity_documents_upload_path
     )
-    activity = models.ForeignKey(
-        verbose_name=_('Activity'), to=Activity, related_name='activity_documents'
-    )
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
 
     class Meta:
         verbose_name = _('Activity Document')

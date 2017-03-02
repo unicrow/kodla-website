@@ -14,336 +14,98 @@
 				<li><a href="#transportation">{% trans "TRANSPORTATION" %}</a></li>
 				<li><a href="#contact">{% trans "CONTACT" %}</a></li>
 				<li><a href="#sponsors">{% trans "SPONSORS" %}</a></li>
-				<ul>
-          {% for i in activities %}
-            <li>
-              <a href="{% url 'index-year' i.year %}" {% if activity == i %}style="font-weight: bold;" {% endif %}>
-                {{ i.year }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
+				{% comment %}
+					<ul>
+	          {% for i in activities %}
+	            <li>
+	              <a href="{% url 'index-year' i.year %}" {% if activity == i %}style="font-weight: bold;" {% endif %}>
+	                {{ i.year }}
+	              </a>
+	            </li>
+	          {% endfor %}
+	        </ul>
+				{% endcomment %}
 			</ul>
 		</nav>
 
 		<div class="wrap">
 			<div class="intro">
-				{{ activity.logo|safe }}
-				{{ activity.description|safe }}
 
-				{% if activity.register_url %}
-					<a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="fa fa-ticket"></i>{% trans "Sign Up Now" %}</a>
-				{% endif %}
+				{% if activity.logo or activity.description or activity.register_url or activity_docment %}
+					{{ activity.logo|safe }}
+					{{ activity.description|safe }}
 
-				{% if activity.activity_documents.first %}
-					<a href="{{ activity.activity_documents.first.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+					{% if activity.register_url %}
+						<a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="fa fa-ticket"></i>{% trans "Sign Up Now" %}</a>
+					{% endif %}
+
+					{% if activity_document %}
+						<a href="{{ activity_document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+					{% endif %}
+				{% else %}
+					<br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
 				{% endif %}
 			</div>
 		</div>
 	</header>
 
-	<section class="latest-tweet">
-		<a href="#">
-			<div class="wrap">
-			<i class="icon-tw"></i>
-			<p>&hellip;</p>
-			</div>
-		</a>
-	</section>
+	{% comment %}
+		<section class="latest-tweet">
+			<a href="#">
+				<div class="wrap">
+				<i class="icon-tw"></i>
+				<p>&hellip;</p>
+				</div>
+			</a>
+		</section>
+	{% endcomment %}
 
 	<section id="program">
 		<div class="wrap">
 			<h1>{% trans "PROGRAM" %}</h1>
 
-			<div class="day-select">
-				<a class="active">30 Nisan, Cmt</a>
-				<a>01 Mayıs, Pz</a>
-			</div>
+			{% if timeline %}
+				<div class="day-select">
+					{% for program in timeline %}
+						<a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
+					{% endfor %}
+				</div>
 
-			<div class="timeline-wrap">
+				<div class="timeline-wrap">
 
-				<ul class="timeline" style="display: block;">
+					{% for program, contents in timeline.items %}
+						<ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
+							{% if contents %}
+								{% for content in contents %}
+									<li>
+										<div class="time">
+											<span>{{ content.start_time }}</span>
+											<span>{{ content.end_time }}</span>
+										</div>
 
-					<li>
-						<div class="time">
-							<span>10:00</span>
-							<span>10:40</span>
-						</div>
+										<div class="item">
+											<span class="topic {% if not content.speaker %}single-line{% endif %}">
+												{{ content.subject }}
+												{% if content.annotation %}
+													<span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
+												{% endif %}
+											</span>
+											{% if content.speaker %}
+												<span class="speaker">{{ content.speaker.get_full_name }}</span>
+											{% endif %}
+										</div>
+									</li>
+								{% endfor %}
+							{% else %}
+								<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+							{% endif %}
+						</ul>
+					{% endfor %}
 
-						<div class="item">
-							<span class="topic">Neo4j, Cypher ve Kullanım Alanları</span>
-							<span class="speaker">Tuna Vargı</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>10:40</span>
-							<span>11:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>11:00</span>
-							<span>11:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Python ile Metin İşleme ve Sınıflandırma</span>
-							<span class="speaker">Fatih Erikli</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>11:40</span>
-							<span>12:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>12:00</span>
-							<span>12:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Okulu Olmayan Meslek; Arayüz Geliştirici</span>
-							<span class="speaker">Adem İlter</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>12:40</span>
-							<span>14:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line">Yemek Arası <span class="speaker" style="display:inline-block">(1sa 20dk)</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>14:00</span>
-							<span>14:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Bir Dişli Olarak Yazılımcı</span>
-							<span class="speaker">Uğur Arıcı</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>14:40</span>
-							<span>15:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>15:00</span>
-							<span>15:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Reactive Streams</span>
-							<span class="speaker">Fehmi Can Sağlam</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>15:40</span>
-							<span>16:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>16:00</span>
-							<span>16:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Yazılım Test Teknikleri</span>
-							<span class="speaker">Serhat Bolsu</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span style="margin-top:8px;">16:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">Program Sonu</span></span>
-						</div>
-					</li>
-
-				</ul>
-
-				<ul class="timeline">
-					<li>
-						<div class="time">
-							<span>10:00</span>
-							<span>10:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Crystal Lang (Programlama Dili)</span>
-							<span class="speaker">Serdar Doğruyol</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>10:40</span>
-							<span>11:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>11:00</span>
-							<span>11:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Çözüm Geliştirirken Pragmatik Davranmak</span>
-							<span class="speaker">Aybars Badur</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>11:40</span>
-							<span>12:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>12:00</span>
-							<span>12:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Big Data</span>
-							<span class="speaker">Şadi Evren Şeker</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>12:40</span>
-							<span>14:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line">Yemek Arası <span class="speaker" style="display:inline-block">(1sa 20dk)</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>14:00</span>
-							<span>14:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Android için Retrofit ile API'leri Kullanmak</span>
-							<span class="speaker">Ahmet Menteş</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>14:40</span>
-							<span>15:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>15:00</span>
-							<span>15:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Modern Javascript</span>
-							<span class="speaker">Burak Can</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>15:40</span>
-							<span>16:00</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">20dk Ara</span></span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span>16:00</span>
-							<span>16:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic">Agile 101</span>
-							<span class="speaker">Birge Elif Basık</span>
-						</div>
-					</li>
-
-					<li>
-						<div class="time">
-							<span style="margin-top:8px;">16:40</span>
-						</div>
-
-						<div class="item">
-							<span class="topic single-line"><span class="speaker">Program Sonu</span></span>
-						</div>
-					</li>
-
-				</ul>
-
-			</div>
+				</div>
+			{% else %}
+				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+			{% endif %}
 
 		</div>
 	</section>
@@ -351,113 +113,116 @@
 	<section id="speakers">
 		<div class="wrap">
 			<h1>{% trans "SPEAKERS" %}</h1>
-			<ul class="speaker-list">
-				{% for speaker in speakers %}
-					<li>
-						{% if speaker.image %}
-							<figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
-						{% endif %}
-						<p>{{ speaker.get_full_name }}</p>
+			{% if speakers %}
+				<ul class="speaker-list">
+					{% for speaker, speaker_social_accounts in speakers.items %}
+						<li>
+							{% if speaker.image %}
+								<figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
+							{% endif %}
+							<p>{{ speaker.get_full_name }}</p>
 
-						{% with social_accounts=speaker.speakersocialaccount_set.all %}
-							{% if social_accounts %}
+							{% if speaker_social_accounts %}
 								<div class="speaker-info">
-									{% for social_account in social_accounts %}
-										<a href="{{ social_account.url}}" target="_blank">
-											{% if social_account.account.style_class %}
-												<i class="{{ social_account.account.style_class }}"></i>
+									{% for speaker_social_account in speaker_social_accounts %}
+										<a href="{{ speaker_social_account.url}}" target="_blank">
+											{% if speaker_social_account.account.style_class %}
+												<i class="{{ speaker_social_account.account.style_class }}"></i>
 											{% else %}
-												{{ social_account.account.name }}
+												{{ speaker_social_account.account.name }}
 											{% endif %}
 										</a>
 									{% endfor %}
 								</div>
 							{% endif %}
-						{% endwith %}
-
-					</li>
-				{% endfor %}
-			</ul>
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+			{% endif %}
 		</div>
 	</section>
 
 	<section id="transportation">
 		<h1>{% trans "TRANSPORTATION" %}</h1>
-		{% if activity_map %}
-			<div class="map">
-				<div id="map" style="height: 400px; margin-bottom: 50px;"></div>
-				<script>
+		{% if activity_map or activity.address or activity.accommodation or activity.transportation %}
+			{% if activity_map %}
+				<div class="map">
+					<div id="map" style="height: 400px; margin-bottom: 50px;"></div>
+					<script>
 
-					// The following example creates a marker in Stockholm, Sweden using a DROP
-					// animation. Clicking on the marker will toggle the animation between a BOUNCE
-					// animation and no animation.
+						// The following example creates a marker in Stockholm, Sweden using a DROP
+						// animation. Clicking on the marker will toggle the animation between a BOUNCE
+						// animation and no animation.
 
-					var marker;
+						var marker;
 
-					function initMap() {
-						var map = new google.maps.Map(document.getElementById('map'), {
-							zoom: 16,
-							scrollwheel: false,
-							center: {lat: {{ activity_map.coordinates.latitude|stringformat:"f" }}, lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}}
-						});
+						function initMap() {
+							var map = new google.maps.Map(document.getElementById('map'), {
+								zoom: 16,
+								scrollwheel: false,
+								center: {lat: {{ activity_map.coordinates.latitude|stringformat:"f" }}, lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}}
+							});
 
-						marker = new google.maps.Marker({
-							position: map.getCenter(),
-							map: map,
-							draggable: false,
-							animation: google.maps.Animation.DROP
-						});
-						//marker.addListener('click', toggleBounce);
+							marker = new google.maps.Marker({
+								position: map.getCenter(),
+								map: map,
+								draggable: false,
+								animation: google.maps.Animation.DROP
+							});
+							//marker.addListener('click', toggleBounce);
 
-						var infoWindow = new google.maps.InfoWindow({
-							content: '{{ activity_map.description }}'
-						});
+							var infoWindow = new google.maps.InfoWindow({
+								content: '{{ activity_map.description }}'
+							});
 
-						// Opens the InfoWindow when marker is clicked.
-						marker.addListener('click', function() {
-							infoWindow.open(map, marker);
-						});
-					}
-
-					function toggleBounce() {
-						if (marker.getAnimation() !== null) {
-							marker.setAnimation(null);
-						} else {
-							marker.setAnimation(google.maps.Animation.BOUNCE);
+							// Opens the InfoWindow when marker is clicked.
+							marker.addListener('click', function() {
+								infoWindow.open(map, marker);
+							});
 						}
-					}
-				</script>
-				<script async defer
-				src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap">
-				</script>
+
+						function toggleBounce() {
+							if (marker.getAnimation() !== null) {
+								marker.setAnimation(null);
+							} else {
+								marker.setAnimation(google.maps.Animation.BOUNCE);
+							}
+						}
+					</script>
+					<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
+				</div>
+			{% endif %}
+			<div class="wrap">
+				<div class="desc">
+					<div>
+						<h2>{% trans "Event Location" %}</h2>
+						{% if activity.address %}
+							{{ activity.address|safe }}
+						{% else %}
+							---
+						{% endif %}
+						<h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
+						{% if activity.accommodation %}
+							{{ activity.accommodation|safe }}
+						{% else %}
+							---
+						{% endif %}
+					</div>
+					<div>
+						<h2>{% trans "Transportation" %}</h2>
+						{% if activity.transportation %}
+							{{ activity.transportation|safe }}
+						{% else %}
+							---
+						{% endif %}
+					</div>
+				</div>
 			</div>
+		{% else %}
+			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
 		{% endif %}
-		<div class="wrap">
-			<div class="desc">
-				<div>
-					<h2>{% trans "Event Location" %}</h2>
-					{% if activity.address %}
-						{{ activity.address|safe }}
-					{% else %}
-						---
-					{% endif %}
-					<h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
-					{% if activity.accommodation %}
-						{{ activity.accommodation|safe }}
-					{% else %}
-						---
-					{% endif %}
-				</div>
-				<div>
-					<h2>{% trans "Transportation" %}</h2>
-					{% if activity.transportation %}
-						{{ activity.transportation|safe }}
-					{% else %}
-						---
-					{% endif %}
-				</div>
-			</div>
-		</div>
 	</section>
 
 	<section id="contact">
@@ -488,18 +253,20 @@
 						<h2>{% trans "Social Media" %}</h2>
 						<p>{% trans "You can follow updates about the event with social links below." %}</p>
 
-						{% with social_accounts=activity.activitysocialaccount_set.all %}
-							{% if social_accounts%}
+							{% if activity_social_accounts %}
 								<div class="accounts">
-									{% for social_account in social_accounts %}
-										<a href="{{ social_account.url }}">
-											<i class="{{ social_account.account.style_class }}"></i>{{ social_account.account.name }}
+									{% for activity_social_account in activity_social_accounts %}
+										<a href="{{ activity_social_account.url }}">
+											<i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
 										</a>
 									{% endfor %}
 								</div>
 							{% endif %}
-						{% endwith%}
 					</div>
+
+					{% if not activity_social_accounts %}
+						<br>
+					{% endif %}
 
 					<div>
 						<h2>{% trans "Communicate Now" %}</h2>
@@ -542,9 +309,9 @@
 			<a href="https://www.facebook.com/ktueek" target="_blank"><img src="{% static 'img/logos/ec.png' %}" width="95" alt=""></a>
 		</div>
 
-		{% if activity.activity_documents.first %}
+		{% if activity_document %}
 			<div class="other-sponsors">
-				<a href="{{ activity.activity_documents.first.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+				<a href="{{ activity_document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
 			</div>
 		{% endif %}
 	</section>

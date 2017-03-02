@@ -144,3 +144,22 @@ a { cursor: pointer }
 #cursor { @include animation(hideshow 1s ease infinite) }
 
 .toggle-mobile-nav { display: none }
+
+
+.coming-soon {
+	text-align: center;
+	padding: 20px 0;
+	letter-spacing: 1px;
+	font-size: 22px;
+	color: $main-nav-text;
+}
+
+#program {
+	.coming-soon {
+		text-align: center;
+		padding: 20px 0;
+		letter-spacing: 1px;
+		font-size: 22px;
+		color: #fff;
+	}
+}

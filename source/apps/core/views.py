@@ -1,3 +1,6 @@
+# Third-Party
+import collections
+
 # Django
 from django.conf import settings
 from django.shortcuts import redirect
@@ -30,13 +33,31 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
 
         if self.activity:
+            timeline = collections.OrderedDict()
+            for program in self.activity.program_set.filter(is_active=True):
+                timeline.update({
+                    program: program.programcontent_set.filter(is_active=True)
+                })
+
+            speakers = collections.OrderedDict()
+            for speaker in self.activity.speakers.filter(is_active=True):
+                speakers.update({
+                    speaker: speaker.speakersocialaccount_set.filter(is_active=True)
+                })
+
             context.update({
                 'title': self.activity.short_description,
                 'activity': self.activity,
                 'activities': self.activities,
-                'activity_map': self.activity.activitymap_set.first(),
+                'activity_document': self.activity.activitydocument_set \
+                    .filter(is_active=True).first(),
+                'activity_map': self.activity.activitymap_set \
+                    .filter(is_active=True).first(),
                 'activity_map_key': settings.GOOGLE_MAP_API_KEY,
-                'speakers': self.activity.speakers.filter(is_active=True)
+                'activity_social_accounts': self.activity \
+                    .activitysocialaccount_set.filter(is_active=True),
+                'speakers': speakers,
+                'timeline': timeline
             })
 
         return context
