@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n staticfiles %}
+{% load thumbnail %}
 
 
 {% block content %}
@@ -64,16 +65,16 @@
 		<div class="wrap">
 			<h1>{% trans "PROGRAM" %}</h1>
 
-			{% if timeline %}
+			{% if activity_timeline %}
 				<div class="day-select">
-					{% for program in timeline %}
+					{% for program in activity_timeline %}
 						<a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
 					{% endfor %}
 				</div>
 
 				<div class="timeline-wrap">
 
-					{% for program, contents in timeline.items %}
+					{% for program, contents in activity_timeline.items %}
 						<ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
 							{% if contents %}
 								{% for content in contents %}
@@ -113,9 +114,9 @@
 	<section id="speakers">
 		<div class="wrap">
 			<h1>{% trans "SPEAKERS" %}</h1>
-			{% if speakers %}
+			{% if activity_speakers %}
 				<ul class="speaker-list">
-					{% for speaker, speaker_social_accounts in speakers.items %}
+					{% for speaker, speaker_social_accounts in activity_speakers.items %}
 						<li>
 							{% if speaker.image %}
 								<figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
@@ -280,34 +281,19 @@
 	<section id="sponsors">
 		<h1>{% trans 'SPONSORS' %}</h1>
 
-		<div class="main-sponsors">
-			<a href="http://vngrs.com/" target="_blank"><img src="{% static 'img/logos/vngrs-new.png' %}" width="140" alt=""></a>
-			<a href="http://unicrow.com" target="_blank"><img src="{% static 'img/logos/unicrow.png' %}" height="70" width="138" alt="Unicrow"></a>
-		</div>
-
-		<div class="other-sponsors">
-			<a href="http://hipolabs.com" target="_blank"><img src="{% static 'img/logos/hipo.png' %}" width="100" alt=""></a>
-			<a href="http://of.bel.tr/" target="_blank"><img src="{% static 'img/logos/of-belediyesi.jpg' %}" width="64" alt=""></a>
-			<a href="http://qualifylabs.com/" target="_blank"><img src="{% static 'img/logos/qualify-logo.png' %}" width="125" alt=""></a>
-			<a href="http://www.rsiletisim.com.tr/" target="_blank"><img src="{% static 'img/logos/rs-iletisim-small.png' %}" width="165" alt=""></a>
-			<a href="http://www.ilbank.gov.tr/" target="_blank"><img src="{% static 'img/logos/ilbank.jpg' %}" height="90"></a>
-		</div>
-		<div class="other-sponsors">
-			<a href="http://188.166.24.135/" target="_blank"><img src="{% static 'img/logos/mavialp.png' %}" width="100" alt=""></a>
-			<a href="http://tekobiz.com.tr" target="_blank"><img src="{% static 'img/logos/tekobiz.png' %}" width="160" alt=""></a>
-			<a href="http://www.onurteknoloji.com" target="_blank"><img src="{% static 'img/logos/onur-teknoloji.png' %}" width="140" alt=""></a>
-			<a href="http://www.aliosmanulusoy.com/" target="_blank"><img src="{% static 'img/logos/aou.jpg' %}" width="170" alt=""></a>
-		</div>
-		<div class="other-sponsors">
-			<a href="http://bulutbil.com.tr" target="_blank"><img src="{% static 'img/logos/bbs.png' %}" width="90" alt=""></a>
-			<a href="http://www.indir.com/" target="_blank"><img src="{% static 'img/logos/indir_logo.png' %}" width="150" alt=""></a>
-			<a href="http://shiftdelete.net/" target="_blank"><img src="{% static 'img/logos/shiftdelete_logo.png' %}" width="150" alt=""></a>
-		</div>
-		<div class="other-sponsors">
-			<a href="https://www.facebook.com/ktubmk" target="_blank"><img src="{% static 'img/logos/ktucec.png' %}" width="70" alt=""></a>
-			<a href="https://www.facebook.com/groups/trabzonhs/" target="_blank"><img src="{% static 'img/logos/trabzon-hs.png' %}" height="82" width="70" alt=""></a>
-			<a href="https://www.facebook.com/ktueek" target="_blank"><img src="{% static 'img/logos/ec.png' %}" width="95" alt=""></a>
-		</div>
+		{% if activity_sponsors %}
+			{% for sponsor_type, sponsors in activity_sponsors.items %}
+				<div class="other-sponsors">
+					{% for sponsor in sponsors %}
+						<a href="{{ sponsor.sponsor.url }}" target="_blank">
+							<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+						</a>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		{% else %}
+			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+		{% endif %}
 
 		{% if activity_document %}
 			<div class="other-sponsors">

@@ -1,6 +1,7 @@
 # Third-Party
 from adminsortable.models import SortableMixin
 from geoposition.fields import GeopositionField
+from adminsortable.fields import SortableForeignKey
 
 # Django
 from django.db import models
@@ -8,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Local Django
 from speaker.models import Speaker
+from sponsor.models import SponsorType, Sponsor
 from core.models import DateModel, SocialAccount
 
 
@@ -60,11 +62,76 @@ class Activity(DateModel):
 
     def show_register_url(self):
         if self.register_url:
-            return "<a href='%s' target='_blank'>%s</a>" % (self.register_url, self.register_url)
+            return "<a href='%s' target='_blank'>%s</a>" % (
+                self.register_url, self.register_url
+            )
 
         return self.register_url
     show_register_url.allow_tags = True
     show_register_url.short_description = _('Register URL')
+
+
+def set_activity_documents_upload_path(instance, filename):
+    return '/'.join([
+        'activities', 'activity_%d' % instance.activity.id,
+        'sponsor_docs', filename
+    ])
+
+
+class ActivityDocument(DateModel):
+    document = models.FileField(
+        verbose_name=_('Document'), upload_to=set_activity_documents_upload_path
+    )
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+
+    class Meta:
+        verbose_name = _('Activity Document')
+        verbose_name_plural = _('Activity Documents')
+
+    def __str__(self):
+        return '{activity} - {document}'.format(
+            activity=self.activity.__str__(), document=self.get_document_name()
+        )
+
+    def get_document_name(self):
+        return str(self.document.file).split('/')[-1]
+
+    def get_size(self):
+        return self.document._get_size()
+
+    get_size.short_description =  _('Size')
+
+    def get_size_humanize(self):
+        num = self.get_size()
+        for unit in ['B','KB','MB','GB','TB','PB','EB','ZB']:
+            if abs(num) < 1024.0:
+                return '%3.1f%s' % (num, unit)
+
+            num /= 1024.0
+        return '%.1f%s%s' % (num, 'Y')
+
+    get_size_humanize.short_description =  _('Size(Humanize)')
+
+    def download_document_link(self):
+        if self.document:
+            return "<a href='%s' download>%s</a>" % (
+                self.document.url, self.get_document_name()
+            )
+        else:
+            return _('Document not found!')
+    download_document_link.allow_tags = True
+    download_document_link.short_description = _('Download')
+
+    def show_document_link(self):
+        if self.document:
+            return "<a href='%s' target='_blank'>%s</a>" % (
+                self.document.url, self.get_document_name()
+            )
+        else:
+            return _('Document not found!')
+    show_document_link.allow_tags = True
+    show_document_link.short_description = _('Show')
 
 
 class ActivitySocialAccount(DateModel, SortableMixin):
@@ -90,6 +157,31 @@ class ActivitySocialAccount(DateModel, SortableMixin):
         )
 
 
+class ActivitySponsor(DateModel, SortableMixin):
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    sponsor_type = SortableForeignKey(
+        verbose_name=_('Sponsor Type'), to=SponsorType
+    )
+    sponsor = models.ForeignKey(verbose_name=_('Sponsor'), to=Sponsor)
+    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+
+    # ordering field
+    order_id = models.PositiveSmallIntegerField(
+        default=0, editable=False, db_index=True
+    )
+
+    class Meta:
+        verbose_name = _('Activity Sponsor')
+        verbose_name_plural = _('Activity Sponsors')
+        ordering = ('order_id', 'sponsor_type')
+        unique_together = ('activity', 'sponsor')
+
+    def __str__(self):
+        return '{activity} - {sponsor}'.format(
+            activity=self.activity.__str__(), sponsor=self.sponsor.__str__()
+        )
+
+
 class ActivityMap(DateModel):
     description = models.CharField(
         verbose_name=_('Description'), max_length=250, null=True, blank=True
@@ -103,59 +195,7 @@ class ActivityMap(DateModel):
         verbose_name_plural = _('Activity Maps')
         ordering = ('activity',)
 
-
-def set_activity_documents_upload_path(instance, filename):
-    return '/'.join([
-        'activities', 'activity_%d' % instance.activity.id,
-        'sponsor_docs', filename
-    ])
-
-
-class ActivityDocument(DateModel):
-    document = models.FileField(
-        verbose_name=_('Document'), upload_to=set_activity_documents_upload_path
-    )
-    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
-
-    class Meta:
-        verbose_name = _('Activity Document')
-        verbose_name_plural = _('Activity Documents')
-
-    def get_document_name(self):
-        return str(self.document.file).split('/')[-1]
-
-    def get_size(self):
-        return self.document._get_size()
-
-    get_size.short_description =  _('Size')
-
-    def get_size_humanize(self):
-        num = self.get_size()
-        for unit in ['B','KB','MB','GB','TB','PB','EB','ZB']:
-            if abs(num) < 1024.0:
-                return '%3.1f%s' % (num, unit)
-
-            num /= 1024.0
-        return '%.1f%s%s' % (num, 'Y')
-
-    get_size_humanize.short_description =  _('Size(Humanize)')
-
-    def download_document_link(self):
-        if self.document:
-            return "<a href='%s' download>%s</a>" % (self.document.url, self.get_document_name())
-        else:
-            return _('Document not found!')
-    download_document_link.allow_tags = True
-    download_document_link.short_description = _('Download')
-
-    def show_document_link(self):
-        if self.document:
-            return "<a href='%s' target='_blank'>%s</a>" % (self.document.url, self.get_document_name())
-        else:
-            return _('Document not found!')
-    show_document_link.allow_tags = True
-    show_document_link.short_description = _('Show')
-
     def __str__(self):
-        return '{document_name}'.format(document_name=self.get_document_name())
+        return '{activity} - {description}'.format(
+            activity=self.activity.__str__(), description=self.description
+        ).strip('-')

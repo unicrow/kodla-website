@@ -48,12 +48,14 @@ INSTALLED_APPS = [
     'geoposition',
     'redactor',
     'adminsortable',
+    'easy_thumbnails',
 
     # Internal Applications
     'core',
     'activity',
     'speaker',
-    'program'
+    'program',
+    'sponsor'
 ]
 
 MIDDLEWARE_CLASSES = [

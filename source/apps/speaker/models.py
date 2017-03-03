@@ -1,5 +1,6 @@
 # Third-Party
 from adminsortable.models import SortableMixin
+from adminsortable.fields import SortableForeignKey
 
 # Django
 from django.db import models
@@ -77,7 +78,7 @@ class Speaker(DateModel, SortableMixin):
 class SpeakerSocialAccount(DateModel, SortableMixin):
     url = models.URLField(verbose_name=_('URL'))
     speaker = models.ForeignKey(verbose_name=_('Speaker'), to=Speaker)
-    account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
+    account = SortableForeignKey(verbose_name=_('Account'), to=SocialAccount)
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
 
     # ordering field
@@ -88,7 +89,7 @@ class SpeakerSocialAccount(DateModel, SortableMixin):
     class Meta:
         verbose_name = _('Speaker Social Account')
         verbose_name_plural = _('Speaker Social Accounts')
-        ordering = ('order_id',)
+        ordering = ('order_id', 'account')
         unique_together = ('speaker', 'account')
 
     def __str__(self):

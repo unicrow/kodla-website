@@ -33,17 +33,27 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
 
         if self.activity:
-            timeline = collections.OrderedDict()
+            activity_timeline = collections.OrderedDict()
             for program in self.activity.program_set.filter(is_active=True):
-                timeline.update({
+                activity_timeline.update({
                     program: program.programcontent_set.filter(is_active=True)
                 })
 
-            speakers = collections.OrderedDict()
+            activity_speakers = collections.OrderedDict()
             for speaker in self.activity.speakers.filter(is_active=True):
-                speakers.update({
-                    speaker: speaker.speakersocialaccount_set.filter(is_active=True)
+                activity_speakers.update({
+                    speaker: speaker.speakersocialaccount_set.filter(
+                        is_active=True
+                    )
                 })
+
+            activity_sponsors = collections.OrderedDict()
+            sponsors = self.activity.activitysponsor_set \
+                .filter(is_active=True, sponsor_type__is_active=True) \
+                .order_by('sponsor_type', 'order_id')
+            for sponsor in sponsors:
+                activity_sponsors.setdefault(sponsor.sponsor_type.name, []) \
+                    .append(sponsor)
 
             context.update({
                 'title': self.activity.short_description,
@@ -56,8 +66,9 @@ class IndexView(TemplateView):
                 'activity_map_key': settings.GOOGLE_MAP_API_KEY,
                 'activity_social_accounts': self.activity \
                     .activitysocialaccount_set.filter(is_active=True),
-                'speakers': speakers,
-                'timeline': timeline
+                'activity_speakers': activity_speakers,
+                'activity_timeline': activity_timeline,
+                'activity_sponsors': activity_sponsors
             })
 
         return context

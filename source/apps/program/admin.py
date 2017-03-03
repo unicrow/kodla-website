@@ -8,17 +8,18 @@ from program.models import Program, ProgramContent
 
 class ProgramContentInline(admin.StackedInline):
     model = ProgramContent
+    extra = 0
+    verbose_name = _('Program Content')
+    verbose_name_plural = _('Program Contents')
+    readonly_fields = ('create_date', 'update_date')
     fields = (
         ('subject', 'annotation'), ('start_time', 'end_time'),
         ('program', 'speaker'), 'is_active', ('create_date', 'update_date')
     )
-    readonly_fields = ('create_date', 'update_date')
-    extra = 0
-    verbose_name_plural = _('Program Content')
 
 
 @admin.register(Program)
 class ProgramAdmin(admin.ModelAdmin):
-    list_display = ('activity', 'date', 'is_active')
     readonly_fields = ('create_date', 'update_date')
+    list_display = ('activity', 'date', 'is_active')
     inlines = (ProgramContentInline,)
