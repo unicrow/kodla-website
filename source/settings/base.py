@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     # Internal Applications
     'core',
+    'form',
     'activity',
     'speaker',
     'program',

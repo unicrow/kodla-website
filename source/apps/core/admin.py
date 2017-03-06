@@ -13,3 +13,5 @@ from core.models import SocialAccount
 class SocialAccountAdmin(SortableAdmin):
     readonly_fields = ('create_date', 'update_date')
     list_display = ('name', 'style_id', 'style_class', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('name',)

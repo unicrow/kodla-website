@@ -22,4 +22,5 @@ class ProgramContentInline(admin.StackedInline):
 class ProgramAdmin(admin.ModelAdmin):
     readonly_fields = ('create_date', 'update_date')
     list_display = ('activity', 'date', 'is_active')
+    list_filter = ('is_active',)
     inlines = (ProgramContentInline,)

@@ -18,12 +18,28 @@
 	{% endblock %}
 </head>
 <body>
+
   {% block content %}
   {% endblock %}
 
   {% block script %}
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
   	<script src="{% static 'js/main.js' %}"></script>
+		{% if messages %}
+			<script>
+				alertify.maxLogItems(500)
+				{% for message in messages %}
+					{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+						.error("{{message}}"){% if forloop.last %};{% endif %}
+					{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+						.success("{{message}}"){% if forloop.last %};{% endif %}
+					{% else %}
+						.log("{{message}}"){% if forloop.last %};{% endif %}
+					{% endif %}
+				{% endfor %}
+			</script>
+		{% endif %}
   	<script>
     	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

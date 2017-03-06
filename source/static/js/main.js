@@ -46,60 +46,23 @@ $(function() {
     e.preventDefault();
   });
 
-  $.ajax({
-    url: '/get-tweets',
-    success: function(datas) {
-      var tweets = datas;
-      var tweetTimer;
-      var i = 0;
-      (tweetTimer = function() {
-        $('.latest-tweet p').html(tweets[i].text);
-        $('.latest-tweet a').attr('href', 'https://twitter.com/kodlaco/status/'+tweets[i].id_str);
-        if(i == tweets.length-1)
-          i=0;
-        else
-          i++;
-      })()
-      setInterval(tweetTimer, 5000)
-    }
-  });
-
-  $('.contact-form').submit(function(e) {
-    var data = {}
-    var ch = true;
-    var rules = {
-      email: (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i),
-      name: (/(.+)/),
-      message: (/(.+)/)
-    }
-    $(this).find('input,textarea').each(function(){
-      var name = $(this).attr('name');
-      var value = $(this).val();
-      data[name] = value;
-      if(rules[name] && !rules[name].test(value) ) {
-        ch = false;
-        $('#'+name).parent().addClass('error');
-      } else {
-        $('#'+name).parent().removeClass('error');
-      }
-    });
-    if(ch) {
-      $.ajax({
-        url: $(this).attr('action'),
-        method: 'POST',
-        data: data,
-        success: function(data) {
-          if(data == 1) {
-            alert('Mesajınız gönderildi teşekkürler.');
-            $('.contact-form input,.contact-form textarea').val('');
-          } else if(data == 0) {
-            alert('Mesajınız gönderilemedi. Tekrar deneyin.');
-          }
-        }
-      })
-    }
-    e.preventDefault();
-  });
+  // $.ajax({
+  //   url: '/get-tweets',
+  //   success: function(datas) {
+  //     var tweets = datas;
+  //     var tweetTimer;
+  //     var i = 0;
+  //     (tweetTimer = function() {
+  //       $('.latest-tweet p').html(tweets[i].text);
+  //       $('.latest-tweet a').attr('href', 'https://twitter.com/kodlaco/status/'+tweets[i].id_str);
+  //       if(i == tweets.length-1)
+  //         i=0;
+  //       else
+  //         i++;
+  //     })()
+  //     setInterval(tweetTimer, 5000)
+  //   }
+  // });
 
 });
 

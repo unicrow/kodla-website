@@ -3,10 +3,15 @@ import collections
 
 # Django
 from django.conf import settings
+from django.contrib import messages
 from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
+from django.utils.translation import ugettext_lazy as _
 
 # Local Django
+from form.forms import ContactForm
 from activity.models import Activity
 
 
@@ -68,7 +73,27 @@ class IndexView(TemplateView):
                     .activitysocialaccount_set.filter(is_active=True),
                 'activity_speakers': activity_speakers,
                 'activity_timeline': activity_timeline,
-                'activity_sponsors': activity_sponsors
+                'activity_sponsors': activity_sponsors,
+                'contact_form': ContactForm()
             })
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        contact_form = ContactForm(self.request.POST)
+
+        if contact_form.is_valid() and self.activity:
+            contact = contact_form.save(self.activity)
+
+            if contact:
+                messages.success(
+                    request, _('Your message has been sent. Thank you.')
+                )
+
+                return HttpResponseRedirect(reverse('index'))
+
+        messages.error(request, _('Your message could not be sent. Try again.'))
+        context.update({ 'contact_form': contact_form })
+
+        return super(IndexView, self).render_to_response(context)

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n staticfiles %}
+{% load core_extra %}
 {% load thumbnail %}
 
 
@@ -230,51 +231,56 @@
 		<div class="wrap">
 			<h1>{% trans "CONTACT" %}</h1>
 
-			<div class="contact-inner">
-				<form action="/send-mail" method="POST" class="contact-form">
-					<div>
-						<label for="name">{% trans "Name and Surname" %}</label>
-						<input type="text" name="name" id="name">
-						<span class="input-edges"></span>
-					</div>
-					<div>
-						<label for="email">{% trans "E-Mail Address" %}</label>
-						<input type="text" name="email" id="email">
-						<span class="input-edges"></span>
-					</div>
-					<div>
-						<label for="message">{% trans "Your Message" %}</label>
-						<textarea name="message" name="message" id="message" cols="30" rows="10"></textarea>
-					</div>
-					<div><button type="submit">{% trans "Send Message" %}</button></div>
-				</form>
+			{% if activity %}
+				<div class="contact-inner">
+					<form action="/#contact" method="POST" class="contact-form">
+						{% csrf_token %}
+						<div {% if contact_form.full_name.errors %}class='error'{% endif %}>
+							<label for="name">{{ contact_form.full_name.label }}</label>
+							{% add_attrs contact_form.full_name %}
+							<span class="input-edges"></span>
+						</div>
+						<div {% if contact_form.email.errors %}class='error'{% endif %}>
+							<label for="email">{{ contact_form.email.label }}</label>
+							{% add_attrs contact_form.email %}
+							<span class="input-edges"></span>
+						</div>
+						<div {% if contact_form.message.errors %}class='error'{% endif %}>
+							<label for="message">{{ contact_form.message.label }}</label>
+							{% add_attrs contact_form.message %}
+						</div>
+						<div><button type="submit">{% trans "Send Message" %}</button></div>
+					</form>
 
-				<div class="contact-info">
-					<div>
-						<h2>{% trans "Social Media" %}</h2>
-						<p>{% trans "You can follow updates about the event with social links below." %}</p>
+					<div class="contact-info">
+						<div>
+							<h2>{% trans "Social Media" %}</h2>
+							<p>{% trans "You can follow updates about the event with social links below." %}</p>
 
-							{% if activity_social_accounts %}
-								<div class="accounts">
-									{% for activity_social_account in activity_social_accounts %}
-										<a href="{{ activity_social_account.url }}">
-											<i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
-										</a>
-									{% endfor %}
-								</div>
-							{% endif %}
-					</div>
+								{% if activity_social_accounts %}
+									<div class="accounts">
+										{% for activity_social_account in activity_social_accounts %}
+											<a href="{{ activity_social_account.url }}">
+												<i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
+											</a>
+										{% endfor %}
+									</div>
+								{% endif %}
+						</div>
 
-					{% if not activity_social_accounts %}
-						<br>
-					{% endif %}
+						{% if not activity_social_accounts %}
+							<br>
+						{% endif %}
 
-					<div>
-						<h2>{% trans "Communicate Now" %}</h2>
-						<p>{% trans "If you don't want to use the contact form, you can contact us with email." %} <a href="mailto:&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;">&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;</a></p>
+						<div>
+							<h2>{% trans "Communicate Now" %}</h2>
+							<p>{% trans "If you don't want to use the contact form, you can contact us with email." %} <a href="mailto:&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;">&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;</a></p>
+						</div>
 					</div>
 				</div>
-			</div>
+			{% else %}
+				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+			{% endif %}
 		</div>
 	</section>
 

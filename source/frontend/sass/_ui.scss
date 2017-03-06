@@ -9,7 +9,7 @@ input, textarea, button {
 	border: 0;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="email"], textarea {
 	padding: 0 10px;
 	@include transition(all $default-transition-time);
 	background-color: $input-bg;
@@ -26,7 +26,7 @@ input[type="text"], textarea {
 
 .error {
 	label { color: $input-error }
-	input[type="text"], textarea {
+	input[type="text"], input[type="email"], textarea {
 		border-color: $input-error;
 		&+.input-edges:after, &+.input-edges:before {
 			border-color: $input-error;
@@ -34,7 +34,7 @@ input[type="text"], textarea {
 	}
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"] {
 	position: relative;
 	height: 40px;
 	border-bottom: 2px solid $input-border;

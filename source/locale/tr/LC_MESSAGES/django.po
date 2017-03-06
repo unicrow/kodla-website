@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-06 12:33+0200\n"
+"POT-Creation-Date: 2017-03-07 15:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:70 source/apps/activity/models.py:44
-#: source/templates/index.html:217
+#: source/templates/index.html:218
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -75,7 +75,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/apps.py:8 source/apps/activity/models.py:56
 #: source/apps/activity/models.py:86 source/apps/activity/models.py:139
 #: source/apps/activity/models.py:166 source/apps/activity/models.py:191
-#: source/apps/program/models.py:13
+#: source/apps/form/models.py:15 source/apps/program/models.py:13
 msgid "Activity"
 msgstr "Etkinlik"
 
@@ -86,9 +86,10 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:19 source/apps/activity/models.py:85
 #: source/apps/activity/models.py:141 source/apps/activity/models.py:161
 #: source/apps/activity/models.py:190 source/apps/core/models.py:29
-#: source/apps/program/models.py:14 source/apps/program/models.py:36
-#: source/apps/speaker/models.py:20 source/apps/speaker/models.py:82
-#: source/apps/sponsor/models.py:17 source/apps/sponsor/models.py:40
+#: source/apps/form/models.py:14 source/apps/program/models.py:14
+#: source/apps/program/models.py:36 source/apps/speaker/models.py:20
+#: source/apps/speaker/models.py:82 source/apps/sponsor/models.py:17
+#: source/apps/sponsor/models.py:40
 msgid "Active"
 msgstr "Aktif"
 
@@ -117,7 +118,7 @@ msgstr "Kayıt Linki"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:47 source/templates/index.html:209
+#: source/apps/activity/models.py:47 source/templates/index.html:210
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -223,6 +224,46 @@ msgstr "Style Id"
 msgid "Style Class"
 msgstr "Style Class"
 
+#: source/apps/core/views.py:91
+msgid "Your message has been sent. Thank you."
+msgstr "Mesajınız gönderildi. Teşekkür ederiz."
+
+#: source/apps/core/views.py:96
+msgid "Your message could not be sent. Try again."
+msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
+
+#: source/apps/form/apps.py:8
+msgid "Form"
+msgstr "Form"
+
+#: source/apps/form/forms.py:10
+msgid "Name and Surname"
+msgstr "Adınız ve Soyadınız"
+
+#: source/apps/form/forms.py:11
+msgid "E-Mail Address"
+msgstr "E-Posta Adresiniz"
+
+#: source/apps/form/forms.py:12
+msgid "Your message"
+msgstr "Mesajınız"
+
+#: source/apps/form/models.py:11
+msgid "Full Name"
+msgstr "Ad Soyad"
+
+#: source/apps/form/models.py:12
+msgid "Email"
+msgstr "Eposta"
+
+#: source/apps/form/models.py:13
+msgid "Message"
+msgstr "Mesajınız"
+
+#: source/apps/form/models.py:18 source/apps/form/models.py:19
+msgid "Contant"
+msgstr "İletişim"
+
 #: source/apps/program/admin.py:12 source/apps/program/models.py:43
 msgid "Program Content"
 msgstr "Program İçeriği"
@@ -262,11 +303,11 @@ msgstr "Bitiş Zamanı"
 
 #: source/apps/speaker/models.py:18
 msgid "First Name"
-msgstr "İsim"
+msgstr "Ad"
 
 #: source/apps/speaker/models.py:19
 msgid "Last Name"
-msgstr "Soyisim"
+msgstr "Soyad"
 
 #: source/apps/speaker/models.py:22
 msgid "Image"
@@ -292,83 +333,72 @@ msgstr "Konuşmacı Sosyal Hesapları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/index.html:9
+#: source/templates/index.html:10
 msgid "MENU"
 msgstr "MENÜ"
 
-#: source/templates/index.html:12
+#: source/templates/index.html:13
 msgid "HOME"
 msgstr "ANA SAYFA"
 
-#: source/templates/index.html:13 source/templates/index.html:68
+#: source/templates/index.html:14 source/templates/index.html:69
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:14 source/templates/index.html:118
+#: source/templates/index.html:15 source/templates/index.html:119
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:15 source/templates/index.html:151
+#: source/templates/index.html:16 source/templates/index.html:152
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:16 source/templates/index.html:233
+#: source/templates/index.html:17 source/templates/index.html:234
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/index.html:17 source/templates/index.html:284
+#: source/templates/index.html:18 source/templates/index.html:290
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:41
+#: source/templates/index.html:42
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:45 source/templates/index.html:302
+#: source/templates/index.html:46 source/templates/index.html:308
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/index.html:48 source/templates/index.html:103
-#: source/templates/index.html:110 source/templates/index.html:145
-#: source/templates/index.html:227 source/templates/index.html:297
+#: source/templates/index.html:49 source/templates/index.html:104
+#: source/templates/index.html:111 source/templates/index.html:146
+#: source/templates/index.html:228 source/templates/index.html:284
+#: source/templates/index.html:303
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/index.html:203
+#: source/templates/index.html:204
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:238
-msgid "Name and Surname"
-msgstr "Adınız ve Soyadınız"
-
-#: source/templates/index.html:243
-msgid "E-Mail Address"
-msgstr "E-Posta Adresiniz"
-
-#: source/templates/index.html:248
-msgid "Your Message"
-msgstr "Mesajınız"
-
-#: source/templates/index.html:251
+#: source/templates/index.html:254
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:256
+#: source/templates/index.html:259
 msgid "Social Media"
 msgstr "Sosyal Medya"
 
-#: source/templates/index.html:257
+#: source/templates/index.html:260
 msgid "You can follow updates about the event with social links below."
 msgstr ""
 "Aşağıda yer alan sosyal medya bağlantıları ile etkinlik hakkında gelişmeleri "
 "yakından takip edebilirsiniz."
 
-#: source/templates/index.html:275
+#: source/templates/index.html:278
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:276
+#: source/templates/index.html:279
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."

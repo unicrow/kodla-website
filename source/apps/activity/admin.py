@@ -80,6 +80,7 @@ class ActivityAdmin(NonSortableParentAdmin):
     filter_horizontal = ('speakers',)
     readonly_fields = ('create_date', 'update_date')
     list_display = ('year', 'show_register_url', 'short_description', 'is_active')
+    list_filter = ('is_active',)
     inlines = (
         ActivityDocumentInline, ActivitySocialAccountInline,
         ActivitySponsorInline, ActivityMapInline

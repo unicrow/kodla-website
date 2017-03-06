@@ -11,7 +11,7 @@ from core.models import DateModel, SocialAccount
 
 
 def set_speaker_image_upload_path(instance, filename):
-    return '/'.join(['speakers', 'speaker_%d' % instance.id, filename])
+    return '/'.join(['speakers', 'speaker_%d' % instance.id, 'images', filename])
 
 
 class Speaker(DateModel, SortableMixin):
