@@ -16,24 +16,13 @@
 				<li><a href="#transportation">{% trans "TRANSPORTATION" %}</a></li>
 				<li><a href="#contact">{% trans "CONTACT" %}</a></li>
 				<li><a href="#sponsors">{% trans "SPONSORS" %}</a></li>
-				{% comment %}
-					<ul>
-	          {% for i in activities %}
-	            <li>
-	              <a href="{% url 'index-year' i.year %}" {% if activity == i %}style="font-weight: bold;" {% endif %}>
-	                {{ i.year }}
-	              </a>
-	            </li>
-	          {% endfor %}
-	        </ul>
-				{% endcomment %}
 			</ul>
 		</nav>
 
 		<div class="wrap">
 			<div class="intro">
 
-				{% if activity.logo or activity.description or activity.register_url or activity_docment %}
+				{% if activity.logo or activity.description or activity.register_url or activity_document %}
 					{{ activity.logo|safe }}
 					{{ activity.description|safe }}
 
@@ -42,7 +31,7 @@
 					{% endif %}
 
 					{% if activity_document %}
-						<a href="{{ activity_document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+						<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
 					{% endif %}
 				{% else %}
 					<br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
@@ -303,7 +292,7 @@
 
 		{% if activity_document %}
 			<div class="other-sponsors">
-				<a href="{{ activity_document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+				<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
 			</div>
 		{% endif %}
 	</section>

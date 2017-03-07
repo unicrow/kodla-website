@@ -1,0 +1,49 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n staticfiles %}
+{% load core_extra %}
+
+
+{% block title %}{{ title }} | Kodla {% endblock %}
+
+
+{% block extrastyle %}
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/admin/base.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/admin/custom_footer.css' %}" />
+{% endblock %}
+
+
+{% block branding %}
+  {% if not request.user.is_authenticated %}
+    <div style="float: none; text-align:center; line-height: normal;">
+      <a href="{% url 'admin:index' %}">
+        <img src="{% static 'img/logos/kodla.png' %}" alt="logo" style="height: 100%;">
+      </a>
+    </div>
+  {% else %}
+    <div style="float: left;">
+      <a style="display: inline-block; vertical-align: middle;" href="{% url 'admin:index' %}">
+        <img src="{% static 'img/logos/kodla.png' %}" alt="logo" style="margin-top: -5px; height: 100%;">
+      </a>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <div class="footer" id="footer">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td valign="top" align="center">
+              <a target="_blank" href="http://unicrow.com">
+                <img src="{% static 'img/logos/unicrow.png'%}" style="text-align: center;" alt="Unicrow">
+              </a>
+              <a target="_blank" href="https://www.facebook.com/groups/trabzonhs/">
+                <img src="{% static 'img/logos/trabzon-hs.png'%}" style="text-align: center;" height="50" alt="Trabzon Hackerspace">
+              </a>
+              <br><span>2017 ©</span>
+            </td>
+          </tr>
+        </table>
+    </div>
+  {% endblock %}

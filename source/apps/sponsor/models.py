@@ -3,6 +3,7 @@ from adminsortable.models import SortableMixin
 
 # Django
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
@@ -62,8 +63,10 @@ class Sponsor(DateModel):
 
     def logo_prev(self):
         if self.logo:
-            return '<img src="/media/%s" style="max-height: 200px; ' \
-                   'background-color:rgba(0, 0, 0, 0.1);"/>' % (self.logo)
+            return '<img src="%s" style="max-height: 200px; ' \
+                   'background-color:rgba(0, 0, 0, 0.1);"/>' % (
+                        settings.MEDIA_URL + self.logo.name
+                   )
         else:
             return _('Not Found!')
     logo_prev.short_description = _('Preview')

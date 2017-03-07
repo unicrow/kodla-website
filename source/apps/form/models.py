@@ -15,8 +15,8 @@ class Contact(DateModel):
     activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
 
     class Meta:
-        verbose_name = _('Contant')
-        verbose_name_plural = _('Contant')
+        verbose_name = _('Contact')
+        verbose_name_plural = _('Contact')
         ordering = ('activity', '-create_date', '-update_date')
 
     def __str__(self):

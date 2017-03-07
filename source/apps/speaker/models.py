@@ -4,6 +4,7 @@ from adminsortable.fields import SortableForeignKey
 
 # Django
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
@@ -53,8 +54,10 @@ class Speaker(DateModel, SortableMixin):
 
     def image_prev(self):
         if self.image:
-            return '<img src="/media/%s" style="max-height: 200px; ' \
-                   'background-color:rgba(0, 0, 0, 0.1);"/>' % (self.image)
+            return '<img src="%s" style="max-height: 200px; ' \
+                   'background-color:rgba(0, 0, 0, 0.1);"/>' % (
+                        settings.MEDIA_URL + self.image.name
+                    )
         else:
             return _('Not Found!')
     image_prev.short_description = _('Preview')
