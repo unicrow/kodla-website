@@ -11,11 +11,10 @@ $default-line-height: 24px;
 =            FONT STACKS            =
 ===================================*/
 $helvetica-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$default-font-stack: "Open Sans", $helvetica-stack;
+$default-font-stack: "Source Sans Pro", $helvetica-stack;
 $serif-font-stack: "Palatino Linotype", Times, "Times New Roman", serif;
 $roboto-font-stack: "Roboto Condensed", $helvetica-stack;
 $ptserif-font-stack: "PT Serif", $serif-font-stack;
-$opensans-font-stack: "Open Sans", $helvetica-stack;
 
 
 
@@ -39,12 +38,12 @@ $btn-text: #fff;
 /*=====================================
 =            FORM ELEMENTS            =
 =====================================*/
-$input-bg: #f7f7f7;
+$input-bg: #fff;
 $input-border: #a7b5b1;
 $input-text: #878484;
 $input-error: #e43a15;
 $input-placeholder: #bab7b7;
-$label-text: #a7b5b1;
+$label-text: #727977;
 
 
 /*================================

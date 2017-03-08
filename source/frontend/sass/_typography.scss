@@ -1,7 +1,7 @@
 /*=============================
 =            BASIC            =
 =============================*/
-@import url(http://fonts.googleapis.com/css?family=PT+Serif|Open+Sans:300,400,600|Roboto+Condensed:300,400&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif|Roboto+Condensed:300,400|Source+Sans+Pro:300,400,600,700); // &subset=latin,latin-ext
 
 body {
 	font: $default-font-size $default-font-stack;
@@ -26,9 +26,9 @@ input, textarea, button {
 ================================*/
 h1 {
 	margin-bottom: 40px;
-	font: 100 32px $roboto-font-stack;
+	font: 400 26px $roboto-font-stack;
 	color: $h1;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 	text-align: center;
 	&:after {
 		display: block;
@@ -42,7 +42,8 @@ h1 {
 
 h2 {
 	margin-bottom: 15px;
-	font: 24px $roboto-font-stack;
+	font: 20px $roboto-font-stack;
+	text-transform: uppercase;
 	color: $h2;
 }
 
@@ -54,6 +55,10 @@ h2 {
 =            HEADER            =
 ==============================*/
 .intro p {
-	font-size: 20px;
+	font-size: 19px;
 	line-height: 28px;
+	b {
+		font-weight: 600;
+		color: darken($body-text, 10%);
+	}
 }
