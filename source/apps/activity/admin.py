@@ -63,7 +63,7 @@ class ActivityAdmin(NonSortableParentAdmin):
         }),
         (_(u'Detail'), {
             'fields' : (
-                'short_description', 'register_url', 'description',
+                'email', 'short_description', 'register_url', 'description',
                 'meta_tags', 'logo', ('create_date', 'update_date')
             ),
         }),

@@ -17,6 +17,7 @@ class Activity(DateModel):
     # Base
     year = models.PositiveSmallIntegerField(verbose_name=_('Year'), unique=True)
     is_active = models.BooleanField(verbose_name=_('Active'))
+    email = models.EmailField(verbose_name=_('Email'), null=True, blank=True)
 
     # Extra
     meta_tags = models.TextField(

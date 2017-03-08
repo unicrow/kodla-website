@@ -242,29 +242,28 @@
 					</form>
 
 					<div class="contact-info">
-						<div>
-							<h2>{% trans "Social Media" %}</h2>
-							<p>{% trans "You can follow updates about the event with social links below." %}</p>
-
-								{% if activity_social_accounts %}
-									<div class="accounts">
-										{% for activity_social_account in activity_social_accounts %}
-											<a href="{{ activity_social_account.url }}">
-												<i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
-											</a>
-										{% endfor %}
-									</div>
-								{% endif %}
-						</div>
-
-						{% if not activity_social_accounts %}
-							<br>
+						{% if activity_social_accounts %}
+							<div>
+								<h2>{% trans "Social Media" %}</h2>
+								<p>{% trans "You can follow updates about the event with social links below." %}</p>
+								<div class="accounts">
+									{% for activity_social_account in activity_social_accounts %}
+										<a href="{{ activity_social_account.url }}" target="_blank">
+											<i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
+										</a>
+									{% endfor %}
+								</div>
+							</div>
 						{% endif %}
 
-						<div>
-							<h2>{% trans "Communicate Now" %}</h2>
-							<p>{% trans "If you don't want to use the contact form, you can contact us with email." %} <a href="mailto:&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;">&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;</a></p>
-						</div>
+						{% if activity.email %}
+							<div>
+								<h2>{% trans "Communicate Now" %}</h2>
+								<p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
+									<a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
+								</p>
+							</div>
+						{% endif %}
 					</div>
 				</div>
 			{% else %}

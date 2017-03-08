@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 13:47+0200\n"
+"POT-Creation-Date: 2017-03-08 16:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: source/apps/activity/admin.py:20 source/apps/activity/models.py:83
+#: source/apps/activity/admin.py:20 source/apps/activity/models.py:84
 msgid "Document"
 msgstr "Doküman"
 
@@ -36,7 +36,7 @@ msgstr "Sosyal Hesap"
 msgid "Social Accounts"
 msgstr "Sosyal Hesaplar"
 
-#: source/apps/activity/admin.py:38 source/apps/activity/models.py:165
+#: source/apps/activity/admin.py:38 source/apps/activity/models.py:166
 #: source/apps/sponsor/apps.py:8 source/apps/sponsor/models.py:48
 msgid "Sponsor"
 msgstr "Sponsor"
@@ -61,7 +61,7 @@ msgstr "Temel"
 msgid "Detail"
 msgstr "Detay"
 
-#: source/apps/activity/admin.py:70 source/apps/activity/models.py:44
+#: source/apps/activity/admin.py:70 source/apps/activity/models.py:45
 #: source/templates/index.html:206
 msgid "Transportation"
 msgstr "Ulaşım"
@@ -72,9 +72,9 @@ msgstr "Ulaşım"
 msgid "Speaker"
 msgstr "Konuşmacı"
 
-#: source/apps/activity/apps.py:8 source/apps/activity/models.py:56
-#: source/apps/activity/models.py:86 source/apps/activity/models.py:139
-#: source/apps/activity/models.py:166 source/apps/activity/models.py:191
+#: source/apps/activity/apps.py:8 source/apps/activity/models.py:57
+#: source/apps/activity/models.py:87 source/apps/activity/models.py:140
+#: source/apps/activity/models.py:167 source/apps/activity/models.py:192
 #: source/apps/form/models.py:15 source/apps/program/models.py:13
 msgid "Activity"
 msgstr "Etkinlik"
@@ -83,9 +83,9 @@ msgstr "Etkinlik"
 msgid "Year"
 msgstr "Yıl"
 
-#: source/apps/activity/models.py:19 source/apps/activity/models.py:85
-#: source/apps/activity/models.py:141 source/apps/activity/models.py:161
-#: source/apps/activity/models.py:190 source/apps/core/models.py:29
+#: source/apps/activity/models.py:19 source/apps/activity/models.py:86
+#: source/apps/activity/models.py:142 source/apps/activity/models.py:162
+#: source/apps/activity/models.py:191 source/apps/core/models.py:29
 #: source/apps/form/models.py:14 source/apps/program/models.py:14
 #: source/apps/program/models.py:36 source/apps/speaker/models.py:21
 #: source/apps/speaker/models.py:85 source/apps/sponsor/models.py:18
@@ -93,109 +93,113 @@ msgstr "Yıl"
 msgid "Active"
 msgstr "Aktif"
 
-#: source/apps/activity/models.py:23
+#: source/apps/activity/models.py:20 source/apps/form/models.py:12
+msgid "Email"
+msgstr "E-posta"
+
+#: source/apps/activity/models.py:24
 msgid "Meta Tags"
 msgstr "Meta Etiketleri"
 
-#: source/apps/activity/models.py:26 source/apps/sponsor/models.py:43
+#: source/apps/activity/models.py:27 source/apps/sponsor/models.py:43
 msgid "Logo"
 msgstr "Logo"
 
-#: source/apps/activity/models.py:29
+#: source/apps/activity/models.py:30
 msgid "Short Description"
 msgstr "Kısa Açıklama"
 
-#: source/apps/activity/models.py:33 source/apps/activity/models.py:187
+#: source/apps/activity/models.py:34 source/apps/activity/models.py:188
 #: source/apps/sponsor/models.py:16
 msgid "Description"
 msgstr "Açıklama"
 
-#: source/apps/activity/models.py:36 source/apps/activity/models.py:71
+#: source/apps/activity/models.py:37 source/apps/activity/models.py:72
 msgid "Register URL"
 msgstr "Kayıt Linki"
 
-#: source/apps/activity/models.py:41
+#: source/apps/activity/models.py:42
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:47 source/templates/index.html:198
+#: source/apps/activity/models.py:48 source/templates/index.html:198
 msgid "Accommodation"
 msgstr "Konaklama"
 
-#: source/apps/activity/models.py:52 source/apps/speaker/models.py:34
+#: source/apps/activity/models.py:53 source/apps/speaker/models.py:34
 msgid "Speakers"
 msgstr "Konuşmacılar"
 
-#: source/apps/activity/models.py:57
+#: source/apps/activity/models.py:58
 msgid "Activities"
 msgstr "Etkinlikler"
 
-#: source/apps/activity/models.py:89
+#: source/apps/activity/models.py:90
 msgid "Activity Document"
 msgstr "Etkinlik Dokümanı"
 
-#: source/apps/activity/models.py:90
+#: source/apps/activity/models.py:91
 msgid "Activity Documents"
 msgstr "Etkinlik Dokümanları"
 
-#: source/apps/activity/models.py:103
+#: source/apps/activity/models.py:104
 msgid "Size"
 msgstr "Boyut"
 
-#: source/apps/activity/models.py:114
+#: source/apps/activity/models.py:115
 msgid "Size(Humanize)"
 msgstr "Boyut(İnsanlaştırılmış)"
 
-#: source/apps/activity/models.py:122 source/apps/activity/models.py:132
+#: source/apps/activity/models.py:123 source/apps/activity/models.py:133
 msgid "Document not found!"
 msgstr "Doküman bulunamadı!"
 
-#: source/apps/activity/models.py:124
+#: source/apps/activity/models.py:125
 msgid "Download"
 msgstr "İndir"
 
-#: source/apps/activity/models.py:134
+#: source/apps/activity/models.py:135
 msgid "Show"
 msgstr "Göster"
 
-#: source/apps/activity/models.py:138 source/apps/speaker/models.py:82
+#: source/apps/activity/models.py:139 source/apps/speaker/models.py:82
 #: source/apps/sponsor/models.py:40
 msgid "URL"
 msgstr "URL"
 
-#: source/apps/activity/models.py:140 source/apps/speaker/models.py:84
+#: source/apps/activity/models.py:141 source/apps/speaker/models.py:84
 msgid "Account"
 msgstr "Hesap"
 
-#: source/apps/activity/models.py:149
+#: source/apps/activity/models.py:150
 msgid "Activity Social Account"
 msgstr "Etkinlik Sosyal Hesabı"
 
-#: source/apps/activity/models.py:150
+#: source/apps/activity/models.py:151
 msgid "Activity Social Accounts"
 msgstr "Etkinlik Sosyal Hesapları"
 
-#: source/apps/activity/models.py:163 source/apps/sponsor/models.py:26
+#: source/apps/activity/models.py:164 source/apps/sponsor/models.py:26
 msgid "Sponsor Type"
 msgstr "Sponsor Türü"
 
-#: source/apps/activity/models.py:174
+#: source/apps/activity/models.py:175
 msgid "Activity Sponsor"
 msgstr "Etkinlik Sponsoru"
 
-#: source/apps/activity/models.py:175
+#: source/apps/activity/models.py:176
 msgid "Activity Sponsors"
 msgstr "Etkinlik Sponsorları"
 
-#: source/apps/activity/models.py:189
+#: source/apps/activity/models.py:190
 msgid "Coordinates"
 msgstr "Koordinatlar"
 
-#: source/apps/activity/models.py:194
+#: source/apps/activity/models.py:195
 msgid "Activity Map"
 msgstr "Etkinlik Haritası"
 
-#: source/apps/activity/models.py:195
+#: source/apps/activity/models.py:196
 msgid "Activity Maps"
 msgstr "Etkinlik Haritaları"
 
@@ -251,10 +255,6 @@ msgstr "Mesajınız"
 #: source/apps/form/models.py:11
 msgid "Full Name"
 msgstr "Ad Soyad"
-
-#: source/apps/form/models.py:12
-msgid "Email"
-msgstr "Eposta"
 
 #: source/apps/form/models.py:13
 msgid "Message"
@@ -357,7 +357,7 @@ msgstr "ULAŞIM"
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/index.html:18 source/templates/index.html:278
+#: source/templates/index.html:18 source/templates/index.html:277
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
@@ -365,14 +365,14 @@ msgstr "SPONSORLAR"
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:34 source/templates/index.html:296
+#: source/templates/index.html:34 source/templates/index.html:295
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
 #: source/templates/index.html:37 source/templates/index.html:92
 #: source/templates/index.html:99 source/templates/index.html:134
-#: source/templates/index.html:216 source/templates/index.html:272
-#: source/templates/index.html:291
+#: source/templates/index.html:216 source/templates/index.html:271
+#: source/templates/index.html:290
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
@@ -384,21 +384,21 @@ msgstr "Etkinlik Yeri"
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:247
+#: source/templates/index.html:248
 msgid "Social Media"
 msgstr "Sosyal Medya"
 
-#: source/templates/index.html:248
+#: source/templates/index.html:249
 msgid "You can follow updates about the event with social links below."
 msgstr ""
 "Aşağıda yer alan sosyal medya bağlantıları ile etkinlik hakkında gelişmeleri "
 "yakından takip edebilirsiniz."
 
-#: source/templates/index.html:266
+#: source/templates/index.html:262
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:267
+#: source/templates/index.html:263
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
