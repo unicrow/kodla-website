@@ -32,8 +32,9 @@ class SpeakerAdmin(SortableAdmin):
 
     readonly_fields = ('create_date', 'update_date', 'image_prev')
     list_display = (
-        'first_name', 'last_name', 'social_accounts', 'is_active', 'image_prev'
+        'first_name', 'last_name', 'social_accounts', 'image_prev', 'is_active'
     )
     list_filter = ('is_active', 'create_date', 'update_date')
+    list_editable = ('is_active',)
     search_fields = ('first_name', 'last_name')
     inlines = (SpeakerSocialAccountInline,)

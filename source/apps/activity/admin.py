@@ -81,6 +81,8 @@ class ActivityAdmin(NonSortableParentAdmin):
     readonly_fields = ('create_date', 'update_date')
     list_display = ('year', 'show_register_url', 'short_description', 'is_active')
     list_filter = ('is_active',)
+    list_editable = ('is_active',)
+    search_fields = ('year',)
     inlines = (
         ActivityDocumentInline, ActivitySocialAccountInline,
         ActivitySponsorInline, ActivityMapInline

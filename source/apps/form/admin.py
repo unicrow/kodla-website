@@ -10,4 +10,5 @@ class ContactAdmin(admin.ModelAdmin):
     readonly_fields = ('create_date', 'update_date')
     list_display = ('activity', 'full_name', 'email', 'is_active')
     list_filter = ('is_active', 'create_date', 'update_date', 'activity')
+    list_editable = ('is_active',)
     search_fields = ('activity__name', 'full_name', 'email')
