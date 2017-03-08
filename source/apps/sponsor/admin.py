@@ -20,7 +20,7 @@ class SponsorTypeAdmin(SortableAdmin):
 @admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
     fields = (
-        ('name', 'url'), ('logo', 'logo_prev'),
+        ('name', 'url'), ('logo', 'logo_prev'), ('logo_width', 'logo_height'),
         ('create_date', 'update_date'), 'is_active'
     )
     readonly_fields = ('create_date', 'update_date', 'logo_prev')

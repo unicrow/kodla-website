@@ -131,3 +131,8 @@ STATIC_ROOT = os.path.join(PACKAGE_ROOT, 'static/')
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# Easy Thumbnails
+THUMBNAIL_MEDIA_URL = "/media/thumbnail/"
+THUMBNAIL_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'thumbnail/')

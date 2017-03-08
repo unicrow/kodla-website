@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 16:35+0200\n"
+"POT-Creation-Date: 2017-03-08 17:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,11 +37,11 @@ msgid "Social Accounts"
 msgstr "Sosyal Hesaplar"
 
 #: source/apps/activity/admin.py:38 source/apps/activity/models.py:166
-#: source/apps/sponsor/apps.py:8 source/apps/sponsor/models.py:48
+#: source/apps/sponsor/apps.py:8 source/apps/sponsor/models.py:54
 msgid "Sponsor"
 msgstr "Sponsor"
 
-#: source/apps/activity/admin.py:39 source/apps/sponsor/models.py:49
+#: source/apps/activity/admin.py:39 source/apps/sponsor/models.py:55
 msgid "Sponsors"
 msgstr "Sponsorlar"
 
@@ -313,11 +313,11 @@ msgstr "Soyad"
 msgid "Image"
 msgstr "Resim"
 
-#: source/apps/speaker/models.py:62 source/apps/sponsor/models.py:71
+#: source/apps/speaker/models.py:62 source/apps/sponsor/models.py:77
 msgid "Not Found!"
 msgstr "Bulunamadı!"
 
-#: source/apps/speaker/models.py:63 source/apps/sponsor/models.py:72
+#: source/apps/speaker/models.py:63 source/apps/sponsor/models.py:78
 msgid "Preview"
 msgstr "Önizleme"
 
@@ -332,6 +332,14 @@ msgstr "Konuşmacı Sosyal Hesapları"
 #: source/apps/sponsor/models.py:27
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
+
+#: source/apps/sponsor/models.py:47
+msgid "Logo Width"
+msgstr "Logo Genişliği"
+
+#: source/apps/sponsor/models.py:50
+msgid "Logo Height"
+msgstr "Logo Yüksekliği"
 
 #: source/templates/index.html:10
 msgid "MENU"
@@ -365,14 +373,14 @@ msgstr "SPONSORLAR"
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:34 source/templates/index.html:295
+#: source/templates/index.html:34 source/templates/index.html:299
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
 #: source/templates/index.html:37 source/templates/index.html:92
 #: source/templates/index.html:99 source/templates/index.html:134
 #: source/templates/index.html:216 source/templates/index.html:271
-#: source/templates/index.html:290
+#: source/templates/index.html:294
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 

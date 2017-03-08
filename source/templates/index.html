@@ -280,7 +280,11 @@
 				<div class="other-sponsors">
 					{% for sponsor in sponsors %}
 						<a href="{{ sponsor.sponsor.url }}" target="_blank">
-							<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+							{% if sponsor.sponsor.logo_width or sponsor.sponsor.logo_height %}
+								<img src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}" {% if sponsor.sponsor.logo_width %}width={{ sponsor.sponsor.logo_width|stringformat:"i" }}{% endif %} {% if sponsor.sponsor.logo_height %}height={{ sponsor.sponsor.logo_height|stringformat:"i" }}{% endif %}>
+							{% else %}
+								<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+							{% endif %}
 						</a>
 					{% endfor %}
 				</div>
