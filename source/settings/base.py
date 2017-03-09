@@ -15,7 +15,11 @@ import os
 import sys
 
 # Local Django
-from .secret import SECRET_KEY, GOOGLE_MAP_API_KEY
+from .secret import (
+    SECRET_KEY, GOOGLE_MAP_API_KEY,
+    TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET,
+    TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET
+)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -102,6 +106,12 @@ GEOPOSITION_MARKER_OPTIONS = {
     'position': {'lat': 41, 'lng': 39.71}
 }
 
+
+# Twitter
+TWITTER_CONSUMER_KEY = TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET = TWITTER_CONSUMER_SECRET
+TWITTER_ACCESS_TOKEN = TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_TOKEN_SECRET = TWITTER_ACCESS_TOKEN_SECRET
 
 
 # Internationalization

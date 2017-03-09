@@ -18,3 +18,11 @@ Pillow==4.0.0
 
 # Sortable
 django-admin-sortable==2.0.21
+
+
+# Twitter
+python-twitter==3.2.1
+#future==0.16.0
+#oauthlib==2.0.1
+#requests-oauthlib==0.8.0
+twitter-text-python==1.1.0

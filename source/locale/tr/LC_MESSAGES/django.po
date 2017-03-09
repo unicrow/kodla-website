@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 10:38+0200\n"
+"POT-Creation-Date: 2017-03-09 16:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:71 source/apps/activity/models.py:45
-#: source/templates/index.html:206
+#: source/templates/index.html:203
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -122,7 +122,7 @@ msgstr "Kayıt Linki"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:48 source/templates/index.html:198
+#: source/apps/activity/models.py:48 source/templates/index.html:195
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -236,11 +236,11 @@ msgstr "Style Id"
 msgid "Style Class"
 msgstr "Style Class"
 
-#: source/apps/core/views.py:91
+#: source/apps/core/views.py:126
 msgid "Your message has been sent. Thank you."
 msgstr "Mesajınız gönderildi. Teşekkür ederiz."
 
-#: source/apps/core/views.py:96
+#: source/apps/core/views.py:131
 msgid "Your message could not be sent. Try again."
 msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
 
@@ -349,23 +349,23 @@ msgstr "MENÜ"
 msgid "HOME"
 msgstr "ANA SAYFA"
 
-#: source/templates/index.html:14 source/templates/index.html:57
+#: source/templates/index.html:14 source/templates/index.html:54
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:15 source/templates/index.html:107
+#: source/templates/index.html:15 source/templates/index.html:104
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:16 source/templates/index.html:140
+#: source/templates/index.html:16 source/templates/index.html:137
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:17 source/templates/index.html:222
+#: source/templates/index.html:17 source/templates/index.html:219
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/index.html:18 source/templates/index.html:277
+#: source/templates/index.html:18 source/templates/index.html:274
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
@@ -373,40 +373,40 @@ msgstr "SPONSORLAR"
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:34 source/templates/index.html:299
+#: source/templates/index.html:34 source/templates/index.html:296
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/index.html:37 source/templates/index.html:92
-#: source/templates/index.html:99 source/templates/index.html:134
-#: source/templates/index.html:216 source/templates/index.html:271
-#: source/templates/index.html:294
+#: source/templates/index.html:37 source/templates/index.html:89
+#: source/templates/index.html:96 source/templates/index.html:131
+#: source/templates/index.html:213 source/templates/index.html:268
+#: source/templates/index.html:291
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/index.html:192
+#: source/templates/index.html:189
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:242
+#: source/templates/index.html:239
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:248
+#: source/templates/index.html:245
 msgid "Social Media"
 msgstr "Sosyal Medya"
 
-#: source/templates/index.html:249
+#: source/templates/index.html:246
 msgid "You can follow updates about the event with social links below."
 msgstr ""
 "Aşağıda yer alan sosyal medya bağlantıları ile etkinlik hakkında gelişmeleri "
 "yakından takip edebilirsiniz."
 
-#: source/templates/index.html:262
+#: source/templates/index.html:259
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:263
+#: source/templates/index.html:260
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."

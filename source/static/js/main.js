@@ -46,23 +46,23 @@ $(function() {
     e.preventDefault();
   });
 
-  // $.ajax({
-  //   url: '/get-tweets',
-  //   success: function(datas) {
-  //     var tweets = datas;
-  //     var tweetTimer;
-  //     var i = 0;
-  //     (tweetTimer = function() {
-  //       $('.latest-tweet p').html(tweets[i].text);
-  //       $('.latest-tweet a').attr('href', 'https://twitter.com/kodlaco/status/'+tweets[i].id_str);
-  //       if(i == tweets.length-1)
-  //         i=0;
-  //       else
-  //         i++;
-  //     })()
-  //     setInterval(tweetTimer, 5000)
-  //   }
-  // });
+  $.ajax({
+    url: '/get-tweets/',
+    success: function(datas) {
+      var tweets = datas;
+      var tweetTimer;
+      var i = 0;
+      (tweetTimer = function() {
+        $('.latest-tweet p').html(tweets[i].text);
+        $('.latest-tweet a').attr('href', 'https://twitter.com/kodlaco/status/'+tweets[i].id_str);
+        if(i == tweets.length-1)
+          i=0;
+        else
+          i++;
+      })()
+      setInterval(tweetTimer, 5000)
+    }
+  });
 
 });
 

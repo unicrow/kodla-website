@@ -1,9 +1,15 @@
+# Standart Library
+import json
+
 # Third-Party
+import twitter
 import collections
+from ttp import ttp
 
 # Django
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -13,6 +19,35 @@ from django.utils.translation import ugettext_lazy as _
 # Local Django
 from form.forms import ContactForm
 from activity.models import Activity
+
+
+def get_tweets(request):
+    datas = []
+    p = ttp.Parser()
+
+    try:
+        api = twitter.Api(
+            consumer_key=settings.TWITTER_CONSUMER_KEY,
+            consumer_secret=settings.TWITTER_CONSUMER_SECRET,
+            access_token_key=settings.TWITTER_ACCESS_TOKEN,
+            access_token_secret=settings.TWITTER_ACCESS_TOKEN_SECRET
+        )
+
+        tweets = api.GetUserTimeline(screen_name='kodlaco')
+        for tweet in tweets:
+            datas.append({
+                #'text': p.parse(tweet.text).html,
+                'text': tweet.text,
+                'id_str': tweet.id_str
+            })
+    except:
+        datas = []
+
+    return HttpResponse(
+        json.dumps(datas), content_type="application/json"
+    )
+
+
 
 
 class IndexView(TemplateView):
