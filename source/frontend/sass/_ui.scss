@@ -96,21 +96,59 @@ a { cursor: pointer }
 	border-bottom: 1px solid $main-nav-border;
 	background: rgba(255,255,255, .95);
 	z-index: 9999;
-	ul { text-align: center }
-	li {
-		display: inline-block;
-		margin-right: 40px;
-		&:last-child { margin: 0 }
+	> ul {
+		text-align: center;
+		> li {
+			display: inline-block;
+			margin-right: 40px;
+			&:last-child { margin: 0 }
+		}
 	}
 	a {
 		display: block;
 		height: 72px;
 		font: normal 18px/72px $roboto-font-stack;
 		color: $main-nav-text;
+		text-transform: uppercase;
 		@include transition(color $default-transition-time);
 		&:hover {
 			color: darken($main-nav-text, 30%);
 		}
+	}
+}
+
+.archive-list {
+	position: relative;
+	&:hover .sub-nav {
+		top: 72px;
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.sub-nav {
+	@include position(absolute, 50px -10px null null);
+	background: rgba(255,255,255, .95);
+	list-style: none;
+	border: 1px solid $main-nav-border;
+	border-top-width: 0;
+	border-radius: 0 0 3px 3px;
+	text-align: center;
+	opacity: 0;
+	visibility: hidden;
+	@include transition(top .2s ease-in-out, opacity .2s ease-in-out);
+	li {
+		border-bottom: 1px solid $main-nav-border;
+		&:last-child {
+			border: 0;
+		}
+	}
+	a {
+		padding: 10px 50px;
+		height: auto;
+		font-size: 15px;
+		line-height: normal;
+		white-space: nowrap;
 	}
 }
 

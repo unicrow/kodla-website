@@ -1,49 +1,50 @@
 @font-face {
-	font-family: 'Kodla';
-	src:url('../fonts/Kodla.eot?-ok07ee');
-	src:url('../fonts/Kodla.eot?#iefix-ok07ee') format('embedded-opentype'),
-		url('../fonts/Kodla.woff?-ok07ee') format('woff'),
-		url('../fonts/Kodla.ttf?-ok07ee') format('truetype'),
-		url('../fonts/Kodla.svg?-ok07ee#Kodla') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'Kodla';
+  src:  url('../fonts/Kodla.eot?txx569');
+  src:  url('../fonts/Kodla.eot?txx569#iefix') format('embedded-opentype'),
+    url('../fonts/Kodla.ttf?txx569') format('truetype'),
+    url('../fonts/Kodla.woff?txx569') format('woff'),
+    url('../fonts/Kodla.svg?txx569#Kodla') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-i {
-	font-family: 'Kodla';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Kodla' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.icon-web:before {
-	content: "\e603";
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-li:before {
-	content: "\e604";
+  content: "\e900";
 }
-
-.icon-gh:before {
-	content: "\e605";
-}
-
 .icon-toggle-mobile-nav:before {
-	content: "\e602";
+  content: "\e901";
 }
-
+.icon-down:before {
+  content: "\e902";
+}
+.icon-file-pdf-o:before {
+  content: "\e903";
+}
+.icon-ticket:before {
+  content: "\e904";
+}
 .icon-fb:before {
-	content: "\e600";
+  content: "\e905";
 }
-
 .icon-tw:before {
-	content: "\e601";
+  content: "\e906";
 }
-
+.icon-web:before {
+  content: "\e907";
+}

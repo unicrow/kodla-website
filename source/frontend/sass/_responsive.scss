@@ -2,8 +2,8 @@
 =            COMMON            =
 ==============================*/
 @media screen and (min-width: 766px) and (max-width: 920px) {
-	.main-nav li {
-		margin-right: 40px;
+	.main-nav > ul > li {
+		margin-right: 20px;
 	}
 }
 
@@ -31,16 +31,41 @@
 		top: 72px;
 		height: 100%;
 		background-color: rgba(0,0,0, .8);
+		> ul {
+			> li {
+				display: block;
+				float: none;
+				margin: 0;
+				border-bottom: 1px solid $main-nav-border;
+				> a {
+					display: block;
+					height: 50px;
+					background-color: #fff;
+					line-height: 50px;
+					&:active { background-color: #f8f8f8 }
+				}
+			}
+		}
+	}
+	.archive-list {
+		> a {
+			display: none;
+		}
+	}
+	.sub-nav {
+		top: 5px;
+		right: 0;
+		width: 100%;
+		border: 0;
+		opacity: 1;
+		visibility: visible;
 		li {
-			display: block;
-			float: none;
-			margin: 0;
-			border-bottom: 1px solid $main-nav-border;
+			display: inline;
+			border: 0;
 		}
 		a {
-			display: block;
-			background-color: #fff;
-			&:active { background-color: #f8f8f8 }
+			display: inline-block;
+			@include padding(null 15px);
 		}
 	}
 }
