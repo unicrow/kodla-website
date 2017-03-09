@@ -94,9 +94,9 @@ $(function() {
 
 // If Browser Window Width Has Changed Then Bring Navigation Bar Back
 window.onresize = function(event) {
-  if ( window.w > 768) {
-    $('body').removeClass('no-scroll');
-    $('.main-nav').toggle();
-  }
+  // if ( window.w > 768) {
+  //   $('body').removeClass('no-scroll');
+  //   $('.main-nav').toggle();
+  // }
   setTimelineHeight();
 };

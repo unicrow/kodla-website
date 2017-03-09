@@ -7,7 +7,8 @@
 	}
 }
 
-@media screen and (min-width: 320px) and (max-width: 766px) {
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
 	.toggle-mobile-nav {
 		display: block;
 		@include position(fixed, 0 null null 0);
@@ -46,6 +47,13 @@
 				}
 			}
 		}
+		.active {
+			background-color: $main-nav-active;
+			color: #fff;
+			&:after {
+				display: none;
+			}
+		}
 	}
 	.archive-list {
 		> a {
@@ -68,9 +76,6 @@
 			@include padding(null 15px);
 		}
 	}
-}
-
-@media screen and (min-width: 320px) and (max-width: 768px) {
 
 	/* HEADER */
 	#logo {
@@ -97,7 +102,6 @@
 			&:hover .time span, &:hover .item { @include transform(scale(1)) }
 		}
 		.time {
-			float: none;
 			padding: 10px 0 !important;
 			width: auto;
 			border: 0;

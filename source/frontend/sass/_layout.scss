@@ -177,18 +177,15 @@ header {
 		}
 	}
 	.item {
-		float: left;
+		overflow: hidden;
 		padding-left: 45px;
 		max-width: 76%;
 		@include transition(all $default-transition-time);
 	}
 	.topic {
-		// font-size: 20px;
-		// font-weight: 600;
 		font: 22px $roboto-font-stack;
 		text-transform: uppercase;
 		color: $topic-text;
-		&.single-line { @include position(relative, 8px null null null) }
 	}
 	.speaker {
 		display: block;
