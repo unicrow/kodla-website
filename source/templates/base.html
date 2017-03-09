@@ -1,7 +1,7 @@
 {% load i18n staticfiles %}
 
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="{{ request.LANGUAGE_CODE|default:'tr' }}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
