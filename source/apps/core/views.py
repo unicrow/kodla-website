@@ -91,7 +91,7 @@ class IndexView(TemplateView):
                     request, _('Your message has been sent. Thank you.')
                 )
 
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(request.path)
 
         messages.error(request, _('Your message could not be sent. Try again.'))
         context.update({ 'contact_form': contact_form })

@@ -222,7 +222,7 @@
 
 			{% if activity %}
 				<div class="contact-inner">
-					<form action="/#contact" method="POST" class="contact-form">
+					<form action="{{ request.path }}#contact" method="POST" class="contact-form">
 						{% csrf_token %}
 						<div {% if contact_form.full_name.errors %}class='error'{% endif %}>
 							<label for="name">{{ contact_form.full_name.label }}</label>
