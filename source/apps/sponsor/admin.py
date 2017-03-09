@@ -25,9 +25,7 @@ class SponsorAdmin(admin.ModelAdmin):
         ('create_date', 'update_date'), 'is_active'
     )
     readonly_fields = ('create_date', 'update_date', 'logo_prev')
-    list_display = (
-        'name', 'url', 'logo_height', 'logo_width', 'logo_prev', 'is_active'
-    )
+    list_display = ('name', 'url', 'logo_prev', 'is_active')
     list_filter = ('is_active', 'create_date', 'update_date')
-    list_editable = ('logo_height', 'logo_width', 'is_active')
+    list_editable = ('is_active',)
     search_fields = ('name',)

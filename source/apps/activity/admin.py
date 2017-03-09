@@ -39,7 +39,8 @@ class ActivitySponsorInline(SortableStackedInline):
     verbose_name_plural = _('Sponsors')
     readonly_fields = ('create_date', 'update_date')
     fields = (
-        ('sponsor', 'sponsor_type'), 'is_active', ('create_date', 'update_date')
+        ('sponsor', 'sponsor_type'), ('logo_height', 'logo_width'),
+        'is_active', ('create_date', 'update_date')
     )
 
 

@@ -43,12 +43,6 @@ class Sponsor(DateModel):
         verbose_name=_('Logo'), null=True, blank=True,
         upload_to=set_sponsor_logo_upload_path
     )
-    logo_height = models.PositiveSmallIntegerField(
-        verbose_name=_('Logo Height'), null=True, blank=True
-    )
-    logo_width = models.PositiveSmallIntegerField(
-        verbose_name=_('Logo Width'), null=True, blank=True
-    )
 
     class Meta:
         verbose_name = _('Sponsor')

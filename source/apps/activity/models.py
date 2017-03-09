@@ -160,6 +160,12 @@ class ActivitySocialAccount(DateModel, SortableMixin):
 
 class ActivitySponsor(DateModel, SortableMixin):
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    logo_height = models.PositiveSmallIntegerField(
+        verbose_name=_('Logo Height'), null=True, blank=True
+    )
+    logo_width = models.PositiveSmallIntegerField(
+        verbose_name=_('Logo Width'), null=True, blank=True
+    )
     sponsor_type = SortableForeignKey(
         verbose_name=_('Sponsor Type'), to=SponsorType
     )
