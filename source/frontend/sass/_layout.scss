@@ -270,7 +270,8 @@ header {
 ======================================*/
 #transportation {
 	padding-top: 40px;
-	border-top: 1px solid $section-border-top;
+	border: 1px solid $section-border-top;
+	border: 1px 0;
 	iframe {
 		margin-bottom: 40px;
 		width: 100%

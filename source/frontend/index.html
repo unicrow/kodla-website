@@ -15,16 +15,16 @@
 	<link rel="icon" href="/static/img/favicon.ico">
 </head>
 <body>
-	<header id="home">
+	<header id="home" data-scroll-index="0">
 		<a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i> MENÜ</a>
 		<nav class="main-nav">
 			<ul>
-			<li><a href="#home">Ana Sayfa</a></li>
-			<li><a href="#program">Program</a></li>
-			<li><a href="#speakers">Konuşmacılar</a></li>
-			<li><a href="#transportation">Ulaşım</a></li>
-			<li><a href="#contact">İletişim</a></li>
-			<li><a href="#sponsors">Sponsorlar</a></li>
+			<li><a href="#home" data-scroll-nav="0">Ana Sayfa</a></li>
+			<li><a href="#program" data-scroll-nav="1">Program</a></li>
+			<li><a href="#speakers" data-scroll-nav="2">Konuşmacılar</a></li>
+			<li><a href="#transportation" data-scroll-nav="3">Ulaşım</a></li>
+			<li><a href="#sponsors" data-scroll-nav="4">Sponsorlar</a></li>
+			<li><a href="#contact" data-scroll-nav="5">İletişim</a></li>
 			<li class="archive-list">
 				<a href="javascript:;">Arşiv <i class="icon-down"></i></a>
 				<ul class="sub-nav">
@@ -99,7 +99,7 @@
 		</a>
 	</section>
 
-	<section id="program">
+	<section id="program" data-scroll-index="1">
 		<div class="wrap">
 			<h1>PROGRAM</h1>
 
@@ -396,7 +396,7 @@
 		</div>
 	</section>
 
-	<section id="speakers">
+	<section id="speakers" data-scroll-index="2">
 		<div class="wrap">
 			<h1>KONUŞMACILAR</h1>
 			<ul class="speaker-list">
@@ -513,7 +513,7 @@
 		</div>
 	</section>
 
-	<section id="transportation">
+	<section id="transportation" data-scroll-index="3">
 		<h1>ULAŞIM</h1>
 		<div class="map">
 			<div id="map" style="height: 400px; margin-bottom: 50px;"></div>
@@ -580,7 +580,44 @@
 		</div>
 	</section>
 
-	<section id="contact">
+	<section id="sponsors" data-scroll-index="4">
+		<h1>SPONSORLAR</h1>
+
+		<div class="main-sponsors">
+			<a href="http://vngrs.com/" target="_blank"><img src="/static/img/logos/vngrs-new.png" width="140" alt=""></a>
+			<a href="http://unicrow.com" target="_blank"><img src="/static/img/logos/unicrow.png" height="70" width="138" alt="Unicrow"></a>
+		</div>
+
+		<div class="other-sponsors">
+			<a href="http://hipolabs.com" target="_blank"><img src="static/img/logos/hipo.png" width="100" alt=""></a>
+			<a href="http://of.bel.tr/" target="_blank"><img src="static/img/logos/of-belediyesi.jpg" width="64" alt=""></a>
+			<a href="http://qualifylabs.com/" target="_blank"><img src="static/img/logos/qualify-logo.png" width="125" alt=""></a>
+			<a href="http://www.rsiletisim.com.tr/" target="_blank"><img src="static/img/logos/rs-iletisim-small.png" width="165" alt=""></a>
+			<a href="http://www.ilbank.gov.tr/" target="_blank"><img src="/static/img/logos/ilbank.jpg" height="90"></a>
+		</div>
+		<div class="other-sponsors">
+			<a href="http://188.166.24.135/" target="_blank"><img src="static/img/logos/mavialp.png" width="100" alt=""></a>
+			<a href="http://tekobiz.com.tr" target="_blank"><img src="static/img/logos/tekobiz.png" width="160" alt=""></a>
+			<a href="http://www.onurteknoloji.com" target="_blank"><img src="static/img/logos/onur-teknoloji.png" width="140" alt=""></a>
+			<a href="http://www.aliosmanulusoy.com/" target="_blank"><img src="static/img/logos/aou.jpg" width="170" alt=""></a>
+		</div>
+		<div class="other-sponsors">
+			<a href="http://bulutbil.com.tr" target="_blank"><img src="static/img/logos/bbs.png" width="90" alt=""></a>
+			<a href="http://www.indir.com/" target="_blank"><img src="static/img/logos/indir_logo.png" width="150" alt=""></a>
+			<a href="http://shiftdelete.net/" target="_blank"><img src="static/img/logos/shiftdelete_logo.png" width="150" alt=""></a>
+		</div>
+		<div class="other-sponsors">
+			<a href="https://www.facebook.com/ktubmk" target="_blank"><img src="/static/img/logos/ktucec.png" width="70" alt=""></a>
+			<a href="https://www.facebook.com/groups/trabzonhs/" target="_blank"><img src="/static/img/logos/trabzon-hs.png" height="82" width="70" alt=""></a>
+			<a href="https://www.facebook.com/ktueek" target="_blank"><img src="/static/img/logos/ec.png" width="95" alt=""></a>
+		</div>
+
+		<div class="other-sponsors">
+			<a href="/static/kodla16-sponsorluk-dosyasi.pdf" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i> Sponsor Ol</a>
+		</div>
+	</section>
+
+	<section id="contact" data-scroll-index="5">
 		<div class="wrap">
 			<h1>İLETİŞİM</h1>
 
@@ -623,45 +660,9 @@
 		</div>
 	</section>
 
-	<section id="sponsors">
-		<h1>SPONSORLAR</h1>
-
-		<div class="main-sponsors">
-			<a href="http://vngrs.com/" target="_blank"><img src="/static/img/logos/vngrs-new.png" width="140" alt=""></a>
-			<a href="http://unicrow.com" target="_blank"><img src="/static/img/logos/unicrow.png" height="70" width="138" alt="Unicrow"></a>
-		</div>
-
-		<div class="other-sponsors">
-			<a href="http://hipolabs.com" target="_blank"><img src="static/img/logos/hipo.png" width="100" alt=""></a>
-			<a href="http://of.bel.tr/" target="_blank"><img src="static/img/logos/of-belediyesi.jpg" width="64" alt=""></a>
-			<a href="http://qualifylabs.com/" target="_blank"><img src="static/img/logos/qualify-logo.png" width="125" alt=""></a>
-			<a href="http://www.rsiletisim.com.tr/" target="_blank"><img src="static/img/logos/rs-iletisim-small.png" width="165" alt=""></a>
-			<a href="http://www.ilbank.gov.tr/" target="_blank"><img src="/static/img/logos/ilbank.jpg" height="90"></a>
-		</div>
-		<div class="other-sponsors">
-			<a href="http://188.166.24.135/" target="_blank"><img src="static/img/logos/mavialp.png" width="100" alt=""></a>
-			<a href="http://tekobiz.com.tr" target="_blank"><img src="static/img/logos/tekobiz.png" width="160" alt=""></a>
-			<a href="http://www.onurteknoloji.com" target="_blank"><img src="static/img/logos/onur-teknoloji.png" width="140" alt=""></a>
-			<a href="http://www.aliosmanulusoy.com/" target="_blank"><img src="static/img/logos/aou.jpg" width="170" alt=""></a>
-		</div>
-		<div class="other-sponsors">
-			<a href="http://bulutbil.com.tr" target="_blank"><img src="static/img/logos/bbs.png" width="90" alt=""></a>
-			<a href="http://www.indir.com/" target="_blank"><img src="static/img/logos/indir_logo.png" width="150" alt=""></a>
-			<a href="http://shiftdelete.net/" target="_blank"><img src="static/img/logos/shiftdelete_logo.png" width="150" alt=""></a>
-		</div>
-		<div class="other-sponsors">
-			<a href="https://www.facebook.com/ktubmk" target="_blank"><img src="/static/img/logos/ktucec.png" width="70" alt=""></a>
-			<a href="https://www.facebook.com/groups/trabzonhs/" target="_blank"><img src="/static/img/logos/trabzon-hs.png" height="82" width="70" alt=""></a>
-			<a href="https://www.facebook.com/ktueek" target="_blank"><img src="/static/img/logos/ec.png" width="95" alt=""></a>
-		</div>
-
-		<div class="other-sponsors">
-			<a href="/static/kodla16-sponsorluk-dosyasi.pdf" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i> Sponsor Ol</a>
-		</div>
-	</section>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="/static/core.js"></script>
+	<script src="/static/js/scrollIt.min.js"></script>
+	<script src="/static/js/core.js"></script>
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -672,6 +673,5 @@
 	ga('send', 'pageview');
 
 	</script>
-<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter29859034 = new Ya.Metrika({id:29859034, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/29859034" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 </body>
 </html>

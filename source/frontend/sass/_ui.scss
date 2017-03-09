@@ -106,13 +106,28 @@ a { cursor: pointer }
 	}
 	a {
 		display: block;
+		position: relative;
 		height: 72px;
 		font: normal 18px/72px $roboto-font-stack;
 		color: $main-nav-text;
 		text-transform: uppercase;
 		@include transition(color $default-transition-time);
+		&:after {
+			content: "";
+			@include position(absolute, null null -5px 0);
+			width: 100%;
+			border-bottom: 4px solid $main-nav-active;
+			opacity: 0;
+			@include transition(bottom $default-transition-time, opacity $default-transition-time);
+		}
 		&:hover {
 			color: darken($main-nav-text, 30%);
+		}
+		&.active {
+			&:after {
+				bottom: 0;
+				opacity: 1;
+			}
 		}
 	}
 }
