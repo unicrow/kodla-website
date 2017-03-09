@@ -6,16 +6,30 @@
 
 
 {% block content %}
-	<header id="home">
+	<header id="home" data-scroll-index="0">
 		<a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans 'MENU' %}</a>
 		<nav class="main-nav">
 			<ul>
-				<li><a href="#home">{% trans "HOME" %}</a></li>
-				<li><a href="#program">{% trans "PROGRAM" %}</a></li>
-				<li><a href="#speakers">{% trans "SPEAKERS" %}</a></li>
-				<li><a href="#transportation">{% trans "TRANSPORTATION" %}</a></li>
-				<li><a href="#contact">{% trans "CONTACT" %}</a></li>
-				<li><a href="#sponsors">{% trans "SPONSORS" %}</a></li>
+				<li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
+				<li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
+				<li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
+				<li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
+				<li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
+				<li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
+				{% if activities %}
+					<li class="archive-list">
+						<a href="javascript:;">{% trans "YEAR" %} ({{ activity.year }}) <i class="icon-down"></i></a>
+						<ul class="sub-nav">
+							{% for i in activities %}
+								{% if forloop.first %}
+									<li><a href="{% url 'index' %}">{{ i.year }}</a></li>
+								{% else %}
+									<li><a href="{% url 'index-year' i.year %}">{{ i.year }}</a></li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+				{% endif %}
 			</ul>
 		</nav>
 
@@ -27,11 +41,11 @@
 					{{ activity.description|safe }}
 
 					{% if activity.register_url %}
-						<a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="fa fa-ticket"></i>{% trans "Sign Up Now" %}</a>
+						<a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="icon-ticket"></i>{% trans "Sign Up Now" %}</a>
 					{% endif %}
 
 					{% if activity_document %}
-						<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+						<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
 					{% endif %}
 				{% else %}
 					<br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
@@ -49,7 +63,7 @@
 		</a>
 	</section>
 
-	<section id="program">
+	<section id="program" data-scroll-index="1">
 		<div class="wrap">
 			<h1>{% trans "PROGRAM" %}</h1>
 
@@ -99,7 +113,7 @@
 		</div>
 	</section>
 
-	<section id="speakers">
+	<section id="speakers" data-scroll-index="2">
 		<div class="wrap">
 			<h1>{% trans "SPEAKERS" %}</h1>
 			{% if activity_speakers %}
@@ -133,7 +147,7 @@
 		</div>
 	</section>
 
-	<section id="transportation">
+	<section id="transportation" data-scroll-index="3">
 		<h1>{% trans "TRANSPORTATION" %}</h1>
 		{% if activity_map or activity.address or activity.accommodation or activity.transportation %}
 			{% if activity_map %}
@@ -214,7 +228,35 @@
 		{% endif %}
 	</section>
 
-	<section id="contact">
+	<section id="sponsors" data-scroll-index="4">
+		<h1>{% trans 'SPONSORS' %}</h1>
+
+		{% if activity_sponsors %}
+			{% for sponsor_type, sponsors in activity_sponsors.items %}
+				<div class="other-sponsors">
+					{% for sponsor in sponsors %}
+						<a href="{{ sponsor.sponsor.url }}" target="_blank">
+							{% if sponsor.logo_width or sponsor.logo_height %}
+								<img src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}" {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}>
+							{% else %}
+								<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+							{% endif %}
+						</a>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		{% else %}
+			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+		{% endif %}
+
+		{% if activity_document %}
+			<div class="other-sponsors">
+				<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+			</div>
+		{% endif %}
+	</section>
+
+	<section id="contact" data-scroll-index="5">
 		<div class="wrap">
 			<h1>{% trans "CONTACT" %}</h1>
 
@@ -268,33 +310,5 @@
 				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
 			{% endif %}
 		</div>
-	</section>
-
-	<section id="sponsors">
-		<h1>{% trans 'SPONSORS' %}</h1>
-
-		{% if activity_sponsors %}
-			{% for sponsor_type, sponsors in activity_sponsors.items %}
-				<div class="other-sponsors">
-					{% for sponsor in sponsors %}
-						<a href="{{ sponsor.sponsor.url }}" target="_blank">
-							{% if sponsor.logo_width or sponsor.logo_height %}
-								<img src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}" {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}>
-							{% else %}
-								<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
-							{% endif %}
-						</a>
-					{% endfor %}
-				</div>
-			{% endfor %}
-		{% else %}
-			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-		{% endif %}
-
-		{% if activity_document %}
-			<div class="other-sponsors">
-				<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
-			</div>
-		{% endif %}
 	</section>
 {% endblock %}

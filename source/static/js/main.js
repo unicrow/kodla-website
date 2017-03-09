@@ -8,21 +8,12 @@ $(function() {
 
   //setTimelineHeight(); // Run It Once...
 
-// Smooth Scroll
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top-$('.main-nav').height()
-        }, 500);
-        return false;
-      }
-    }
+  // Smooth Scroll
+  $.scrollIt({
+    topOffset: -50
   });
 
-// Select Day
+  // Select Day
   $('.day-select a').each(function(i) {
     $(this).click(function(e) {
       e.preventDefault();
@@ -43,7 +34,7 @@ $(function() {
   }
   $('.toggle-mobile-nav, .main-nav a').click(function(e) {
     toggleNav();
-    e.preventDefault();
+    //e.preventDefault();
   });
 
   $.ajax({
@@ -67,10 +58,10 @@ $(function() {
 });
 
 // If Browser Window Width Has Changed Then Bring Navigation Bar Back
-window.onresize = function(event) {
-  if ( window.w > 768) {
-    $('body').removeClass('no-scroll');
-    $('.main-nav').toggle();
-  }
-  setTimelineHeight();
-};
+// window.onresize = function(event) {
+//   if ( window.w > 768) {
+//     $('body').removeClass('no-scroll');
+//     $('.main-nav').toggle();
+//   }
+//   setTimelineHeight();
+// };
