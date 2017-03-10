@@ -6,314 +6,314 @@
 
 
 {% block content %}
-	<header id="home" data-scroll-index="0">
-		<a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans 'MENU' %}</a>
-		<nav class="main-nav">
-			<ul>
-				<li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
-				<li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
-				<li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
-				<li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
-				<li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
-				<li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
-				{% if activities %}
-					<li class="archive-list">
-						<a href="javascript:;">{% trans "YEAR" %} ({{ activity.year }}) <i class="icon-down"></i></a>
-						<ul class="sub-nav">
-							{% for i in activities %}
-								{% if forloop.first %}
-									<li><a href="{% url 'index' %}">{{ i.year }}</a></li>
-								{% else %}
-									<li><a href="{% url 'index-year' i.year %}">{{ i.year }}</a></li>
-								{% endif %}
-							{% endfor %}
-						</ul>
-					</li>
-				{% endif %}
-			</ul>
-		</nav>
+  <header id="home" data-scroll-index="0">
+    <a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans 'MENU' %}</a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
+        <li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
+        <li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
+        <li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
+        <li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
+        <li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
+        {% if activities %}
+          <li class="archive-list">
+            <a href="javascript:;">{% trans "YEAR" %} ({{ activity.year }}) <i class="icon-down"></i></a>
+            <ul class="sub-nav">
+              {% for i in activities %}
+                {% if forloop.first %}
+                  <li><a href="{% url 'index' %}">{{ i.year }}</a></li>
+                {% else %}
+                  <li><a href="{% url 'index-year' i.year %}">{{ i.year }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
 
-		<div class="wrap">
-			<div class="intro">
+    <div class="wrap">
+      <div class="intro">
 
-				{% if activity.logo or activity.description or activity.register_url or activity_document %}
-					{{ activity.logo|safe }}
-					{{ activity.description|safe }}
+        {% if activity.logo or activity.description or activity.register_url or activity_document %}
+          {{ activity.logo|safe }}
+          {{ activity.description|safe }}
 
-					{% if activity.register_url %}
-						<a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="icon-ticket"></i>{% trans "Sign Up Now" %}</a>
-					{% endif %}
+          {% if activity.register_url %}
+            <a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="icon-ticket"></i>{% trans "Sign Up Now" %}</a>
+          {% endif %}
 
-					{% if activity_document %}
-						<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
-					{% endif %}
-				{% else %}
-					<br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
-				{% endif %}
-			</div>
-		</div>
-	</header>
+          {% if activity_document %}
+            <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+          {% endif %}
+        {% else %}
+          <br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
+        {% endif %}
+      </div>
+    </div>
+  </header>
 
-	<section class="latest-tweet">
-		<a href="#" target="_blank">
-			<div class="wrap">
-			<i class="icon-tw"></i>
-			<p>&hellip;</p>
-			</div>
-		</a>
-	</section>
+  <section class="latest-tweet">
+    <a href="#" target="_blank">
+      <div class="wrap">
+      <i class="icon-tw"></i>
+      <p>&hellip;</p>
+      </div>
+    </a>
+  </section>
 
-	<section id="program" data-scroll-index="1">
-		<div class="wrap">
-			<h1>{% trans "PROGRAM" %}</h1>
+  <section id="program" data-scroll-index="1">
+    <div class="wrap">
+      <h1>{% trans "PROGRAM" %}</h1>
 
-			{% if activity_timeline %}
-				<div class="day-select">
-					{% for program in activity_timeline %}
-						<a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
-					{% endfor %}
-				</div>
+      {% if activity_timeline %}
+        <div class="day-select">
+          {% for program in activity_timeline %}
+            <a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
+          {% endfor %}
+        </div>
 
-				<div class="timeline-wrap">
+        <div class="timeline-wrap">
 
-					{% for program, contents in activity_timeline.items %}
-						<ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
-							{% if contents %}
-								{% for content in contents %}
-									<li>
-										<div class="time">
-											<span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>{{ content.start_time }}</span>
+          {% for program, contents in activity_timeline.items %}
+            <ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
+              {% if contents %}
+                {% for content in contents %}
+                  <li>
+                    <div class="time">
+                      <span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>{{ content.start_time }}</span>
 
-											{% if content.end_time %}
-												<span>{{ content.end_time }}</span>
-											{% endif %}
-										</div>
+                      {% if content.end_time %}
+                        <span>{{ content.end_time }}</span>
+                      {% endif %}
+                    </div>
 
-										<div class="item">
-											<span class="topic {% if not content.speaker %}single-line{% endif %}">
-												{{ content.subject }}
-												{% if content.annotation %}
-													<span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
-												{% endif %}
-											</span>
-											{% with speakers_name=content.get_speakers %}
-												{% if speakers_name %}
-													<span class="speaker">{{ speakers_name }}</span>
-												{% endif %}
-											{% endwith %}
-										</div>
-									</li>
-								{% endfor %}
-							{% else %}
-								<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-							{% endif %}
-						</ul>
-					{% endfor %}
+                    <div class="item">
+                      <span class="topic {% if not content.speaker %}single-line{% endif %}">
+                        {{ content.subject }}
+                        {% if content.annotation %}
+                          <span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
+                        {% endif %}
+                      </span>
+                      {% with speakers_name=content.get_speakers %}
+                        {% if speakers_name %}
+                          <span class="speaker">{{ speakers_name }}</span>
+                        {% endif %}
+                      {% endwith %}
+                    </div>
+                  </li>
+                {% endfor %}
+              {% else %}
+                <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+              {% endif %}
+            </ul>
+          {% endfor %}
 
-				</div>
-			{% else %}
-				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-			{% endif %}
+        </div>
+      {% else %}
+        <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+      {% endif %}
 
-		</div>
-	</section>
+    </div>
+  </section>
 
-	<section id="speakers" data-scroll-index="2">
-		<div class="wrap">
-			<h1>{% trans "SPEAKERS" %}</h1>
-			{% if activity_speakers %}
-				<ul class="speaker-list">
-					{% for speaker, speaker_social_accounts in activity_speakers.items %}
-						<li>
-							{% if speaker.image %}
-								<figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
-							{% endif %}
-							<p>{{ speaker.get_full_name }}</p>
+  <section id="speakers" data-scroll-index="2">
+    <div class="wrap">
+      <h1>{% trans "SPEAKERS" %}</h1>
+      {% if activity_speakers %}
+        <ul class="speaker-list">
+          {% for speaker, speaker_social_accounts in activity_speakers.items %}
+            <li>
+              {% if speaker.image %}
+                <figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
+              {% endif %}
+              <p>{{ speaker.get_full_name }}</p>
 
-							{% if speaker_social_accounts %}
-								<div class="speaker-info">
-									{% for speaker_social_account in speaker_social_accounts %}
-										<a href="{{ speaker_social_account.url}}" target="_blank">
-											{% if speaker_social_account.account.style_class %}
-												<i class="{{ speaker_social_account.account.style_class }}"></i>
-											{% else %}
-												{{ speaker_social_account.account.name }}
-											{% endif %}
-										</a>
-									{% endfor %}
-								</div>
-							{% endif %}
-						</li>
-					{% endfor %}
-				</ul>
-			{% else %}
-				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-			{% endif %}
-		</div>
-	</section>
+              {% if speaker_social_accounts %}
+                <div class="speaker-info">
+                  {% for speaker_social_account in speaker_social_accounts %}
+                    <a href="{{ speaker_social_account.url}}" target="_blank">
+                      {% if speaker_social_account.account.style_class %}
+                        <i class="{{ speaker_social_account.account.style_class }}"></i>
+                      {% else %}
+                        {{ speaker_social_account.account.name }}
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+      {% endif %}
+    </div>
+  </section>
 
-	<section id="transportation" data-scroll-index="3">
-		<h1>{% trans "TRANSPORTATION" %}</h1>
-		{% if activity_map or activity.address or activity.accommodation or activity.transportation %}
-			{% if activity_map %}
-				<div class="map">
-					<div id="map" style="height: 400px; margin-bottom: 50px;"></div>
-					<script>
+  <section id="transportation" data-scroll-index="3">
+    <h1>{% trans "TRANSPORTATION" %}</h1>
+    {% if activity_map or activity.address or activity.accommodation or activity.transportation %}
+      {% if activity_map %}
+        <div class="map">
+          <div id="map" style="height: 400px; margin-bottom: 50px;"></div>
+          <script>
 
-						// The following example creates a marker in Stockholm, Sweden using a DROP
-						// animation. Clicking on the marker will toggle the animation between a BOUNCE
-						// animation and no animation.
+            // The following example creates a marker in Stockholm, Sweden using a DROP
+            // animation. Clicking on the marker will toggle the animation between a BOUNCE
+            // animation and no animation.
 
-						var marker;
+            var marker;
 
-						function initMap() {
-							var map = new google.maps.Map(document.getElementById('map'), {
-								zoom: 16,
-								scrollwheel: false,
-								center: {lat: {{ activity_map.coordinates.latitude|stringformat:"f" }}, lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}}
-							});
+            function initMap() {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                scrollwheel: false,
+                center: {lat: {{ activity_map.coordinates.latitude|stringformat:"f" }}, lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}}
+              });
 
-							marker = new google.maps.Marker({
-								position: map.getCenter(),
-								map: map,
-								draggable: false,
-								animation: google.maps.Animation.DROP
-							});
-							//marker.addListener('click', toggleBounce);
+              marker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP
+              });
+              //marker.addListener('click', toggleBounce);
 
-							var infoWindow = new google.maps.InfoWindow({
-								content: '{{ activity_map.description }}'
-							});
+              var infoWindow = new google.maps.InfoWindow({
+                content: '{{ activity_map.description }}'
+              });
 
-							// Opens the InfoWindow when marker is clicked.
-							marker.addListener('click', function() {
-								infoWindow.open(map, marker);
-							});
-						}
+              // Opens the InfoWindow when marker is clicked.
+              marker.addListener('click', function() {
+                infoWindow.open(map, marker);
+              });
+            }
 
-						function toggleBounce() {
-							if (marker.getAnimation() !== null) {
-								marker.setAnimation(null);
-							} else {
-								marker.setAnimation(google.maps.Animation.BOUNCE);
-							}
-						}
-					</script>
-					<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
-				</div>
-			{% endif %}
-			<div class="wrap">
-				<div class="desc">
-					<div>
-						<h2>{% trans "Event Location" %}</h2>
-						{% if activity.address %}
-							{{ activity.address|safe }}
-						{% else %}
-							---
-						{% endif %}
-						<h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
-						{% if activity.accommodation %}
-							{{ activity.accommodation|safe }}
-						{% else %}
-							---
-						{% endif %}
-					</div>
-					<div>
-						<h2>{% trans "Transportation" %}</h2>
-						{% if activity.transportation %}
-							{{ activity.transportation|safe }}
-						{% else %}
-							---
-						{% endif %}
-					</div>
-				</div>
-			</div>
-		{% else %}
-			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-		{% endif %}
-	</section>
+            function toggleBounce() {
+              if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+              } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
+            }
+          </script>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
+        </div>
+      {% endif %}
+      <div class="wrap">
+        <div class="desc">
+          <div>
+            <h2>{% trans "Event Location" %}</h2>
+            {% if activity.address %}
+              {{ activity.address|safe }}
+            {% else %}
+              ---
+            {% endif %}
+            <h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
+            {% if activity.accommodation %}
+              {{ activity.accommodation|safe }}
+            {% else %}
+              ---
+            {% endif %}
+          </div>
+          <div>
+            <h2>{% trans "Transportation" %}</h2>
+            {% if activity.transportation %}
+              {{ activity.transportation|safe }}
+            {% else %}
+              ---
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+    {% endif %}
+  </section>
 
-	<section id="sponsors" data-scroll-index="4">
-		<h1>{% trans 'SPONSORS' %}</h1>
+  <section id="sponsors" data-scroll-index="4">
+    <h1>{% trans 'SPONSORS' %}</h1>
 
-		{% if activity_sponsors %}
-			{% for sponsor_type, sponsors in activity_sponsors.items %}
-				<div class="other-sponsors">
-					{% for sponsor in sponsors %}
-						<a href="{{ sponsor.sponsor.url }}" target="_blank">
-							{% if sponsor.logo_width or sponsor.logo_height %}
-								<img src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}" {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}>
-							{% else %}
-								<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
-							{% endif %}
-						</a>
-					{% endfor %}
-				</div>
-			{% endfor %}
-		{% else %}
-			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-		{% endif %}
+    {% if activity_sponsors %}
+      {% for sponsor_type, sponsors in activity_sponsors.items %}
+        <div class="other-sponsors">
+          {% for sponsor in sponsors %}
+            <a href="{{ sponsor.sponsor.url }}" target="_blank">
+              {% if sponsor.logo_width or sponsor.logo_height %}
+                <img src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}" {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}>
+              {% else %}
+                <img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+    {% endif %}
 
-		{% if activity_document %}
-			<div class="other-sponsors">
-				<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
-			</div>
-		{% endif %}
-	</section>
+    {% if activity_document %}
+      <div class="other-sponsors">
+        <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+      </div>
+    {% endif %}
+  </section>
 
-	<section id="contact" data-scroll-index="5">
-		<div class="wrap">
-			<h1>{% trans "CONTACT" %}</h1>
+  <section id="contact" data-scroll-index="5">
+    <div class="wrap">
+      <h1>{% trans "CONTACT" %}</h1>
 
-			{% if activity %}
-				<div class="contact-inner">
-					<form action="{{ request.path }}#contact" method="POST" class="contact-form">
-						{% csrf_token %}
-						<div {% if contact_form.full_name.errors %}class='error'{% endif %}>
-							<label for="name">{{ contact_form.full_name.label }}</label>
-							{% add_attrs contact_form.full_name %}
-							<span class="input-edges"></span>
-						</div>
-						<div {% if contact_form.email.errors %}class='error'{% endif %}>
-							<label for="email">{{ contact_form.email.label }}</label>
-							{% add_attrs contact_form.email %}
-							<span class="input-edges"></span>
-						</div>
-						<div {% if contact_form.message.errors %}class='error'{% endif %}>
-							<label for="message">{{ contact_form.message.label }}</label>
-							{% add_attrs contact_form.message %}
-						</div>
-						<div><button type="submit">{% trans "Send Message" %}</button></div>
-					</form>
+      {% if activity %}
+        <div class="contact-inner">
+          <form action="{{ request.path }}#contact" method="POST" class="contact-form">
+            {% csrf_token %}
+            <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
+              <label for="name">{{ contact_form.full_name.label }}</label>
+              {% add_attrs contact_form.full_name %}
+              <span class="input-edges"></span>
+            </div>
+            <div {% if contact_form.email.errors %}class='error'{% endif %}>
+              <label for="email">{{ contact_form.email.label }}</label>
+              {% add_attrs contact_form.email %}
+              <span class="input-edges"></span>
+            </div>
+            <div {% if contact_form.message.errors %}class='error'{% endif %}>
+              <label for="message">{{ contact_form.message.label }}</label>
+              {% add_attrs contact_form.message %}
+            </div>
+            <div><button type="submit">{% trans "Send Message" %}</button></div>
+          </form>
 
-					<div class="contact-info">
-						{% if activity_social_accounts %}
-							<div>
-								<h2>{% trans "Social Media" %}</h2>
-								<p>{% trans "You can follow updates about the event with social links below." %}</p>
-								<div class="accounts">
-									{% for activity_social_account in activity_social_accounts %}
-										<a href="{{ activity_social_account.url }}" target="_blank">
-											<i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
-										</a>
-									{% endfor %}
-								</div>
-							</div>
-						{% endif %}
+          <div class="contact-info">
+            {% if activity_social_accounts %}
+              <div>
+                <h2>{% trans "Social Media" %}</h2>
+                <p>{% trans "You can follow updates about the event with social links below." %}</p>
+                <div class="accounts">
+                  {% for activity_social_account in activity_social_accounts %}
+                    <a href="{{ activity_social_account.url }}" target="_blank">
+                      <i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
 
-						{% if activity.email %}
-							<div>
-								<h2>{% trans "Communicate Now" %}</h2>
-								<p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
-									<a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
-								</p>
-							</div>
-						{% endif %}
-					</div>
-				</div>
-			{% else %}
-				<div class="coming-soon">{% trans 'Coming Soon' %}</div>
-			{% endif %}
-		</div>
-	</section>
+            {% if activity.email %}
+              <div>
+                <h2>{% trans "Communicate Now" %}</h2>
+                <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
+                  <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
+                </p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+      {% endif %}
+    </div>
+  </section>
 {% endblock %}
