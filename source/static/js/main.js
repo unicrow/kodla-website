@@ -63,5 +63,5 @@ window.onresize = function(event) {
   //   $('body').removeClass('no-scroll');
   //   $('.main-nav').toggle();
   // }
-  setTimelineHeight();
+  // setTimelineHeight();
 };

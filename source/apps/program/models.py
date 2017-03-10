@@ -32,11 +32,13 @@ class ProgramContent(DateModel):
         verbose_name=_('Annotation'), max_length=255, null=True, blank=True
     )
     start_time = models.TimeField(verbose_name=_('Start Time'))
-    end_time = models.TimeField(verbose_name=_('End Time'))
+    end_time = models.TimeField(
+        verbose_name=_('End Time'), null=True, blank=True
+    )
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
     program = models.ForeignKey(verbose_name=_('Program'), to=Program)
-    speaker = models.ForeignKey(
-        verbose_name=_('Speaker'), to=Speaker, null=True, blank=True
+    speakers = models.ManyToManyField(
+        verbose_name=_('Speaker'), to=Speaker, blank=True
     )
 
     class Meta:
@@ -48,3 +50,12 @@ class ProgramContent(DateModel):
         return '{subject}-{annotation}'.format(
             subject=self.subject, annotation=self.annotation
         ).strip('-')
+
+    def get_speakers(self):
+        speakers_name = [
+            speaker.get_full_name() for speaker in self.speakers.filter(
+                is_active=True
+            )
+        ]
+
+        return ', '.join(speakers_name)

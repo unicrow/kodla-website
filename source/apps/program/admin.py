@@ -11,10 +11,11 @@ class ProgramContentInline(admin.StackedInline):
     extra = 0
     verbose_name = _('Program Content')
     verbose_name_plural = _('Program Contents')
+    filter_horizontal = ('speakers',)
     readonly_fields = ('create_date', 'update_date')
     fields = (
         ('subject', 'annotation'), ('start_time', 'end_time'),
-        ('program', 'speaker'), 'is_active', ('create_date', 'update_date')
+        ('program', 'speakers'), 'is_active', ('create_date', 'update_date')
     )
 
 

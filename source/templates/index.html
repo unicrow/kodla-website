@@ -82,8 +82,11 @@
 								{% for content in contents %}
 									<li>
 										<div class="time">
-											<span>{{ content.start_time }}</span>
-											<span>{{ content.end_time }}</span>
+											<span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>{{ content.start_time }}</span>
+
+											{% if content.end_time %}
+												<span>{{ content.end_time }}</span>
+											{% endif %}
 										</div>
 
 										<div class="item">
@@ -93,9 +96,11 @@
 													<span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
 												{% endif %}
 											</span>
-											{% if content.speaker %}
-												<span class="speaker">{{ content.speaker.get_full_name }}</span>
-											{% endif %}
+											{% with speakers_name=content.get_speakers %}
+												{% if speakers_name %}
+													<span class="speaker">{{ speakers_name }}</span>
+												{% endif %}
+											{% endwith %}
 										</div>
 									</li>
 								{% endfor %}
