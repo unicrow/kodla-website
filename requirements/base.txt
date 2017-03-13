@@ -26,3 +26,7 @@ python-twitter==3.2.1
 #oauthlib==2.0.1
 #requests-oauthlib==0.8.0
 twitter-text-python==1.1.0
+
+
+# Captcha
+django-recaptcha==1.2.1

@@ -43,11 +43,7 @@ def get_tweets(request):
     except:
         datas = []
 
-    return HttpResponse(
-        json.dumps(datas), content_type="application/json"
-    )
-
-
+    return HttpResponse(json.dumps(datas), content_type="application/json")
 
 
 class IndexView(TemplateView):

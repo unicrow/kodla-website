@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 12:40+0200\n"
+"POT-Creation-Date: 2017-03-13 15:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -236,11 +236,11 @@ msgstr "Style Id"
 msgid "Style Class"
 msgstr "Style Class"
 
-#: source/apps/core/views.py:126
+#: source/apps/core/views.py:122
 msgid "Your message has been sent. Thank you."
 msgstr "Mesajınız gönderildi. Teşekkür ederiz."
 
-#: source/apps/core/views.py:131
+#: source/apps/core/views.py:127
 msgid "Your message could not be sent. Try again."
 msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
 
@@ -248,15 +248,15 @@ msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
 msgid "Form"
 msgstr "Form"
 
-#: source/apps/form/forms.py:10
+#: source/apps/form/forms.py:13
 msgid "Name and Surname"
 msgstr "Adınız ve Soyadınız"
 
-#: source/apps/form/forms.py:11
+#: source/apps/form/forms.py:14
 msgid "E-Mail Address"
 msgstr "E-Posta Adresiniz"
 
-#: source/apps/form/forms.py:12
+#: source/apps/form/forms.py:15
 msgid "Your message"
 msgstr "Mesajınız"
 
@@ -384,7 +384,7 @@ msgstr "Sponsor Ol"
 #: source/templates/index.html:51 source/templates/index.html:108
 #: source/templates/index.html:115 source/templates/index.html:150
 #: source/templates/index.html:232 source/templates/index.html:254
-#: source/templates/index.html:315
+#: source/templates/index.html:316
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
@@ -392,25 +392,25 @@ msgstr "Çok Yakında"
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:286
+#: source/templates/index.html:287
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:292
+#: source/templates/index.html:293
 msgid "Social Media"
 msgstr "Sosyal Medya"
 
-#: source/templates/index.html:293
+#: source/templates/index.html:294
 msgid "You can follow updates about the event with social links below."
 msgstr ""
 "Aşağıda yer alan sosyal medya bağlantıları ile etkinlik hakkında gelişmeleri "
 "yakından takip edebilirsiniz."
 
-#: source/templates/index.html:306
+#: source/templates/index.html:307
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:307
+#: source/templates/index.html:308
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."

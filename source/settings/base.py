@@ -17,6 +17,7 @@ import sys
 # Local Django
 from .secret import (
     SECRET_KEY, GOOGLE_MAP_API_KEY,
+    RECAPTCHA_PUBLIC_KEY, RECAPTCHA_PRIVATE_KEY,
     TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET,
     TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET
 )
@@ -49,8 +50,9 @@ INSTALLED_APPS = [
     'source',
 
     # External Applications
-    'geoposition',
+    'captcha',
     'redactor',
+    'geoposition',
     'adminsortable',
     'easy_thumbnails',
 
@@ -105,6 +107,12 @@ GEOPOSITION_MAP_OPTIONS = {
 GEOPOSITION_MARKER_OPTIONS = {
     'position': {'lat': 41, 'lng': 39.71}
 }
+
+
+# ReCaptcha
+RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY
+RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY
+NOCAPTCHA = True
 
 
 # Twitter

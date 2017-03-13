@@ -283,6 +283,7 @@
               <label for="message">{{ contact_form.message.label }}</label>
               {% add_attrs contact_form.message %}
             </div>
+             {% add_attrs contact_form.recaptcha %}
             <div><button type="submit">{% trans "Send Message" %}</button></div>
           </form>
 

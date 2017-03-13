@@ -1,3 +1,6 @@
+# Third-Party
+from captcha.fields import ReCaptchaField
+
 # Django
 from django import forms
 from django.utils.translation import ugettext_lazy as _
@@ -10,10 +13,11 @@ class ContactForm(forms.ModelForm):
     full_name = forms.CharField(label=_('Name and Surname'), max_length=100)
     email = forms.EmailField(label=_('E-Mail Address'))
     message = forms.CharField(label=_('Your message'), widget=forms.Textarea)
+    recaptcha = ReCaptchaField()
 
     class Meta:
         model = Contact
-        fields = ('full_name', 'email', 'message')
+        fields = ('full_name', 'email', 'message', 'recaptcha')
 
     def save(self, activity=None, commit=True):
         contact = super(ContactForm, self).save(commit=False)
