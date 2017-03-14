@@ -13,7 +13,7 @@
 
   {% block style %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
   {% endblock %}
 </head>
 <body>
@@ -23,7 +23,7 @@
 
   {% block script %}
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
     <script type="text/javascript" src="{% static 'js/scrollIt.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
