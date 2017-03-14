@@ -133,7 +133,7 @@ header {
 		@include transition(all $default-transition-time);
 		&:hover {
 			.time span, .item {
-				@include transform(scale(1.090));
+				@include transform(scale(1.050));
 			}
 			.time:before { @include visible }
 		}
@@ -184,7 +184,6 @@ header {
 	}
 	.topic {
 		font: 22px $roboto-font-stack;
-		text-transform: uppercase;
 		color: $topic-text;
 	}
 	.speaker {
