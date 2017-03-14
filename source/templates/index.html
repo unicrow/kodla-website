@@ -41,11 +41,15 @@
           {{ activity.description|safe }}
 
           {% if activity.register_url %}
-            <a href="{{ activity.register_url }}" class="btn" target="_blank"><i class="icon-ticket"></i>{% trans "Sign Up Now" %}</a>
+            <a href="{{ activity.register_url }}" class="btn" target="_blank">
+              <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
+            </a>
           {% endif %}
 
           {% if activity_document %}
-            <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+            <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
+              <i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
+            </a>
           {% endif %}
         {% else %}
           <br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
@@ -82,7 +86,9 @@
                 {% for content in contents %}
                   <li>
                     <div class="time">
-                      <span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>{{ content.start_time }}</span>
+                      <span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>
+                        {{ content.start_time }}
+                      </span>
 
                       {% if content.end_time %}
                         <span>{{ content.end_time }}</span>
@@ -126,14 +132,14 @@
           {% for speaker, speaker_social_accounts in activity_speakers.items %}
             <li>
               {% if speaker.image %}
-                <figure><img src="{{ speaker.image.url }}" width="213" height="213"></figure>
+                <figure><img src="{{ speaker.image.url }}" width="213" height="213" alt="{{ speaker.get_full_name }}"></figure>
               {% endif %}
               <p>{{ speaker.get_full_name }}</p>
 
               {% if speaker_social_accounts %}
                 <div class="speaker-info">
                   {% for speaker_social_account in speaker_social_accounts %}
-                    <a href="{{ speaker_social_account.url}}" target="_blank">
+                    <a href="{{ speaker_social_account.url }}" target="_blank">
                       {% if speaker_social_account.account.style_class %}
                         <i class="{{ speaker_social_account.account.style_class }}"></i>
                       {% else %}
@@ -170,7 +176,10 @@
               var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
                 scrollwheel: false,
-                center: {lat: {{ activity_map.coordinates.latitude|stringformat:"f" }}, lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}}
+                center: {
+                    lat: {{ activity_map.coordinates.latitude|stringformat:"f" }},
+                    lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}
+                }
               });
 
               marker = new google.maps.Marker({
@@ -242,7 +251,11 @@
           {% for sponsor in sponsors %}
             <a href="{{ sponsor.sponsor.url }}" target="_blank">
               {% if sponsor.logo_width or sponsor.logo_height %}
-                <img src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}" {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}>
+                <img
+                  src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}"
+                  {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} 
+                  {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}
+                >
               {% else %}
                 <img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
               {% endif %}
@@ -256,7 +269,9 @@
 
     {% if activity_document %}
       <div class="other-sponsors">
-        <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}</a>
+        <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
+          <i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}
+        </a>
       </div>
     {% endif %}
   </section>
@@ -295,7 +310,8 @@
                 <div class="accounts">
                   {% for activity_social_account in activity_social_accounts %}
                     <a href="{{ activity_social_account.url }}" target="_blank">
-                      <i class="{{ activity_social_account.account.style_class }}"></i>{{ activity_social_account.account.name }}
+                      <i class="{{ activity_social_account.account.style_class }}"></i>
+                      {{ activity_social_account.account.name }}
                     </a>
                   {% endfor %}
                 </div>
