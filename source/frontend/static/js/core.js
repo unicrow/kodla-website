@@ -32,7 +32,6 @@ $(function() {
   }
   $('.toggle-mobile-nav, .main-nav a').click(function(e) {
     toggleNav();
-    e.preventDefault();
   });
 
   $.ajax({
