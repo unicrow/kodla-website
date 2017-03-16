@@ -629,23 +629,23 @@
 			<div class="tab-content active">
 					<form action="/send-mail" method="POST" class="speaker-apply-form">
 						<div>
-							<label for="speaker-name">Adınız ve Soyadınız:</label>
+							<label for="speaker-name">Adınız ve Soyadınız: *</label>
 							<input type="text" name="speaker-name" id="speaker-name">
 						</div>
 						<div>
-							<label for="speaker-email">E-Posta Adresiniz:</label>
+							<label for="speaker-email">E-Posta Adresiniz: *</label>
 							<input type="text" name="speaker-email" id="speaker-email">
 						</div>
 						<div>
-							<label for="position">Çalışma Pozisyonunuz:</label>
+							<label for="position">Çalışma Pozisyonunuz: *</label>
 							<input type="text" name="position" id="position" placeholder="Arayüz Geliştiricisi, Sunucu Taraflı Geliştirici vs.">
 						</div>
 						<div>
-							<label for="picture">Fotoğrafınız:</label>
+							<label for="picture">Fotoğrafınız: *</label>
 							<input type="file">
 						</div>
 						<div>
-							<label for="company">Şu Anda Çalıştığınız Firma:</label>
+							<label for="company">Şu Anda Çalıştığınız Firma: *</label>
 							<input type="text" id="company">
 						</div>
 						<div>
@@ -665,8 +665,8 @@
 							<input type="text" id="linkedin-url" placeholder="https://linkedin.com/in/kullanıcı-adınız">
 						</div>
 						<div>
-							<label for="linkedin-url">Diğer Sosyal Medya Hesabınız:</label>
-							<input type="text" id="linkedin-url" placeholder="Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz">
+							<label for="other-url">Diğer Sosyal Medya Hesabınız:</label>
+							<input type="text" id="other-url" placeholder="Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz">
 						</div>
 						<div class="full-width">
 							<label for="speaker-note">Notunuz:</label>
@@ -679,15 +679,15 @@
 			<div class="tab-content">
 				<form action="/send-mail" method="POST" class="contact-form">
 					<div>
-						<label for="name">Adınız ve Soyadınız:</label>
+						<label for="name">Adınız ve Soyadınız: *</label>
 						<input type="text" name="name" id="name">
 					</div>
 					<div>
-						<label for="email">E-Posta Adresiniz:</label>
+						<label for="email">E-Posta Adresiniz: *</label>
 						<input type="text" name="email" id="email">
 					</div>
 					<div>
-						<label for="message">Mesajınız:</label>
+						<label for="message">Mesajınız: *</label>
 						<textarea name="message" id="message" cols="30" rows="10"></textarea>
 					</div>
 					<div><button type="submit">Mesajı Gönder</button></div>
@@ -695,24 +695,26 @@
 
 				<div class="contact-info">
 					<div>
-						<h2>Sosyal Medya</h2>
-						<p>Aşağıda yer alan sosyal medya bağlantıları ile etkinlik hakkında gelişmeleri yakından takip edebilirsiniz.</p>
-
-						<div class="accounts">
-							<a href="https://facebook.com/kodlaco" class="facebook"><i class="icon-fb"></i>Facebook</a>
-							<a href="https://twitter.com/kodlaco" class="twitter"><i class="icon-tw"></i>Twitter</a>
-						</div>
-					</div>
-
-					<div>
 						<h2>Hemen İletişime Geçin</h2>
-						<p>İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz. <a href="mailto:&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;">&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;</a></p>
+						<p>İletişim formunu kullanmak yerine varsayılan e-posta istemciniz üzerinden bize e-posta yazmak isterseniz aşağıdaki e-posta adresimizi kullanabilirsiniz. <a href="mailto:&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;">&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;</a></p>
 					</div>
 				</div>
 			</div><!-- /.tab-content -->
 
 		</div>
 	</section>
+
+	<footer class="footer">
+		<a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo"><img src="/static/img/logos/trabzonhs-footer-logo.png" alt=""></a>
+
+		<p class="footer-desc">Bu web sitesi <a href="https://www.facebook.com/groups/trabzonhs/">Trabzon Hackerspace</a> için <a href="http://unicrow.com">Unicrow</a> tarafından tasarlanıp geliştirilmiştir.</p>
+
+		<ul class="footer-social-media">
+			<li><a href="https://twitter.com/kodlaco"><i class="icon-tw"></i></a></li>
+			<li><a href="https://facebook.com/kodlaco"><i class="icon-fb"></i></a></li>
+			<li><a href="https://github.com/TrabzonHackerspace/Kodla"><i class="icon-gh"></i></a></li>
+		</ul>
+	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="/static/js/scrollIt.min.js"></script>

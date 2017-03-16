@@ -45,6 +45,50 @@ header {
 }
 
 
+// ------ //
+// FOOTER //
+// ------ //
+.footer {
+	position: relative;
+	padding: 25px 50px 22px;
+	@include size(100% 75px);
+	background-color: $footer-bg;
+	@include clearfix;
+	text-align: center;
+	color: #929292;
+	a {
+		color: #fff;
+		&:hover {
+			color: #d2d2d2;
+		}
+	}
+	&-desc {
+		display: inline-block;
+		font-size: 14px;
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&-social-media {
+		float: right;
+		list-style: none;
+		li {
+			display: inline-block;
+			margin-left: 10px;
+		}
+		a {
+			font-size: 24px;
+		}
+	}
+}
+
+.trabzonhs-logo {
+	float: left;
+	margin-top: -7px;
+}
+
+
 /*====================================
 =            LATEST TWEET            =
 ====================================*/
