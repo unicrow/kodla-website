@@ -85,43 +85,13 @@ header {
 	h1 { color: #fff }
 }
 
-.day-select {
-	text-align: center;
-	font-size: 0;
-	white-space: nowrap;
-	a {
-		display: inline-block;
-		margin-right: 10px;
-		padding: 0 20px;
-		height: 36px;
-		font: 18px $roboto-font-stack;
-		text-transform: uppercase;
-		font-weight: 200;
-		line-height: 34px;
-		color: $day-select-text;
-		border-radius: 36px;
-		border: 2px solid $day-select-border;
-		@include transition(all $default-transition-time);
-		&:hover, &.active {
-			background-color: $day-select-active-bg;
-			color: $day-select-active-text;
-		}
-	}
-}
-
 .timeline-wrap {
 	position: relative;
-	//@include transition(all $default-transition-time);
-	//min-height: 800px;
 }
 
 .timeline {
-	//@include hidden;
 	display: none;
 	opacity: 1;
-	//opacity: 0;
-	//margin: 52px 100px 50px 80px;
-	//@include position(absolute, 52px null null 0);
 	width: 100%;
 	@include transition(all .5s);
 	&.swap {
@@ -154,8 +124,6 @@ header {
 		span {
 			display: block;
 			font: 18px $roboto-font-stack;
-			// font-size: 20px;
-			// font-weight: 600;
 			color: $time-text;
 			@include transition(all $default-transition-time);
 		}
@@ -202,7 +170,6 @@ header {
 	padding: 0 25px 25px;
 	li {
 		float: left;
-		//margin: 0 0 130px 25px;
 		padding: 25px;
 		width: 50%;
 		list-style: none;
@@ -297,23 +264,37 @@ header {
 /*===============================
 =            CONTACT            =
 ===============================*/
-#contact { background-color: $contact-bg }
-
-.contact-inner { @include clearfix }
-
-.contact-form {
-	float: left;
-	width: 620px;
-	label { padding-bottom: 10px }
-	div {
-		position: relative;
-		margin-bottom: 25px;
+#contact {
+	background-color: $contact-bg;
+	.tab {
+		margin-bottom: 50px;
+		a {
+			color: $contact-tab-text;
+			border-color: $contact-tab-border;
+			background-color: #f2f2f2;
+			&:hover, &.active {
+				background-color: #fff;
+				color: darken($contact-tab-text, 15%)
+			}
+		}
 	}
-	input, textarea {
+	form {
+		float: left;
+		width: 620px;
+		label { padding-bottom: 10px }
+		div {
+			position: relative;
+			margin-bottom: 25px;
+		}
+		input, textarea {
+			width: 100%;
+		}
+		textarea {
+			height: 230px;
+		}
+	}
+	.full-width {
 		width: 100%;
-	}
-	textarea {
-		height: 230px;
 	}
 }
 
@@ -339,6 +320,21 @@ header {
 		}
 		.icon-fb { color: $icon-fb }
 		.icon-tw { color: $icon-tw }
+	}
+}
+
+.speaker-apply-form {
+	width: 100% !important;
+	div {
+		float: left;
+		margin-right: 10px;
+		width: calc(50% - 10px);
+		min-height: 74px;
+		&:last-child {
+			clear: both;
+			float: none;
+			width: 100%;
+		}
 	}
 }
 

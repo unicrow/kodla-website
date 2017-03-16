@@ -103,7 +103,7 @@
 		<div class="wrap">
 			<h1>PROGRAM</h1>
 
-			<div class="day-select">
+			<div class="tab day-select">
 				<a class="active">30 Nisan, Cmt</a>
 				<a>01 Mayıs, Pz</a>
 			</div>
@@ -621,21 +621,74 @@
 		<div class="wrap">
 			<h1>İLETİŞİM</h1>
 
-			<div class="contact-inner">
+			<div class="tab">
+				<a  href="#" class="active">Konuşmacı Başvuru Formu</a>
+				<a href="#">İletişim Formu</a>
+			</div>
+
+			<div class="tab-content active">
+					<form action="/send-mail" method="POST" class="speaker-apply-form">
+						<div>
+							<label for="speaker-name">Adınız ve Soyadınız:</label>
+							<input type="text" name="speaker-name" id="speaker-name">
+						</div>
+						<div>
+							<label for="speaker-email">E-Posta Adresiniz:</label>
+							<input type="text" name="speaker-email" id="speaker-email">
+						</div>
+						<div>
+							<label for="position">Çalışma Pozisyonunuz:</label>
+							<input type="text" name="position" id="position" placeholder="Arayüz Geliştiricisi, Sunucu Taraflı Geliştirici vs.">
+						</div>
+						<div>
+							<label for="picture">Fotoğrafınız:</label>
+							<input type="file">
+						</div>
+						<div>
+							<label for="company">Şu Anda Çalıştığınız Firma:</label>
+							<input type="text" id="company">
+						</div>
+						<div>
+							<label for="website-url">Web Siteniz/Blogunuz:</label>
+							<input type="text" id="website-url">
+						</div>
+						<div>
+							<label for="twitter-url">Twitter Hesabınız:</label>
+							<input type="text" id="twitter-url" placeholder="https://twitter.com/kullanıcı-adınız">
+						</div>
+						<div>
+							<label for="github-url">GitHub Hesabınız:</label>
+							<input type="text" id="github-url" placeholder="https://github.com/kullanıcı-adınız">
+						</div>
+						<div>
+							<label for="linkedin-url">LinkedIn Hesabınız:</label>
+							<input type="text" id="linkedin-url" placeholder="https://linkedin.com/in/kullanıcı-adınız">
+						</div>
+						<div>
+							<label for="linkedin-url">Diğer Sosyal Medya Hesabınız:</label>
+							<input type="text" id="linkedin-url" placeholder="Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz">
+						</div>
+						<div class="full-width">
+							<label for="speaker-note">Notunuz:</label>
+							<textarea name="speaker-note" id="speaker-note" cols="30" rows="10"></textarea>
+						</div>
+						<div><button type="submit">Başvurumu Gönder</button></div>
+					</form>
+			</div><!-- /.tab-content -->
+
+			<div class="tab-content">
 				<form action="/send-mail" method="POST" class="contact-form">
 					<div>
-						<label for="name">Adınız ve Soyadınız</label>
+						<label for="name">Adınız ve Soyadınız:</label>
 						<input type="text" name="name" id="name">
-						<span class="input-edges"></span>
 					</div>
 					<div>
-						<label for="email">E-Posta Adresiniz</label>
+						<label for="email">E-Posta Adresiniz:</label>
 						<input type="text" name="email" id="email">
-						<span class="input-edges"></span>
 					</div>
 					<div>
-						<label for="message">Mesajınız</label>
-						<textarea name="message" name="message" id="message" cols="30" rows="10"></textarea>
+						<label for="message">Mesajınız:</label>
+						<textarea name="message" id="message" cols="30" rows="10"></textarea>
 					</div>
 					<div><button type="submit">Mesajı Gönder</button></div>
 				</form>
@@ -656,7 +709,8 @@
 						<p>İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz. <a href="mailto:&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;">&#099;&#111;&#110;t&#097;&#099;t&#064;&#107;&#111;&#100;&#108;&#097;&#046;&#099;&#111;</a></p>
 					</div>
 				</div>
-			</div>
+			</div><!-- /.tab-content -->
+
 		</div>
 	</section>
 

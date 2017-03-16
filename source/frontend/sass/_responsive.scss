@@ -138,9 +138,9 @@
 
 	/* CONTACT */
 	.contact-form, .contact-info {
-		float: none;
+		float: none !important;
 		padding: 0 10px;
-		width: 100%;
+		width: 100% !important;
 	}
 	.contact-form {
 		div { margin-bottom: 30px }
@@ -171,6 +171,23 @@
 			margin: 0 0 20px;
 			text-align: center;
 			&:hover { @include transform(scale(1)) }
+		}
+	}
+	.speaker-apply-form {
+		div {
+			float: none;
+			margin-right: 0;
+			padding: 0 10px;
+			width: 100%;
+			min-height: 74px;
+		}
+		button { width: 100% }
+	}
+	.tab {
+		padding: 0 10px;
+		a {
+			display: block;
+			margin: auto auto 10px;
 		}
 	}
 }

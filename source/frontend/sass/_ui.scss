@@ -48,7 +48,7 @@ textarea {
 label {
 	display: block;
 	color: $label-text;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 a { cursor: pointer }
@@ -195,5 +195,42 @@ a { cursor: pointer }
 		letter-spacing: 1px;
 		font-size: 22px;
 		color: #fff;
+	}
+}
+
+
+
+// --- //
+// TAB //
+// --- //
+.tab {
+	text-align: center;
+	font-size: 0;
+	white-space: nowrap;
+	a {
+		display: inline-block;
+		margin-right: 10px;
+		padding: 0 20px;
+		height: 36px;
+		font: 18px $roboto-font-stack;
+		text-transform: uppercase;
+		font-weight: 200;
+		line-height: 36px;
+		color: $day-select-text;
+		border-radius: 36px;
+		border: 1px solid $day-select-border;
+		@include transition(all $default-transition-time);
+		&:hover, &.active {
+			background-color: $day-select-active-bg;
+			color: $day-select-active-text;
+		}
+	}
+}
+
+.tab-content {
+	display: none;
+	@include clearfix;
+	&.active {
+		display: block;
 	}
 }
