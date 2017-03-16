@@ -62,6 +62,10 @@ header {
 			color: #d2d2d2;
 		}
 	}
+	&-logos {
+		float: left;
+		margin-top: -7px;
+	}
 	&-desc {
 		display: inline-block;
 		font-size: 14px;
@@ -81,11 +85,6 @@ header {
 			font-size: 24px;
 		}
 	}
-}
-
-.trabzonhs-logo {
-	float: left;
-	margin-top: -7px;
 }
 
 
