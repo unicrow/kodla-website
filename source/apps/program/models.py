@@ -4,14 +4,14 @@ from django.utils.translation import ugettext_lazy as _
 
 # Local Django
 from core.models import DateModel
-from speaker.models import Speaker
-from activity.models import Activity
 
 
 class Program(DateModel):
     date = models.DateField(verbose_name=_('Date'))
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
 
     class Meta:
         verbose_name = _('Program')
@@ -36,9 +36,11 @@ class ProgramContent(DateModel):
         verbose_name=_('End Time'), null=True, blank=True
     )
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
-    program = models.ForeignKey(verbose_name=_('Program'), to=Program)
+    program = models.ForeignKey(
+        verbose_name=_('Program'), to='program.Program'
+    )
     speakers = models.ManyToManyField(
-        verbose_name=_('Speaker'), to=Speaker, blank=True
+        verbose_name=_('Speaker'), to='speaker.Speaker', blank=True
     )
 
     class Meta:

@@ -4,7 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 # Local Django
 from core.models import DateModel
-from activity.models import Activity
 
 
 class Contact(DateModel):
@@ -12,7 +11,9 @@ class Contact(DateModel):
     email = models.EmailField(verbose_name=_('Email'))
     message = models.TextField(verbose_name=_('Message'))
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
 
     class Meta:
         verbose_name = _('Contact')

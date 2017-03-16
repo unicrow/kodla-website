@@ -72,14 +72,13 @@
       <h1>{% trans "PROGRAM" %}</h1>
 
       {% if activity_timeline %}
-        <div class="day-select">
+        <div class="tab day-select">
           {% for program in activity_timeline %}
             <a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
           {% endfor %}
         </div>
 
         <div class="timeline-wrap">
-
           {% for program, contents in activity_timeline.items %}
             <ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
               {% if contents %}
@@ -115,7 +114,6 @@
               {% endif %}
             </ul>
           {% endfor %}
-
         </div>
       {% else %}
         <div class="coming-soon">{% trans 'Coming Soon' %}</div>
@@ -280,57 +278,121 @@
     <div class="wrap">
       <h1>{% trans "CONTACT" %}</h1>
 
-      {% if activity %}
-        <div class="contact-inner">
-          <form action="{{ request.path }}#contact" method="POST" class="contact-form">
-            {% csrf_token %}
-            <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
-              <label for="name">{{ contact_form.full_name.label }}</label>
-              {% add_attrs contact_form.full_name %}
-              <span class="input-edges"></span>
-            </div>
-            <div {% if contact_form.email.errors %}class='error'{% endif %}>
-              <label for="email">{{ contact_form.email.label }}</label>
-              {% add_attrs contact_form.email %}
-              <span class="input-edges"></span>
-            </div>
-            <div {% if contact_form.message.errors %}class='error'{% endif %}>
-              <label for="message">{{ contact_form.message.label }}</label>
-              {% add_attrs contact_form.message %}
-            </div>
-             {% add_attrs contact_form.recaptcha %}
-            <div><button type="submit">{% trans "Send Message" %}</button></div>
-          </form>
-
-          <div class="contact-info">
-            {% if activity_social_accounts %}
-              <div>
-                <h2>{% trans "Social Media" %}</h2>
-                <p>{% trans "You can follow updates about the event with social links below." %}</p>
-                <div class="accounts">
-                  {% for activity_social_account in activity_social_accounts %}
-                    <a href="{{ activity_social_account.url }}" target="_blank">
-                      <i class="{{ activity_social_account.account.style_class }}"></i>
-                      {{ activity_social_account.account.name }}
-                    </a>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
-
-            {% if activity.email %}
-              <div>
-                <h2>{% trans "Communicate Now" %}</h2>
-                <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
-                  <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
-                </p>
-              </div>
-            {% endif %}
-          </div>
+      {% if activity.has_speaker_application %}
+        <div class="tab contact-select">
+          <a  href="#" class="active">{% trans 'Konuşmacı Başvuru Formu' %}</a>
+          <a href="#">{% trans 'Contact Form' %}</a>
         </div>
-      {% else %}
-        <div class="coming-soon">{% trans 'Coming Soon' %}</div>
       {% endif %}
+
+      <div class="tab-content-wrap">
+        {% if activity %}
+          {% if activity.has_speaker_application %}
+            <div class="tab-content active">
+              <form action="/send-mail" method="POST" class="speaker-apply-form">
+                <div>
+                  <label for="speaker-name">Adınız ve Soyadınız: *</label>
+                  <input type="text" name="speaker-name" id="speaker-name">
+                </div>
+                <div>
+                  <label for="speaker-email">E-Posta Adresiniz: *</label>
+                  <input type="text" name="speaker-email" id="speaker-email">
+                </div>
+                <div>
+                  <label for="position">Çalışma Pozisyonunuz: *</label>
+                  <input type="text" name="position" id="position" placeholder="Arayüz Geliştiricisi, Sunucu Taraflı Geliştirici vs.">
+                </div>
+                <div>
+                  <label for="picture">Fotoğrafınız: *</label>
+                  <input type="file">
+                </div>
+                <div>
+                  <label for="company">Şu Anda Çalıştığınız Firma: *</label>
+                  <input type="text" id="company">
+                </div>
+                <div>
+                  <label for="website-url">Web Siteniz/Blogunuz:</label>
+                  <input type="text" id="website-url">
+                </div>
+                <div>
+                  <label for="twitter-url">Twitter Hesabınız:</label>
+                  <input type="text" id="twitter-url" placeholder="https://twitter.com/username">
+                </div>
+                <div>
+                  <label for="github-url">GitHub Hesabınız:</label>
+                  <input type="text" id="github-url" placeholder="https://github.com/username">
+                </div>
+                <div>
+                  <label for="linkedin-url">LinkedIn Hesabınız:</label>
+                  <input type="text" id="linkedin-url" placeholder="https://linkedin.com/in/username">
+                </div>
+                <div>
+                  <label for="other-url">Diğer Sosyal Medya Hesabınız:</label>
+                  <input type="text" id="other-url" placeholder="Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz">
+                </div>
+                <div class="full-width">
+                  <label for="speaker-note">Notunuz:</label>
+                  <textarea name="speaker-note" id="speaker-note" cols="30" rows="10"></textarea>
+                </div>
+                <div><button type="submit">Başvurumu Gönder</button></div>
+              </form>
+            </div>
+          {% endif %}
+
+          <div class="tab-content{% if not activity.has_speaker_application %} active{% endif %}">
+            <form action="{{ request.path }}#contact" method="POST" class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
+              {% csrf_token %}
+              <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
+                <label for="name">{{ contact_form.full_name.label }} *</label>
+                {% add_attrs contact_form.full_name %}
+                <span class="input-edges"></span>
+              </div>
+              <div {% if contact_form.email.errors %}class='error'{% endif %}>
+                <label for="email">{{ contact_form.email.label }} *</label>
+                {% add_attrs contact_form.email %}
+                <span class="input-edges"></span>
+              </div>
+              <div {% if contact_form.message.errors %}class='error'{% endif %}>
+                <label for="message">{{ contact_form.message.label }} *</label>
+                {% add_attrs contact_form.message %}
+              </div>
+               {% add_attrs contact_form.recaptcha %}
+              <div><button type="submit">{% trans "Send Message" %}</button></div>
+            </form>
+
+            <div class="contact-info">
+              {% if activity.email %}
+                <div>
+                  <h2>{% trans "Communicate Now" %}</h2>
+                  <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
+                    <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
+                  </p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% else %}
+          <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+        {% endif %}
+      </div>
     </div>
   </section>
+
+  <footer class="footer">
+    <a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo"><img src="{% static 'img/logos/trabzonhs-footer-logo.png' %}" alt=""></a>
+
+    <p class="footer-desc">Bu web sitesi <a href="https://www.facebook.com/groups/trabzonhs/">Trabzon Hackerspace</a> için <a href="http://unicrow.com">Unicrow</a> tarafından tasarlanıp geliştirilmiştir.</p>
+
+    {% if activity_social_accounts %}
+      <ul class="footer-social-media">
+        {% for activity_social_account in activity_social_accounts %}
+          <li>
+            <a href="{{ activity_social_account.url }}" target="_blank">
+              <i class="{{ activity_social_account.account.style_class }}"></i>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </footer>
 {% endblock %}

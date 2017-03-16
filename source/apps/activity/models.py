@@ -8,9 +8,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
-from speaker.models import Speaker
-from sponsor.models import SponsorType, Sponsor
-from core.models import DateModel, SocialAccount
+from core.models import DateModel
 
 
 class Activity(DateModel):
@@ -18,6 +16,11 @@ class Activity(DateModel):
     year = models.PositiveSmallIntegerField(verbose_name=_('Year'), unique=True)
     is_active = models.BooleanField(verbose_name=_('Active'))
     email = models.EmailField(verbose_name=_('Email'), null=True, blank=True)
+
+    # Features
+    has_speaker_application = models.BooleanField(
+        verbose_name=_('Speaker Application'), default=False
+    )
 
     # Extra
     meta_tags = models.TextField(
@@ -50,7 +53,7 @@ class Activity(DateModel):
 
     # Speaker
     speakers = models.ManyToManyField(
-        verbose_name=_('Speakers'), to=Speaker, blank=True
+        verbose_name=_('Speakers'), to='speaker.Speaker', blank=True
     )
 
     class Meta:
@@ -84,7 +87,9 @@ class ActivityDocument(DateModel):
         verbose_name=_('Document'), upload_to=set_activity_documents_upload_path
     )
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
 
     class Meta:
         verbose_name = _('Activity Document')
@@ -137,9 +142,13 @@ class ActivityDocument(DateModel):
 
 class ActivitySocialAccount(DateModel, SortableMixin):
     url = models.URLField(verbose_name=_('URL'))
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
-    account = models.ForeignKey(verbose_name=_('Account'), to=SocialAccount)
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
+    account = models.ForeignKey(
+        verbose_name=_('Account'), to='core.SocialAccount'
+    )
 
     # ordering field
     order_id = models.PositiveSmallIntegerField(
@@ -167,10 +176,12 @@ class ActivitySponsor(DateModel, SortableMixin):
         verbose_name=_('Logo Width'), null=True, blank=True
     )
     sponsor_type = SortableForeignKey(
-        verbose_name=_('Sponsor Type'), to=SponsorType
+        verbose_name=_('Sponsor Type'), to='sponsor.SponsorType'
     )
-    sponsor = models.ForeignKey(verbose_name=_('Sponsor'), to=Sponsor)
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+    sponsor = models.ForeignKey(verbose_name=_('Sponsor'), to='sponsor.Sponsor')
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
 
     # ordering field
     order_id = models.PositiveSmallIntegerField(
@@ -195,7 +206,9 @@ class ActivityMap(DateModel):
     )
     coordinates = GeopositionField(verbose_name=_('Coordinates'))
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
-    activity = models.ForeignKey(verbose_name=_('Activity'), to=Activity)
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
 
     class Meta:
         verbose_name = _('Activity Map')

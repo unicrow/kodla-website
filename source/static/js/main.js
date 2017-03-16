@@ -23,6 +23,16 @@ $(function() {
     })
   });
 
+  // Contact Form
+  $('.contact-select a').each(function(i) {
+    $(this).click(function(e) {
+      e.preventDefault();
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.tab-content').eq(i).show().siblings().hide();
+      //setTimelineHeight();
+    })
+  });
+
   // Toggle Mobile Navigation
   function toggleNav() {
     window.w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) // Get Viewport Width

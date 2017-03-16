@@ -29,7 +29,7 @@ class ActivitySocialAccountInline(SortableStackedInline):
     verbose_name = _('Social Account')
     verbose_name_plural = _('Social Accounts')
     readonly_fields = ('create_date', 'update_date')
-    fields = ('url', 'account', 'is_active', ('create_date', 'update_date'))
+    fields = (('account', 'url'), 'is_active', ('create_date', 'update_date'))
 
 
 class ActivitySponsorInline(SortableStackedInline):
@@ -62,6 +62,9 @@ class ActivityAdmin(NonSortableParentAdmin):
         (_(u'Base'), {
             'fields' : ('year', 'is_active'),
         }),
+        (_(u'Feature'), {
+            'fields' : ('has_speaker_application',),
+        }),
         (_(u'Detail'), {
             'fields' : (
                 'email', 'short_description', 'register_url', 'description',
@@ -80,9 +83,12 @@ class ActivityAdmin(NonSortableParentAdmin):
 
     filter_horizontal = ('speakers',)
     readonly_fields = ('create_date', 'update_date')
-    list_display = ('year', 'show_register_url', 'short_description', 'is_active')
+    list_display = (
+        'year', 'show_register_url', 'short_description',
+        'has_speaker_application', 'is_active'
+    )
     list_filter = ('is_active',)
-    list_editable = ('is_active',)
+    list_editable = ('has_speaker_application', 'is_active')
     search_fields = ('year',)
     inlines = (
         ActivityDocumentInline, ActivitySocialAccountInline,
