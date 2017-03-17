@@ -3,7 +3,14 @@
 {% load i18n staticfiles %}
 {% load core_extra %}
 {% load thumbnail %}
+{% load recaptcha2 %}
 
+
+{% block head %}
+  {{ block.super }}
+
+  {% recaptcha_explicit_support %}
+{% endblock %}
 
 {% block content %}
   <header id="home" data-scroll-index="0">
@@ -280,7 +287,7 @@
 
       {% if activity.has_speaker_application %}
         <div class="tab contact-select">
-          <a  href="#" class="active">{% trans 'Konuşmacı Başvuru Formu' %}</a>
+          <a  href="#" class="active">{% trans 'Speaker Application Form' %}</a>
           <a href="#">{% trans 'Contact Form' %}</a>
         </div>
       {% endif %}
@@ -289,75 +296,114 @@
         {% if activity %}
           {% if activity.has_speaker_application %}
             <div class="tab-content active">
-              <form action="/send-mail" method="POST" class="speaker-apply-form">
-                <div>
-                  <label for="speaker-name">Adınız ve Soyadınız: *</label>
-                  <input type="text" name="speaker-name" id="speaker-name">
+              <form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div {% if speaker_application_form.first_name.errors %}class='error'{% endif %}>
+                  <label for="speaker-name">
+                    {{ speaker_application_form.first_name.label }}: {% if speaker_application_form.first_name.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.first_name %}
                 </div>
-                <div>
-                  <label for="speaker-email">E-Posta Adresiniz: *</label>
-                  <input type="text" name="speaker-email" id="speaker-email">
+                <div {% if speaker_application_form.last_name.errors %}class='error'{% endif %}>
+                  <label for="other-url">
+                    {{ speaker_application_form.last_name.label }}: {% if speaker_application_form.last_name.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.last_name %}
                 </div>
-                <div>
-                  <label for="position">Çalışma Pozisyonunuz: *</label>
-                  <input type="text" name="position" id="position" placeholder="Arayüz Geliştiricisi, Sunucu Taraflı Geliştirici vs.">
+                <div {% if speaker_application_form.email.errors %}class='error'{% endif %}>
+                  <label for="speaker-email">
+                    {{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.email %}
                 </div>
-                <div>
-                  <label for="picture">Fotoğrafınız: *</label>
-                  <input type="file">
+                 <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
+                  <label for="picture">
+                    {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.image %}
                 </div>
-                <div>
-                  <label for="company">Şu Anda Çalıştığınız Firma: *</label>
-                  <input type="text" id="company">
+                <div {% if speaker_application_form.company.errors %}class='error'{% endif %}>
+                  <label for="company">
+                    {{ speaker_application_form.company.label }}: {% if speaker_application_form.company.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.company %}
                 </div>
-                <div>
-                  <label for="website-url">Web Siteniz/Blogunuz:</label>
-                  <input type="text" id="website-url">
+                <div {% if speaker_application_form.position.errors %}class='error'{% endif %}>
+                  <label for="position">
+                    {{ speaker_application_form.position.label }}: {% if speaker_application_form.position.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.position %}
                 </div>
-                <div>
-                  <label for="twitter-url">Twitter Hesabınız:</label>
-                  <input type="text" id="twitter-url" placeholder="https://twitter.com/username">
+                <div {% if speaker_application_form.website.errors %}class='error'{% endif %}>
+                  <label for="website-url">
+                    {{ speaker_application_form.website.label }}: {% if speaker_application_form.website.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.website %}
                 </div>
-                <div>
-                  <label for="github-url">GitHub Hesabınız:</label>
-                  <input type="text" id="github-url" placeholder="https://github.com/username">
+                <div {% if speaker_application_form.twitter.errors %}class='error'{% endif %}>
+                  <label for="twitter-url">
+                    {{ speaker_application_form.twitter.label }}: {% if speaker_application_form.twitter.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.twitter %}
                 </div>
-                <div>
-                  <label for="linkedin-url">LinkedIn Hesabınız:</label>
-                  <input type="text" id="linkedin-url" placeholder="https://linkedin.com/in/username">
+                <div {% if speaker_application_form.github.errors %}class='error'{% endif %}>
+                  <label for="github-url">
+                    {{ speaker_application_form.github.label }}: {% if speaker_application_form.github.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.github %}
                 </div>
-                <div>
-                  <label for="other-url">Diğer Sosyal Medya Hesabınız:</label>
-                  <input type="text" id="other-url" placeholder="Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz">
+                <div {% if speaker_application_form.linkedin.errors %}class='error'{% endif %}>
+                  <label for="linkedin-url">
+                    {{ speaker_application_form.linkedin.label }}: {% if speaker_application_form.linkedin.field.required %}*{% endif %}                  </label>
+                  </label>
+                  {% add_attrs speaker_application_form.linkedin %}
                 </div>
                 <div class="full-width">
-                  <label for="speaker-note">Notunuz:</label>
-                  <textarea name="speaker-note" id="speaker-note" cols="30" rows="10"></textarea>
+                  <label for="speaker-note">
+                    {{ speaker_application_form.note.label }}: {% if speaker_application_form.note.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.note %}
                 </div>
-                <div><button type="submit">Başvurumu Gönder</button></div>
+                {% add_attrs speaker_application_form.recaptcha %}
+                <div>
+                  <button {% if speaker_application_form.prefix %}name="{{ speaker_application_form.prefix }}"{% endif %}type="submit">
+                    {% trans "Send Application" %}
+                  </button>
+                </div>
               </form>
             </div>
           {% endif %}
 
           <div class="tab-content{% if not activity.has_speaker_application %} active{% endif %}">
-            <form action="{{ request.path }}#contact" method="POST" class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
+            <form action="{{ request.path }}#contact" method="POST" 
+                  class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
               {% csrf_token %}
               <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
-                <label for="name">{{ contact_form.full_name.label }} *</label>
+                <label for="name">
+                  {{ contact_form.full_name.label }}: {% if contact_form.full_name.field.required %}*{% endif %}
+                </label>
                 {% add_attrs contact_form.full_name %}
                 <span class="input-edges"></span>
               </div>
               <div {% if contact_form.email.errors %}class='error'{% endif %}>
-                <label for="email">{{ contact_form.email.label }} *</label>
+                <label for="email">
+                  {{ contact_form.email.label }}: {% if contact_form.email.field.required %}*{% endif %}
+                </label>
                 {% add_attrs contact_form.email %}
                 <span class="input-edges"></span>
               </div>
               <div {% if contact_form.message.errors %}class='error'{% endif %}>
-                <label for="message">{{ contact_form.message.label }} *</label>
+                <label for="message">
+                  {{ contact_form.message.label }}: {% if contact_form.message.field.required %}*{% endif %}
+                </label>
                 {% add_attrs contact_form.message %}
               </div>
-               {% add_attrs contact_form.recaptcha %}
-              <div><button type="submit">{% trans "Send Message" %}</button></div>
+              {% add_attrs contact_form.recaptcha %}
+              <div>
+                <button {% if contact_form.prefix %}name="{{ contact_form.prefix }}"{% endif %} type="submit">
+                  {% trans "Send Message" %}
+                </button>
+              </div>
             </form>
 
             <div class="contact-info">
@@ -378,6 +424,8 @@
     </div>
   </section>
 
+  {% recaptcha_explicit_init %}
+
   <footer class="footer">
     <div class="footer-logos">
       <a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo">
@@ -389,7 +437,9 @@
       </a>
     </div>
 
-    <p class="footer-desc">Bu web sitesi <a href="https://www.facebook.com/groups/trabzonhs/">Trabzon Hackerspace</a> için <a href="http://unicrow.com">Unicrow</a> tarafından tasarlanıp geliştirilmiştir.</p>
+    <p class="footer-desc">Bu web sitesi <a href="https://www.facebook.com/groups/trabzonhs/">
+      Trabzon Hackerspace</a> için <a href="http://unicrow.com">Unicrow</a> tarafından tasarlanıp geliştirilmiştir.
+    </p>
 
     {% if activity_social_accounts %}
       <ul class="footer-social-media">

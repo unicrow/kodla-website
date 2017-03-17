@@ -27,14 +27,17 @@ class SpeakerModel(DateModel):
     first_name = models.CharField(verbose_name=_('First Name'), max_length=50)
     last_name = models.CharField(verbose_name=_('Last Name'), max_length=50)
     email = models.EmailField(verbose_name=_('Email'), null=True, blank=True)
-    position = models.CharField(
-        verbose_name=_('Position'), null=True, blank=True, max_length=255
-    )
-    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
     image = models.ImageField(
         verbose_name=_('Image'), null=True, blank=True,
         upload_to=set_speaker_image_upload_path
     )
+    company = models.CharField(
+        verbose_name=_('Company'), max_length=255, null=True, blank=True
+    )
+    position = models.CharField(
+        verbose_name=_('Position'), null=True, blank=True, max_length=255
+    )
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
 
     class Meta:
         abstract = True
@@ -67,24 +70,6 @@ class SpeakerModel(DateModel):
     image_prev.short_description = _('Preview')
     image_prev.allow_tags = True
 
-    def social_accounts(self):
-        text = '<a href="{url}" target="_blank">{name}</a>'
-
-        if self.__class__.__name__ == 'Speaker':
-            social_accounts = self.speakersocialaccount_set.all()
-        else:
-            social_accounts = self.speakerrequestsocialaccount_set.all()
-        social_accounts_text = [
-            text.format(url=i.url, name=i.account.name) for i in social_accounts
-        ]
-
-        if social_accounts:
-            return ', '.join(social_accounts_text)
-        else:
-            return '---'
-    social_accounts.short_description = _('Social Accounts')
-    social_accounts.allow_tags = True
-
 
 class SpeakerSocialAccountModel(DateModel):
     url = models.URLField(verbose_name=_('URL'))
@@ -109,6 +94,21 @@ class Speaker(SpeakerModel, SortableMixin):
         ordering = ('order_id', 'first_name', 'last_name')
         unique_together = ('first_name', 'last_name')
 
+    def social_accounts(self):
+        text = '<a href="{url}" target="_blank">{name}</a>'
+
+        social_accounts = self.speakersocialaccount_set.all()
+        social_accounts_text = [
+            text.format(url=i.url, name=i.account.name) for i in social_accounts
+        ]
+
+        if social_accounts:
+            return ', '.join(social_accounts_text)
+        else:
+            return '---'
+    social_accounts.short_description = _('Social Accounts')
+    social_accounts.allow_tags = True
+
 
 class SpeakerSocialAccount(SpeakerSocialAccountModel, SortableMixin):
     speaker = models.ForeignKey(verbose_name=_('Speaker'), to='speaker.Speaker')
@@ -131,9 +131,11 @@ class SpeakerSocialAccount(SpeakerSocialAccountModel, SortableMixin):
 
 
 class SpeakerApplication(SpeakerModel):
-    corporation = models.CharField(
-        verbose_name=_('Corporation'), max_length=255, null=True, blank=True
-    )
+    website = models.URLField(verbose_name=_('Website'), null=True, blank=True)
+    twitter = models.URLField(verbose_name=_('Twitter'), null=True, blank=True)
+    github = models.URLField(verbose_name=_('Github'), null=True, blank=True)
+    linkedin = models.URLField(verbose_name=_('Linkedin'), null=True, blank=True)
+    note = models.TextField(verbose_name=_('Note'), null=True, blank=True)
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to='activity.Activity'
     )
@@ -143,21 +145,3 @@ class SpeakerApplication(SpeakerModel):
         verbose_name_plural = _('Speaker Applications')
         ordering = ('activity', 'first_name', 'last_name')
         unique_together = ('activity', 'first_name', 'last_name')
-
-
-class SpeakerApplicationSocialAccount(SpeakerSocialAccountModel):
-    speaker_application = models.ForeignKey(
-        verbose_name=_('Speaker'), to='speaker.SpeakerApplication'
-    )
-
-    class Meta:
-        verbose_name = _('Speaker Application Social Account')
-        verbose_name_plural = _('Speaker Application Social Accounts')
-        ordering = ('account',)
-        unique_together = ('speaker_application', 'account')
-
-    def __str__(self):
-        return '{speaker_application} - {account}'.format(
-            speaker_application=self.speaker_application.__str__(),
-            account=self.account.__str__()
-        )

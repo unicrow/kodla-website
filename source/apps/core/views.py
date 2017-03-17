@@ -19,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 # Local Django
 from form.forms import ContactForm
 from activity.models import Activity
+from speaker.forms import SpeakerApplicationForm
 
 
 def get_tweets(request):
@@ -105,26 +106,55 @@ class IndexView(TemplateView):
                 'activity_speakers': activity_speakers,
                 'activity_timeline': activity_timeline,
                 'activity_sponsors': activity_sponsors,
-                'contact_form': ContactForm()
+                'contact_form': ContactForm(prefix='contact_form'),
+                'speaker_application_form': SpeakerApplicationForm(
+                    prefix='speaker_application_form'
+                )
             })
 
         return context
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data()
-        contact_form = ContactForm(self.request.POST)
+        contact_form = ContactForm(request.POST, prefix='contact_form')
+        speaker_application_form = SpeakerApplicationForm(
+            request.POST, request.FILES, prefix='speaker_application_form'
+        )
 
-        if contact_form.is_valid() and self.activity:
-            contact = contact_form.save(self.activity)
+        if 'contact_form' in request.POST:
+            if contact_form.is_valid() and self.activity:
+                contact = contact_form.save(self.activity)
 
-            if contact:
-                messages.success(
-                    request, _('Your message has been sent. Thank you.')
+                if contact:
+                    messages.success(
+                        request, _('Your message has been sent. Thank you.')
+                    )
+
+                    return HttpResponseRedirect(request.path)
+
+            messages.error(
+                request, _('Your message could not be sent. Try again.')
+            )
+            context.update({'contact_form': contact_form})
+
+        if 'speaker_application_form' in request.POST:
+            if speaker_application_form.is_valid() and self.activity:
+                speaker_application = speaker_application_form.save(
+                    self.activity
                 )
 
-                return HttpResponseRedirect(request.path)
+                if speaker_application:
+                    messages.success(
+                        request, _('Your application has been sent. Thank you.')
+                    )
 
-        messages.error(request, _('Your message could not be sent. Try again.'))
-        context.update({ 'contact_form': contact_form })
+                    return HttpResponseRedirect(request.path)
+
+            messages.error(
+                request, _('Your application could not be sent. Try again.')
+            )
+            context.update({
+                'speaker_application_form': speaker_application_form 
+            })
 
         return super(IndexView, self).render_to_response(context)

@@ -1,5 +1,6 @@
 # Third-Party
-from captcha.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 # Django
 from django import forms
@@ -12,8 +13,8 @@ from form.models import Contact
 class ContactForm(forms.ModelForm):
     full_name = forms.CharField(label=_('Name and Surname'), max_length=100)
     email = forms.EmailField(label=_('E-Mail Address'))
-    message = forms.CharField(label=_('Your message'), widget=forms.Textarea)
-    recaptcha = ReCaptchaField()
+    message = forms.CharField(label=_('Your Message'), widget=forms.Textarea)
+    recaptcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
 
     class Meta:
         model = Contact
@@ -30,6 +31,7 @@ class ContactForm(forms.ModelForm):
                     message=self.cleaned_data.get('message'),
                     activity=activity
                 )
+
                 contact.save()
             except:
                 contact = None

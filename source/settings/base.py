@@ -50,11 +50,11 @@ INSTALLED_APPS = [
     'source',
 
     # External Applications
-    'captcha',
     'redactor',
     'geoposition',
     'adminsortable',
     'easy_thumbnails',
+    'snowpenguin.django.recaptcha2',
 
     # Internal Applications
     'core',
@@ -112,7 +112,6 @@ GEOPOSITION_MARKER_OPTIONS = {
 # ReCaptcha
 RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY
 RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY
-NOCAPTCHA = True
 
 
 # Twitter
