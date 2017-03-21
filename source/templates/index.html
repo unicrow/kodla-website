@@ -25,13 +25,13 @@
         <li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
         {% if activities %}
           <li class="archive-list">
-            <a href="javascript:;">{% trans "YEAR" %} ({{ activity.year }}) <i class="icon-down"></i></a>
+            <a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
             <ul class="sub-nav">
               {% for i in activities %}
                 {% if forloop.first %}
-                  <li><a href="{% url 'index' %}">{{ i.year }}</a></li>
+                  <li><a href="{% url 'index' %}">KODLA {{ i.year }}</a></li>
                 {% else %}
-                  <li><a href="{% url 'index-year' i.year %}">{{ i.year }}</a></li>
+                  <li><a href="{% url 'index-year' i.year %}">KODLA {{ i.year }}</a></li>
                 {% endif %}
               {% endfor %}
             </ul>
@@ -437,9 +437,12 @@
       </a>
     </div>
 
-    <p class="footer-desc">Bu web sitesi <a href="https://www.facebook.com/groups/trabzonhs/">
-      Trabzon Hackerspace</a> için <a href="http://unicrow.com">Unicrow</a> tarafından tasarlanıp geliştirilmiştir.
-    </p>
+    {% blocktrans %}
+      <p class="footer-desc">This website has been developed by
+        <a href="http://unicrow.com">Unicrow</a> for
+        <a href="https://www.facebook.com/groups/trabzonhs/">Trabzon Hackerspace</a>.
+      </p>
+    {% endblocktrans %}
 
     {% if activity_social_accounts %}
       <ul class="footer-social-media">
