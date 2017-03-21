@@ -20,6 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 from form.forms import ContactForm
 from activity.models import Activity
 from speaker.forms import SpeakerApplicationForm
+from core.variables import CONTACT_FORM_PREFIX, SPEAKER_APPLICATION_FORM_PREFIX
 
 
 def get_tweets(request):
@@ -106,9 +107,9 @@ class IndexView(TemplateView):
                 'activity_speakers': activity_speakers,
                 'activity_timeline': activity_timeline,
                 'activity_sponsors': activity_sponsors,
-                'contact_form': ContactForm(prefix='contact_form'),
+                'contact_form': ContactForm(prefix=CONTACT_FORM_PREFIX),
                 'speaker_application_form': SpeakerApplicationForm(
-                    prefix='speaker_application_form'
+                    prefix=SPEAKER_APPLICATION_FORM_PREFIX
                 )
             })
 
@@ -116,12 +117,11 @@ class IndexView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data()
-        contact_form = ContactForm(request.POST, prefix='contact_form')
-        speaker_application_form = SpeakerApplicationForm(
-            request.POST, request.FILES, prefix='speaker_application_form'
-        )
 
-        if 'contact_form' in request.POST:
+        if CONTACT_FORM_PREFIX in request.POST:
+            contact_form = ContactForm(request.POST, prefix=CONTACT_FORM_PREFIX)
+            context.update({'contact_form': contact_form})
+
             if contact_form.is_valid() and self.activity:
                 contact = contact_form.save(self.activity)
 
@@ -129,32 +129,50 @@ class IndexView(TemplateView):
                     messages.success(
                         request, _('Your message has been sent. Thank you.')
                     )
+                    context.update({
+                        'contact_form': ContactForm(prefix=CONTACT_FORM_PREFIX)
+                    })
 
-                    return HttpResponseRedirect(request.path)
+                    return super(IndexView, self).render_to_response(context)
 
             messages.error(
                 request, _('Your message could not be sent. Try again.')
             )
-            context.update({'contact_form': contact_form})
 
-        if 'speaker_application_form' in request.POST:
+        if SPEAKER_APPLICATION_FORM_PREFIX in request.POST:
+            speaker_application_form = SpeakerApplicationForm(
+                request.POST, request.FILES,
+                prefix=SPEAKER_APPLICATION_FORM_PREFIX
+            )
+            context.update({
+                'speaker_application_form': speaker_application_form
+            })
+
             if speaker_application_form.is_valid() and self.activity:
-                speaker_application = speaker_application_form.save(
+                speaker_application, created = speaker_application_form.save(
                     self.activity
                 )
 
                 if speaker_application:
-                    messages.success(
-                        request, _('Your application has been sent. Thank you.')
-                    )
+                    if created:
+                        messages.success(
+                            request, _('Your application has been sent. Thank you.')
+                        )
 
-                    return HttpResponseRedirect(request.path)
+                        context.update({
+                            'speaker_application_form': SpeakerApplicationForm(
+                                prefix=SPEAKER_APPLICATION_FORM_PREFIX
+                            )
+                        })
+                    else:
+                        messages.error(
+                            request, _('Your application already exists!')
+                        )
+
+                    return super(IndexView, self).render_to_response(context)
 
             messages.error(
                 request, _('Your application could not be sent. Try again.')
             )
-            context.update({
-                'speaker_application_form': speaker_application_form 
-            })
 
         return super(IndexView, self).render_to_response(context)

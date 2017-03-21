@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-21 13:54+0200\n"
+"POT-Creation-Date: 2017-03-21 17:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -252,15 +252,19 @@ msgstr "Style Class"
 msgid "Your message has been sent. Thank you."
 msgstr "Mesajınız gönderildi. Teşekkür ederiz."
 
-#: source/apps/core/views.py:136
+#: source/apps/core/views.py:139
 msgid "Your message could not be sent. Try again."
 msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
 
-#: source/apps/core/views.py:148
+#: source/apps/core/views.py:159
 msgid "Your application has been sent. Thank you."
 msgstr "Başvurunuz gönderildi. Teşekkür ederiz."
 
-#: source/apps/core/views.py:154
+#: source/apps/core/views.py:169
+msgid "Your application already exists!"
+msgstr "Başvuru zaten mevcut!"
+
+#: source/apps/core/views.py:175
 msgid "Your application could not be sent. Try again."
 msgstr "Başvurunuz gönderilemedi. Tekrar deneyin."
 
@@ -348,7 +352,7 @@ msgstr "Resminiz"
 
 #: source/apps/speaker/forms.py:21
 msgid "Your working company"
-msgstr "Çalışığınız firma"
+msgstr "Çalıştığınız firma"
 
 #: source/apps/speaker/forms.py:24
 msgid "Your working position"
@@ -360,7 +364,7 @@ msgstr "Web siteniz/Blogunuz"
 
 #: source/apps/speaker/forms.py:27
 msgid "Your Twitter Account"
-msgstr "Twwitter Hesabınız"
+msgstr "Twitter Hesabınız"
 
 #: source/apps/speaker/forms.py:28
 msgid "Your Github Account"

@@ -43,12 +43,19 @@ class SpeakerApplicationForm(forms.ModelForm):
         speaker_application = super(SpeakerApplicationForm, self).save(
             commit=False
         )
+        created = False
 
         if commit and activity:
             try:
-                speaker_application = SpeakerApplication.update_or_create(
-                    first_name = self.cleaned_data.get('first_name'),
-                    last_name = self.cleaned_data.get('last_name'),
+                speaker_application = SpeakerApplication.objects.get(
+                    first_name=self.cleaned_data.get('first_name'),
+                    last_name=self.cleaned_data.get('last_name'),
+                    activity=activity
+                )
+            except SpeakerApplication.DoesNotExist:
+                speaker_application = SpeakerApplication(
+                    first_name=self.cleaned_data.get('first_name'),
+                    last_name=self.cleaned_data.get('last_name'),
                     email = self.cleaned_data.get('email'),
                     image = self.cleaned_data.get('image'),
                     company = self.cleaned_data.get('company'),
@@ -58,11 +65,9 @@ class SpeakerApplicationForm(forms.ModelForm):
                     github = self.cleaned_data.get('github'),
                     linkedin = self.cleaned_data.get('linkedin'),
                     note = self.cleaned_data.get('note'),
-                    activity = activity
+                    activity=activity
                 )
-
                 speaker_application.save()
-            except:
-                speaker_application = None
+                created = True
 
-        return speaker_application
+        return speaker_application, created

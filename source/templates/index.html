@@ -287,15 +287,15 @@
 
       {% if activity.has_speaker_application %}
         <div class="tab contact-select">
-          <a  href="#" class="active">{% trans 'Speaker Application Form' %}</a>
-          <a href="#">{% trans 'Contact Form' %}</a>
+          <a  href="#" {% if not contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Speaker Application Form' %}</a>
+          <a href="#" {% if contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Contact Form' %}</a>
         </div>
       {% endif %}
 
       <div class="tab-content-wrap">
         {% if activity %}
           {% if activity.has_speaker_application %}
-            <div class="tab-content active">
+            <div class="tab-content{% if not contact_form.prefix in request.POST %} active{% endif %}">
               <form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div {% if speaker_application_form.first_name.errors %}class='error'{% endif %}>
@@ -366,7 +366,7 @@
                 </div>
                 {% add_attrs speaker_application_form.recaptcha %}
                 <div>
-                  <button {% if speaker_application_form.prefix %}name="{{ speaker_application_form.prefix }}"{% endif %}type="submit">
+                  <button name="{{ speaker_application_form.prefix }}" type="submit">
                     {% trans "Send Application" %}
                   </button>
                 </div>
@@ -374,7 +374,7 @@
             </div>
           {% endif %}
 
-          <div class="tab-content{% if not activity.has_speaker_application %} active{% endif %}">
+          <div class="tab-content{% if not activity.has_speaker_application or contact_form.prefix in request.POST %} active{% endif %}">
             <form action="{{ request.path }}#contact" method="POST" 
                   class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
               {% csrf_token %}
@@ -400,7 +400,7 @@
               </div>
               {% add_attrs contact_form.recaptcha %}
               <div>
-                <button {% if contact_form.prefix %}name="{{ contact_form.prefix }}"{% endif %} type="submit">
+                <button name="{{ contact_form.prefix }}" type="submit">
                   {% trans "Send Message" %}
                 </button>
               </div>
