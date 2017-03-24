@@ -192,6 +192,9 @@ header {
 		padding-left: 45px;
 		max-width: 76%;
 		@include transition(all $default-transition-time);
+		&.single-line {
+			@include position(relative, 10px);
+		}
 	}
 	.topic {
 		font: 22px $roboto-font-stack;
@@ -201,6 +204,16 @@ header {
 		display: block;
 		font-size: 16px;
 		color: $speaker-text;
+	}
+	.break-time {
+		@extend .speaker;
+	}
+	.download-item {
+		margin-top: 10px;
+		i {
+			@include position(relative, 2px null null null);
+			margin-right: 5px;
+		}
 	}
 }
 

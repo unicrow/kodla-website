@@ -22,6 +22,9 @@ input[type="text"], input[type="email"], input[type="url"], textarea {
 			border-color: darken($input-border, 25%);
 		}
 	}
+	@include placeholder {
+		color: lighten($body-text, 25%);
+	}
 }
 
 .error {
@@ -83,9 +86,11 @@ a { cursor: pointer }
 			background-color: shade(#E73800, 10%);
 		}
 	}
-
-	.fa {
-		margin-right: 5px;
+	&.btn-small {
+		height: 30px;
+		font-size: 15px;
+		text-transform: none;
+		line-height: 30px;
 	}
 }
 
