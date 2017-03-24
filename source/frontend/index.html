@@ -613,7 +613,7 @@
 		</div>
 
 		<div class="other-sponsors">
-			<a href="/static/kodla16-sponsorluk-dosyasi.pdf" class="btn btn-red" target="_blank"><i class="fa fa-file-pdf-o"></i> Sponsor Ol</a>
+			<a href="/static/kodla16-sponsorluk-dosyasi.pdf" class="btn btn-red" target="_blank"><i class="icon-file-pdf-o"></i> Sponsor Ol</a>
 		</div>
 	</section>
 
@@ -630,12 +630,24 @@
 				<div class="tab-content active">
 						<form action="/send-mail" method="POST" class="speaker-apply-form">
 							<div>
-								<label for="speaker-name">Adınız ve Soyadınız: *</label>
+								<label for="speaker-name">Adınız: *</label>
 								<input type="text" name="speaker-name" id="speaker-name">
+							</div>
+							<div>
+								<label for="speaker-surname">Soyadınız: *</label>
+								<input type="text" name="speaker-surname" id="speaker-surname">
 							</div>
 							<div>
 								<label for="speaker-email">E-Posta Adresiniz: *</label>
 								<input type="text" name="speaker-email" id="speaker-email">
+							</div>
+							<div>
+								<label for="apply-type">Başvuru Tipi: *</label>
+								<select name="apply-type" id="apply-type">
+									<option value="">Konuşmacı</option>
+									<option value="">Workshop</option>
+									<option value="">Lightning Talks</option>
+								</select>
 							</div>
 							<div>
 								<label for="position">Çalışma Pozisyonunuz: *</label>
@@ -711,7 +723,7 @@
 			<a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo">
 				<img src="/static/img/logos/trabzonhs-footer-logo.png" alt="Trabzon Hackerspace">
 			</a>
-			
+
 			<a href="http://unicrow.com" class="unicrow-logo">
 				<img src="/static/img/logos/unicrow-footer-logo.png" alt="Unicrow">
 			</a>
