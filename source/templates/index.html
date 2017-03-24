@@ -47,13 +47,13 @@
           {{ activity.logo|safe }}
           {{ activity.description|safe }}
 
-          {% if activity.register_url %}
+          {% if activity.has_register_url and activity.register_url %}
             <a href="{{ activity.register_url }}" class="btn" target="_blank">
               <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
             </a>
           {% endif %}
 
-          {% if activity_document %}
+          {% if activity.has_activity_document and activity_document %}
             <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
               <i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
             </a>
@@ -272,7 +272,7 @@
       <div class="coming-soon">{% trans 'Coming Soon' %}</div>
     {% endif %}
 
-    {% if activity_document %}
+    {% if activity.has_activity_document and activity_document %}
       <div class="other-sponsors">
         <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
           <i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}
@@ -439,8 +439,8 @@
 
     {% blocktrans %}
       <p class="footer-desc">This website has been developed by
-        <a href="http://unicrow.com">Unicrow</a> for
-        <a href="https://www.facebook.com/groups/trabzonhs/">Trabzon Hackerspace</a>.
+        <a href="http://unicrow.com" target="_blank">Unicrow</a> for
+        <a href="https://www.facebook.com/groups/trabzonhs/" target="_blank">Trabzon Hackerspace</a>.
       </p>
     {% endblocktrans %}
 

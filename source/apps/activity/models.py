@@ -39,6 +39,12 @@ class Activity(DateModel):
     register_url = models.URLField(
         verbose_name=_('Register URL'), null=True, blank=True
     )
+    has_register_url = models.BooleanField(
+        verbose_name=_('Register URL'), default=True
+    )
+    has_activity_document = models.BooleanField(
+        verbose_name=_('Activity Document'), default=True
+    )
 
     # Transportation
     address = models.TextField(

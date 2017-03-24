@@ -63,7 +63,9 @@ class ActivityAdmin(NonSortableParentAdmin):
             'fields' : ('year', 'is_active'),
         }),
         (_(u'Feature'), {
-            'fields' : ('has_speaker_application',),
+            'fields' : (
+                'has_speaker_application', 'has_register_url', 'has_sponsor_file'
+            ),
         }),
         (_(u'Detail'), {
             'fields' : (
@@ -84,11 +86,14 @@ class ActivityAdmin(NonSortableParentAdmin):
     filter_horizontal = ('speakers',)
     readonly_fields = ('create_date', 'update_date')
     list_display = (
-        'year', 'show_register_url', 'short_description',
-        'has_speaker_application', 'is_active'
+        'year', 'show_register_url', 'short_description', 'has_speaker_application',
+        'has_register_url', 'has_activity_document', 'is_active'
     )
     list_filter = ('is_active',)
-    list_editable = ('has_speaker_application', 'is_active')
+    list_editable = (
+        'has_speaker_application', 'has_register_url',
+        'has_activity_document', 'is_active'
+    )
     search_fields = ('year',)
     inlines = (
         ActivityDocumentInline, ActivitySocialAccountInline,
