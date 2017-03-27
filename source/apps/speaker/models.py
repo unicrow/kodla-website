@@ -130,12 +130,32 @@ class SpeakerSocialAccount(SpeakerSocialAccountModel, SortableMixin):
         )
 
 
+class SpeakerApplicationType(DateModel):
+    name = models.CharField(verbose_name=_('Name'), max_length=50)
+    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+
+    class Meta:
+        verbose_name = _('Speaker Application Type')
+        verbose_name_plural = _('Speaker Application Types')
+        ordering = ('name',)
+
+    def __str__(self):
+        return '{name}'.format(name=self.name)
+
+
 class SpeakerApplication(SpeakerModel):
     website = models.URLField(verbose_name=_('Website'), null=True, blank=True)
     twitter = models.URLField(verbose_name=_('Twitter'), null=True, blank=True)
     github = models.URLField(verbose_name=_('Github'), null=True, blank=True)
     linkedin = models.URLField(verbose_name=_('Linkedin'), null=True, blank=True)
+    other_social_account = models.URLField(
+        verbose_name=_('Other Social Account'), null=True, blank=True
+    )
     note = models.TextField(verbose_name=_('Note'), null=True, blank=True)
+    application_type = models.ForeignKey(
+        verbose_name=_('Application Type'), null=True, blank=True,
+        to='speaker.SpeakerApplicationType'
+    )
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to='activity.Activity'
     )
@@ -144,4 +164,6 @@ class SpeakerApplication(SpeakerModel):
         verbose_name = _('Speaker Application')
         verbose_name_plural = _('Speaker Applications')
         ordering = ('activity', 'first_name', 'last_name')
-        unique_together = ('activity', 'first_name', 'last_name')
+        unique_together = (
+            'activity', 'application_type', 'first_name', 'last_name'
+        )

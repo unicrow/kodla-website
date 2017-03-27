@@ -62,6 +62,9 @@ class IndexView(TemplateView):
             except (ValueError, Activity.DoesNotExist) as e:
                 self.activity = None
 
+            if self.activity and self.activity == self.activities.first():
+                return redirect('index')
+
         if not self.activity and year:
             return redirect('index')
 

@@ -310,6 +310,18 @@
             <div class="tab-content{% if not contact_form.prefix in request.POST %} active{% endif %}">
               <form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
                 {% csrf_token %}
+                <div {% if speaker_application_form.application_type.errors %}class='error'{% endif %}>
+                  <label for="apply-type">
+                    {{ speaker_application_form.application_type.label }}: {% if speaker_application_form.application_type.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.application_type %}
+                </div>
+                <div {% if speaker_application_form.email.errors %}class='error'{% endif %}>
+                  <label for="speaker-email">
+                    {{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.email %}
+                </div>
                 <div {% if speaker_application_form.first_name.errors %}class='error'{% endif %}>
                   <label for="speaker-name">
                     {{ speaker_application_form.first_name.label }}: {% if speaker_application_form.first_name.field.required %}*{% endif %}
@@ -322,18 +334,6 @@
                   </label>
                   {% add_attrs speaker_application_form.last_name %}
                 </div>
-                <div {% if speaker_application_form.email.errors %}class='error'{% endif %}>
-                  <label for="speaker-email">
-                    {{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.email %}
-                </div>
-                <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
-                  <label for="picture">
-                    {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.image %}
-                </div>
                 <div {% if speaker_application_form.company.errors %}class='error'{% endif %}>
                   <label for="company">
                     {{ speaker_application_form.company.label }}: {% if speaker_application_form.company.field.required %}*{% endif %}
@@ -345,6 +345,12 @@
                     {{ speaker_application_form.position.label }}: {% if speaker_application_form.position.field.required %}*{% endif %}
                   </label>
                   {% add_attrs speaker_application_form.position %}
+                </div>
+                <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
+                  <label for="picture">
+                    {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs speaker_application_form.image %}
                 </div>
                 <div {% if speaker_application_form.website.errors %}class='error'{% endif %}>
                   <label for="website-url">
@@ -369,6 +375,12 @@
                     {{ speaker_application_form.linkedin.label }}: {% if speaker_application_form.linkedin.field.required %}*{% endif %}                  </label>
                   </label>
                   {% add_attrs speaker_application_form.linkedin %}
+                </div>
+                <div {% if speaker_application_form.other_social_account.errors %}class='error'{% endif %}>
+                  <label for="other-url">
+                    {{ speaker_application_form.other_social_account.label }}: {% if speaker_application_form.other_social_account.field.required %}*{% endif %}                  </label>
+                  </label>
+                  {% add_attrs speaker_application_form.other_social_account %}
                 </div>
                 <div class="full-width">
                   <label for="speaker-note">

@@ -64,7 +64,7 @@ class ActivityAdmin(NonSortableParentAdmin):
         }),
         (_(u'Feature'), {
             'fields' : (
-                'has_speaker_application', 'has_register_url', 'has_sponsor_file'
+                'has_speaker_application', 'has_register_url', 'has_activity_document'
             ),
         }),
         (_(u'Detail'), {

@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Local Django
 from speaker.models import (
-    Speaker, SpeakerSocialAccount, SpeakerApplication
+    Speaker, SpeakerSocialAccount, SpeakerApplicationType, SpeakerApplication
 )
 
 
@@ -47,20 +47,30 @@ class SpeakerAdmin(SortableAdmin):
     inlines = (SpeakerSocialAccountInline,)
 
 
+@admin.register(SpeakerApplicationType)
+class SpeakerApplicationTypeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'is_active')
+    list_filter = ('is_active',)
+    list_editable = ('is_active',)
+    search_fields = ('name',)
+
+
 @admin.register(SpeakerApplication)
 class SpeakerApplicationAdmin(admin.ModelAdmin):
     fieldsets = (
         (_(u'Base'), {
             'fields' : (
-                'activity', 'first_name', 'last_name',
-                'email', ('image', 'image_prev'),
+                'activity', 'application_type', 'email',
+                'first_name', 'last_name', ('image', 'image_prev'),
             ),
         }),
         (_(u'Company'), {
             'fields' : (('company', 'position')),
         }),
         (_(u'Social Account'), {
-            'fields' : (('website', 'twitter', 'github', 'linkedin')),
+            'fields' : ((
+                'website', 'twitter', 'github', 'linkedin', 'other_social_account'
+            )),
         }),
         (_(u'Detail'), {
             'fields' : (
@@ -71,9 +81,12 @@ class SpeakerApplicationAdmin(admin.ModelAdmin):
 
     readonly_fields = ('create_date', 'update_date', 'image_prev')
     list_display = (
-        'activity', 'first_name', 'last_name', 'image_prev', 'is_active'
+        'activity', 'application_type', 'email',
+        'first_name', 'last_name', 'image_prev', 'is_active'
     )
-    list_filter = ('activity', 'is_active', 'create_date', 'update_date')
+    list_filter = (
+        'activity', 'application_type', 'is_active', 'create_date', 'update_date'
+    )
     list_editable = ('is_active',)
     search_fields = (
         'activity__name', 'first_name', 'last_name', 'company', 'position'

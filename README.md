@@ -24,11 +24,12 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 * Konuşmacılar arasında sıralama özelliği mevcut. (Etkinliğe özel sıralama şuan için yok.)
 * Sponsorlar etkinliğe özel sıralabiliyor.
 * Sponsor logoları etkinliğe özel boyutlandırılabiliyor.
-* Twitter'da etkinlik ile ilgili atılan tweetler gösteriliyor.  
+* Twitter'da etkinlik ile ilgili atılan tweetler gösteriliyor.
+* Program içeriğine sunum linki ve sunum dosyası eklendi.
+* Konuşmacı olmak istiyorum özelliği.
 
 
 ### Gelecekte Eklenecek Özellikler
-* Konuşmacı olmak istiyorum özelliği.
 * Hackathon başvuru özelliği.
 * Hackathon için api.
 
@@ -47,7 +48,7 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
   $ python manage.py compilemessages
 ```
 
-**Not**: 
+**Not**:
 * settings dizini altında **secret.py** adında bir dosya oluşturmanız gerekmektedir.
 ```python
   # Django

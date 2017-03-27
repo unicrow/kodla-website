@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 14:14+0300\n"
+"POT-Creation-Date: 2017-03-27 17:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgid "Documents"
 msgstr "Dokümanlar"
 
 #: source/apps/activity/admin.py:29 source/apps/core/models.py:37
-#: source/apps/speaker/admin.py:18 source/apps/speaker/admin.py:62
+#: source/apps/speaker/admin.py:18 source/apps/speaker/admin.py:70
 msgid "Social Account"
 msgstr "Sosyal Hesap"
 
@@ -54,7 +54,7 @@ msgid "Maps"
 msgstr "Haritalar"
 
 #: source/apps/activity/admin.py:62 source/apps/speaker/admin.py:27
-#: source/apps/speaker/admin.py:53
+#: source/apps/speaker/admin.py:61
 msgid "Base"
 msgstr "Temel"
 
@@ -63,7 +63,7 @@ msgid "Feature"
 msgstr "Özellik"
 
 #: source/apps/activity/admin.py:70 source/apps/speaker/admin.py:35
-#: source/apps/speaker/admin.py:65
+#: source/apps/speaker/admin.py:75
 msgid "Detail"
 msgstr "Detay"
 
@@ -82,7 +82,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/models.py:97 source/apps/activity/models.py:153
 #: source/apps/activity/models.py:189 source/apps/activity/models.py:216
 #: source/apps/form/models.py:15 source/apps/program/models.py:13
-#: source/apps/speaker/models.py:140
+#: source/apps/speaker/models.py:160
 msgid "Activity"
 msgstr "Etkinlik"
 
@@ -95,8 +95,8 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:214 source/apps/core/models.py:29
 #: source/apps/form/models.py:13 source/apps/program/models.py:11
 #: source/apps/program/models.py:52 source/apps/speaker/models.py:40
-#: source/apps/speaker/models.py:76 source/apps/sponsor/models.py:18
-#: source/apps/sponsor/models.py:41
+#: source/apps/speaker/models.py:76 source/apps/speaker/models.py:135
+#: source/apps/sponsor/models.py:18 source/apps/sponsor/models.py:41
 msgid "Active"
 msgstr "Aktif"
 
@@ -105,7 +105,7 @@ msgstr "Aktif"
 msgid "Email"
 msgstr "E-posta"
 
-#: source/apps/activity/models.py:22 source/apps/speaker/models.py:144
+#: source/apps/activity/models.py:22 source/apps/speaker/models.py:164
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
@@ -236,8 +236,8 @@ msgstr "Oluşturma Tarihi"
 msgid "Update Date"
 msgstr "Güncelleme Tarihi"
 
-#: source/apps/core/models.py:22 source/apps/sponsor/models.py:14
-#: source/apps/sponsor/models.py:39
+#: source/apps/core/models.py:22 source/apps/speaker/models.py:134
+#: source/apps/sponsor/models.py:14 source/apps/sponsor/models.py:39
 msgid "Name"
 msgstr "İsim"
 
@@ -277,7 +277,7 @@ msgstr "Form"
 msgid "Name and Surname"
 msgstr "Adınız ve Soyadınız"
 
-#: source/apps/form/forms.py:15 source/apps/speaker/forms.py:18
+#: source/apps/form/forms.py:15 source/apps/speaker/forms.py:22
 msgid "E-Mail Address"
 msgstr "E-Posta Adresiniz"
 
@@ -342,48 +342,60 @@ msgstr "Başlangıç Zamanı"
 msgid "End Time"
 msgstr "Bitiş Zamanı"
 
-#: source/apps/speaker/admin.py:32 source/apps/speaker/admin.py:59
+#: source/apps/speaker/admin.py:32 source/apps/speaker/admin.py:67
 #: source/apps/speaker/models.py:35
 msgid "Company"
 msgstr "Firma"
 
-#: source/apps/speaker/forms.py:16
+#: source/apps/speaker/forms.py:17 source/apps/speaker/models.py:156
+msgid "Application Type"
+msgstr "Başvuru Türü"
+
+#: source/apps/speaker/forms.py:20
 msgid "Your Name"
 msgstr "Adınız"
 
-#: source/apps/speaker/forms.py:17
+#: source/apps/speaker/forms.py:21
 msgid "Your Surname"
 msgstr "Soyadınız"
 
-#: source/apps/speaker/forms.py:19
+#: source/apps/speaker/forms.py:23
 msgid "Your Image"
 msgstr "Resminiz"
 
-#: source/apps/speaker/forms.py:21
+#: source/apps/speaker/forms.py:25
 msgid "Your working company"
 msgstr "Çalıştığınız firma"
 
-#: source/apps/speaker/forms.py:24
+#: source/apps/speaker/forms.py:28
 msgid "Your working position"
 msgstr "Çalıştığınız pozisyon"
 
-#: source/apps/speaker/forms.py:26
+#: source/apps/speaker/forms.py:33
 msgid "Your Website/Your Blog"
 msgstr "Web siteniz/Blogunuz"
 
-#: source/apps/speaker/forms.py:27
+#: source/apps/speaker/forms.py:35
 msgid "Your Twitter Account"
 msgstr "Twitter Hesabınız"
 
-#: source/apps/speaker/forms.py:28
+#: source/apps/speaker/forms.py:41
 msgid "Your Github Account"
 msgstr "Github Hesabınız"
 
-#: source/apps/speaker/forms.py:29
+#: source/apps/speaker/forms.py:47
 msgid "Your Linkedin Account"
 msgstr "Linkedin Hesabınız"
 
-#: source/apps/speaker/forms.py:31
+#: source/apps/speaker/forms.py:53
+msgid "Your Other Social Account"
+msgstr "Diğer Sosyal Medya Hesabınız"
+
+#: source/apps/speaker/forms.py:56
+msgid "You Can Enter If You Have Another Social Media Account"
+msgstr "Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz"
+
+#: source/apps/speaker/forms.py:61
 msgid "Your Note"
 msgstr "Notunuz"
 
@@ -419,27 +431,39 @@ msgstr "Konuşmacı Sosyal Hesabı"
 msgid "Speaker Social Accounts"
 msgstr "Konuşmacı Sosyal Hesapları"
 
-#: source/apps/speaker/models.py:134
+#: source/apps/speaker/models.py:138
+msgid "Speaker Application Type"
+msgstr "Konuşmacı Başvuru Türü"
+
+#: source/apps/speaker/models.py:139
+msgid "Speaker Application Types"
+msgstr "Konuşmacı Başvuru Türleri"
+
+#: source/apps/speaker/models.py:147
 msgid "Website"
 msgstr "Web sitesi"
 
-#: source/apps/speaker/models.py:135
+#: source/apps/speaker/models.py:148
 msgid "Twitter"
 msgstr "Twitter"
 
-#: source/apps/speaker/models.py:136
+#: source/apps/speaker/models.py:149
 msgid "Github"
 msgstr "Github"
 
-#: source/apps/speaker/models.py:137
+#: source/apps/speaker/models.py:150
 msgid "Linkedin"
 msgstr "Linkedin"
 
-#: source/apps/speaker/models.py:138
+#: source/apps/speaker/models.py:152
+msgid "Other Social Account"
+msgstr "Diğer Sosyal Medya Hesabı"
+
+#: source/apps/speaker/models.py:154
 msgid "Note"
 msgstr "Not"
 
-#: source/apps/speaker/models.py:145
+#: source/apps/speaker/models.py:165
 msgid "Speaker Applications"
 msgstr "Konuşmacı Başvuruları"
 
@@ -486,7 +510,7 @@ msgstr "Sponsor Ol"
 #: source/templates/index.html:62 source/templates/index.html:132
 #: source/templates/index.html:138 source/templates/index.html:173
 #: source/templates/index.html:258 source/templates/index.html:284
-#: source/templates/index.html:433
+#: source/templates/index.html:445
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
@@ -510,24 +534,24 @@ msgstr "Konuşmacı Başvuru Formu"
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/index.html:382
+#: source/templates/index.html:394
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/index.html:416
+#: source/templates/index.html:428
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:424
+#: source/templates/index.html:436
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:425
+#: source/templates/index.html:437
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/index.html:452
+#: source/templates/index.html:464
 msgid ""
 "\n"
 "      <p class=\"footer-desc\">This website has been developed by\n"
