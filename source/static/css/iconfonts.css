@@ -51,3 +51,9 @@
 .icon-gh:before {
   content: "\e908";
 }
+.icon-download:before {
+  content: "\e909";
+}
+.icon-inspect:before {
+  content: "\e90a";
+}

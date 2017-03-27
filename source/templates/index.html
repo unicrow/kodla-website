@@ -101,18 +101,30 @@
                       {% endif %}
                     </div>
 
-                    <div class="item">
+                    <div class="item {% if not content.speaker %}single-line{% endif %}">
                       <span class="topic {% if not content.speaker %}single-line{% endif %}">
                         {{ content.subject }}
                         {% if content.annotation %}
                           <span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
                         {% endif %}
                       </span>
+
                       {% with speakers_name=content.get_speakers %}
                         {% if speakers_name %}
                           <span class="speaker">{{ speakers_name }}</span>
                         {% endif %}
                       {% endwith %}
+
+                      {% if content.presentation_document %}
+                        <a href="{{ content.presentation_document.url }}" class="btn btn-small download-item" target="_blank" download>
+                          <i class="icon-download"></i> {% trans 'Download Presentation' %}
+                        </a>
+                      {% endif %}
+                      {% if content.presentation_url %}
+                        <a href="{{ content.presentation_url }}" class="btn btn-small inspect-item" target="_blank">
+                          <i class="icon-inspect"></i> {% trans 'Review Presentation' %}
+                        </a>
+                      {% endif %}
                     </div>
                   </li>
                 {% endfor %}
@@ -258,7 +270,7 @@
               {% if sponsor.logo_width or sponsor.logo_height %}
                 <img
                   src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}"
-                  {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %} 
+                  {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %}
                   {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}
                 >
               {% else %}
@@ -275,7 +287,7 @@
     {% if activity.has_activity_document and activity_document %}
       <div class="other-sponsors">
         <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
-          <i class="fa fa-file-pdf-o"></i>{% trans "Become a Sponsor" %}
+          <i class="icon-file-pdf-o"></i> {% trans "Become a Sponsor" %}
         </a>
       </div>
     {% endif %}
@@ -305,7 +317,7 @@
                   {% add_attrs speaker_application_form.first_name %}
                 </div>
                 <div {% if speaker_application_form.last_name.errors %}class='error'{% endif %}>
-                  <label for="other-url">
+                  <label for="speaker-surname">
                     {{ speaker_application_form.last_name.label }}: {% if speaker_application_form.last_name.field.required %}*{% endif %}
                   </label>
                   {% add_attrs speaker_application_form.last_name %}
@@ -316,7 +328,7 @@
                   </label>
                   {% add_attrs speaker_application_form.email %}
                 </div>
-                 <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
+                <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
                   <label for="picture">
                     {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
                   </label>
@@ -375,7 +387,7 @@
           {% endif %}
 
           <div class="tab-content{% if not activity.has_speaker_application or contact_form.prefix in request.POST %} active{% endif %}">
-            <form action="{{ request.path }}#contact" method="POST" 
+            <form action="{{ request.path }}#contact" method="POST"
                   class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
               {% csrf_token %}
               <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
@@ -431,7 +443,7 @@
       <a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo">
         <img src="{% static 'img/logos/trabzonhs-footer-logo.png' %}" alt="Trabzon Hackerspace">
       </a>
-      
+
       <a href="http://unicrow.com" class="unicrow-logo" style="margin-left: 10px;">
         <img src="{% static 'img/logos/unicrow-footer-logo.png' %}" alt="Unicrow">
       </a>

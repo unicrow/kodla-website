@@ -15,7 +15,8 @@ class ProgramContentInline(admin.StackedInline):
     readonly_fields = ('create_date', 'update_date')
     fields = (
         ('subject', 'annotation'), ('start_time', 'end_time'),
-        ('program', 'speakers'), 'is_active', ('create_date', 'update_date')
+        ('program', 'speakers'), ('presentation_url', 'presentation_document'),
+        'is_active', ('create_date', 'update_date')
     )
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 11:19+0200\n"
+"POT-Creation-Date: 2017-03-27 14:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,11 +68,11 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:76 source/apps/activity/models.py:54
-#: source/templates/index.html:236
+#: source/templates/index.html:248
 msgid "Transportation"
 msgstr "Ulaşım"
 
-#: source/apps/activity/admin.py:79 source/apps/program/models.py:43
+#: source/apps/activity/admin.py:79 source/apps/program/models.py:57
 #: source/apps/speaker/apps.py:8 source/apps/speaker/models.py:92
 #: source/apps/speaker/models.py:114
 msgid "Speaker"
@@ -94,7 +94,7 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:151 source/apps/activity/models.py:177
 #: source/apps/activity/models.py:214 source/apps/core/models.py:29
 #: source/apps/form/models.py:13 source/apps/program/models.py:11
-#: source/apps/program/models.py:38 source/apps/speaker/models.py:40
+#: source/apps/program/models.py:52 source/apps/speaker/models.py:40
 #: source/apps/speaker/models.py:76 source/apps/sponsor/models.py:18
 #: source/apps/sponsor/models.py:41
 msgid "Active"
@@ -139,7 +139,7 @@ msgstr "Etkinlik Dokümanı"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:57 source/templates/index.html:228
+#: source/apps/activity/models.py:57 source/templates/index.html:240
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -297,16 +297,16 @@ msgstr "Mesajınız"
 msgid "Contact"
 msgstr "İletişim"
 
-#: source/apps/program/admin.py:12 source/apps/program/models.py:47
+#: source/apps/program/admin.py:12 source/apps/program/models.py:61
 msgid "Program Content"
 msgstr "Program İçeriği"
 
-#: source/apps/program/admin.py:13 source/apps/program/models.py:48
+#: source/apps/program/admin.py:13 source/apps/program/models.py:62
 msgid "Program Contents"
 msgstr "Program İçeriği"
 
 #: source/apps/program/apps.py:8 source/apps/program/models.py:17
-#: source/apps/program/models.py:40
+#: source/apps/program/models.py:54
 msgid "Program"
 msgstr "Program"
 
@@ -318,19 +318,27 @@ msgstr "Tarih"
 msgid "Programs"
 msgstr "Programlar"
 
-#: source/apps/program/models.py:29
+#: source/apps/program/models.py:36
 msgid "Subject"
 msgstr "Konu"
 
-#: source/apps/program/models.py:32
+#: source/apps/program/models.py:39
 msgid "Annotation"
 msgstr "Dipnot"
 
-#: source/apps/program/models.py:34
+#: source/apps/program/models.py:42
+msgid "Presentation URL"
+msgstr "Sunum Linki"
+
+#: source/apps/program/models.py:45
+msgid "Presentation Document"
+msgstr "Sunum Dosyası"
+
+#: source/apps/program/models.py:48
 msgid "Start Time"
 msgstr "Başlangıç Zamanı"
 
-#: source/apps/program/models.py:36
+#: source/apps/program/models.py:50
 msgid "End Time"
 msgstr "Bitiş Zamanı"
 
@@ -451,19 +459,19 @@ msgstr "ANA SAYFA"
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:22 source/templates/index.html:134
+#: source/templates/index.html:22 source/templates/index.html:146
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:23 source/templates/index.html:167
+#: source/templates/index.html:23 source/templates/index.html:179
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:24 source/templates/index.html:251
+#: source/templates/index.html:24 source/templates/index.html:263
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:25 source/templates/index.html:286
+#: source/templates/index.html:25 source/templates/index.html:298
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
@@ -471,47 +479,55 @@ msgstr "İLETİŞİM"
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:58 source/templates/index.html:278
+#: source/templates/index.html:58 source/templates/index.html:290
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/index.html:62 source/templates/index.html:120
-#: source/templates/index.html:126 source/templates/index.html:161
-#: source/templates/index.html:246 source/templates/index.html:272
-#: source/templates/index.html:421
+#: source/templates/index.html:62 source/templates/index.html:132
+#: source/templates/index.html:138 source/templates/index.html:173
+#: source/templates/index.html:258 source/templates/index.html:284
+#: source/templates/index.html:433
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/index.html:222
+#: source/templates/index.html:120
+msgid "Download Presentation"
+msgstr "Sunumu İndir"
+
+#: source/templates/index.html:125
+msgid "Review Presentation"
+msgstr "Sunumu İncele"
+
+#: source/templates/index.html:234
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:290
+#: source/templates/index.html:302
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/index.html:291
+#: source/templates/index.html:303
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/index.html:370
+#: source/templates/index.html:382
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/index.html:404
+#: source/templates/index.html:416
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:412
+#: source/templates/index.html:424
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:413
+#: source/templates/index.html:425
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/index.html:440
+#: source/templates/index.html:452
 msgid ""
 "\n"
 "      <p class=\"footer-desc\">This website has been developed by\n"
@@ -523,10 +539,10 @@ msgid ""
 msgstr ""
 "\n"
 "      <p class=\"footer-desc\">Bu web sitesi\n"
-"  		 <a href=\"https://www.facebook.com/groups/trabzonhs/\" target=\"_blank\"> "
-"Trabzon Hackerspace</a> için\n"
-"		<a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> "
-"tarafından tasarlanıp geliştirilmiştir.\n"
+"  \t\t <a href=\"https://www.facebook.com/groups/trabzonhs/\" target=\"_blank"
+"\"> Trabzon Hackerspace</a> için\n"
+"\t\t<a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> tarafından "
+"tasarlanıp geliştirilmiştir.\n"
 "      </p>\n"
 "    "
 

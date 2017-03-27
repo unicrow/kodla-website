@@ -24,12 +24,26 @@ class Program(DateModel):
         )
 
 
+def set_programcontent_documents_upload_path(instance, filename):
+    return '/'.join([
+        'programs', 'program_%d' % instance.program.id,
+        'contents', 'content_%d' % instance.id, 'presentation', filename
+    ])
+
+
 class ProgramContent(DateModel):
     subject = models.CharField(
         verbose_name=_('Subject'), max_length=255, null=True, blank=True
     )
     annotation = models.CharField(
         verbose_name=_('Annotation'), max_length=255, null=True, blank=True
+    )
+    presentation_url = models.URLField(
+        verbose_name=_('Presentation URL'), null=True, blank=True
+    )
+    presentation_document = models.FileField(
+        verbose_name=_('Presentation Document'), null=True, blank=True,
+        upload_to=set_programcontent_documents_upload_path
     )
     start_time = models.TimeField(verbose_name=_('Start Time'))
     end_time = models.TimeField(
@@ -47,6 +61,15 @@ class ProgramContent(DateModel):
         verbose_name = _('Program Content')
         verbose_name_plural = _('Program Contents')
         ordering = ('program', 'start_time')
+
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            saved_presentation_document = self.presentation_document
+            self.presentation_document = None
+            super(ProgramContent, self).save(*args, **kwargs)
+            self.presentation_document = saved_presentation_document
+
+        return super(ProgramContent, self).save(*args, **kwargs)
 
     def __str__(self):
         return '{subject}-{annotation}'.format(
