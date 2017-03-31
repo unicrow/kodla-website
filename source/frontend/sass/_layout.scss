@@ -130,6 +130,26 @@ header {
 
 .timeline-wrap {
 	position: relative;
+	&.timeline-null {
+		* {
+			cursor: not-allowed;
+			pointer-events:none;
+		}
+		.timeline {
+			opacity:.25;
+			.time {padding-bottom:40px;}
+			.time span {
+				font-family: $block-regular;
+				line-height:22px;
+			}
+			.topic {
+				font-family: $block-regular;
+			}
+			.speaker, .break-time {
+				font-family: $block-regular;
+			}	
+		}
+	}
 }
 
 .timeline {
@@ -220,6 +240,25 @@ header {
 /*================================
 =            SPEAKERS            =
 ================================*/
+.speakers-null {
+	position:relative;
+	* {
+		cursor: not-allowed;
+		pointer-events:none;
+	}
+	.speaker-list {
+		figure {
+			border:0;
+			opacity:.80;
+		}
+		img {@include filter(grayscale(0));}
+		p {
+			opacity:.20;
+			font-family: $block-regular;
+		}
+		.speaker-info {opacity:.20;}
+	}
+}
 .speaker-list {
 	@include clearfix;
 	overflow: hidden;
