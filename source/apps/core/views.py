@@ -20,7 +20,9 @@ from django.utils.translation import ugettext_lazy as _
 from form.forms import ContactForm
 from activity.models import Activity
 from speaker.forms import SpeakerApplicationForm
-from core.variables import CONTACT_FORM_PREFIX, SPEAKER_APPLICATION_FORM_PREFIX
+from core.variables import (
+    CONTACT_FORM_PREFIX, SPEAKER_APPLICATION_FORM_PREFIX, DEFAULT_PROGRAM_CONTENTS
+)
 
 
 def get_tweets(request):
@@ -109,6 +111,7 @@ class IndexView(TemplateView):
                     .activitysocialaccount_set.filter(is_active=True),
                 'activity_speakers': activity_speakers,
                 'activity_timeline': activity_timeline,
+                'default_program_contents': DEFAULT_PROGRAM_CONTENTS,
                 'activity_sponsors': activity_sponsors,
                 'contact_form': ContactForm(prefix=CONTACT_FORM_PREFIX),
                 'speaker_application_form': SpeakerApplicationForm(

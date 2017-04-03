@@ -84,8 +84,10 @@
             <a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
           {% endfor %}
         </div>
+      {% endif %}
 
-        <div class="timeline-wrap">
+      {% if activity_timeline %}
+        <div class="timeline-wrap {% if not activity_timeline.items %}timeline-null{% endif %}">
           {% for program, contents in activity_timeline.items %}
             <ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
               {% if contents %}
@@ -129,20 +131,57 @@
                   </li>
                 {% endfor %}
               {% else %}
-                <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+                <div class="timeline-wrap timeline-null">
+                  <ul class="timeline" style="display: block;">
+                    {% for content in default_program_contents %}
+                      <li>
+                        <div class="time">
+                          <span>{{ content.time.0 }}</span>
+                          <span>{{ content.time.1 }}</span>
+                        </div>
+
+                        <div class="item">
+                          <span class="topic">{{ content.subject }}</span>
+                          <span class="speaker">{{ content.speaker }}</span>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                  <div class="null-message-box">
+                    <i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
+                  </div><!-- end null-message-box -->
+                </div>
               {% endif %}
             </ul>
           {% endfor %}
         </div>
       {% else %}
-        <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-      {% endif %}
+        <div class="timeline-wrap timeline-null">
+          <ul class="timeline" style="display: block;">
+            {% for content in default_program_contents %}
+              <li>
+                <div class="time">
+                  <span>{{ content.time.0 }}</span>
+                  <span>{{ content.time.1 }}</span>
+                </div>
 
+                <div class="item">
+                  <span class="topic">{{ content.subject }}</span>
+                  <span class="speaker">{{ content.speaker }}</span>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="null-message-box">
+            <i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
+          </div><!-- end null-message-box -->
+        </div>
+      {% endif %}
     </div>
   </section>
 
   <section id="speakers" data-scroll-index="2">
-    <div class="wrap">
+    <div class="wrap {% if not activity_speakers %}speakers-null{% endif %}">
       <h1>{% trans "SPEAKERS" %}</h1>
       {% if activity_speakers %}
         <ul class="speaker-list">
@@ -170,7 +209,24 @@
           {% endfor %}
         </ul>
       {% else %}
-        <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+        <ul class="speaker-list">
+          {% for i in 5|iternum %}
+            <li>
+              <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}" width="213" height="213"></figure>
+              <p>Lorem Ipsum</p>
+              <div class="speaker-info">
+                <a href="#" target="_blank"><i class="icon-web"></i></a>
+                <a href="#" target="_blank"><i class="icon-tw"></i></a>
+                <a href="#" target="_blank"><i class="icon-gh"></i></a>
+                <a href="#" target="_blank"><i class="icon-li"></i></a>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="null-message-box">
+					<i class="fa fa-clock-o"></i> {% trans 'Speakers Not Yet Announced' %}
+				</div><!-- end null-message-box -->
       {% endif %}
     </div>
   </section>

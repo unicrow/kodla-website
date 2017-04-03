@@ -16,3 +16,8 @@ def add_attrs(field, **kwargs):
             })
 
     return field
+
+
+@register.filter(name='iternum')
+def iternum(num):
+    return range(num)

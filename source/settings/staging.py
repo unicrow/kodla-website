@@ -44,3 +44,6 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+
+from .extra import *

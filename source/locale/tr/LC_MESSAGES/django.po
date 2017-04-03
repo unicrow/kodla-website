@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 17:12+0300\n"
+"POT-Creation-Date: 2017-04-03 17:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:76 source/apps/activity/models.py:54
-#: source/templates/index.html:248
+#: source/templates/index.html:304
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -139,7 +139,7 @@ msgstr "Etkinlik Dokümanı"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:57 source/templates/index.html:240
+#: source/apps/activity/models.py:57 source/templates/index.html:296
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -249,23 +249,23 @@ msgstr "Style Id"
 msgid "Style Class"
 msgstr "Style Class"
 
-#: source/apps/core/views.py:130
+#: source/apps/core/views.py:136
 msgid "Your message has been sent. Thank you."
 msgstr "Mesajınız gönderildi. Teşekkür ederiz."
 
-#: source/apps/core/views.py:139
+#: source/apps/core/views.py:145
 msgid "Your message could not be sent. Try again."
 msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
 
-#: source/apps/core/views.py:159
+#: source/apps/core/views.py:165
 msgid "Your application has been sent. Thank you."
 msgstr "Başvurunuz gönderildi. Teşekkür ederiz."
 
-#: source/apps/core/views.py:169
+#: source/apps/core/views.py:175
 msgid "Your application already exists!"
 msgstr "Başvuru zaten mevcut!"
 
-#: source/apps/core/views.py:175
+#: source/apps/core/views.py:181
 msgid "Your application could not be sent. Try again."
 msgstr "Başvurunuz gönderilemedi. Tekrar deneyin."
 
@@ -483,19 +483,19 @@ msgstr "ANA SAYFA"
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:22 source/templates/index.html:146
+#: source/templates/index.html:22 source/templates/index.html:185
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:23 source/templates/index.html:179
+#: source/templates/index.html:23 source/templates/index.html:235
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:24 source/templates/index.html:263
+#: source/templates/index.html:24 source/templates/index.html:319
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:25 source/templates/index.html:298
+#: source/templates/index.html:25 source/templates/index.html:354
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
@@ -503,55 +503,61 @@ msgstr "İLETİŞİM"
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:58 source/templates/index.html:290
+#: source/templates/index.html:58 source/templates/index.html:346
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/index.html:62 source/templates/index.html:132
-#: source/templates/index.html:138 source/templates/index.html:173
-#: source/templates/index.html:258 source/templates/index.html:284
-#: source/templates/index.html:445
+#: source/templates/index.html:62 source/templates/index.html:314
+#: source/templates/index.html:340 source/templates/index.html:501
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/index.html:120
+#: source/templates/index.html:122
 msgid "Download Presentation"
 msgstr "Sunumu İndir"
 
-#: source/templates/index.html:125
+#: source/templates/index.html:127
 msgid "Review Presentation"
 msgstr "Sunumu İncele"
 
-#: source/templates/index.html:234
+#: source/templates/index.html:151 source/templates/index.html:176
+msgid "Program Not Yet Announced"
+msgstr "Program Henüz Açıklanmadı"
+
+#: source/templates/index.html:228
+msgid "Speakers Not Yet Announced"
+msgstr "Konuşmacılar Henüz Açıklanmadı"
+
+#: source/templates/index.html:290
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:302
+#: source/templates/index.html:358
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/index.html:303
+#: source/templates/index.html:359
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/index.html:394
+#: source/templates/index.html:450
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/index.html:428
+#: source/templates/index.html:484
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:436
+#: source/templates/index.html:492
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:437
+#: source/templates/index.html:493
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/index.html:464
+#: source/templates/index.html:520
 msgid ""
 "\n"
 "      <p class=\"footer-desc\">This website has been developed by\n"
