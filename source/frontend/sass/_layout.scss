@@ -134,6 +134,7 @@ header {
 		* {
 			cursor: not-allowed;
 			pointer-events:none;
+			user-select:none;
 		}
 		.timeline {
 			opacity:.25;
@@ -147,7 +148,7 @@ header {
 			}
 			.speaker, .break-time {
 				font-family: $block-regular;
-			}	
+			}
 		}
 	}
 }
@@ -245,6 +246,7 @@ header {
 	* {
 		cursor: not-allowed;
 		pointer-events:none;
+		user-select:none;
 	}
 	.speaker-list {
 		figure {
