@@ -28,7 +28,7 @@ input, textarea, button {
 ================================*/
 h1 {
 	margin-bottom: 40px;
-	font: 400 26px $roboto-font-stack;
+	font: 400 26px $default-font-stack;
 	color: $h1;
 	letter-spacing: 2px;
 	text-align: center;
@@ -44,7 +44,7 @@ h1 {
 
 h2 {
 	margin-bottom: 15px;
-	font: 20px $roboto-font-stack;
+	font: 20px $default-font-stack;
 	text-transform: uppercase;
 	color: $h2;
 }

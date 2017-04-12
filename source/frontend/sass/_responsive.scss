@@ -9,6 +9,17 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
 
+	#photos .container {
+		.col1, .col2, .col50, .col25 {
+			width: 100%;
+			height: 320px;
+			margin: 0 0 4px;
+			float: none;
+		}
+
+		.col2 { height: auto; }
+	}
+
 	.toggle-mobile-nav {
 		display: block;
 		@include position(fixed, 0 null null 0);

@@ -20,21 +20,48 @@ section { padding: 50px 0 }
 =            HEADER            =
 ==============================*/
 header {
-	padding: 72px 0 80px;
-	background: url(../img/bg/header-pattern.png) no-repeat center 145px;
+	padding: 72px 0 50px;
+	background: url("../img/bg/header-bg.png") no-repeat center 145px #000000;
 	text-align: center;
 }
 .intro {
+	#logo {
+		margin: 50px 0 40px;
+	}
 	img {
 		margin: 100px 0 30px;
 	}
+	h1 {
+		max-width: 400px;
+		margin: 0 auto;
+		font-size: 32px;
+		color: #FFFFFF;
+		letter-spacing: 0;
+		line-height: 34px;
+
+		&::after {
+			border: none;
+		}
+	}
 	p {
-		margin: auto auto 38px;
+		margin: 16px auto 38px;
+		font-size: 16px;
+		color: rgba(255,255,255,0.80);
+		letter-spacing: 0;
+		line-height: 22px;
+
 		padding: 0 20px;
-		max-width: 670px;
+		max-width: 400px;
 	}
 	.btn {
 		 margin-right: 15px;
+		 background: none;
+		 font-size: 16px;
+		 border-radius: 10px;
+		 border: 1px solid rgba(255, 255, 255, 0.1);
+		 &:hover {
+			 background: rgba(255, 255, 255, 0.1);
+		 }
 		 &:last-child {
 			 margin-right: 0;
 		 }
@@ -187,7 +214,7 @@ header {
 		border-right: 2px solid $timeline-line;
 		span {
 			display: block;
-			font: 18px $roboto-font-stack;
+			font: 18px $default-font-stack;
 			color: $time-text;
 			@include transition(all $default-transition-time);
 		}
@@ -218,7 +245,7 @@ header {
 		}
 	}
 	.topic {
-		font: 22px $roboto-font-stack;
+		font: 22px $default-font-stack;
 		color: $topic-text;
 	}
 	.speaker {
@@ -461,4 +488,55 @@ header {
 		vertical-align: middle;
 	}
 	text-align: center;
+}
+
+#photos {
+	text-align: center;
+	@include clearfix;
+
+	a.all-photo-link {
+		color: #EF4136;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.container {
+		padding-top: 50px;
+		@include clearfix;
+		.col1 {
+			width: calc(33.333% - 2px);
+			margin: 4px 0 0 4px;
+			height: 595px;
+			float: left;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.col2 {
+			width: calc(66.666% - 2px);
+			height: 595px;
+			margin: 0 0 0 0;
+			float: left;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.col50 {
+			width: calc(50% - 4px);
+			margin: 4px 0 0 4px;
+			height: 295px;
+			background-size: cover;
+			background-position: center;
+			float: left;
+		}
+
+		.col25 {
+			width: calc(25% - 4px);
+			margin: 4px 0 0 4px;
+			height: 295px;
+			background-size: cover;
+			background-position: center;
+			float: left;
+		}
+	}
 }

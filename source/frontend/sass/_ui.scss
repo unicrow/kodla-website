@@ -72,7 +72,7 @@ a { cursor: pointer }
 	margin-bottom: 5px;
 	background: $btn-bg;
 	border-radius: 45px;
-	font: 400 17px/47px $roboto-font-stack;
+	font: 400 17px/47px $default-font-stack;
 	text-transform: uppercase;
 	color: $btn-text !important;
 	@include transition(all $default-transition-time);
@@ -103,7 +103,17 @@ a { cursor: pointer }
 	@include position(fixed, 0 null null 0);
 	@include size(100% 72px);
 	border-bottom: 1px solid $main-nav-border;
-	background: rgba(255,255,255, .95);
+
+	@include transition(background 0.5s);
+	&.white-bg {
+		background: rgba(255,255,255, .95);
+		a {
+			&.active {
+				color: #333;
+			}
+		}
+	}
+
 	z-index: 9999;
 	> ul {
 		text-align: center;
@@ -117,7 +127,7 @@ a { cursor: pointer }
 		display: block;
 		position: relative;
 		height: 72px;
-		font: normal 18px/72px $roboto-font-stack;
+		font: normal 18px/72px $default-font-stack;
 		color: $main-nav-text;
 		text-transform: uppercase;
 		@include transition(color $default-transition-time);
@@ -133,6 +143,7 @@ a { cursor: pointer }
 			color: darken($main-nav-text, 30%);
 		}
 		&.active {
+			color: #FFF;
 			&:after {
 				bottom: 0;
 				opacity: 1;
@@ -184,7 +195,34 @@ a { cursor: pointer }
   100% { opacity: 0; }
 }
 
-#cursor { @include animation(hideshow 1s ease infinite) }
+@keyframes hideshow {
+	0% {
+		opacity: 0;
+        transform: scale(0.8);
+	}
+	40% {
+		opacity: 0;
+        transform: scale(0.8);
+	}
+	50% {
+		opacity: 1;
+        transform: scale(1);
+	}
+	90% {
+		opacity: 1;
+        transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+        transform: scale(0.8);
+	}
+}
+
+#cursor {
+	transform-origin: center center;
+	opacity: 0;
+	@include animation(hideshow 1s ease infinite);
+}
 
 .toggle-mobile-nav { display: none }
 
@@ -221,7 +259,7 @@ a { cursor: pointer }
 		margin-right: 10px;
 		padding: 0 20px;
 		height: 36px;
-		font: 18px $roboto-font-stack;
+		font: 18px $default-font-stack;
 		text-transform: uppercase;
 		font-weight: 200;
 		line-height: 36px;
