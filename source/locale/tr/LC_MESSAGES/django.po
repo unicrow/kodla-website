@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-13 08:31+0300\n"
+"POT-Creation-Date: 2017-04-13 11:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:76 source/apps/activity/models.py:54
-#: source/templates/index.html:331
+#: source/templates/index.html:327
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -140,7 +140,7 @@ msgstr "Etkinlik Dokümanı"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:57 source/templates/index.html:323
+#: source/apps/activity/models.py:57 source/templates/index.html:319
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -497,105 +497,105 @@ msgstr "Konuşmacı Başvuruları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/index.html:18
+#: source/templates/index.html:17
 msgid "MENU"
 msgstr "MENÜ"
 
-#: source/templates/index.html:21
+#: source/templates/index.html:20
 msgid "HOME"
 msgstr "ANA SAYFA"
 
-#: source/templates/index.html:22 source/templates/index.html:83
+#: source/templates/index.html:21 source/templates/index.html:79
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:23 source/templates/index.html:189
+#: source/templates/index.html:22 source/templates/index.html:185
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:27 source/templates/index.html:262
+#: source/templates/index.html:23 source/templates/index.html:258
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:28 source/templates/index.html:346
+#: source/templates/index.html:24 source/templates/index.html:342
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:29 source/templates/index.html:381
+#: source/templates/index.html:25 source/templates/index.html:377
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/index.html:56
+#: source/templates/index.html:52
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:62 source/templates/index.html:373
+#: source/templates/index.html:58 source/templates/index.html:369
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/index.html:66 source/templates/index.html:341
-#: source/templates/index.html:367 source/templates/index.html:528
+#: source/templates/index.html:62 source/templates/index.html:337
+#: source/templates/index.html:363 source/templates/index.html:524
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/index.html:126
+#: source/templates/index.html:122
 msgid "Download Presentation"
 msgstr "Sunumu İndir"
 
-#: source/templates/index.html:131
+#: source/templates/index.html:127
 msgid "Review Presentation"
 msgstr "Sunumu İncele"
 
-#: source/templates/index.html:155 source/templates/index.html:180
+#: source/templates/index.html:151 source/templates/index.html:176
 msgid "Program Not Yet Announced"
 msgstr "Program Henüz Açıklanmadı"
 
-#: source/templates/index.html:232
+#: source/templates/index.html:228
 msgid "Speakers Not Yet Announced"
 msgstr "Konuşmacılar Henüz Açıklanmadı"
 
-#: source/templates/index.html:244
+#: source/templates/index.html:240
 msgid "SEE ALL PHOTOS"
 msgstr "TÜM FOTOĞRAFLARA BAK"
 
-#: source/templates/index.html:317
+#: source/templates/index.html:313
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:385
+#: source/templates/index.html:381
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/index.html:386
+#: source/templates/index.html:382
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/index.html:477
+#: source/templates/index.html:473
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/index.html:511
+#: source/templates/index.html:507
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:519
+#: source/templates/index.html:515
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:520
+#: source/templates/index.html:516
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/index.html:547
+#: source/templates/index.html:543
 msgid ""
 "\n"
-"        <p class=\"footer-desc\">This website has been developed by\n"
-"          <a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> for\n"
-"          <a href=\"https://www.facebook.com/groups/trabzonhs/\" target="
+"      <p class=\"footer-desc\">This website has been developed by\n"
+"        <a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> for\n"
+"        <a href=\"https://www.facebook.com/groups/trabzonhs/\" target="
 "\"_blank\">Trabzon Hackerspace</a>.\n"
-"        </p>\n"
-"      "
+"      </p>\n"
+"    "
 msgstr ""
 "\n"
 "      <p class=\"footer-desc\">Bu web sitesi\n"
