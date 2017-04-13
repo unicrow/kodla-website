@@ -13,6 +13,17 @@ $(function() {
     topOffset: -50
   });
 
+  var scroll = function() {
+    if($(window).scrollTop() > 100) {
+      $('.main-nav').addClass("white-bg");
+    } else {
+      $('.main-nav').removeClass("white-bg");
+    }
+  };
+
+  scroll();
+  $(window).on("scroll", scroll);
+
   // Select Day
   $('.day-select a').each(function(i) {
     $(this).click(function(e) {
