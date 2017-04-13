@@ -76,6 +76,12 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
 
         if self.activity:
+            activity_galleries = collections.OrderedDict()
+            for gallery in self.activity.gallery_set.filter(is_active=True):
+                activity_galleries.update({
+                    gallery: gallery.gallerycontent_set.filter(is_active=True)
+                })
+
             activity_timeline = collections.OrderedDict()
             for program in self.activity.program_set.filter(is_active=True):
                 activity_timeline.update({
@@ -109,8 +115,9 @@ class IndexView(TemplateView):
                 'activity_map_key': settings.GOOGLE_MAP_API_KEY,
                 'activity_social_accounts': self.activity \
                     .activitysocialaccount_set.filter(is_active=True),
-                'activity_speakers': activity_speakers,
+                'activity_galleries': activity_galleries,
                 'activity_timeline': activity_timeline,
+                'activity_speakers': activity_speakers,
                 'default_program_contents': DEFAULT_PROGRAM_CONTENTS,
                 'activity_sponsors': activity_sponsors,
                 'contact_form': ContactForm(prefix=CONTACT_FORM_PREFIX),
