@@ -7,556 +7,556 @@
 
 
 {% block head %}
-  {{ block.super }}
+	{{ block.super }}
 
-  {% recaptcha_explicit_support %}
+	{% recaptcha_explicit_support %}
 {% endblock %}
 
 {% block content %}
-  <header id="home" data-scroll-index="0">
-    <a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans 'MENU' %}</a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
-        <li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
-        <li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
-        <li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
-        <li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
-        <li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
-        {% if activities %}
-          <li class="archive-list">
-            <a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
-            <ul class="sub-nav">
-              {% for i in activities %}
-                {% if forloop.first %}
-                  <li><a href="{% url 'index' %}">KODLA {{ i.year }}</a></li>
-                {% else %}
-                  <li><a href="{% url 'index-year' i.year %}">KODLA {{ i.year }}</a></li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        {% endif %}
-      </ul>
-    </nav>
+	<header id="home" data-scroll-index="0">
+		<a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans 'MENU' %}</a>
+		<nav class="main-nav">
+			<ul>
+				<li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
+				<li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
+				<li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
+				<li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
+				<li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
+				<li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
+				{% if activities %}
+					<li class="archive-list">
+						<a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
+						<ul class="sub-nav">
+							{% for i in activities %}
+								{% if forloop.first %}
+									<li><a href="{% url 'index' %}">KODLA {{ i.year }}</a></li>
+								{% else %}
+									<li><a href="{% url 'index-year' i.year %}">KODLA {{ i.year }}</a></li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+				{% endif %}
+			</ul>
+		</nav>
 
-    <div class="wrap">
-      <div class="intro">
+		<div class="wrap">
+			<div class="intro">
 
-        {% if activity.logo or activity.description or activity.register_url or activity_document %}
-          {{ activity.logo|safe }}
-          {{ activity.description|safe }}
+				{% if activity.logo or activity.description or activity.register_url or activity_document %}
+					{{ activity.logo|safe }}
+					{{ activity.description|safe }}
 
-          {% if activity.has_register_url and activity.register_url %}
-            <a href="{{ activity.register_url }}" class="btn" target="_blank">
-              <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
-            </a>
-          {% endif %}
+					{% if activity.has_register_url and activity.register_url %}
+						<a href="{{ activity.register_url }}" class="btn" target="_blank">
+							<i class="icon-ticket"></i>{% trans "Sign Up Now" %}
+						</a>
+					{% endif %}
 
-          {% if activity.has_activity_document and activity_document %}
-            <a href="{{ activity_document.document.url }}" class="btn" target="_blank">
-              <i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
-            </a>
-          {% endif %}
-        {% else %}
-          <br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
-        {% endif %}
-      </div>
-    </div>
-  </header>
+					{% if activity.has_activity_document and activity_document %}
+						<a href="{{ activity_document.document.url }}" class="btn" target="_blank">
+							<i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
+						</a>
+					{% endif %}
+				{% else %}
+					<br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
+				{% endif %}
+			</div>
+		</div>
+	</header>
 
-  <section class="latest-tweet">
-    <a href="#" target="_blank">
-      <div class="wrap">
-      <i class="icon-tw"></i>
-      <p>&hellip;</p>
-      </div>
-    </a>
-  </section>
+	<section class="latest-tweet">
+		<a href="#" target="_blank">
+			<div class="wrap">
+			<i class="icon-tw"></i>
+			<p>&hellip;</p>
+			</div>
+		</a>
+	</section>
 
-  <section id="program" data-scroll-index="1">
-    <div class="wrap">
-      <h1>{% trans "PROGRAM" %}</h1>
+	<section id="program" data-scroll-index="1">
+		<div class="wrap">
+			<h1>{% trans "PROGRAM" %}</h1>
 
-      {% if activity_timeline %}
-        <div class="tab day-select">
-          {% for program in activity_timeline %}
-            <a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
+			{% if activity_timeline %}
+				<div class="tab day-select">
+					{% for program in activity_timeline %}
+						<a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
+					{% endfor %}
+				</div>
+			{% endif %}
 
-      {% if activity_timeline %}
-        <div class="timeline-wrap {% if not activity_timeline.items %}timeline-null{% endif %}">
-          {% for program, contents in activity_timeline.items %}
-            <ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
-              {% if contents %}
-                {% for content in contents %}
-                  <li>
-                    <div class="time">
-                      <span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>
-                        {{ content.start_time }}
-                      </span>
+			{% if activity_timeline %}
+				<div class="timeline-wrap {% if not activity_timeline.items %}timeline-null{% endif %}">
+					{% for program, contents in activity_timeline.items %}
+						<ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
+							{% if contents %}
+								{% for content in contents %}
+									<li>
+										<div class="time">
+											<span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>
+												{{ content.start_time }}
+											</span>
 
-                      {% if content.end_time %}
-                        <span>{{ content.end_time }}</span>
-                      {% endif %}
-                    </div>
+											{% if content.end_time %}
+												<span>{{ content.end_time }}</span>
+											{% endif %}
+										</div>
 
-                    <div class="item {% if not content.speaker %}single-line{% endif %}">
-                      <span class="topic {% if not content.speaker %}single-line{% endif %}">
-                        {{ content.subject }}
-                        {% if content.annotation %}
-                          <span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
-                        {% endif %}
-                      </span>
+										<div class="item {% if not content.speaker %}single-line{% endif %}">
+											<span class="topic {% if not content.speaker %}single-line{% endif %}">
+												{{ content.subject }}
+												{% if content.annotation %}
+													<span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
+												{% endif %}
+											</span>
 
-                      {% with speakers_name=content.get_speakers %}
-                        {% if speakers_name %}
-                          <span class="speaker">{{ speakers_name }}</span>
-                        {% endif %}
-                      {% endwith %}
+											{% with speakers_name=content.get_speakers %}
+												{% if speakers_name %}
+													<span class="speaker">{{ speakers_name }}</span>
+												{% endif %}
+											{% endwith %}
 
-                      {% if content.presentation_document %}
-                        <a href="{{ content.presentation_document.url }}" class="btn btn-small download-item" target="_blank" download>
-                          <i class="icon-download"></i> {% trans 'Download Presentation' %}
-                        </a>
-                      {% endif %}
-                      {% if content.presentation_url %}
-                        <a href="{{ content.presentation_url }}" class="btn btn-small inspect-item" target="_blank">
-                          <i class="icon-inspect"></i> {% trans 'Review Presentation' %}
-                        </a>
-                      {% endif %}
-                    </div>
-                  </li>
-                {% endfor %}
-              {% else %}
-                <div class="timeline-wrap timeline-null">
-                  <ul class="timeline" style="display: block;">
-                    {% for content in default_program_contents %}
-                      <li>
-                        <div class="time">
-                          <span>{{ content.time.0 }}</span>
-                          <span>{{ content.time.1 }}</span>
-                        </div>
+											{% if content.presentation_document %}
+												<a href="{{ content.presentation_document.url }}" class="btn btn-small download-item" target="_blank" download>
+													<i class="icon-download"></i> {% trans 'Download Presentation' %}
+												</a>
+											{% endif %}
+											{% if content.presentation_url %}
+												<a href="{{ content.presentation_url }}" class="btn btn-small inspect-item" target="_blank">
+													<i class="icon-inspect"></i> {% trans 'Review Presentation' %}
+												</a>
+											{% endif %}
+										</div>
+									</li>
+								{% endfor %}
+							{% else %}
+								<div class="timeline-wrap timeline-null">
+									<ul class="timeline" style="display: block;">
+										{% for content in default_program_contents %}
+											<li>
+												<div class="time">
+													<span>{{ content.time.0 }}</span>
+													<span>{{ content.time.1 }}</span>
+												</div>
 
-                        <div class="item">
-                          <span class="topic">{{ content.subject }}</span>
-                          <span class="speaker">{{ content.speaker }}</span>
-                        </div>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                  <div class="null-message-box">
-                    <i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
-                  </div><!-- end null-message-box -->
-                </div>
-              {% endif %}
-            </ul>
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="timeline-wrap timeline-null">
-          <ul class="timeline" style="display: block;">
-            {% for content in default_program_contents %}
-              <li>
-                <div class="time">
-                  <span>{{ content.time.0 }}</span>
-                  <span>{{ content.time.1 }}</span>
-                </div>
+												<div class="item">
+													<span class="topic">{{ content.subject }}</span>
+													<span class="speaker">{{ content.speaker }}</span>
+												</div>
+											</li>
+										{% endfor %}
+									</ul>
+									<div class="null-message-box">
+										<i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
+									</div><!-- end null-message-box -->
+								</div>
+							{% endif %}
+						</ul>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="timeline-wrap timeline-null">
+					<ul class="timeline" style="display: block;">
+						{% for content in default_program_contents %}
+							<li>
+								<div class="time">
+									<span>{{ content.time.0 }}</span>
+									<span>{{ content.time.1 }}</span>
+								</div>
 
-                <div class="item">
-                  <span class="topic">{{ content.subject }}</span>
-                  <span class="speaker">{{ content.speaker }}</span>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-          <div class="null-message-box">
-            <i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
-          </div><!-- end null-message-box -->
-        </div>
-      {% endif %}
-    </div>
-  </section>
+								<div class="item">
+									<span class="topic">{{ content.subject }}</span>
+									<span class="speaker">{{ content.speaker }}</span>
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="null-message-box">
+						<i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
+					</div><!-- end null-message-box -->
+				</div>
+			{% endif %}
+		</div>
+	</section>
 
-  <section id="speakers" data-scroll-index="2">
-    <div class="wrap {% if not activity_speakers %}speakers-null{% endif %}">
-      <h1>{% trans "SPEAKERS" %}</h1>
-      {% if activity_speakers %}
-        <ul class="speaker-list">
-          {% for speaker, speaker_social_accounts in activity_speakers.items %}
-            <li>
-              {% if speaker.image %}
-                <figure><img src="{{ speaker.image.url }}" width="213" height="213" alt="{{ speaker.get_full_name }}"></figure>
-              {% endif %}
-              <p>{{ speaker.get_full_name }}</p>
+	<section id="speakers" data-scroll-index="2">
+		<div class="wrap {% if not activity_speakers %}speakers-null{% endif %}">
+			<h1>{% trans "SPEAKERS" %}</h1>
+			{% if activity_speakers %}
+				<ul class="speaker-list">
+					{% for speaker, speaker_social_accounts in activity_speakers.items %}
+						<li>
+							{% if speaker.image %}
+								<figure><img src="{{ speaker.image.url }}" width="213" height="213" alt="{{ speaker.get_full_name }}"></figure>
+							{% endif %}
+							<p>{{ speaker.get_full_name }}</p>
 
-              {% if speaker_social_accounts %}
-                <div class="speaker-info">
-                  {% for speaker_social_account in speaker_social_accounts %}
-                    <a href="{{ speaker_social_account.url }}" target="_blank">
-                      {% if speaker_social_account.account.style_class %}
-                        <i class="{{ speaker_social_account.account.style_class }}"></i>
-                      {% else %}
-                        {{ speaker_social_account.account.name }}
-                      {% endif %}
-                    </a>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <ul class="speaker-list">
-          {% for i in 8|iternum %}
-            <li>
-              <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}" width="213" height="213"></figure>
-              <p>Lorem Ipsum</p>
-              <div class="speaker-info">
-                <a href="#" target="_blank"><i class="icon-web"></i></a>
-                <a href="#" target="_blank"><i class="icon-tw"></i></a>
-                <a href="#" target="_blank"><i class="icon-gh"></i></a>
-                <a href="#" target="_blank"><i class="icon-li"></i></a>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
+							{% if speaker_social_accounts %}
+								<div class="speaker-info">
+									{% for speaker_social_account in speaker_social_accounts %}
+										<a href="{{ speaker_social_account.url }}" target="_blank">
+											{% if speaker_social_account.account.style_class %}
+												<i class="{{ speaker_social_account.account.style_class }}"></i>
+											{% else %}
+												{{ speaker_social_account.account.name }}
+											{% endif %}
+										</a>
+									{% endfor %}
+								</div>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<ul class="speaker-list">
+					{% for i in 8|iternum %}
+						<li>
+							<figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}" width="213" height="213"></figure>
+							<p>Lorem Ipsum</p>
+							<div class="speaker-info">
+								<a href="#" target="_blank"><i class="icon-web"></i></a>
+								<a href="#" target="_blank"><i class="icon-tw"></i></a>
+								<a href="#" target="_blank"><i class="icon-gh"></i></a>
+								<a href="#" target="_blank"><i class="icon-li"></i></a>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
 
-        <div class="null-message-box">
-          <i class="fa fa-clock-o"></i> {% trans 'Speakers Not Yet Announced' %}
-        </div><!-- end null-message-box -->
-      {% endif %}
-    </div>
-  </section>
+				<div class="null-message-box">
+					<i class="fa fa-clock-o"></i> {% trans 'Speakers Not Yet Announced' %}
+				</div><!-- end null-message-box -->
+			{% endif %}
+		</div>
+	</section>
 
-  {% for gallery, contents in activity_galleries.items %}
-    <section id="photos">
-      <div class="wrap1">
-        <h1>{{ gallery.name|upper }}</h1>
-        <div class="photos">
-          {% if gallery.url %}
-            <a class="all-photo-link" href="{{ gallery.url }}" target="_blank">{% trans 'SEE ALL PHOTOS' %}</a>
-          {% endif %}
-          <div class="container">
-            <a class="col1" style="background-image: url('{{ contents.0.image.url }}');" href="{{ contents.0.image.url }}" target="_blank"></a>
-            <div class="col2">
-              <a class="col50" style="background-image: url('{{ contents.1.image.url }}');" href="{{ contents.1.image.url }}" target="_blank"></a>
-              <a class="col50" style="background-image: url('{{ contents.2.image.url }}');" href="{{ contents.2.image.url }}" target="_blank"></a>
-              <a class="col25" style="background-image: url('{{ contents.3.image.url }}');" href="{{ contents.3.image.url }}" target="_blank"></a>
-              <a class="col50" style="background-image: url('{{ contents.4.image.url }}');" href="{{ contents.4.image.url }}" target="_blank"></a>
-              <a class="col25" style="background-image: url('{{ contents.5.image.url }}');" href="{{ contents.5.image.url }}" target="_blank"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  {% endfor %}
+	{% for gallery, contents in activity_galleries.items %}
+		<section id="photos">
+			<div class="wrap1">
+				<h1>{{ gallery.name|upper }}</h1>
+				<div class="photos">
+					{% if gallery.url %}
+						<a class="all-photo-link" href="{{ gallery.url }}" target="_blank">{% trans 'SEE ALL PHOTOS' %}</a>
+					{% endif %}
+					<div class="container">
+						<a class="col1" style="background-image: url('{{ contents.0.image.url }}');" href="{{ contents.0.image.url }}" target="_blank"></a>
+						<div class="col2">
+							<a class="col50" style="background-image: url('{{ contents.1.image.url }}');" href="{{ contents.1.image.url }}" target="_blank"></a>
+							<a class="col50" style="background-image: url('{{ contents.2.image.url }}');" href="{{ contents.2.image.url }}" target="_blank"></a>
+							<a class="col25" style="background-image: url('{{ contents.3.image.url }}');" href="{{ contents.3.image.url }}" target="_blank"></a>
+							<a class="col50" style="background-image: url('{{ contents.4.image.url }}');" href="{{ contents.4.image.url }}" target="_blank"></a>
+							<a class="col25" style="background-image: url('{{ contents.5.image.url }}');" href="{{ contents.5.image.url }}" target="_blank"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endfor %}
 
-  <section id="transportation" data-scroll-index="3">
-    <h1>{% trans "TRANSPORTATION" %}</h1>
-    {% if activity_map or activity.address or activity.accommodation or activity.transportation %}
-      {% if activity_map %}
-        <div class="map">
-          <div id="map" style="height: 400px; margin-bottom: 50px;"></div>
-          <script>
+	<section id="transportation" data-scroll-index="3">
+		<h1>{% trans "TRANSPORTATION" %}</h1>
+		{% if activity_map or activity.address or activity.accommodation or activity.transportation %}
+			{% if activity_map %}
+				<div class="map">
+					<div id="map" style="height: 400px; margin-bottom: 50px;"></div>
+					<script>
 
-            // The following example creates a marker in Stockholm, Sweden using a DROP
-            // animation. Clicking on the marker will toggle the animation between a BOUNCE
-            // animation and no animation.
+						// The following example creates a marker in Stockholm, Sweden using a DROP
+						// animation. Clicking on the marker will toggle the animation between a BOUNCE
+						// animation and no animation.
 
-            var marker;
+						var marker;
 
-            function initMap() {
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 16,
-                scrollwheel: false,
-                center: {
-                    lat: {{ activity_map.coordinates.latitude|stringformat:"f" }},
-                    lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}
-                }
-              });
+						function initMap() {
+							var map = new google.maps.Map(document.getElementById('map'), {
+								zoom: 16,
+								scrollwheel: false,
+								center: {
+										lat: {{ activity_map.coordinates.latitude|stringformat:"f" }},
+										lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}
+								}
+							});
 
-              marker = new google.maps.Marker({
-                position: map.getCenter(),
-                map: map,
-                draggable: false,
-                animation: google.maps.Animation.DROP
-              });
-              //marker.addListener('click', toggleBounce);
+							marker = new google.maps.Marker({
+								position: map.getCenter(),
+								map: map,
+								draggable: false,
+								animation: google.maps.Animation.DROP
+							});
+							//marker.addListener('click', toggleBounce);
 
-              var infoWindow = new google.maps.InfoWindow({
-                content: '{{ activity_map.description }}'
-              });
+							var infoWindow = new google.maps.InfoWindow({
+								content: '{{ activity_map.description }}'
+							});
 
-              // Opens the InfoWindow when marker is clicked.
-              marker.addListener('click', function() {
-                infoWindow.open(map, marker);
-              });
-            }
+							// Opens the InfoWindow when marker is clicked.
+							marker.addListener('click', function() {
+								infoWindow.open(map, marker);
+							});
+						}
 
-            function toggleBounce() {
-              if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-              } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            }
-          </script>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
-        </div>
-      {% endif %}
-      <div class="wrap">
-        <div class="desc">
-          <div>
-            <h2>{% trans "Event Location" %}</h2>
-            {% if activity.address %}
-              {{ activity.address|safe }}
-            {% else %}
-              ---
-            {% endif %}
-            <h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
-            {% if activity.accommodation %}
-              {{ activity.accommodation|safe }}
-            {% else %}
-              ---
-            {% endif %}
-          </div>
-          <div>
-            <h2>{% trans "Transportation" %}</h2>
-            {% if activity.transportation %}
-              {{ activity.transportation|safe }}
-            {% else %}
-              ---
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% else %}
-      <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-    {% endif %}
-  </section>
+						function toggleBounce() {
+							if (marker.getAnimation() !== null) {
+								marker.setAnimation(null);
+							} else {
+								marker.setAnimation(google.maps.Animation.BOUNCE);
+							}
+						}
+					</script>
+					<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
+				</div>
+			{% endif %}
+			<div class="wrap">
+				<div class="desc">
+					<div>
+						<h2>{% trans "Event Location" %}</h2>
+						{% if activity.address %}
+							{{ activity.address|safe }}
+						{% else %}
+							---
+						{% endif %}
+						<h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
+						{% if activity.accommodation %}
+							{{ activity.accommodation|safe }}
+						{% else %}
+							---
+						{% endif %}
+					</div>
+					<div>
+						<h2>{% trans "Transportation" %}</h2>
+						{% if activity.transportation %}
+							{{ activity.transportation|safe }}
+						{% else %}
+							---
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+		{% endif %}
+	</section>
 
-  <section id="sponsors" data-scroll-index="4">
-    <h1>{% trans 'SPONSORS' %}</h1>
+	<section id="sponsors" data-scroll-index="4">
+		<h1>{% trans 'SPONSORS' %}</h1>
 
-    {% if activity_sponsors %}
-      {% for sponsor_type, sponsors in activity_sponsors.items %}
-        <div class="other-sponsors">
-          {% for sponsor in sponsors %}
-            <a href="{{ sponsor.sponsor.url }}" target="_blank">
-              {% if sponsor.logo_width or sponsor.logo_height %}
-                <img
-                  src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}"
-                  {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %}
-                  {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}
-                >
-              {% else %}
-                <img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
-              {% endif %}
-            </a>
-          {% endfor %}
-        </div>
-      {% endfor %}
-    {% else %}
-      <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-    {% endif %}
+		{% if activity_sponsors %}
+			{% for sponsor_type, sponsors in activity_sponsors.items %}
+				<div class="other-sponsors">
+					{% for sponsor in sponsors %}
+						<a href="{{ sponsor.sponsor.url }}" target="_blank">
+							{% if sponsor.logo_width or sponsor.logo_height %}
+								<img
+									src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}"
+									{% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %}
+									{% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}
+								>
+							{% else %}
+								<img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+							{% endif %}
+						</a>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		{% else %}
+			<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+		{% endif %}
 
-    {% if activity.has_activity_document and activity_document %}
-      <div class="other-sponsors">
-        <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
-          <i class="icon-file-pdf-o"></i> {% trans "Become a Sponsor" %}
-        </a>
-      </div>
-    {% endif %}
-  </section>
+		{% if activity.has_activity_document and activity_document %}
+			<div class="other-sponsors">
+				<a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
+					<i class="icon-file-pdf-o"></i> {% trans "Become a Sponsor" %}
+				</a>
+			</div>
+		{% endif %}
+	</section>
 
-  <section id="contact" data-scroll-index="5">
-    <div class="wrap">
-      <h1>{% trans "CONTACT" %}</h1>
+	<section id="contact" data-scroll-index="5">
+		<div class="wrap">
+			<h1>{% trans "CONTACT" %}</h1>
 
-      {% if activity.has_speaker_application %}
-        <div class="tab contact-select">
-          <a  href="#" {% if not contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Speaker Application Form' %}</a>
-          <a href="#" {% if contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Contact Form' %}</a>
-        </div>
-      {% endif %}
+			{% if activity.has_speaker_application %}
+				<div class="tab contact-select">
+					<a  href="#" {% if not contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Speaker Application Form' %}</a>
+					<a href="#" {% if contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Contact Form' %}</a>
+				</div>
+			{% endif %}
 
-      <div class="tab-content-wrap">
-        {% if activity %}
-          {% if activity.has_speaker_application %}
-            <div class="tab-content{% if not contact_form.prefix in request.POST %} active{% endif %}">
-              <form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div {% if speaker_application_form.application_type.errors %}class='error'{% endif %}>
-                  <label for="apply-type">
-                    {{ speaker_application_form.application_type.label }}: {% if speaker_application_form.application_type.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.application_type %}
-                </div>
-                <div {% if speaker_application_form.email.errors %}class='error'{% endif %}>
-                  <label for="speaker-email">
-                    {{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.email %}
-                </div>
-                <div {% if speaker_application_form.first_name.errors %}class='error'{% endif %}>
-                  <label for="speaker-name">
-                    {{ speaker_application_form.first_name.label }}: {% if speaker_application_form.first_name.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.first_name %}
-                </div>
-                <div {% if speaker_application_form.last_name.errors %}class='error'{% endif %}>
-                  <label for="speaker-surname">
-                    {{ speaker_application_form.last_name.label }}: {% if speaker_application_form.last_name.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.last_name %}
-                </div>
-                <div {% if speaker_application_form.company.errors %}class='error'{% endif %}>
-                  <label for="company">
-                    {{ speaker_application_form.company.label }}: {% if speaker_application_form.company.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.company %}
-                </div>
-                <div {% if speaker_application_form.position.errors %}class='error'{% endif %}>
-                  <label for="position">
-                    {{ speaker_application_form.position.label }}: {% if speaker_application_form.position.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.position %}
-                </div>
-                <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
-                  <label for="picture">
-                    {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.image %}
-                </div>
-                <div {% if speaker_application_form.website.errors %}class='error'{% endif %}>
-                  <label for="website-url">
-                    {{ speaker_application_form.website.label }}: {% if speaker_application_form.website.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.website %}
-                </div>
-                <div {% if speaker_application_form.twitter.errors %}class='error'{% endif %}>
-                  <label for="twitter-url">
-                    {{ speaker_application_form.twitter.label }}: {% if speaker_application_form.twitter.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.twitter %}
-                </div>
-                <div {% if speaker_application_form.github.errors %}class='error'{% endif %}>
-                  <label for="github-url">
-                    {{ speaker_application_form.github.label }}: {% if speaker_application_form.github.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.github %}
-                </div>
-                <div {% if speaker_application_form.linkedin.errors %}class='error'{% endif %}>
-                  <label for="linkedin-url">
-                    {{ speaker_application_form.linkedin.label }}: {% if speaker_application_form.linkedin.field.required %}*{% endif %}                  </label>
-                  </label>
-                  {% add_attrs speaker_application_form.linkedin %}
-                </div>
-                <div {% if speaker_application_form.other_social_account.errors %}class='error'{% endif %}>
-                  <label for="other-url">
-                    {{ speaker_application_form.other_social_account.label }}: {% if speaker_application_form.other_social_account.field.required %}*{% endif %}                  </label>
-                  </label>
-                  {% add_attrs speaker_application_form.other_social_account %}
-                </div>
-                <div class="full-width">
-                  <label for="speaker-note">
-                    {{ speaker_application_form.note.label }}: {% if speaker_application_form.note.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.note %}
-                </div>
-                {% add_attrs speaker_application_form.recaptcha %}
-                <div>
-                  <button name="{{ speaker_application_form.prefix }}" type="submit">
-                    {% trans "Send Application" %}
-                  </button>
-                </div>
-              </form>
-            </div>
-          {% endif %}
+			<div class="tab-content-wrap">
+				{% if activity %}
+					{% if activity.has_speaker_application %}
+						<div class="tab-content{% if not contact_form.prefix in request.POST %} active{% endif %}">
+							<form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div {% if speaker_application_form.application_type.errors %}class='error'{% endif %}>
+									<label for="apply-type">
+										{{ speaker_application_form.application_type.label }}: {% if speaker_application_form.application_type.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.application_type %}
+								</div>
+								<div {% if speaker_application_form.email.errors %}class='error'{% endif %}>
+									<label for="speaker-email">
+										{{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.email %}
+								</div>
+								<div {% if speaker_application_form.first_name.errors %}class='error'{% endif %}>
+									<label for="speaker-name">
+										{{ speaker_application_form.first_name.label }}: {% if speaker_application_form.first_name.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.first_name %}
+								</div>
+								<div {% if speaker_application_form.last_name.errors %}class='error'{% endif %}>
+									<label for="speaker-surname">
+										{{ speaker_application_form.last_name.label }}: {% if speaker_application_form.last_name.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.last_name %}
+								</div>
+								<div {% if speaker_application_form.company.errors %}class='error'{% endif %}>
+									<label for="company">
+										{{ speaker_application_form.company.label }}: {% if speaker_application_form.company.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.company %}
+								</div>
+								<div {% if speaker_application_form.position.errors %}class='error'{% endif %}>
+									<label for="position">
+										{{ speaker_application_form.position.label }}: {% if speaker_application_form.position.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.position %}
+								</div>
+								<div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
+									<label for="picture">
+										{{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.image %}
+								</div>
+								<div {% if speaker_application_form.website.errors %}class='error'{% endif %}>
+									<label for="website-url">
+										{{ speaker_application_form.website.label }}: {% if speaker_application_form.website.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.website %}
+								</div>
+								<div {% if speaker_application_form.twitter.errors %}class='error'{% endif %}>
+									<label for="twitter-url">
+										{{ speaker_application_form.twitter.label }}: {% if speaker_application_form.twitter.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.twitter %}
+								</div>
+								<div {% if speaker_application_form.github.errors %}class='error'{% endif %}>
+									<label for="github-url">
+										{{ speaker_application_form.github.label }}: {% if speaker_application_form.github.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.github %}
+								</div>
+								<div {% if speaker_application_form.linkedin.errors %}class='error'{% endif %}>
+									<label for="linkedin-url">
+										{{ speaker_application_form.linkedin.label }}: {% if speaker_application_form.linkedin.field.required %}*{% endif %}                  </label>
+									</label>
+									{% add_attrs speaker_application_form.linkedin %}
+								</div>
+								<div {% if speaker_application_form.other_social_account.errors %}class='error'{% endif %}>
+									<label for="other-url">
+										{{ speaker_application_form.other_social_account.label }}: {% if speaker_application_form.other_social_account.field.required %}*{% endif %}                  </label>
+									</label>
+									{% add_attrs speaker_application_form.other_social_account %}
+								</div>
+								<div class="full-width">
+									<label for="speaker-note">
+										{{ speaker_application_form.note.label }}: {% if speaker_application_form.note.field.required %}*{% endif %}
+									</label>
+									{% add_attrs speaker_application_form.note %}
+								</div>
+								{% add_attrs speaker_application_form.recaptcha %}
+								<div>
+									<button name="{{ speaker_application_form.prefix }}" type="submit">
+										{% trans "Send Application" %}
+									</button>
+								</div>
+							</form>
+						</div>
+					{% endif %}
 
-          <div class="tab-content{% if not activity.has_speaker_application or contact_form.prefix in request.POST %} active{% endif %}">
-            <form action="{{ request.path }}#contact" method="POST"
-                  class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
-              {% csrf_token %}
-              <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
-                <label for="name">
-                  {{ contact_form.full_name.label }}: {% if contact_form.full_name.field.required %}*{% endif %}
-                </label>
-                {% add_attrs contact_form.full_name %}
-                <span class="input-edges"></span>
-              </div>
-              <div {% if contact_form.email.errors %}class='error'{% endif %}>
-                <label for="email">
-                  {{ contact_form.email.label }}: {% if contact_form.email.field.required %}*{% endif %}
-                </label>
-                {% add_attrs contact_form.email %}
-                <span class="input-edges"></span>
-              </div>
-              <div {% if contact_form.message.errors %}class='error'{% endif %}>
-                <label for="message">
-                  {{ contact_form.message.label }}: {% if contact_form.message.field.required %}*{% endif %}
-                </label>
-                {% add_attrs contact_form.message %}
-              </div>
-              {% add_attrs contact_form.recaptcha %}
-              <div>
-                <button name="{{ contact_form.prefix }}" type="submit">
-                  {% trans "Send Message" %}
-                </button>
-              </div>
-            </form>
+					<div class="tab-content{% if not activity.has_speaker_application or contact_form.prefix in request.POST %} active{% endif %}">
+						<form action="{{ request.path }}#contact" method="POST"
+									class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
+							{% csrf_token %}
+							<div {% if contact_form.full_name.errors %}class='error'{% endif %}>
+								<label for="name">
+									{{ contact_form.full_name.label }}: {% if contact_form.full_name.field.required %}*{% endif %}
+								</label>
+								{% add_attrs contact_form.full_name %}
+								<span class="input-edges"></span>
+							</div>
+							<div {% if contact_form.email.errors %}class='error'{% endif %}>
+								<label for="email">
+									{{ contact_form.email.label }}: {% if contact_form.email.field.required %}*{% endif %}
+								</label>
+								{% add_attrs contact_form.email %}
+								<span class="input-edges"></span>
+							</div>
+							<div {% if contact_form.message.errors %}class='error'{% endif %}>
+								<label for="message">
+									{{ contact_form.message.label }}: {% if contact_form.message.field.required %}*{% endif %}
+								</label>
+								{% add_attrs contact_form.message %}
+							</div>
+							{% add_attrs contact_form.recaptcha %}
+							<div>
+								<button name="{{ contact_form.prefix }}" type="submit">
+									{% trans "Send Message" %}
+								</button>
+							</div>
+						</form>
 
-            <div class="contact-info">
-              {% if activity.email %}
-                <div>
-                  <h2>{% trans "Communicate Now" %}</h2>
-                  <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
-                    <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
-                  </p>
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        {% else %}
-          <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-        {% endif %}
-      </div>
-    </div>
-  </section>
+						<div class="contact-info">
+							{% if activity.email %}
+								<div>
+									<h2>{% trans "Communicate Now" %}</h2>
+									<p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
+										<a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
+									</p>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% else %}
+					<div class="coming-soon">{% trans 'Coming Soon' %}</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
 
-  {% recaptcha_explicit_init %}
+	{% recaptcha_explicit_init %}
 
-  <footer class="footer">
-    <div class="footer-logos">
-      <a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo">
-        <img src="{% static 'img/logos/trabzonhs-footer-logo.png' %}" alt="Trabzon Hackerspace">
-      </a>
+	<footer class="footer">
+		<div class="footer-logos">
+			<a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo">
+				<img src="{% static 'img/logos/trabzonhs-footer-logo.png' %}" alt="Trabzon Hackerspace">
+			</a>
 
-      <a href="http://unicrow.com" class="unicrow-logo" style="margin-left: 10px;">
-        <img src="{% static 'img/logos/unicrow-footer-logo.png' %}" alt="Unicrow">
-      </a>
-    </div>
+			<a href="http://unicrow.com" class="unicrow-logo" style="margin-left: 10px;">
+				<img src="{% static 'img/logos/unicrow-footer-logo.png' %}" alt="Unicrow">
+			</a>
+		</div>
 
-    {% blocktrans %}
-      <p class="footer-desc">This website has been developed by
-        <a href="http://unicrow.com" target="_blank">Unicrow</a> for
-        <a href="https://www.facebook.com/groups/trabzonhs/" target="_blank">Trabzon Hackerspace</a>.
-      </p>
-    {% endblocktrans %}
+		{% blocktrans %}
+			<p class="footer-desc">This website has been developed by
+				<a href="http://unicrow.com" target="_blank">Unicrow</a> for
+				<a href="https://www.facebook.com/groups/trabzonhs/" target="_blank">Trabzon Hackerspace</a>.
+			</p>
+		{% endblocktrans %}
 
-    {% if activity_social_accounts %}
-      <ul class="footer-social-media">
-        {% for activity_social_account in activity_social_accounts %}
-          <li>
-            <a href="{{ activity_social_account.url }}" target="_blank">
-              <i class="{{ activity_social_account.account.style_class }}"></i>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </footer>
+		{% if activity_social_accounts %}
+			<ul class="footer-social-media">
+				{% for activity_social_account in activity_social_accounts %}
+					<li>
+						<a href="{{ activity_social_account.url }}" target="_blank">
+							<i class="{{ activity_social_account.account.style_class }}"></i>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</footer>
 {% endblock %}
