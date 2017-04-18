@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-13 11:24+0300\n"
+"POT-Creation-Date: 2017-04-18 13:49+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:76 source/apps/activity/models.py:54
-#: source/templates/index.html:327
+#: source/templates/index.html:330
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -140,7 +140,7 @@ msgstr "Etkinlik Dokümanı"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:57 source/templates/index.html:319
+#: source/apps/activity/models.py:57 source/templates/index.html:322
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -513,15 +513,15 @@ msgstr "PROGRAM"
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:23 source/templates/index.html:258
+#: source/templates/index.html:23 source/templates/index.html:261
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:24 source/templates/index.html:342
+#: source/templates/index.html:24 source/templates/index.html:345
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:25 source/templates/index.html:377
+#: source/templates/index.html:25 source/templates/index.html:380
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
@@ -529,12 +529,12 @@ msgstr "İLETİŞİM"
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/index.html:58 source/templates/index.html:369
+#: source/templates/index.html:58 source/templates/index.html:372
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/index.html:62 source/templates/index.html:337
-#: source/templates/index.html:363 source/templates/index.html:524
+#: source/templates/index.html:62 source/templates/index.html:340
+#: source/templates/index.html:366 source/templates/index.html:527
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
@@ -550,52 +550,53 @@ msgstr "Sunumu İncele"
 msgid "Program Not Yet Announced"
 msgstr "Program Henüz Açıklanmadı"
 
-#: source/templates/index.html:228
+#: source/templates/index.html:231
 msgid "Speakers Not Yet Announced"
 msgstr "Konuşmacılar Henüz Açıklanmadı"
 
-#: source/templates/index.html:240
+#: source/templates/index.html:243
 msgid "SEE ALL PHOTOS"
 msgstr "TÜM FOTOĞRAFLARA BAK"
 
-#: source/templates/index.html:313
+#: source/templates/index.html:316
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/index.html:381
+#: source/templates/index.html:384
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/index.html:382
+#: source/templates/index.html:385
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/index.html:473
+#: source/templates/index.html:476
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/index.html:507
+#: source/templates/index.html:510
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/index.html:515
+#: source/templates/index.html:518
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/index.html:516
+#: source/templates/index.html:519
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/index.html:543
+#: source/templates/index.html:546
 msgid ""
 "\n"
-"      <p class=\"footer-desc\">This website has been developed by\n"
-"        <a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> for\n"
-"        <a href=\"https://www.facebook.com/groups/trabzonhs/\" target="
-"\"_blank\">Trabzon Hackerspace</a>.\n"
-"      </p>\n"
-"    "
+"            <p class=\"footer-desc\">This website has been developed by\n"
+"                <a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> "
+"for\n"
+"                <a href=\"https://www.facebook.com/groups/trabzonhs/\" "
+"target=\"_blank\">Trabzon Hackerspace</a>.\n"
+"            </p>\n"
+"        "
 msgstr ""
 "\n"
 "      <p class=\"footer-desc\">Bu web sitesi\n"
