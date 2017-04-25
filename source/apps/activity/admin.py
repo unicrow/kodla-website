@@ -64,13 +64,15 @@ class ActivityAdmin(NonSortableParentAdmin):
         }),
         (_(u'Feature'), {
             'fields' : (
-                'has_speaker_application', 'has_register_url', 'has_activity_document'
+                'has_speaker_application', 'has_register_url',
+                'has_hackathon_register_url', 'has_activity_document'
             ),
         }),
         (_(u'Detail'), {
             'fields' : (
-                'email', 'short_description', 'register_url', 'description',
-                'meta_tags', 'logo', ('create_date', 'update_date')
+                'email', 'short_description', 'register_url',
+                'hackathon_register_url', 'description', 'meta_tags',
+                'logo', ('create_date', 'update_date')
             ),
         }),
         (_(u'Transportation'), {
@@ -86,13 +88,14 @@ class ActivityAdmin(NonSortableParentAdmin):
     filter_horizontal = ('speakers',)
     readonly_fields = ('create_date', 'update_date')
     list_display = (
-        'year', 'show_register_url', 'short_description', 'has_speaker_application',
-        'has_register_url', 'has_activity_document', 'is_active'
+        'year', 'show_register_url', 'show_hackathon_register_url',
+        'short_description', 'has_speaker_application', 'has_register_url',
+        'has_hackathon_register_url', 'has_activity_document', 'is_active'
     )
     list_filter = ('is_active',)
     list_editable = (
         'has_speaker_application', 'has_register_url',
-        'has_activity_document', 'is_active'
+        'has_hackathon_register_url', 'has_activity_document', 'is_active'
     )
     search_fields = ('year',)
     inlines = (
