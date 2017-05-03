@@ -61,7 +61,7 @@ class SpeakerApplicationAdmin(admin.ModelAdmin):
         (_(u'Base'), {
             'fields' : (
                 'activity', 'application_type', 'email',
-                'first_name', 'last_name', ('image', 'image_prev'),
+                'first_name', 'last_name', 'note', ('image', 'image_prev'),
             ),
         }),
         (_(u'Company'), {
