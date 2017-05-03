@@ -21,7 +21,7 @@ from django.views.static import serve
 from django.conf.urls import url, include
 
 # Local Django
-from core.views import get_tweets, IndexView
+from core.views import get_tweets, IndexView, HackathonView
 
 
 urlpatterns = [
@@ -32,6 +32,11 @@ urlpatterns = [
     url(r'^redactor/', include('redactor.urls')),
 
     # Pages
+    url(r'^hackathon/$', HackathonView.as_view(), name='hackathon'),
+    url(
+        r'^(?P<year>\w+)?/hackathon/$',
+        HackathonView.as_view(), name='hackathon-year'
+    ),
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^(?P<year>\w+)?/$', IndexView.as_view(), name='index-year'),
     url(r'^get-tweets/$', get_tweets, name='get-tweets')

@@ -13,259 +13,81 @@
 {% endblock %}
 
 {% block content %}
-  <header id="home" data-scroll-index="0">
-    <a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans 'MENU' %}</a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
-        <li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
-        <li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
-        <li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
-        <li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
-        <li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
-        {% if activities %}
-          <li class="archive-list">
-            <a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
-            <ul class="sub-nav">
-              {% for i in activities %}
-                {% if forloop.first %}
-                  <li><a href="{% url 'index' %}">KODLA {{ i.year }}</a></li>
-                {% else %}
-                  <li><a href="{% url 'index-year' i.year %}">KODLA {{ i.year }}</a></li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        {% endif %}
-      </ul>
-    </nav>
-
+  <header id="home-hackathon" data-scroll-index="0">
     <div class="wrap">
-      <div class="intro">
-
-        {% if activity.logo or activity.description or activity.register_url or activity_document %}
-          {{ activity.logo|safe }}
-          {{ activity.description|safe }}
-
-          {% if activity.has_register_url and activity.register_url %}
-            <a href="{{ activity.register_url }}" class="btn" target="_blank">
-              <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
-            </a>
-          {% endif %}
-
-          {% if activity.has_hackathon_register_url and activity.hackathon_register_url %}
-            {% if activity == activities.first %}
-              <a href="{% url 'hackathon' %}" class="btn">
-            {% else %}
-              <a href="{% url 'hackathon-year' activity.year %}" class="btn">
-            {% endif %}
-              <i class="fa fa-code"></i>Hackathon
-            </a>
-          {% endif %}
-
-          {% if activity.has_activity_document and activity_document %}
-            <a href="{{ activity_document.document.url }}" class="btn" target="_blank">
-              <i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
-            </a>
-          {% endif %}
+      <div class="logo">
+        {% if activity == activities.first %}
+          <a href="{% url 'index' %}">
         {% else %}
-          <br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
+          <a href="{% url 'index-year' activity.year %}">
         {% endif %}
+          <img src="{% static 'img/bg/kodla-logo.png' %}" alt="Kodla Logo" />
+        </a>
       </div>
+      
+      <div class="images">
+        <img src="{% static 'img/bg/img.png' %}" />
+        <img src="{% static 'img/bg/ps4.png' %}" />
+      </div>
+      {% if activity.has_hackathon_register_url and activity.hackathon_register_url %}
+        <a href="{{ activity.hackathon_register_url }}" class="btn" target="_blank">
+          <i class="fa fa-code"></i> {% trans "Sign Up Now" %}
+        </a>
+      {% endif %}
     </div>
   </header>
 
-  <section class="latest-tweet">
-    <a href="#" target="_blank">
-      <div class="wrap">
-      <i class="icon-tw"></i>
-      <p>&hellip;</p>
-      </div>
-    </a>
-  </section>
-
-  <section id="program" data-scroll-index="1">
+  <section id="hackathon-info" data-scroll-index="1">
     <div class="wrap">
-      <h1>{% trans "PROGRAM" %}</h1>
+      <h1>HACKATHON HAKKINDA</h1>
+    
+      <h2>Kodla Hackathon</h2>
+      <p>
+        Kodla Hackathon, programlamaya meraklı, problem çözmeye yatkın, proje üretmekten keyif alan yazılımcıları 
+        bir araya getirip, herkesi kodlamaya davet ediyor!
+      </p>
+      <p>
+        Kodla tarafından ilk kez gerçekleştirilecek olan Kodla Hackathon; öğrencilere, çalışanlara, bireysel katılımcılara, 
+        gruplara, ne seviyede olursa olsun deneyimli ve yeni başlayan yazılımcılara, her yaştan bireylere yazılım fikirleri
+        geliştirmek için fırsat oluşturarak teknoloji, yaratıcılık ve işbirliği vasıtasıyla güçlü bir yerel topluluk yaratmayı 
+        hedefliyor.
+      </p>
+      <p>
+        Katılımcılar 19-21 Mayıs tarihlerinde bir araya gelecek, 48 saat uykusuz ama keyifle "kodlayacak". Bu etkinlikte proje 
+        fikirleri üzerine çalışmaktan çok daha fazlasını deneyimleyebileceksiniz.
+      </p>
+      <p>
+        2 gün boyunca fikir geliştirmek, büyük ödülü kazanmak, network ağınızı geliştirmek, araştırma yapmak, yoğun ve üretken
+        bir gün geçirmek isterseniz; yukarıdaki kayıt linkinden hackathon için hemen başvuru yapabilirsiniz.
+      </p>
+      
+      <h2>Kimlere Hitap Ediyoruz?</h2>
+      <p>Hacker ve maker meraklılarına</p>
+      <p>Açık kaynaklı yazılım ve donanıma ilgi duyan insanlara</p>
+      <p>Karadeniz Bölgesi’nde bulunan üniversiteler başta olmak üzere ülke genelindeki bütün üniversite öğrencilerine</p>
+      <p>Bilişim sektörü çalışanları ve meraklılarına</p>
 
-      {% if activity_timeline %}
-        <div class="tab day-select">
-          {% for program in activity_timeline %}
-            <a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
+      <h2>Hackathon’da Neler Olacak?</h2>
+      <p>Sınırsız Kahve veya Çay</p>
+      <p>3 Öğün Yemek</p>
+      <p>Mentör ( Tasarım, FrontEnd ve BackEnd ) Staj İmkanı</p>
+      <p>Katılım Sertifikası ve Ödül</p>
+      
+      <h2>Hackathon ile Amaçlanan Nedir?</h2>
+      <p>
+        Seminerlerin yanında yapacağımız WorkShop ve Hackathon ile katılımcılara öğrendiklerini yansıtabilecekleri projeleri 
+        Mentörler eşliğinde ortaya çıkarmalarını sağlamak. Daha çok öğrenmek ve öğrendiğimiz her şeyi paylaşmak.
+      </p>
 
-      {% if activity_timeline %}
-        <div class="timeline-wrap {% if not activity_timeline.items %}timeline-null{% endif %}">
-          {% for program, contents in activity_timeline.items %}
-            <ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
-              {% if contents %}
-                {% for content in contents %}
-                  <li>
-                    <div class="time">
-                      <span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>
-                        {{ content.start_time }}
-                      </span>
-
-                      {% if content.end_time %}
-                        <span>{{ content.end_time }}</span>
-                      {% endif %}
-                    </div>
-
-                    <div class="item {% if not content.speaker %}single-line{% endif %}">
-                      <span class="topic {% if not content.speaker %}single-line{% endif %}">
-                        {{ content.subject }}
-                        {% if content.annotation %}
-                          <span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
-                        {% endif %}
-                      </span>
-
-                      {% with speakers_name=content.get_speakers %}
-                        {% if speakers_name %}
-                          <span class="speaker">{{ speakers_name }}</span>
-                        {% endif %}
-                      {% endwith %}
-
-                      {% if content.presentation_document %}
-                        <a href="{{ content.presentation_document.url }}" class="btn btn-small download-item" target="_blank" download>
-                          <i class="icon-download"></i> {% trans 'Download Presentation' %}
-                        </a>
-                      {% endif %}
-                      {% if content.presentation_url %}
-                        <a href="{{ content.presentation_url }}" class="btn btn-small inspect-item" target="_blank">
-                          <i class="icon-inspect"></i> {% trans 'Review Presentation' %}
-                        </a>
-                      {% endif %}
-                    </div>
-                  </li>
-                {% endfor %}
-              {% else %}
-                <div class="timeline-wrap timeline-null">
-                  <ul class="timeline" style="display: block;">
-                    {% for content in default_program_contents %}
-                      <li>
-                        <div class="time">
-                          <span>{{ content.time.0 }}</span>
-                          <span>{{ content.time.1 }}</span>
-                        </div>
-
-                        <div class="item">
-                          <span class="topic">{{ content.subject }}</span>
-                          <span class="speaker">{{ content.speaker }}</span>
-                        </div>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                  <div class="null-message-box">
-                    <i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
-                  </div><!-- end null-message-box -->
-                </div>
-              {% endif %}
-            </ul>
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="timeline-wrap timeline-null">
-          <ul class="timeline" style="display: block;">
-            {% for content in default_program_contents %}
-              <li>
-                <div class="time">
-                  <span>{{ content.time.0 }}</span>
-                  <span>{{ content.time.1 }}</span>
-                </div>
-
-                <div class="item">
-                  <span class="topic">{{ content.subject }}</span>
-                  <span class="speaker">{{ content.speaker }}</span>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-          <div class="null-message-box">
-            <i class="fa fa-clock-o"></i> {% trans 'Program Not Yet Announced' %}
-          </div><!-- end null-message-box -->
-        </div>
-      {% endif %}
+      <h2>Yarışmacılar için Hackathon</h2>
+      <p>
+        Kurduğun ekibinle, KTÜ Prof. Dr. Osman Turan Kültür ve Kongre Merkezi’nin üst katında,
+        senin seçtiğin bir konu üzerinde, dilediğin platformda Javascript kullanarak bir proje gerçekleştirip, 
+        48 saatin sonunda ortaya çıkardığınız projeleri, Jüri ve katılımcılara WorkShop Salonunda sunacaksınız. 
+        Jürinin verdiği kararla ödüller de sahiplerini bulacak.
+      </p>
     </div>
   </section>
-
-  <section id="speakers" data-scroll-index="2">
-    <div class="wrap {% if not activity_speakers %}speakers-null{% endif %}">
-      <h1>{% trans "SPEAKERS" %}</h1>
-      {% if activity_speakers %}
-        <ul class="speaker-list">
-          {% for speaker, speaker_social_accounts in activity_speakers.items %}
-            <li>
-              {% if speaker.image %}
-                {% thumbnail speaker.image 180x180 crop upscale as speaker_thumb %}
-                <figure><img src="{{ speaker_thumb.url }}" width="{{ speaker_thumb.width }}" height="{{ speaker_thumb.height }}" alt="{{ speaker.get_full_name }}"></figure>
-              {% else %}
-                <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}"></figure>
-              {% endif %}
-              <p>{{ speaker.get_full_name }}</p>
-
-              {% if speaker_social_accounts %}
-                <div class="speaker-info">
-                  {% for speaker_social_account in speaker_social_accounts %}
-                    <a href="{{ speaker_social_account.url }}" target="_blank">
-                      {% if speaker_social_account.account.style_class %}
-                        <i class="{{ speaker_social_account.account.style_class }}"></i>
-                      {% else %}
-                        {{ speaker_social_account.account.name }}
-                      {% endif %}
-                    </a>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <ul class="speaker-list">
-          {% for i in 8|iternum %}
-            <li>
-              <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}"></figure>
-              <p>Lorem Ipsum</p>
-              <div class="speaker-info">
-                <a href="#" target="_blank"><i class="icon-web"></i></a>
-                <a href="#" target="_blank"><i class="icon-tw"></i></a>
-                <a href="#" target="_blank"><i class="icon-gh"></i></a>
-                <a href="#" target="_blank"><i class="icon-li"></i></a>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-
-        <div class="null-message-box">
-          <i class="fa fa-clock-o"></i> {% trans 'Speakers Not Yet Announced' %}
-        </div><!-- end null-message-box -->
-      {% endif %}
-    </div>
-  </section>
-
-  {% for gallery, contents in activity_galleries.items %}
-    <section id="photos">
-      <div class="wrap1">
-        <h1>{{ gallery.name|upper }}</h1>
-        <div class="photos">
-          {% if gallery.url %}
-            <a class="all-photo-link" href="{{ gallery.url }}" target="_blank">{% trans 'SEE ALL PHOTOS' %}</a>
-          {% endif %}
-          <div class="container">
-            <div class="col1" style="background-image: url('{{ contents.0.image.url }}');"></div>
-            <div class="col2">
-              <div class="col50" style="background-image: url('{{ contents.1.image.url }}');"></div>
-              <div class="col50" style="background-image: url('{{ contents.2.image.url }}');"></div>
-              <div class="col25" style="background-image: url('{{ contents.3.image.url }}');"></div>
-              <div class="col50" style="background-image: url('{{ contents.4.image.url }}');"></div>
-              <div class="col25" style="background-image: url('{{ contents.5.image.url }}');"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  {% endfor %}
 
   <section id="transportation" data-scroll-index="3">
     <h1>{% trans "TRANSPORTATION" %}</h1>
@@ -351,7 +173,7 @@
     {% endif %}
   </section>
 
-  <section id="sponsors" data-scroll-index="4">
+  <section id="sponsors" data-scroll-index="2">
     <h1>{% trans 'SPONSORS' %}</h1>
 
     {% if activity_sponsors %}
@@ -385,7 +207,7 @@
     {% endif %}
   </section>
 
-  <section id="contact" data-scroll-index="5">
+  <section id="contact" data-scroll-index="3">
     <div class="wrap">
       <h1>{% trans "CONTACT" %}</h1>
 
