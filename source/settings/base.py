@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'speaker',
     'program',
     'sponsor',
-    'gallery'
+    'gallery',
+    'hackathon'
 ]
 
 MIDDLEWARE_CLASSES = [

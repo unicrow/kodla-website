@@ -26,11 +26,16 @@
       </div>
       
       <div class="images">
-        <img src="{% static 'img/bg/img.png' %}" />
-        <img src="{% static 'img/bg/ps4.png' %}" />
+        {% if hackathon.main_image %}
+          <img src="{{ hackathon.main_image.url }}" />
+        {% endif %}
+
+        {% if hackathon_prizes.first %}
+          <img src="{{ hackathon_prizes.0.main_image.url }}" />
+        {% endif %}
       </div>
-      {% if activity.has_hackathon_register_url and activity.hackathon_register_url %}
-        <a href="{{ activity.hackathon_register_url }}" class="btn" target="_blank">
+      {% if hackathon.has_register_url and hackathon.register_url %}
+        <a href="{{ hackathon.register_url }}" class="btn" target="_blank">
           <i class="fa fa-code"></i> {% trans "Sign Up Now" %}
         </a>
       {% endif %}
@@ -40,52 +45,12 @@
   <section id="hackathon-info" data-scroll-index="1">
     <div class="wrap">
       <h1>HACKATHON HAKKINDA</h1>
-    
-      <h2>Kodla Hackathon</h2>
-      <p>
-        Kodla Hackathon, programlamaya meraklı, problem çözmeye yatkın, proje üretmekten keyif alan yazılımcıları 
-        bir araya getirip, herkesi kodlamaya davet ediyor!
-      </p>
-      <p>
-        Kodla tarafından ilk kez gerçekleştirilecek olan Kodla Hackathon; öğrencilere, çalışanlara, bireysel katılımcılara, 
-        gruplara, ne seviyede olursa olsun deneyimli ve yeni başlayan yazılımcılara, her yaştan bireylere yazılım fikirleri
-        geliştirmek için fırsat oluşturarak teknoloji, yaratıcılık ve işbirliği vasıtasıyla güçlü bir yerel topluluk yaratmayı 
-        hedefliyor.
-      </p>
-      <p>
-        Katılımcılar 19-21 Mayıs tarihlerinde bir araya gelecek, 48 saat uykusuz ama keyifle "kodlayacak". Bu etkinlikte proje 
-        fikirleri üzerine çalışmaktan çok daha fazlasını deneyimleyebileceksiniz.
-      </p>
-      <p>
-        2 gün boyunca fikir geliştirmek, büyük ödülü kazanmak, network ağınızı geliştirmek, araştırma yapmak, yoğun ve üretken
-        bir gün geçirmek isterseniz; yukarıdaki kayıt linkinden hackathon için hemen başvuru yapabilirsiniz.
-      </p>
-      
-      <h2>Kimlere Hitap Ediyoruz?</h2>
-      <p>Hacker ve maker meraklılarına</p>
-      <p>Açık kaynaklı yazılım ve donanıma ilgi duyan insanlara</p>
-      <p>Karadeniz Bölgesi’nde bulunan üniversiteler başta olmak üzere ülke genelindeki bütün üniversite öğrencilerine</p>
-      <p>Bilişim sektörü çalışanları ve meraklılarına</p>
 
-      <h2>Hackathon’da Neler Olacak?</h2>
-      <p>Sınırsız Kahve veya Çay</p>
-      <p>3 Öğün Yemek</p>
-      <p>Mentör ( Tasarım, FrontEnd ve BackEnd ) Staj İmkanı</p>
-      <p>Katılım Sertifikası ve Ödül</p>
-      
-      <h2>Hackathon ile Amaçlanan Nedir?</h2>
-      <p>
-        Seminerlerin yanında yapacağımız WorkShop ve Hackathon ile katılımcılara öğrendiklerini yansıtabilecekleri projeleri 
-        Mentörler eşliğinde ortaya çıkarmalarını sağlamak. Daha çok öğrenmek ve öğrendiğimiz her şeyi paylaşmak.
-      </p>
-
-      <h2>Yarışmacılar için Hackathon</h2>
-      <p>
-        Kurduğun ekibinle, KTÜ Prof. Dr. Osman Turan Kültür ve Kongre Merkezi’nin üst katında,
-        senin seçtiğin bir konu üzerinde, dilediğin platformda Javascript kullanarak bir proje gerçekleştirip, 
-        48 saatin sonunda ortaya çıkardığınız projeleri, Jüri ve katılımcılara WorkShop Salonunda sunacaksınız. 
-        Jürinin verdiği kararla ödüller de sahiplerini bulacak.
-      </p>
+      {% if hackathon.description %}
+        {{ hackathon.description|safe }}
+      {% else %}
+        <br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
+      {% endif %}
     </div>
   </section>
 

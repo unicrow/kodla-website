@@ -108,6 +108,7 @@ class IndexView(TemplateView):
                 'title': self.activity.short_description,
                 'activity': self.activity,
                 'activities': self.activities,
+                'hackathon': self.activity.hackathon_set.filter(is_active=True),
                 'activity_document': self.activity.activitydocument_set \
                     .filter(is_active=True).first(),
                 'activity_map': self.activity.activitymap_set \
@@ -211,8 +212,11 @@ class HackathonView(TemplateView):
         if not self.activity and year:
             return redirect('index')
 
-        if (not self.activity.hackathon_register_url or
-            not self.activity.has_hackathon_register_url):
+        self.hackathon = self.activity.hackathon_set.filter(
+            activity=self.activity, is_active=True
+        ).first()
+
+        if not self.hackathon:
             return redirect('index')
 
         return super(HackathonView, self).dispatch(request, year, *args, **kwargs)
@@ -220,7 +224,7 @@ class HackathonView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HackathonView, self).get_context_data(**kwargs)
 
-        if self.activity:
+        if self.activity and self.hackathon:
             activity_sponsors = collections.OrderedDict()
             sponsors = self.activity.activitysponsor_set \
                 .filter(is_active=True, sponsor_type__is_active=True) \
@@ -231,6 +235,9 @@ class HackathonView(TemplateView):
 
             context.update({
                 'title': self.activity.short_description,
+                'hackathon': self.hackathon,
+                'hackathon_prizes': self.hackathon.hackathonprize_set\
+                    .filter(is_active=True),
                 'activity': self.activity,
                 'activities': self.activities,
                 'activity_document': self.activity.activitydocument_set \

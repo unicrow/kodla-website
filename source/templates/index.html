@@ -53,7 +53,7 @@
             </a>
           {% endif %}
 
-          {% if activity.has_hackathon_register_url and activity.hackathon_register_url %}
+          {% if hackathon %}
             {% if activity == activities.first %}
               <a href="{% url 'hackathon' %}" class="btn">
             {% else %}
