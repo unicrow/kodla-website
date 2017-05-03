@@ -144,6 +144,33 @@ header {
 	}
 }
 
+#home-hackathon {
+	background: #0DC0E3 url(../img/bg/baloons.png) center center no-repeat;
+	min-height: 650px;
+
+	.wrap {
+		position: relative;
+
+		.logo {
+			position: absolute;
+			top: -80px;
+			left: 20px
+		}
+
+		.images {
+			margin: 40px 0;
+			img {
+				margin: 20px 50px 20px 0;
+			}
+		}
+
+		.btn {
+			background: #EF4136;
+			border-radius: 8px;
+			font-size: 20px;
+		}
+	}
+}
 
 
 /*===============================
@@ -152,7 +179,33 @@ header {
 #program {
 	.wrap { }
 	@include linear-gradient(-180deg, map-get($program-bg, start) 0%, map-get($program-bg, end) 100%);
-	h1 { color: #fff }
+}
+
+#hackathon-info {
+	background-color: #231F20;
+
+	.wrap {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	h1 {
+		color: #fff;
+		&::after {
+			border-bottom-color: #0DC0E3 !important;
+		}
+	}
+
+	h2 {
+		font-size: 25px;
+		color: #0DBFE3;
+	}
+
+	p {
+		font-size: 20px;
+		color: #FFFFFF;
+		letter-spacing: 0;
+		margin: 10px 0;
+	}
 }
 
 .timeline-wrap {
