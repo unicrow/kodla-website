@@ -4,6 +4,7 @@
 {% load core_extra %}
 {% load thumbnail %}
 {% load recaptcha2 %}
+{% load disqus_tags %}
 
 
 {% block head %}
@@ -328,6 +329,10 @@
   </section>
 
   {% recaptcha_explicit_init %}
+
+  <div style="padding: 40px;">
+    {% disqus_show_comments %}
+  </div>
 
   <footer class="footer">
     <div class="footer-logos">

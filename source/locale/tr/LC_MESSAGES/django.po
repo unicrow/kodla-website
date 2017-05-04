@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 22:10+0300\n"
+"POT-Creation-Date: 2017-05-04 14:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:77 source/apps/activity/models.py:54
-#: source/templates/hackathon.html:127 source/templates/index.html:340
+#: source/templates/hackathon.html:128 source/templates/index.html:340
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -144,7 +144,7 @@ msgstr "Etkinlik Dokümanı"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:57 source/templates/hackathon.html:119
+#: source/apps/activity/models.py:57 source/templates/hackathon.html:120
 #: source/templates/index.html:332
 msgid "Accommodation"
 msgstr "Konaklama"
@@ -533,67 +533,67 @@ msgstr "Konuşmacı Başvuruları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/hackathon.html:39 source/templates/index.html:52
+#: source/templates/hackathon.html:40 source/templates/index.html:52
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/hackathon.html:52 source/templates/hackathon.html:137
-#: source/templates/hackathon.html:163 source/templates/hackathon.html:324
+#: source/templates/hackathon.html:53 source/templates/hackathon.html:138
+#: source/templates/hackathon.html:164 source/templates/hackathon.html:325
 #: source/templates/index.html:72 source/templates/index.html:350
 #: source/templates/index.html:376 source/templates/index.html:537
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/hackathon.html:58 source/templates/index.html:23
+#: source/templates/hackathon.html:59 source/templates/index.html:23
 #: source/templates/index.html:271
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/hackathon.html:113 source/templates/index.html:326
+#: source/templates/hackathon.html:114 source/templates/index.html:326
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/hackathon.html:142 source/templates/index.html:24
+#: source/templates/hackathon.html:143 source/templates/index.html:24
 #: source/templates/index.html:355
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/hackathon.html:169 source/templates/index.html:68
+#: source/templates/hackathon.html:170 source/templates/index.html:68
 #: source/templates/index.html:382
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/hackathon.html:177 source/templates/index.html:25
+#: source/templates/hackathon.html:178 source/templates/index.html:25
 #: source/templates/index.html:390
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/hackathon.html:181 source/templates/index.html:394
+#: source/templates/hackathon.html:182 source/templates/index.html:394
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/hackathon.html:182 source/templates/index.html:395
+#: source/templates/hackathon.html:183 source/templates/index.html:395
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/hackathon.html:273 source/templates/index.html:486
+#: source/templates/hackathon.html:274 source/templates/index.html:486
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/hackathon.html:307 source/templates/index.html:520
+#: source/templates/hackathon.html:308 source/templates/index.html:520
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/hackathon.html:315 source/templates/index.html:528
+#: source/templates/hackathon.html:316 source/templates/index.html:528
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/hackathon.html:316 source/templates/index.html:529
+#: source/templates/hackathon.html:317 source/templates/index.html:529
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/hackathon.html:343 source/templates/index.html:556
+#: source/templates/hackathon.html:348 source/templates/index.html:556
 msgid ""
 "\n"
 "      <p class=\"footer-desc\">This website has been developed by\n"

@@ -19,7 +19,8 @@ from .secret import (
     SECRET_KEY, GOOGLE_MAP_API_KEY,
     RECAPTCHA_PUBLIC_KEY, RECAPTCHA_PRIVATE_KEY,
     TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET,
-    TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET
+    TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET,
+    DISQUS_API_KEY, DISQUS_WEBSITE_SHORTNAME
 )
 
 
@@ -45,11 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'source',
 
     # External Applications
+    'disqus',
     'redactor',
     'geoposition',
     'adminsortable',
@@ -100,6 +103,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'source.wsgi.application'
 
 
+SITE_ID = 1
+
+
 # Django Geoposition
 GEOPOSITION_GOOGLE_MAPS_API_KEY = GOOGLE_MAP_API_KEY
 GEOPOSITION_MAP_OPTIONS = {
@@ -121,6 +127,11 @@ TWITTER_CONSUMER_KEY = TWITTER_CONSUMER_KEY
 TWITTER_CONSUMER_SECRET = TWITTER_CONSUMER_SECRET
 TWITTER_ACCESS_TOKEN = TWITTER_ACCESS_TOKEN
 TWITTER_ACCESS_TOKEN_SECRET = TWITTER_ACCESS_TOKEN_SECRET
+
+
+# Disqus
+DISQUS_API_KEY = DISQUS_API_KEY
+DISQUS_WEBSITE_SHORTNAME = DISQUS_WEBSITE_SHORTNAME
 
 
 # Internationalization
