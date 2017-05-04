@@ -160,7 +160,10 @@ header {
 		.images {
 			margin: 40px 0;
 			img {
-				margin: 20px 50px 20px 0;
+				margin: 20px 0;
+				& + img {
+					margin: 20px 50px;
+				}
 			}
 		}
 
@@ -168,6 +171,12 @@ header {
 			background: #EF4136;
 			border-radius: 8px;
 			font-size: 20px;
+		}
+	}
+	&.single-mode {
+		min-height: 700px;
+		.btn {
+			@include position(relative, 108px null null null);
 		}
 	}
 }
