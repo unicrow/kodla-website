@@ -181,6 +181,28 @@ header {
 	}
 }
 
+#awards {
+	background-color: #eff2f5;
+	h1:after {
+		border-bottom-color: #20cae7;
+	}
+}
+
+.awards-container {
+	text-align: center;
+}
+
+.award {
+	display: inline-block;
+	width: 300px;
+	p {
+		margin: 30px auto 0;
+		max-width: 240px;
+		color: #9B9B9B;
+	}
+}
+
+
 
 /*===============================
 =            PROGRAM            =
