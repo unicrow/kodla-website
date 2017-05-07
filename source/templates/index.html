@@ -4,6 +4,7 @@
 {% load core_extra %}
 {% load thumbnail %}
 {% load recaptcha2 %}
+{% load disqus_tags %}
 
 
 {% block head %}
@@ -86,7 +87,7 @@
 
   <section id="program" data-scroll-index="1">
     <div class="wrap">
-      <h1>{% trans "PROGRAM" %}</h1>
+      <h1 class="alternate">{% trans "PROGRAM" %}</h1>
 
       {% if activity_timeline %}
         <div class="tab day-select">
@@ -541,6 +542,14 @@
   </section>
 
   {% recaptcha_explicit_init %}
+
+
+  {% if activity.has_comment %}
+    <div style="padding: 40px;">
+      {% disqus_show_comments %}
+    </div>
+  {% endif %}
+
 
   <footer class="footer">
     <div class="footer-logos">

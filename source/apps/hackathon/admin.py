@@ -17,7 +17,8 @@ class HackathonPrizeInline(SortableStackedInline):
     verbose_name_plural = _('Hackathon Prizes')
     readonly_fields = ('create_date', 'update_date', 'main_image_prev')
     fields = (
-        'name',('main_image', 'main_image_prev'), 'description',
+        'name', ('main_image', 'main_image_prev'),
+        ('main_image_height', 'main_image_width'), 'description',
         'is_active', ('create_date', 'update_date')
     )
     form = HackathonPrizeAdminForm
@@ -31,8 +32,10 @@ class HackathonAdmin(NonSortableParentAdmin):
         }),
         (_(u'Content'), {
             'fields' : (
-                'register_url', 'has_register_url',
-                ('main_image', 'main_image_prev'), 'description'
+                'register_url', 'has_register_url', 'has_comment',
+                ('main_image', 'main_image_prev'),
+                ('main_image_height', 'main_image_width'),
+                'description', 'team_description'
 
             ),
         }),
@@ -46,9 +49,9 @@ class HackathonAdmin(NonSortableParentAdmin):
     form = HackathonAdminForm
 
     list_display = (
-        'activity', 'show_register_url', 'has_register_url', 'is_active'
+        'activity', 'show_register_url', 'has_comment', 'has_register_url', 'is_active'
     )
-    list_filter = ('has_register_url', 'is_active')
-    list_editable = ('has_register_url', 'is_active')
+    list_filter = ('has_comment', 'has_register_url', 'is_active')
+    list_editable = ('has_comment', 'has_register_url', 'is_active')
     readonly_fields = ('create_date', 'update_date', 'main_image_prev')
     inlines = (HackathonPrizeInline,)

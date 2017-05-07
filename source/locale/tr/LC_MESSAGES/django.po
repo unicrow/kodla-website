@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-04 14:58+0300\n"
+"POT-Creation-Date: 2017-05-07 16:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: source/apps/activity/admin.py:20 source/apps/activity/models.py:93
+#: source/apps/activity/admin.py:20 source/apps/activity/models.py:94
 msgid "Document"
 msgstr "Doküman"
 
@@ -36,7 +36,7 @@ msgstr "Sosyal Hesap"
 msgid "Social Accounts"
 msgstr "Sosyal Hesaplar"
 
-#: source/apps/activity/admin.py:38 source/apps/activity/models.py:187
+#: source/apps/activity/admin.py:38 source/apps/activity/models.py:188
 #: source/apps/sponsor/apps.py:8 source/apps/sponsor/models.py:48
 msgid "Sponsor"
 msgstr "Sponsor"
@@ -53,7 +53,7 @@ msgstr "Harita"
 msgid "Maps"
 msgstr "Haritalar"
 
-#: source/apps/activity/admin.py:62 source/apps/hackathon/admin.py:29
+#: source/apps/activity/admin.py:62 source/apps/hackathon/admin.py:30
 #: source/apps/speaker/admin.py:27 source/apps/speaker/admin.py:61
 msgid "Base"
 msgstr "Temel"
@@ -62,13 +62,13 @@ msgstr "Temel"
 msgid "Feature"
 msgstr "Özellik"
 
-#: source/apps/activity/admin.py:71 source/apps/hackathon/admin.py:39
+#: source/apps/activity/admin.py:71 source/apps/hackathon/admin.py:42
 #: source/apps/speaker/admin.py:35 source/apps/speaker/admin.py:75
 msgid "Detail"
 msgstr "Detay"
 
-#: source/apps/activity/admin.py:77 source/apps/activity/models.py:54
-#: source/templates/hackathon.html:128 source/templates/index.html:340
+#: source/apps/activity/admin.py:77 source/apps/activity/models.py:55
+#: source/templates/hackathon.html:172 source/templates/index.html:341
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -78,11 +78,11 @@ msgstr "Ulaşım"
 msgid "Speaker"
 msgstr "Konuşmacı"
 
-#: source/apps/activity/apps.py:8 source/apps/activity/models.py:66
-#: source/apps/activity/models.py:97 source/apps/activity/models.py:153
-#: source/apps/activity/models.py:189 source/apps/activity/models.py:216
+#: source/apps/activity/apps.py:8 source/apps/activity/models.py:67
+#: source/apps/activity/models.py:98 source/apps/activity/models.py:154
+#: source/apps/activity/models.py:190 source/apps/activity/models.py:217
 #: source/apps/form/models.py:15 source/apps/gallery/models.py:19
-#: source/apps/hackathon/models.py:35 source/apps/program/models.py:13
+#: source/apps/hackathon/models.py:45 source/apps/program/models.py:13
 #: source/apps/speaker/models.py:160
 msgid "Activity"
 msgstr "Etkinlik"
@@ -91,12 +91,12 @@ msgstr "Etkinlik"
 msgid "Year"
 msgstr "Yıl"
 
-#: source/apps/activity/models.py:17 source/apps/activity/models.py:95
-#: source/apps/activity/models.py:151 source/apps/activity/models.py:177
-#: source/apps/activity/models.py:214 source/apps/core/models.py:29
+#: source/apps/activity/models.py:17 source/apps/activity/models.py:96
+#: source/apps/activity/models.py:152 source/apps/activity/models.py:178
+#: source/apps/activity/models.py:215 source/apps/core/models.py:29
 #: source/apps/form/models.py:13 source/apps/gallery/models.py:17
-#: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:33
-#: source/apps/hackathon/models.py:84 source/apps/program/models.py:11
+#: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:43
+#: source/apps/hackathon/models.py:100 source/apps/program/models.py:11
 #: source/apps/program/models.py:52 source/apps/speaker/models.py:40
 #: source/apps/speaker/models.py:76 source/apps/speaker/models.py:135
 #: source/apps/sponsor/models.py:18 source/apps/sponsor/models.py:41
@@ -112,122 +112,126 @@ msgstr "E-posta"
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
-#: source/apps/activity/models.py:27
+#: source/apps/activity/models.py:24 source/apps/hackathon/models.py:26
+msgid "Comment"
+msgstr "Yorum"
+
+#: source/apps/activity/models.py:28
 msgid "Meta Tags"
 msgstr "Meta Etiketleri"
 
-#: source/apps/activity/models.py:30 source/apps/sponsor/models.py:43
+#: source/apps/activity/models.py:31 source/apps/sponsor/models.py:43
 msgid "Logo"
 msgstr "Logo"
 
-#: source/apps/activity/models.py:33
+#: source/apps/activity/models.py:34
 msgid "Short Description"
 msgstr "Kısa Açıklama"
 
-#: source/apps/activity/models.py:37 source/apps/activity/models.py:211
-#: source/apps/hackathon/models.py:27 source/apps/hackathon/models.py:78
+#: source/apps/activity/models.py:38 source/apps/activity/models.py:212
+#: source/apps/hackathon/models.py:28 source/apps/hackathon/models.py:88
 #: source/apps/sponsor/models.py:16
 msgid "Description"
 msgstr "Açıklama"
 
-#: source/apps/activity/models.py:40 source/apps/activity/models.py:43
-#: source/apps/activity/models.py:81 source/apps/hackathon/models.py:21
-#: source/apps/hackathon/models.py:24 source/apps/hackathon/models.py:54
+#: source/apps/activity/models.py:41 source/apps/activity/models.py:44
+#: source/apps/activity/models.py:82 source/apps/hackathon/models.py:21
+#: source/apps/hackathon/models.py:24 source/apps/hackathon/models.py:64
 msgid "Register URL"
 msgstr "Kayıt Linki"
 
-#: source/apps/activity/models.py:46 source/apps/activity/models.py:101
+#: source/apps/activity/models.py:47 source/apps/activity/models.py:102
 msgid "Activity Document"
 msgstr "Etkinlik Dokümanı"
 
-#: source/apps/activity/models.py:51
+#: source/apps/activity/models.py:52
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:57 source/templates/hackathon.html:120
-#: source/templates/index.html:332
+#: source/apps/activity/models.py:58 source/templates/hackathon.html:164
+#: source/templates/index.html:333
 msgid "Accommodation"
 msgstr "Konaklama"
 
-#: source/apps/activity/models.py:62 source/apps/speaker/models.py:93
+#: source/apps/activity/models.py:63 source/apps/speaker/models.py:93
 msgid "Speakers"
 msgstr "Konuşmacılar"
 
-#: source/apps/activity/models.py:67
+#: source/apps/activity/models.py:68
 msgid "Activities"
 msgstr "Etkinlikler"
 
-#: source/apps/activity/models.py:102
+#: source/apps/activity/models.py:103
 msgid "Activity Documents"
 msgstr "Etkinlik Dokümanları"
 
-#: source/apps/activity/models.py:115
+#: source/apps/activity/models.py:116
 msgid "Size"
 msgstr "Boyut"
 
-#: source/apps/activity/models.py:126
+#: source/apps/activity/models.py:127
 msgid "Size(Humanize)"
 msgstr "Boyut(İnsanlaştırılmış)"
 
-#: source/apps/activity/models.py:134 source/apps/activity/models.py:144
+#: source/apps/activity/models.py:135 source/apps/activity/models.py:145
 msgid "Document not found!"
 msgstr "Doküman bulunamadı!"
 
-#: source/apps/activity/models.py:136
+#: source/apps/activity/models.py:137
 msgid "Download"
 msgstr "İndir"
 
-#: source/apps/activity/models.py:146
+#: source/apps/activity/models.py:147
 msgid "Show"
 msgstr "Göster"
 
-#: source/apps/activity/models.py:150 source/apps/gallery/models.py:16
+#: source/apps/activity/models.py:151 source/apps/gallery/models.py:16
 #: source/apps/gallery/models.py:45 source/apps/speaker/models.py:75
 #: source/apps/sponsor/models.py:40
 msgid "URL"
 msgstr "URL"
 
-#: source/apps/activity/models.py:156 source/apps/speaker/models.py:78
+#: source/apps/activity/models.py:157 source/apps/speaker/models.py:78
 msgid "Account"
 msgstr "Hesap"
 
-#: source/apps/activity/models.py:165
+#: source/apps/activity/models.py:166
 msgid "Activity Social Account"
 msgstr "Etkinlik Sosyal Hesabı"
 
-#: source/apps/activity/models.py:166
+#: source/apps/activity/models.py:167
 msgid "Activity Social Accounts"
 msgstr "Etkinlik Sosyal Hesapları"
 
-#: source/apps/activity/models.py:179
+#: source/apps/activity/models.py:180
 msgid "Logo Height"
 msgstr "Logo Yüksekliği"
 
-#: source/apps/activity/models.py:182
+#: source/apps/activity/models.py:183
 msgid "Logo Width"
 msgstr "Logo Genişliği"
 
-#: source/apps/activity/models.py:185 source/apps/sponsor/models.py:26
+#: source/apps/activity/models.py:186 source/apps/sponsor/models.py:26
 msgid "Sponsor Type"
 msgstr "Sponsor Türü"
 
-#: source/apps/activity/models.py:198
+#: source/apps/activity/models.py:199
 msgid "Activity Sponsor"
 msgstr "Etkinlik Sponsoru"
 
-#: source/apps/activity/models.py:199
+#: source/apps/activity/models.py:200
 msgid "Activity Sponsors"
 msgstr "Etkinlik Sponsorları"
 
-#: source/apps/activity/models.py:213
+#: source/apps/activity/models.py:214
 msgid "Coordinates"
 msgstr "Koordinatlar"
 
-#: source/apps/activity/models.py:220
+#: source/apps/activity/models.py:221
 msgid "Activity Map"
 msgstr "Etkinlik Haritası"
 
-#: source/apps/activity/models.py:221
+#: source/apps/activity/models.py:222
 msgid "Activity Maps"
 msgstr "Etkinlik Haritaları"
 
@@ -244,7 +248,7 @@ msgid "Update Date"
 msgstr "Güncelleme Tarihi"
 
 #: source/apps/core/models.py:22 source/apps/gallery/models.py:14
-#: source/apps/hackathon/models.py:76 source/apps/speaker/models.py:134
+#: source/apps/hackathon/models.py:86 source/apps/speaker/models.py:134
 #: source/apps/sponsor/models.py:14 source/apps/sponsor/models.py:39
 msgid "Name"
 msgstr "İsim"
@@ -330,44 +334,56 @@ msgstr "Galeriler"
 msgid "Image"
 msgstr "Resim"
 
-#: source/apps/gallery/models.py:93 source/apps/hackathon/models.py:63
-#: source/apps/hackathon/models.py:118 source/apps/speaker/models.py:69
+#: source/apps/gallery/models.py:93 source/apps/hackathon/models.py:73
+#: source/apps/hackathon/models.py:134 source/apps/speaker/models.py:69
 #: source/apps/sponsor/models.py:71
 msgid "Not Found!"
 msgstr "Bulunamadı!"
 
-#: source/apps/gallery/models.py:94 source/apps/hackathon/models.py:64
-#: source/apps/hackathon/models.py:119 source/apps/speaker/models.py:70
+#: source/apps/gallery/models.py:94 source/apps/hackathon/models.py:74
+#: source/apps/hackathon/models.py:135 source/apps/speaker/models.py:70
 #: source/apps/sponsor/models.py:72
 msgid "Preview"
 msgstr "Önizleme"
 
-#: source/apps/hackathon/admin.py:16 source/apps/hackathon/models.py:95
+#: source/apps/hackathon/admin.py:16 source/apps/hackathon/models.py:111
 msgid "Hackathon Prize"
 msgstr "Hackathon Ödül"
 
-#: source/apps/hackathon/admin.py:17 source/apps/hackathon/models.py:96
+#: source/apps/hackathon/admin.py:17 source/apps/hackathon/models.py:112
 msgid "Hackathon Prizes"
 msgstr "Hackathon Ödülleri"
 
-#: source/apps/hackathon/admin.py:32
+#: source/apps/hackathon/admin.py:33
 msgid "Content"
 msgstr "İçerik"
 
-#: source/apps/hackathon/apps.py:8 source/apps/hackathon/models.py:39
-#: source/apps/hackathon/models.py:86
+#: source/apps/hackathon/apps.py:8 source/apps/hackathon/models.py:49
+#: source/apps/hackathon/models.py:102
 msgid "Hackathon"
 msgstr "Hackathon"
 
-#: source/apps/hackathon/forms.py:36
+#: source/apps/hackathon/forms.py:37
 msgid "Activity hackathon already exist."
 msgstr "Etkinlik hackathon'u zaten mevcut!"
 
-#: source/apps/hackathon/models.py:30 source/apps/hackathon/models.py:81
+#: source/apps/hackathon/models.py:31
+msgid "Team Description"
+msgstr "Takım Açıklaması"
+
+#: source/apps/hackathon/models.py:34 source/apps/hackathon/models.py:91
 msgid "Main Image"
 msgstr "Ana Resim"
 
-#: source/apps/hackathon/models.py:40
+#: source/apps/hackathon/models.py:38 source/apps/hackathon/models.py:95
+msgid "Main Image Height"
+msgstr "Ana Resim Yüksekliği"
+
+#: source/apps/hackathon/models.py:41 source/apps/hackathon/models.py:98
+msgid "Main Image Width"
+msgstr "Ana Resim Genişliği"
+
+#: source/apps/hackathon/models.py:50
 msgid "Hackathons"
 msgstr "Hackathonlar"
 
@@ -533,67 +549,79 @@ msgstr "Konuşmacı Başvuruları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/hackathon.html:40 source/templates/index.html:52
+#: source/templates/hackathon.html:44 source/templates/index.html:53
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/hackathon.html:53 source/templates/hackathon.html:138
-#: source/templates/hackathon.html:164 source/templates/hackathon.html:325
-#: source/templates/index.html:72 source/templates/index.html:350
-#: source/templates/index.html:376 source/templates/index.html:537
+#: source/templates/hackathon.html:52
+msgid "ABOUT HACKATHON"
+msgstr "HACKATHON HAKKINDA"
+
+#: source/templates/hackathon.html:57 source/templates/hackathon.html:182
+#: source/templates/hackathon.html:208 source/templates/hackathon.html:369
+#: source/templates/index.html:73 source/templates/index.html:351
+#: source/templates/index.html:377 source/templates/index.html:538
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/hackathon.html:59 source/templates/index.html:23
-#: source/templates/index.html:271
+#: source/templates/hackathon.html:65
+msgid "PRIZES"
+msgstr "ÖDÜLLER"
+
+#: source/templates/hackathon.html:89
+msgid "TEAMS"
+msgstr "TAKIMLAR"
+
+#: source/templates/hackathon.html:103 source/templates/index.html:24
+#: source/templates/index.html:272
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/hackathon.html:114 source/templates/index.html:326
+#: source/templates/hackathon.html:158 source/templates/index.html:327
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
 
-#: source/templates/hackathon.html:143 source/templates/index.html:24
-#: source/templates/index.html:355
+#: source/templates/hackathon.html:187 source/templates/index.html:25
+#: source/templates/index.html:356
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/hackathon.html:170 source/templates/index.html:68
-#: source/templates/index.html:382
+#: source/templates/hackathon.html:214 source/templates/index.html:69
+#: source/templates/index.html:383
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/hackathon.html:178 source/templates/index.html:25
-#: source/templates/index.html:390
+#: source/templates/hackathon.html:222 source/templates/index.html:26
+#: source/templates/index.html:391
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/hackathon.html:182 source/templates/index.html:394
+#: source/templates/hackathon.html:226 source/templates/index.html:395
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/hackathon.html:183 source/templates/index.html:395
+#: source/templates/hackathon.html:227 source/templates/index.html:396
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/hackathon.html:274 source/templates/index.html:486
+#: source/templates/hackathon.html:318 source/templates/index.html:487
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/hackathon.html:308 source/templates/index.html:520
+#: source/templates/hackathon.html:352 source/templates/index.html:521
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/hackathon.html:316 source/templates/index.html:528
+#: source/templates/hackathon.html:360 source/templates/index.html:529
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/hackathon.html:317 source/templates/index.html:529
+#: source/templates/hackathon.html:361 source/templates/index.html:530
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/hackathon.html:348 source/templates/index.html:556
+#: source/templates/hackathon.html:388 source/templates/index.html:565
 msgid ""
 "\n"
 "      <p class=\"footer-desc\">This website has been developed by\n"
@@ -612,39 +640,39 @@ msgstr ""
 "      </p>\n"
 "    "
 
-#: source/templates/index.html:17
+#: source/templates/index.html:18
 msgid "MENU"
 msgstr "MENÜ"
 
-#: source/templates/index.html:20
+#: source/templates/index.html:21
 msgid "HOME"
 msgstr "ANA SAYFA"
 
-#: source/templates/index.html:21 source/templates/index.html:89
+#: source/templates/index.html:22 source/templates/index.html:90
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:22 source/templates/index.html:195
+#: source/templates/index.html:23 source/templates/index.html:196
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:132
+#: source/templates/index.html:133
 msgid "Download Presentation"
 msgstr "Sunumu İndir"
 
-#: source/templates/index.html:137
+#: source/templates/index.html:138
 msgid "Review Presentation"
 msgstr "Sunumu İncele"
 
-#: source/templates/index.html:161 source/templates/index.html:186
+#: source/templates/index.html:162 source/templates/index.html:187
 msgid "Program Not Yet Announced"
 msgstr "Program Henüz Açıklanmadı"
 
-#: source/templates/index.html:241
+#: source/templates/index.html:242
 msgid "Speakers Not Yet Announced"
 msgstr "Konuşmacılar Henüz Açıklanmadı"
 
-#: source/templates/index.html:253
+#: source/templates/index.html:254
 msgid "SEE ALL PHOTOS"
 msgstr "TÜM FOTOĞRAFLARA BAK"
 

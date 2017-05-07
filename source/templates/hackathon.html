@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  <header id="home-hackathon" data-scroll-index="0">
+  <header id="home-hackathon" {% if not hackathon_prizes %}class="single-mode"{% endif %}>
     <div class="wrap">
       <div class="logo">
         {% if activity == activities.first %}
@@ -28,11 +28,15 @@
       
       <div class="images">
         {% if hackathon.main_image %}
-          <img src="{{ hackathon.main_image.url }}" />
+          <img
+            src="{{ hackathon.main_image.url }}"
+            {% if hackathon.main_image_height %}height={{ hackathon.main_image_height|stringformat:"i" }}{% endif %}
+            {% if hackathon.main_image_width %}width={{ hackathon.main_image_width|stringformat:"i" }}{% endif %}
+          />
         {% endif %}
 
         {% if hackathon_prizes.first %}
-          <img src="{{ hackathon_prizes.0.main_image.url }}" />
+          <img src="{{ hackathon_prizes.first.main_image.url }}" />
         {% endif %}
       </div>
       {% if hackathon.has_register_url and hackathon.register_url %}
@@ -43,9 +47,9 @@
     </div>
   </header>
 
-  <section id="hackathon-info" data-scroll-index="1">
+  <section id="hackathon-info">
     <div class="wrap">
-      <h1>HACKATHON HAKKINDA</h1>
+      <h1>{% trans 'ABOUT HACKATHON' %}</h1>
 
       {% if hackathon.description %}
         {{ hackathon.description|safe }}
@@ -55,7 +59,47 @@
     </div>
   </section>
 
-  <section id="transportation" data-scroll-index="3">
+  {% if hackathon_prizes %}
+    <section id="awards">
+      <div class="wrap">
+        <h1>{% trans 'PRIZES' %}</h1>
+
+        <div class="awards-container">
+          {% for hackathon_prize in hackathon_prizes %}
+            {% if hackathon_prize.main_image %}
+              <div class="award">
+                <img
+                  src="{{ hackathon_prize.main_image.url }}" alt="{{ hackathon_prize.name }}"
+                  {% if hackathon_prize.main_image_height %}height={{ hackathon_prize.main_image_height|stringformat:"i" }}{% endif %}
+                  {% if hackathon_prize.main_image_width %}width={{ hackathon_prize.main_image_width|stringformat:"i" }}{% endif %}
+                />
+
+                {{ hackathon_prize.description|safe }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if hackathon.team_description %}
+    <section id="participants">
+      <div class="wrap">
+        <h1>{% trans 'TEAMS' %}</h1>
+
+        {{ hackathon.team_description|safe }}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if hackathon.has_comment %}
+    <div style="padding: 40px;">
+      {% disqus_show_comments %}
+    </div>
+  {% endif %}
+
+  <section id="transportation">
     <h1>{% trans "TRANSPORTATION" %}</h1>
     {% if activity_map or activity.address or activity.accommodation or activity.transportation %}
       {% if activity_map %}
@@ -139,7 +183,7 @@
     {% endif %}
   </section>
 
-  <section id="sponsors" data-scroll-index="2">
+  <section id="sponsors">
     <h1>{% trans 'SPONSORS' %}</h1>
 
     {% if activity_sponsors %}
@@ -173,7 +217,7 @@
     {% endif %}
   </section>
 
-  <section id="contact" data-scroll-index="3">
+  <section id="contact">
     <div class="wrap">
       <h1>{% trans "CONTACT" %}</h1>
 
@@ -329,10 +373,6 @@
   </section>
 
   {% recaptcha_explicit_init %}
-
-  <div style="padding: 40px;">
-    {% disqus_show_comments %}
-  </div>
 
   <footer class="footer">
     <div class="footer-logos">

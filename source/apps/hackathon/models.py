@@ -23,12 +23,22 @@ class Hackathon(DateModel):
     has_register_url = models.BooleanField(
         verbose_name=_('Register URL'), default=True
     )
+    has_comment = models.BooleanField(verbose_name=_('Comment'), default=False)
     description = models.TextField(
         verbose_name=_('Description'), null=True, blank=True
+    )
+    team_description = models.TextField(
+        verbose_name=_('Team Description'), null=True, blank=True
     )
     main_image = models.ImageField(
         verbose_name=_('Main Image'), null=True, blank=True,
         upload_to=set_activity_hackathon_upload_path
+    )
+    main_image_height = models.PositiveSmallIntegerField(
+        verbose_name=_('Main Image Height'), null=True, blank=True
+    )
+    main_image_width = models.PositiveSmallIntegerField(
+        verbose_name=_('Main Image Width'), null=True, blank=True
     )
     is_active = models.BooleanField(verbose_name=_('Active'))
     activity = models.ForeignKey(
@@ -80,6 +90,12 @@ class HackathonPrize(DateModel, SortableMixin):
     main_image = models.ImageField(
         verbose_name=_('Main Image'), null=True, blank=True,
         upload_to=set_activity_hackathon_prize_upload_path
+    )
+    main_image_height = models.PositiveSmallIntegerField(
+        verbose_name=_('Main Image Height'), null=True, blank=True
+    )
+    main_image_width = models.PositiveSmallIntegerField(
+        verbose_name=_('Main Image Width'), null=True, blank=True
     )
     is_active = models.BooleanField(verbose_name=_('Active'))
     hackathon = models.ForeignKey(

@@ -15,6 +15,7 @@ class HackathonAdminForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
            'description': RedactorEditor(),
+           'team_description': RedactorEditor(),
         }
 
     def check_hackathon(self, activity):
