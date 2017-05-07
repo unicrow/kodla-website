@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n staticfiles %}
-{% load core_extra %}
-{% load thumbnail %}
 {% load recaptcha2 %}
-{% load disqus_tags %}
 
 
 {% block head %}
@@ -49,12 +46,12 @@
 
   <section id="hackathon-info">
     <div class="wrap">
-      <h1>{% trans 'ABOUT HACKATHON' %}</h1>
+      <h1>{% trans "ABOUT HACKATHON" %}</h1>
 
       {% if hackathon.description %}
         {{ hackathon.description|safe }}
       {% else %}
-        <br><div class="coming-soon">{% trans 'Coming Soon' %}</div>
+        <br><div class="coming-soon">{% trans "Coming Soon" %}</div>
       {% endif %}
     </div>
   </section>
@@ -62,7 +59,7 @@
   {% if hackathon_prizes %}
     <section id="awards">
       <div class="wrap">
-        <h1>{% trans 'PRIZES' %}</h1>
+        <h1>{% trans "PRIZES" %}</h1>
 
         <div class="awards-container">
           {% for hackathon_prize in hackathon_prizes %}
@@ -86,7 +83,7 @@
   {% if hackathon.team_description %}
     <section id="participants">
       <div class="wrap">
-        <h1>{% trans 'TEAMS' %}</h1>
+        <h1>{% trans "TEAMS" %}</h1>
 
         {{ hackathon.team_description|safe }}
       </div>
@@ -94,314 +91,14 @@
   {% endif %}
 
   {% if hackathon.has_comment %}
-    <div style="padding: 40px;">
-      {% disqus_show_comments %}
-    </div>
+    {% include "modules/comment.html" %}
   {% endif %}
 
-  <section id="transportation">
-    <h1>{% trans "TRANSPORTATION" %}</h1>
-    {% if activity_map or activity.address or activity.accommodation or activity.transportation %}
-      {% if activity_map %}
-        <div class="map">
-          <div id="map" style="height: 400px; margin-bottom: 50px;"></div>
-          <script>
+  {% include "modules/transportation.html" %}
 
-            // The following example creates a marker in Stockholm, Sweden using a DROP
-            // animation. Clicking on the marker will toggle the animation between a BOUNCE
-            // animation and no animation.
+  {% include "modules/sponsors.html" %}
 
-            var marker;
+  {% include "modules/contact.html" %}
 
-            function initMap() {
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 16,
-                scrollwheel: false,
-                center: {
-                    lat: {{ activity_map.coordinates.latitude|stringformat:"f" }},
-                    lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}
-                }
-              });
-
-              marker = new google.maps.Marker({
-                position: map.getCenter(),
-                map: map,
-                draggable: false,
-                animation: google.maps.Animation.DROP
-              });
-              //marker.addListener('click', toggleBounce);
-
-              var infoWindow = new google.maps.InfoWindow({
-                content: '{{ activity_map.description }}'
-              });
-
-              // Opens the InfoWindow when marker is clicked.
-              marker.addListener('click', function() {
-                infoWindow.open(map, marker);
-              });
-            }
-
-            function toggleBounce() {
-              if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-              } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            }
-          </script>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
-        </div>
-      {% endif %}
-      <div class="wrap">
-        <div class="desc">
-          <div>
-            <h2>{% trans "Event Location" %}</h2>
-            {% if activity.address %}
-              {{ activity.address|safe }}
-            {% else %}
-              ---
-            {% endif %}
-            <h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
-            {% if activity.accommodation %}
-              {{ activity.accommodation|safe }}
-            {% else %}
-              ---
-            {% endif %}
-          </div>
-          <div>
-            <h2>{% trans "Transportation" %}</h2>
-            {% if activity.transportation %}
-              {{ activity.transportation|safe }}
-            {% else %}
-              ---
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% else %}
-      <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-    {% endif %}
-  </section>
-
-  <section id="sponsors">
-    <h1>{% trans 'SPONSORS' %}</h1>
-
-    {% if activity_sponsors %}
-      {% for sponsor_type, sponsors in activity_sponsors.items %}
-        <div class="other-sponsors">
-          {% for sponsor in sponsors %}
-            <a href="{{ sponsor.sponsor.url }}" target="_blank">
-              {% if sponsor.logo_width or sponsor.logo_height %}
-                <img
-                  src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}"
-                  {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %}
-                  {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}
-                >
-              {% else %}
-                <img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
-              {% endif %}
-            </a>
-          {% endfor %}
-        </div>
-      {% endfor %}
-    {% else %}
-      <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-    {% endif %}
-
-    {% if activity.has_activity_document and activity_document %}
-      <div class="other-sponsors">
-        <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
-          <i class="icon-file-pdf-o"></i> {% trans "Become a Sponsor" %}
-        </a>
-      </div>
-    {% endif %}
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <h1>{% trans "CONTACT" %}</h1>
-
-      {% if activity.has_speaker_application %}
-        <div class="tab contact-select">
-          <a  href="#" {% if not contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Speaker Application Form' %}</a>
-          <a href="#" {% if contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Contact Form' %}</a>
-        </div>
-      {% endif %}
-
-      <div class="tab-content-wrap">
-        {% if activity %}
-          {% if activity.has_speaker_application %}
-            <div class="tab-content{% if not contact_form.prefix in request.POST %} active{% endif %}">
-              <form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div {% if speaker_application_form.application_type.errors %}class='error'{% endif %}>
-                  <label for="apply-type">
-                    {{ speaker_application_form.application_type.label }}: {% if speaker_application_form.application_type.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.application_type %}
-                </div>
-                <div {% if speaker_application_form.email.errors %}class='error'{% endif %}>
-                  <label for="speaker-email">
-                    {{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.email %}
-                </div>
-                <div {% if speaker_application_form.first_name.errors %}class='error'{% endif %}>
-                  <label for="speaker-name">
-                    {{ speaker_application_form.first_name.label }}: {% if speaker_application_form.first_name.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.first_name %}
-                </div>
-                <div {% if speaker_application_form.last_name.errors %}class='error'{% endif %}>
-                  <label for="speaker-surname">
-                    {{ speaker_application_form.last_name.label }}: {% if speaker_application_form.last_name.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.last_name %}
-                </div>
-                <div {% if speaker_application_form.company.errors %}class='error'{% endif %}>
-                  <label for="company">
-                    {{ speaker_application_form.company.label }}: {% if speaker_application_form.company.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.company %}
-                </div>
-                <div {% if speaker_application_form.position.errors %}class='error'{% endif %}>
-                  <label for="position">
-                    {{ speaker_application_form.position.label }}: {% if speaker_application_form.position.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.position %}
-                </div>
-                <div {% if speaker_application_form.image.errors %}class='error'{% endif %}>
-                  <label for="picture">
-                    {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.image %}
-                </div>
-                <div {% if speaker_application_form.website.errors %}class='error'{% endif %}>
-                  <label for="website-url">
-                    {{ speaker_application_form.website.label }}: {% if speaker_application_form.website.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.website %}
-                </div>
-                <div {% if speaker_application_form.twitter.errors %}class='error'{% endif %}>
-                  <label for="twitter-url">
-                    {{ speaker_application_form.twitter.label }}: {% if speaker_application_form.twitter.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.twitter %}
-                </div>
-                <div {% if speaker_application_form.github.errors %}class='error'{% endif %}>
-                  <label for="github-url">
-                    {{ speaker_application_form.github.label }}: {% if speaker_application_form.github.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.github %}
-                </div>
-                <div {% if speaker_application_form.linkedin.errors %}class='error'{% endif %}>
-                  <label for="linkedin-url">
-                    {{ speaker_application_form.linkedin.label }}: {% if speaker_application_form.linkedin.field.required %}*{% endif %}                  </label>
-                  </label>
-                  {% add_attrs speaker_application_form.linkedin %}
-                </div>
-                <div {% if speaker_application_form.other_social_account.errors %}class='error'{% endif %}>
-                  <label for="other-url">
-                    {{ speaker_application_form.other_social_account.label }}: {% if speaker_application_form.other_social_account.field.required %}*{% endif %}                  </label>
-                  </label>
-                  {% add_attrs speaker_application_form.other_social_account %}
-                </div>
-                <div class="full-width">
-                  <label for="speaker-note">
-                    {{ speaker_application_form.note.label }}: {% if speaker_application_form.note.field.required %}*{% endif %}
-                  </label>
-                  {% add_attrs speaker_application_form.note %}
-                </div>
-                {% add_attrs speaker_application_form.recaptcha %}
-                <div>
-                  <button name="{{ speaker_application_form.prefix }}" type="submit">
-                    {% trans "Send Application" %}
-                  </button>
-                </div>
-              </form>
-            </div>
-          {% endif %}
-
-          <div class="tab-content{% if not activity.has_speaker_application or contact_form.prefix in request.POST %} active{% endif %}">
-            <form action="{{ request.path }}#contact" method="POST"
-                  class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
-              {% csrf_token %}
-              <div {% if contact_form.full_name.errors %}class='error'{% endif %}>
-                <label for="name">
-                  {{ contact_form.full_name.label }}: {% if contact_form.full_name.field.required %}*{% endif %}
-                </label>
-                {% add_attrs contact_form.full_name %}
-                <span class="input-edges"></span>
-              </div>
-              <div {% if contact_form.email.errors %}class='error'{% endif %}>
-                <label for="email">
-                  {{ contact_form.email.label }}: {% if contact_form.email.field.required %}*{% endif %}
-                </label>
-                {% add_attrs contact_form.email %}
-                <span class="input-edges"></span>
-              </div>
-              <div {% if contact_form.message.errors %}class='error'{% endif %}>
-                <label for="message">
-                  {{ contact_form.message.label }}: {% if contact_form.message.field.required %}*{% endif %}
-                </label>
-                {% add_attrs contact_form.message %}
-              </div>
-              {% add_attrs contact_form.recaptcha %}
-              <div>
-                <button name="{{ contact_form.prefix }}" type="submit">
-                  {% trans "Send Message" %}
-                </button>
-              </div>
-            </form>
-
-            <div class="contact-info">
-              {% if activity.email %}
-                <div>
-                  <h2>{% trans "Communicate Now" %}</h2>
-                  <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
-                    <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
-                  </p>
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        {% else %}
-          <div class="coming-soon">{% trans 'Coming Soon' %}</div>
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  {% recaptcha_explicit_init %}
-
-  <footer class="footer">
-    <div class="footer-logos">
-      <a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo" target="_blank">
-        <img src="{% static 'img/logos/trabzonhs-footer-logo.png' %}" alt="Trabzon Hackerspace">
-      </a>
-
-      <a href="http://unicrow.com" class="unicrow-logo" style="margin-left: 10px;" target="_blank">
-        <img src="{% static 'img/logos/unicrow-footer-logo.png' %}" alt="Unicrow">
-      </a>
-    </div>
-
-    {% blocktrans %}
-      <p class="footer-desc">This website has been developed by
-        <a href="http://unicrow.com" target="_blank">Unicrow</a> for
-        <a href="https://www.facebook.com/groups/trabzonhs/" target="_blank">Trabzon Hackerspace</a>.
-      </p>
-    {% endblocktrans %}
-
-    {% if activity_social_accounts %}
-      <ul class="footer-social-media">
-        {% for activity_social_account in activity_social_accounts %}
-          <li>
-            <a href="{{ activity_social_account.url }}" target="_blank">
-              <i class="{{ activity_social_account.account.style_class }}"></i>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </footer>
+  {% include "modules/footer.html" %}
 {% endblock %}

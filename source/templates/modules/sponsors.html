@@ -1,0 +1,37 @@
+{% load i18n staticfiles %}
+{% load thumbnail %}
+
+
+<section id="sponsors" {% if data_scroll_index %}data-scroll-index={{ data_scroll_index }}{% endif %}>
+  <h1>{% trans 'SPONSORS' %}</h1>
+
+  {% if activity_sponsors %}
+    {% for sponsor_type, sponsors in activity_sponsors.items %}
+      <div class="other-sponsors">
+        {% for sponsor in sponsors %}
+          <a href="{{ sponsor.sponsor.url }}" target="_blank">
+            {% if sponsor.logo_width or sponsor.logo_height %}
+              <img
+                src="{{ sponsor.sponsor.logo.url }}" alt="{{ sponsor.sponsor.name }}"
+                {% if sponsor.logo_height %}height={{ sponsor.logo_height|stringformat:"i" }}{% endif %}
+                {% if sponsor.logo_width %}width={{ sponsor.logo_width|stringformat:"i" }}{% endif %}
+              >
+            {% else %}
+              <img src="{% thumbnail sponsor.sponsor.logo 100x100 %}" alt="{{ sponsor.sponsor.name }}">
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+  {% endif %}
+
+  {% if activity.has_activity_document and activity_document %}
+    <div class="other-sponsors">
+      <a href="{{ activity_document.document.url }}" class="btn btn-red" target="_blank">
+        <i class="icon-file-pdf-o"></i> {% trans "Become a Sponsor" %}
+      </a>
+    </div>
+  {% endif %}
+</section>

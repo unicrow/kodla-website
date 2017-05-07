@@ -1,0 +1,161 @@
+{% load i18n staticfiles %}
+{% load core_extra %}
+{% load recaptcha2 %}
+
+
+<section id="contact" {% if data_scroll_index %}data-scroll-index={{ data_scroll_index }}{% endif %}>
+  <div class="wrap">
+    <h1>{% trans "CONTACT" %}</h1>
+
+    {% if activity.has_speaker_application %}
+      <div class="tab contact-select">
+        <a  href="#" {% if not contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Speaker Application Form' %}</a>
+        <a href="#" {% if contact_form.prefix in request.POST %}class="active"{% endif %}>{% trans 'Contact Form' %}</a>
+      </div>
+    {% endif %}
+
+    <div class="tab-content-wrap">
+      {% if activity %}
+        {% if activity.has_speaker_application %}
+          <div class="tab-content{% if not contact_form.prefix in request.POST %} active{% endif %}">
+            <form action="{{ request.path }}#contact" method="POST" class="speaker-apply-form" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div {% if speaker_application_form.application_type.errors %}class="error"{% endif %}>
+                <label for="apply-type">
+                  {{ speaker_application_form.application_type.label }}: {% if speaker_application_form.application_type.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.application_type %}
+              </div>
+              <div {% if speaker_application_form.email.errors %}class="error"{% endif %}>
+                <label for="speaker-email">
+                  {{ speaker_application_form.email.label }}: {% if speaker_application_form.email.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.email %}
+              </div>
+              <div {% if speaker_application_form.first_name.errors %}class="error"{% endif %}>
+                <label for="speaker-name">
+                  {{ speaker_application_form.first_name.label }}: {% if speaker_application_form.first_name.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.first_name %}
+              </div>
+              <div {% if speaker_application_form.last_name.errors %}class="error"{% endif %}>
+                <label for="speaker-surname">
+                  {{ speaker_application_form.last_name.label }}: {% if speaker_application_form.last_name.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.last_name %}
+              </div>
+              <div {% if speaker_application_form.company.errors %}class="error"{% endif %}>
+                <label for="company">
+                  {{ speaker_application_form.company.label }}: {% if speaker_application_form.company.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.company %}
+              </div>
+              <div {% if speaker_application_form.position.errors %}class="error"{% endif %}>
+                <label for="position">
+                  {{ speaker_application_form.position.label }}: {% if speaker_application_form.position.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.position %}
+              </div>
+              <div {% if speaker_application_form.image.errors %}class="error"{% endif %}>
+                <label for="picture">
+                  {{ speaker_application_form.image.label }}: {% if speaker_application_form.image.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.image %}
+              </div>
+              <div {% if speaker_application_form.website.errors %}class="error"{% endif %}>
+                <label for="website-url">
+                  {{ speaker_application_form.website.label }}: {% if speaker_application_form.website.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.website %}
+              </div>
+              <div {% if speaker_application_form.twitter.errors %}class="error"{% endif %}>
+                <label for="twitter-url">
+                  {{ speaker_application_form.twitter.label }}: {% if speaker_application_form.twitter.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.twitter %}
+              </div>
+              <div {% if speaker_application_form.github.errors %}class="error"{% endif %}>
+                <label for="github-url">
+                  {{ speaker_application_form.github.label }}: {% if speaker_application_form.github.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.github %}
+              </div>
+              <div {% if speaker_application_form.linkedin.errors %}class="error"{% endif %}>
+                <label for="linkedin-url">
+                  {{ speaker_application_form.linkedin.label }}: {% if speaker_application_form.linkedin.field.required %}*{% endif %}                  </label>
+                </label>
+                {% add_attrs speaker_application_form.linkedin %}
+              </div>
+              <div {% if speaker_application_form.other_social_account.errors %}class="error"{% endif %}>
+                <label for="other-url">
+                  {{ speaker_application_form.other_social_account.label }}: {% if speaker_application_form.other_social_account.field.required %}*{% endif %}                  </label>
+                </label>
+                {% add_attrs speaker_application_form.other_social_account %}
+              </div>
+              <div class="full-width">
+                <label for="speaker-note">
+                  {{ speaker_application_form.note.label }}: {% if speaker_application_form.note.field.required %}*{% endif %}
+                </label>
+                {% add_attrs speaker_application_form.note %}
+              </div>
+              {% add_attrs speaker_application_form.recaptcha %}
+              <div>
+                <button name="{{ speaker_application_form.prefix }}" type="submit">
+                  {% trans "Send Application" %}
+                </button>
+              </div>
+            </form>
+          </div>
+        {% endif %}
+
+        <div class="tab-content{% if not activity.has_speaker_application or contact_form.prefix in request.POST %} active{% endif %}">
+          <form action="{{ request.path }}#contact" method="POST"
+                class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
+            {% csrf_token %}
+            <div {% if contact_form.full_name.errors %}class="error"{% endif %}>
+              <label for="name">
+                {{ contact_form.full_name.label }}: {% if contact_form.full_name.field.required %}*{% endif %}
+              </label>
+              {% add_attrs contact_form.full_name %}
+              <span class="input-edges"></span>
+            </div>
+            <div {% if contact_form.email.errors %}class="error"{% endif %}>
+              <label for="email">
+                {{ contact_form.email.label }}: {% if contact_form.email.field.required %}*{% endif %}
+              </label>
+              {% add_attrs contact_form.email %}
+              <span class="input-edges"></span>
+            </div>
+            <div {% if contact_form.message.errors %}class="error"{% endif %}>
+              <label for="message">
+                {{ contact_form.message.label }}: {% if contact_form.message.field.required %}*{% endif %}
+              </label>
+              {% add_attrs contact_form.message %}
+            </div>
+            {% add_attrs contact_form.recaptcha %}
+            <div>
+              <button name="{{ contact_form.prefix }}" type="submit">
+                {% trans "Send Message" %}
+              </button>
+            </div>
+          </form>
+
+          <div class="contact-info">
+            {% if activity.email %}
+              <div>
+                <h2>{% trans "Communicate Now" %}</h2>
+                <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
+                  <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
+                </p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <div class="coming-soon">{% trans "Coming Soon" %}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% recaptcha_explicit_init %}

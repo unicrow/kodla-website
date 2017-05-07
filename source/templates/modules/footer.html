@@ -1,0 +1,38 @@
+{% load i18n staticfiles %}
+
+
+<footer class="footer">
+  <div class="footer-logos">
+    <a href="https://www.facebook.com/groups/trabzonhs/" class="trabzonhs-logo" target="_blank">
+      <img src="{% static 'img/logos/trabzonhs-footer-logo.png' %}" alt="Trabzon Hackerspace">
+    </a>
+
+    <a href="http://unicrow.com" class="unicrow-logo" style="margin-left: 10px;" target="_blank">
+      <img src="{% static 'img/logos/unicrow-footer-logo.png' %}" alt="Unicrow">
+    </a>
+  </div>
+
+  {% blocktrans %}
+    <p class="footer-desc">This website has been developed by
+      <a href="http://unicrow.com" target="_blank">Unicrow</a> for
+      <a href="https://www.facebook.com/groups/trabzonhs/" target="_blank">Trabzon Hackerspace</a>.
+    </p>
+  {% endblocktrans %}
+
+  {% if activity_social_accounts %}
+    <ul class="footer-social-media">
+      {% for activity_social_account in activity_social_accounts %}
+        <li>
+          <a href="{{ activity_social_account.url }}" target="_blank">
+            <i class="{{ activity_social_account.account.style_class }}"></i>
+          </a>
+        </li>
+      {% endfor %}
+      <li>
+        <a href="https://github.com/unicrow/kodla-website" target="_blank">
+          <i class="fa fa-code"></i>
+        </a>
+      </li>
+    </ul>
+  {% endif %}
+</footer>

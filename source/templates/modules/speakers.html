@@ -1,0 +1,58 @@
+{% load i18n staticfiles %}
+{% load core_extra %}
+{% load thumbnail %}
+
+
+<section id="speakers" {% if data_scroll_index %}data-scroll-index={{ data_scroll_index }}{% endif %}>
+  <div class="wrap {% if not activity_speakers %}speakers-null{% endif %}">
+    <h1>{% trans "SPEAKERS" %}</h1>
+    {% if activity_speakers %}
+      <ul class="speaker-list">
+        {% for speaker, speaker_social_accounts in activity_speakers.items %}
+          <li>
+            {% if speaker.image %}
+              {% thumbnail speaker.image 180x180 crop upscale as speaker_thumb %}
+              <figure><img src="{{ speaker_thumb.url }}" width="{{ speaker_thumb.width }}" height="{{ speaker_thumb.height }}" alt="{{ speaker.get_full_name }}"></figure>
+            {% else %}
+              <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}"></figure>
+            {% endif %}
+            <p>{{ speaker.get_full_name }}</p>
+
+            {% if speaker_social_accounts %}
+              <div class="speaker-info">
+                {% for speaker_social_account in speaker_social_accounts %}
+                  <a href="{{ speaker_social_account.url }}" target="_blank">
+                    {% if speaker_social_account.account.style_class %}
+                      <i class="{{ speaker_social_account.account.style_class }}"></i>
+                    {% else %}
+                      {{ speaker_social_account.account.name }}
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <ul class="speaker-list">
+        {% for i in 8|iternum %}
+          <li>
+            <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}"></figure>
+            <p>Lorem Ipsum</p>
+            <div class="speaker-info">
+              <a href="#" target="_blank"><i class="icon-web"></i></a>
+              <a href="#" target="_blank"><i class="icon-tw"></i></a>
+              <a href="#" target="_blank"><i class="icon-gh"></i></a>
+              <a href="#" target="_blank"><i class="icon-li"></i></a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="null-message-box">
+        <i class="fa fa-clock-o"></i> {% trans "Speakers Not Yet Announced" %}
+      </div>
+    {% endif %}
+  </div>
+</section>

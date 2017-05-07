@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-07 16:23+0300\n"
+"POT-Creation-Date: 2017-05-07 23:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:77 source/apps/activity/models.py:55
-#: source/templates/hackathon.html:172 source/templates/index.html:341
+#: source/templates/modules/transportation.html:74
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -148,8 +148,8 @@ msgstr "Etkinlik Dokümanı"
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:58 source/templates/hackathon.html:164
-#: source/templates/index.html:333
+#: source/apps/activity/models.py:58
+#: source/templates/modules/transportation.html:66
 msgid "Accommodation"
 msgstr "Konaklama"
 
@@ -549,87 +549,96 @@ msgstr "Konuşmacı Başvuruları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/hackathon.html:44 source/templates/index.html:53
+#: source/templates/hackathon.html:41 source/templates/index.html:50
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/hackathon.html:52
+#: source/templates/hackathon.html:49
 msgid "ABOUT HACKATHON"
 msgstr "HACKATHON HAKKINDA"
 
-#: source/templates/hackathon.html:57 source/templates/hackathon.html:182
-#: source/templates/hackathon.html:208 source/templates/hackathon.html:369
-#: source/templates/index.html:73 source/templates/index.html:351
-#: source/templates/index.html:377 source/templates/index.html:538
+#: source/templates/hackathon.html:54 source/templates/index.html:70
+#: source/templates/modules/contact.html:155
+#: source/templates/modules/sponsors.html:27
+#: source/templates/modules/transportation.html:84
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/hackathon.html:65
+#: source/templates/hackathon.html:62
 msgid "PRIZES"
 msgstr "ÖDÜLLER"
 
-#: source/templates/hackathon.html:89
+#: source/templates/hackathon.html:86
 msgid "TEAMS"
 msgstr "TAKIMLAR"
 
-#: source/templates/hackathon.html:103 source/templates/index.html:24
-#: source/templates/index.html:272
+#: source/templates/index.html:15
+msgid "MENU"
+msgstr "MENÜ"
+
+#: source/templates/index.html:18
+msgid "HOME"
+msgstr "ANA SAYFA"
+
+#: source/templates/index.html:19 source/templates/modules/program.html:6
+msgid "PROGRAM"
+msgstr "PROGRAM"
+
+#: source/templates/index.html:20 source/templates/modules/speakers.html:8
+msgid "SPEAKERS"
+msgstr "KONUŞMACILAR"
+
+#: source/templates/index.html:21
+#: source/templates/modules/transportation.html:5
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/hackathon.html:158 source/templates/index.html:327
-msgid "Event Location"
-msgstr "Etkinlik Yeri"
-
-#: source/templates/hackathon.html:187 source/templates/index.html:25
-#: source/templates/index.html:356
+#: source/templates/index.html:22 source/templates/modules/sponsors.html:6
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/hackathon.html:214 source/templates/index.html:69
-#: source/templates/index.html:383
-msgid "Become a Sponsor"
-msgstr "Sponsor Ol"
-
-#: source/templates/hackathon.html:222 source/templates/index.html:26
-#: source/templates/index.html:391
+#: source/templates/index.html:23 source/templates/modules/contact.html:8
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/hackathon.html:226 source/templates/index.html:395
+#: source/templates/index.html:66 source/templates/modules/sponsors.html:33
+msgid "Become a Sponsor"
+msgstr "Sponsor Ol"
+
+#: source/templates/modules/contact.html:12
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/hackathon.html:227 source/templates/index.html:396
+#: source/templates/modules/contact.html:13
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/hackathon.html:318 source/templates/index.html:487
+#: source/templates/modules/contact.html:104
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/hackathon.html:352 source/templates/index.html:521
+#: source/templates/modules/contact.html:138
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/hackathon.html:360 source/templates/index.html:529
+#: source/templates/modules/contact.html:146
 msgid "Communicate Now"
 msgstr "Hemen İletişime Geçin"
 
-#: source/templates/hackathon.html:361 source/templates/index.html:530
+#: source/templates/modules/contact.html:147
 msgid ""
 "If you don't want to use the contact form, you can contact us with email."
 msgstr "İletişim formunu kullanmak yerine bize e-posta ile ulaşabilirsiniz."
 
-#: source/templates/hackathon.html:388 source/templates/index.html:565
+#: source/templates/modules/footer.html:15
 msgid ""
 "\n"
-"      <p class=\"footer-desc\">This website has been developed by\n"
-"        <a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> for\n"
-"        <a href=\"https://www.facebook.com/groups/trabzonhs/\" target="
-"\"_blank\">Trabzon Hackerspace</a>.\n"
-"      </p>\n"
-"    "
+"    <p class=\"footer-desc\">This website has been developed by\n"
+"      <a href=\"http://unicrow.com\" target=\"_blank\">Unicrow</a> for\n"
+"      <a href=\"https://www.facebook.com/groups/trabzonhs/\" target=\"_blank"
+"\">Trabzon Hackerspace</a>.\n"
+"    </p>\n"
+"  "
 msgstr ""
 "\n"
 "      <p class=\"footer-desc\">Bu web sitesi\n"
@@ -640,41 +649,30 @@ msgstr ""
 "      </p>\n"
 "    "
 
-#: source/templates/index.html:18
-msgid "MENU"
-msgstr "MENÜ"
+#: source/templates/modules/gallery.html:8
+msgid "SEE ALL PHOTOS"
+msgstr "TÜM FOTOĞRAFLARA BAK"
 
-#: source/templates/index.html:21
-msgid "HOME"
-msgstr "ANA SAYFA"
-
-#: source/templates/index.html:22 source/templates/index.html:90
-msgid "PROGRAM"
-msgstr "PROGRAM"
-
-#: source/templates/index.html:23 source/templates/index.html:196
-msgid "SPEAKERS"
-msgstr "KONUŞMACILAR"
-
-#: source/templates/index.html:133
+#: source/templates/modules/program.html:49
 msgid "Download Presentation"
 msgstr "Sunumu İndir"
 
-#: source/templates/index.html:138
+#: source/templates/modules/program.html:54
 msgid "Review Presentation"
 msgstr "Sunumu İncele"
 
-#: source/templates/index.html:162 source/templates/index.html:187
+#: source/templates/modules/program.html:78
+#: source/templates/modules/program.html:103
 msgid "Program Not Yet Announced"
 msgstr "Program Henüz Açıklanmadı"
 
-#: source/templates/index.html:242
+#: source/templates/modules/speakers.html:54
 msgid "Speakers Not Yet Announced"
 msgstr "Konuşmacılar Henüz Açıklanmadı"
 
-#: source/templates/index.html:254
-msgid "SEE ALL PHOTOS"
-msgstr "TÜM FOTOĞRAFLARA BAK"
+#: source/templates/modules/transportation.html:60
+msgid "Event Location"
+msgstr "Etkinlik Yeri"
 
 #~ msgid "Hackathon Register URL"
 #~ msgstr "Hackathon Kayıt Linki"

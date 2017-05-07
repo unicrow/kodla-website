@@ -1,0 +1,108 @@
+{% load i18n staticfiles %}
+
+
+<section id="program" {% if data_scroll_index %}data-scroll-index={{ data_scroll_index }}{% endif %}>
+  <div class="wrap">
+    <h1 class="alternate">{% trans "PROGRAM" %}</h1>
+
+    {% if activity_timeline %}
+      <div class="tab day-select">
+        {% for program in activity_timeline %}
+          <a {% if forloop.first %}class="active"{% endif %}>{{ program.date|date:"d F, D" }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if activity_timeline %}
+      <div class="timeline-wrap {% if not activity_timeline.items %}timeline-null{% endif %}">
+        {% for program, contents in activity_timeline.items %}
+          <ul class="timeline" {% if forloop.first %}style="display: block;"{% endif %}>
+            {% if contents %}
+              {% for content in contents %}
+                <li>
+                  <div class="time">
+                    <span {% if not content.end_time %}style="margin-top: 8px;"{% endif %}>
+                      {{ content.start_time }}
+                    </span>
+
+                    {% if content.end_time %}
+                      <span>{{ content.end_time }}</span>
+                    {% endif %}
+                  </div>
+
+                  <div class="item {% if not content.speaker %}single-line{% endif %}">
+                    <span class="topic {% if not content.speaker %}single-line{% endif %}">
+                      {{ content.subject }}
+                      {% if content.annotation %}
+                        <span class="speaker" style="display:inline-block">{{ content.annotation }}</span>
+                      {% endif %}
+                    </span>
+
+                    {% with speakers_name=content.get_speakers %}
+                      {% if speakers_name %}
+                        <span class="speaker">{{ speakers_name }}</span>
+                      {% endif %}
+                    {% endwith %}
+
+                    {% if content.presentation_document %}
+                      <a href="{{ content.presentation_document.url }}" class="btn btn-small download-item" target="_blank" download>
+                        <i class="icon-download"></i> {% trans "Download Presentation" %}
+                      </a>
+                    {% endif %}
+                    {% if content.presentation_url %}
+                      <a href="{{ content.presentation_url }}" class="btn btn-small inspect-item" target="_blank">
+                        <i class="icon-inspect"></i> {% trans "Review Presentation" %}
+                      </a>
+                    {% endif %}
+                  </div>
+                </li>
+              {% endfor %}
+            {% else %}
+              <div class="timeline-wrap timeline-null">
+                <ul class="timeline" style="display: block;">
+                  {% for content in default_program_contents %}
+                    <li>
+                      <div class="time">
+                        <span>{{ content.time.0 }}</span>
+                        <span>{{ content.time.1 }}</span>
+                      </div>
+
+                      <div class="item">
+                        <span class="topic">{{ content.subject }}</span>
+                        <span class="speaker">{{ content.speaker }}</span>
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+                <div class="null-message-box">
+                  <i class="fa fa-clock-o"></i> {% trans "Program Not Yet Announced" %}
+                </div>
+              </div>
+            {% endif %}
+          </ul>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="timeline-wrap timeline-null">
+        <ul class="timeline" style="display: block;">
+          {% for content in default_program_contents %}
+            <li>
+              <div class="time">
+                <span>{{ content.time.0 }}</span>
+                <span>{{ content.time.1 }}</span>
+              </div>
+
+              <div class="item">
+                <span class="topic">{{ content.subject }}</span>
+                <span class="speaker">{{ content.speaker }}</span>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="null-message-box">
+          <i class="fa fa-clock-o"></i> {% trans "Program Not Yet Announced" %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

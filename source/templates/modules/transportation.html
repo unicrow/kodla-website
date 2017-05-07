@@ -1,0 +1,86 @@
+{% load i18n staticfiles %}
+
+
+<section id="transportation" {% if data_scroll_index %}data-scroll-index={{ data_scroll_index }}{% endif %}>
+  <h1>{% trans "TRANSPORTATION" %}</h1>
+  {% if activity_map or activity.address or activity.accommodation or activity.transportation %}
+    {% if activity_map %}
+      <div class="map">
+        <div id="map" style="height: 400px; margin-bottom: 50px;"></div>
+        <script>
+
+          // The following example creates a marker in Stockholm, Sweden using a DROP
+          // animation. Clicking on the marker will toggle the animation between a BOUNCE
+          // animation and no animation.
+
+          var marker;
+
+          function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 16,
+              scrollwheel: false,
+              center: {
+                  lat: {{ activity_map.coordinates.latitude|stringformat:"f" }},
+                  lng: {{ activity_map.coordinates.longitude|stringformat:"f" }}
+              }
+            });
+
+            marker = new google.maps.Marker({
+              position: map.getCenter(),
+              map: map,
+              draggable: false,
+              animation: google.maps.Animation.DROP
+            });
+            //marker.addListener('click', toggleBounce);
+
+            var infoWindow = new google.maps.InfoWindow({
+              content: '{{ activity_map.description }}'
+            });
+
+            // Opens the InfoWindow when marker is clicked.
+            marker.addListener('click', function() {
+              infoWindow.open(map, marker);
+            });
+          }
+
+          function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+              marker.setAnimation(null);
+            } else {
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+          }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ activity_map_key }}&callback=initMap"></script>
+      </div>
+    {% endif %}
+    <div class="wrap">
+      <div class="desc">
+        <div>
+          <h2>{% trans "Event Location" %}</h2>
+          {% if activity.address %}
+            {{ activity.address|safe }}
+          {% else %}
+            ---
+          {% endif %}
+          <h2 style="margin-top:20px">{% trans "Accommodation" %}</h2>
+          {% if activity.accommodation %}
+            {{ activity.accommodation|safe }}
+          {% else %}
+            ---
+          {% endif %}
+        </div>
+        <div>
+          <h2>{% trans "Transportation" %}</h2>
+          {% if activity.transportation %}
+            {{ activity.transportation|safe }}
+          {% else %}
+            ---
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="coming-soon">{% trans 'Coming Soon' %}</div>
+  {% endif %}
+</section>

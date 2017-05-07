@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<section id="photos">
+  <div class="wrap1">
+    <h1>{{ gallery.name|upper }}</h1>
+    <div class="photos">
+      {% if gallery.url %}
+        <a class="all-photo-link" href="{{ gallery.url }}" target="_blank">{% trans 'SEE ALL PHOTOS' %}</a>
+      {% endif %}
+      <div class="container">
+        <div class="col1" style="background-image: url('{{ contents.0.image.url }}');"></div>
+        <div class="col2">
+          <div class="col50" style="background-image: url('{{ contents.1.image.url }}');"></div>
+          <div class="col50" style="background-image: url('{{ contents.2.image.url }}');"></div>
+          <div class="col25" style="background-image: url('{{ contents.3.image.url }}');"></div>
+          <div class="col50" style="background-image: url('{{ contents.4.image.url }}');"></div>
+          <div class="col25" style="background-image: url('{{ contents.5.image.url }}');"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
