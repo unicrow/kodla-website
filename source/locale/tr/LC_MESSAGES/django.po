@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-07 23:22+0300\n"
+"POT-Creation-Date: 2017-05-08 01:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,11 +58,11 @@ msgstr "Haritalar"
 msgid "Base"
 msgstr "Temel"
 
-#: source/apps/activity/admin.py:65
+#: source/apps/activity/admin.py:65 source/apps/hackathon/admin.py:33
 msgid "Feature"
 msgstr "Özellik"
 
-#: source/apps/activity/admin.py:71 source/apps/hackathon/admin.py:42
+#: source/apps/activity/admin.py:71 source/apps/hackathon/admin.py:46
 #: source/apps/speaker/admin.py:35 source/apps/speaker/admin.py:75
 msgid "Detail"
 msgstr "Detay"
@@ -82,7 +82,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/models.py:98 source/apps/activity/models.py:154
 #: source/apps/activity/models.py:190 source/apps/activity/models.py:217
 #: source/apps/form/models.py:15 source/apps/gallery/models.py:19
-#: source/apps/hackathon/models.py:45 source/apps/program/models.py:13
+#: source/apps/hackathon/models.py:52 source/apps/program/models.py:13
 #: source/apps/speaker/models.py:160
 msgid "Activity"
 msgstr "Etkinlik"
@@ -95,8 +95,8 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:152 source/apps/activity/models.py:178
 #: source/apps/activity/models.py:215 source/apps/core/models.py:29
 #: source/apps/form/models.py:13 source/apps/gallery/models.py:17
-#: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:43
-#: source/apps/hackathon/models.py:100 source/apps/program/models.py:11
+#: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:50
+#: source/apps/hackathon/models.py:107 source/apps/program/models.py:11
 #: source/apps/program/models.py:52 source/apps/speaker/models.py:40
 #: source/apps/speaker/models.py:76 source/apps/speaker/models.py:135
 #: source/apps/sponsor/models.py:18 source/apps/sponsor/models.py:41
@@ -112,7 +112,7 @@ msgstr "E-posta"
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
-#: source/apps/activity/models.py:24 source/apps/hackathon/models.py:26
+#: source/apps/activity/models.py:24 source/apps/hackathon/models.py:38
 msgid "Comment"
 msgstr "Yorum"
 
@@ -129,14 +129,14 @@ msgid "Short Description"
 msgstr "Kısa Açıklama"
 
 #: source/apps/activity/models.py:38 source/apps/activity/models.py:212
-#: source/apps/hackathon/models.py:28 source/apps/hackathon/models.py:88
-#: source/apps/sponsor/models.py:16
+#: source/apps/hackathon/models.py:27 source/apps/hackathon/models.py:30
+#: source/apps/hackathon/models.py:95 source/apps/sponsor/models.py:16
 msgid "Description"
 msgstr "Açıklama"
 
 #: source/apps/activity/models.py:41 source/apps/activity/models.py:44
 #: source/apps/activity/models.py:82 source/apps/hackathon/models.py:21
-#: source/apps/hackathon/models.py:24 source/apps/hackathon/models.py:64
+#: source/apps/hackathon/models.py:24 source/apps/hackathon/models.py:71
 msgid "Register URL"
 msgstr "Kayıt Linki"
 
@@ -248,7 +248,7 @@ msgid "Update Date"
 msgstr "Güncelleme Tarihi"
 
 #: source/apps/core/models.py:22 source/apps/gallery/models.py:14
-#: source/apps/hackathon/models.py:86 source/apps/speaker/models.py:134
+#: source/apps/hackathon/models.py:93 source/apps/speaker/models.py:134
 #: source/apps/sponsor/models.py:14 source/apps/sponsor/models.py:39
 msgid "Name"
 msgstr "İsim"
@@ -334,32 +334,32 @@ msgstr "Galeriler"
 msgid "Image"
 msgstr "Resim"
 
-#: source/apps/gallery/models.py:93 source/apps/hackathon/models.py:73
-#: source/apps/hackathon/models.py:134 source/apps/speaker/models.py:69
+#: source/apps/gallery/models.py:93 source/apps/hackathon/models.py:80
+#: source/apps/hackathon/models.py:141 source/apps/speaker/models.py:69
 #: source/apps/sponsor/models.py:71
 msgid "Not Found!"
 msgstr "Bulunamadı!"
 
-#: source/apps/gallery/models.py:94 source/apps/hackathon/models.py:74
-#: source/apps/hackathon/models.py:135 source/apps/speaker/models.py:70
+#: source/apps/gallery/models.py:94 source/apps/hackathon/models.py:81
+#: source/apps/hackathon/models.py:142 source/apps/speaker/models.py:70
 #: source/apps/sponsor/models.py:72
 msgid "Preview"
 msgstr "Önizleme"
 
-#: source/apps/hackathon/admin.py:16 source/apps/hackathon/models.py:111
+#: source/apps/hackathon/admin.py:16 source/apps/hackathon/models.py:118
 msgid "Hackathon Prize"
 msgstr "Hackathon Ödül"
 
-#: source/apps/hackathon/admin.py:17 source/apps/hackathon/models.py:112
+#: source/apps/hackathon/admin.py:17 source/apps/hackathon/models.py:119
 msgid "Hackathon Prizes"
 msgstr "Hackathon Ödülleri"
 
-#: source/apps/hackathon/admin.py:33
+#: source/apps/hackathon/admin.py:39
 msgid "Content"
 msgstr "İçerik"
 
-#: source/apps/hackathon/apps.py:8 source/apps/hackathon/models.py:49
-#: source/apps/hackathon/models.py:102
+#: source/apps/hackathon/apps.py:8 source/apps/hackathon/models.py:56
+#: source/apps/hackathon/models.py:109
 msgid "Hackathon"
 msgstr "Hackathon"
 
@@ -367,23 +367,27 @@ msgstr "Hackathon"
 msgid "Activity hackathon already exist."
 msgstr "Etkinlik hackathon'u zaten mevcut!"
 
-#: source/apps/hackathon/models.py:31
+#: source/apps/hackathon/models.py:33 source/apps/hackathon/models.py:36
 msgid "Team Description"
 msgstr "Takım Açıklaması"
 
-#: source/apps/hackathon/models.py:34 source/apps/hackathon/models.py:91
+#: source/apps/hackathon/models.py:39
+msgid "Prize"
+msgstr "Ödül"
+
+#: source/apps/hackathon/models.py:41 source/apps/hackathon/models.py:98
 msgid "Main Image"
 msgstr "Ana Resim"
 
-#: source/apps/hackathon/models.py:38 source/apps/hackathon/models.py:95
+#: source/apps/hackathon/models.py:45 source/apps/hackathon/models.py:102
 msgid "Main Image Height"
 msgstr "Ana Resim Yüksekliği"
 
-#: source/apps/hackathon/models.py:41 source/apps/hackathon/models.py:98
+#: source/apps/hackathon/models.py:48 source/apps/hackathon/models.py:105
 msgid "Main Image Width"
 msgstr "Ana Resim Genişliği"
 
-#: source/apps/hackathon/models.py:50
+#: source/apps/hackathon/models.py:57
 msgid "Hackathons"
 msgstr "Hackathonlar"
 
@@ -557,18 +561,19 @@ msgstr "Hemen Kaydol"
 msgid "ABOUT HACKATHON"
 msgstr "HACKATHON HAKKINDA"
 
-#: source/templates/hackathon.html:54 source/templates/index.html:70
+#: source/templates/hackathon.html:54 source/templates/hackathon.html:80
+#: source/templates/hackathon.html:92 source/templates/index.html:70
 #: source/templates/modules/contact.html:155
 #: source/templates/modules/sponsors.html:27
 #: source/templates/modules/transportation.html:84
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/hackathon.html:62
+#: source/templates/hackathon.html:61
 msgid "PRIZES"
 msgstr "ÖDÜLLER"
 
-#: source/templates/hackathon.html:86
+#: source/templates/hackathon.html:87
 msgid "TEAMS"
 msgstr "TAKIMLAR"
 

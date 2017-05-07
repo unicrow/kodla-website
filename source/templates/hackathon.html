@@ -32,7 +32,7 @@
           />
         {% endif %}
 
-        {% if hackathon_prizes.first %}
+        {% if hackathon.has_prize and hackathon_prizes %}
           <img src="{{ hackathon_prizes.first.main_image.url }}" />
         {% endif %}
       </div>
@@ -48,7 +48,7 @@
     <div class="wrap">
       <h1>{% trans "ABOUT HACKATHON" %}</h1>
 
-      {% if hackathon.description %}
+      {% if hackathon.has_description and hackathon.description %}
         {{ hackathon.description|safe }}
       {% else %}
         <br><div class="coming-soon">{% trans "Coming Soon" %}</div>
@@ -56,11 +56,11 @@
     </div>
   </section>
 
-  {% if hackathon_prizes %}
-    <section id="awards">
-      <div class="wrap">
-        <h1>{% trans "PRIZES" %}</h1>
+  <section id="awards">
+    <div class="wrap">
+      <h1>{% trans "PRIZES" %}</h1>
 
+      {% if hackathon.has_prize and hackathon_prizes %}
         <div class="awards-container">
           {% for hackathon_prize in hackathon_prizes %}
             {% if hackathon_prize.main_image %}
@@ -76,19 +76,23 @@
             {% endif %}
           {% endfor %}
         </div>
-      </div>
-    </section>
-  {% endif %}
+      {% else %}
+        <br><div class="coming-soon">{% trans "Coming Soon" %}</div>
+      {% endif %}
+    </div>
+  </section>
 
-  {% if hackathon.team_description %}
-    <section id="participants">
-      <div class="wrap">
-        <h1>{% trans "TEAMS" %}</h1>
+  <section id="participants">
+    <div class="wrap">
+      <h1>{% trans "TEAMS" %}</h1>
 
+      {% if hackathon.has_team_description and hackathon.team_description %}
         {{ hackathon.team_description|safe }}
-      </div>
-    </section>
-  {% endif %}
+      {% else %}
+        <br><div class="coming-soon">{% trans "Coming Soon" %}</div>
+      {% endif %}
+    </div>
+  </section>
 
   {% if hackathon.has_comment %}
     {% include "modules/comment.html" %}

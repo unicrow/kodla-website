@@ -23,13 +23,20 @@ class Hackathon(DateModel):
     has_register_url = models.BooleanField(
         verbose_name=_('Register URL'), default=True
     )
-    has_comment = models.BooleanField(verbose_name=_('Comment'), default=False)
     description = models.TextField(
         verbose_name=_('Description'), null=True, blank=True
+    )
+    has_description = models.BooleanField(
+        verbose_name=_('Description'), default=False
     )
     team_description = models.TextField(
         verbose_name=_('Team Description'), null=True, blank=True
     )
+    has_team_description = models.BooleanField(
+        verbose_name=_('Team Description'), default=False
+    )
+    has_comment = models.BooleanField(verbose_name=_('Comment'), default=False)
+    has_prize = models.BooleanField(verbose_name=_('Prize'), default=False)
     main_image = models.ImageField(
         verbose_name=_('Main Image'), null=True, blank=True,
         upload_to=set_activity_hackathon_upload_path
