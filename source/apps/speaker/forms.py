@@ -19,7 +19,7 @@ class SpeakerApplicationForm(forms.ModelForm):
     )
     first_name = forms.CharField(label=_('Your Name'), max_length=50)
     last_name = forms.CharField(label=_('Your Surname'), max_length=50)
-    email = forms.EmailField(label=_('E-Mail Address'), required=True)
+    email = forms.EmailField(label=_('Email Address'), required=True)
     image = forms.ImageField(label=_('Your Image'), required=True)
     company= forms.CharField(
         label=_('Your working company'), max_length=255, required=False

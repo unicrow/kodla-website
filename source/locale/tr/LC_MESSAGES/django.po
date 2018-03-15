@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 14:56+0300\n"
+"POT-Creation-Date: 2018-03-15 15:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,9 +104,8 @@ msgstr "Yıl"
 msgid "Active"
 msgstr "Aktif"
 
-#: source/apps/activity/models.py:18 source/apps/form/forms.py:45
-#: source/apps/form/models.py:11 source/apps/form/models.py:30
-#: source/apps/speaker/models.py:29
+#: source/apps/activity/models.py:18 source/apps/form/models.py:11
+#: source/apps/form/models.py:30 source/apps/speaker/models.py:29
 msgid "Email"
 msgstr "E-posta"
 
@@ -115,9 +114,9 @@ msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
 #: source/apps/activity/models.py:24 source/apps/form/models.py:37
-#: source/apps/form/models.py:38 source/templates/modules/contact.html:54
+#: source/apps/form/models.py:38
 msgid "Register"
-msgstr "Kaydol"
+msgstr "Kayıt"
 
 #: source/apps/activity/models.py:25 source/apps/hackathon/models.py:38
 msgid "Comment"
@@ -308,23 +307,22 @@ msgstr "Form"
 msgid "Name and Surname"
 msgstr "Adınız ve Soyadınız"
 
-#: source/apps/form/forms.py:15 source/apps/speaker/forms.py:22
-msgid "E-Mail Address"
-msgstr "E-Posta Adresiniz"
+#: source/apps/form/forms.py:15 source/apps/form/forms.py:45
+#: source/apps/speaker/forms.py:22
+msgid "Email Address"
+msgstr "E-posta Adresiniz"
 
 #: source/apps/form/forms.py:16
 msgid "Your Message"
 msgstr "Mesajınız"
 
-#: source/apps/form/forms.py:43 source/apps/form/models.py:28
-#: source/apps/speaker/models.py:27
-msgid "First Name"
-msgstr "Ad"
+#: source/apps/form/forms.py:43 source/apps/speaker/forms.py:20
+msgid "Your Name"
+msgstr "Adınız"
 
-#: source/apps/form/forms.py:44 source/apps/form/models.py:29
-#: source/apps/speaker/models.py:28
-msgid "Last Name"
-msgstr "Soyad"
+#: source/apps/form/forms.py:44 source/apps/speaker/forms.py:21
+msgid "Your Surname"
+msgstr "Soyadınız"
 
 #: source/apps/form/models.py:10
 msgid "Full Name"
@@ -337,6 +335,14 @@ msgstr "Mesajınız"
 #: source/apps/form/models.py:19 source/apps/form/models.py:20
 msgid "Contact"
 msgstr "İletişim"
+
+#: source/apps/form/models.py:28 source/apps/speaker/models.py:27
+msgid "First Name"
+msgstr "Ad"
+
+#: source/apps/form/models.py:29 source/apps/speaker/models.py:28
+msgid "Last Name"
+msgstr "Soyad"
 
 #: source/apps/gallery/admin.py:18 source/apps/gallery/models.py:70
 msgid "Gallery Content"
@@ -474,29 +480,21 @@ msgstr "Firma"
 msgid "Application Type"
 msgstr "Başvuru Türü"
 
-#: source/apps/speaker/forms.py:20
-msgid "Your Name"
-msgstr "Adınız"
-
-#: source/apps/speaker/forms.py:21
-msgid "Your Surname"
-msgstr "Soyadınız"
-
 #: source/apps/speaker/forms.py:23
 msgid "Your Image"
 msgstr "Resminiz"
 
 #: source/apps/speaker/forms.py:25
 msgid "Your working company"
-msgstr "Çalıştığınız firma"
+msgstr "Çalıştığınız Firma"
 
 #: source/apps/speaker/forms.py:28
 msgid "Your working position"
-msgstr "Çalıştığınız pozisyon"
+msgstr "Çalıştığınız Pozisyon"
 
 #: source/apps/speaker/forms.py:33
 msgid "Your Website/Your Blog"
-msgstr "Web siteniz/Blogunuz"
+msgstr "Web Siteniz/Blogunuz"
 
 #: source/apps/speaker/forms.py:35
 msgid "Your Twitter Account"
@@ -544,7 +542,7 @@ msgstr "Konuşmacı Başvuru Türleri"
 
 #: source/apps/speaker/models.py:147
 msgid "Website"
-msgstr "Web sitesi"
+msgstr "Web Sitesi"
 
 #: source/apps/speaker/models.py:148
 msgid "Twitter"
@@ -643,6 +641,10 @@ msgstr "Konuşmacı Başvuru Formu"
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
+#: source/templates/modules/contact.html:54
+msgid "Send"
+msgstr "Gönder"
+
 #: source/templates/modules/contact.html:62
 #: source/templates/modules/contact.html:199
 msgid "Communicate Now"
@@ -705,6 +707,14 @@ msgstr "Konuşmacılar Henüz Açıklanmadı"
 #: source/templates/modules/transportation.html:60
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
+
+#~ msgid "E-Mail Address"
+#~ msgstr "E-posta Adresiniz"
+
+#, fuzzy
+#~| msgid "Your Surname"
+#~ msgid "Surname"
+#~ msgstr "Soyadınız"
 
 #~ msgid "Hackathon Register URL"
 #~ msgstr "Hackathon Kayıt Linki"

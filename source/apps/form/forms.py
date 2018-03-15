@@ -12,7 +12,7 @@ from form.models import Contact, Register
 
 class ContactForm(forms.ModelForm):
     full_name = forms.CharField(label=_('Name and Surname'), max_length=100)
-    email = forms.EmailField(label=_('E-Mail Address'))
+    email = forms.EmailField(label=_('Email Address'))
     message = forms.CharField(label=_('Your Message'), widget=forms.Textarea)
     recaptcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
 
@@ -40,9 +40,9 @@ class ContactForm(forms.ModelForm):
 
 
 class RegisterForm(forms.ModelForm):
-    first_name = forms.CharField(label=_('First Name'), max_length=100)
-    last_name = forms.CharField(label=_('Last Name'), max_length=100)
-    email = forms.EmailField(label=_('Email'))
+    first_name = forms.CharField(label=_('Your Name'), max_length=100)
+    last_name = forms.CharField(label=_('Your Surname'), max_length=100)
+    email = forms.EmailField(label=_('Email Address'))
     recaptcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
 
     class Meta:
