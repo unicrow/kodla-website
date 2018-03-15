@@ -17,11 +17,12 @@ from django.views.generic import TemplateView
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
-from form.forms import ContactForm
 from activity.models import Activity
+from form.forms import ContactForm, RegisterForm
 from speaker.forms import SpeakerApplicationForm
 from core.variables import (
-    CONTACT_FORM_PREFIX, SPEAKER_APPLICATION_FORM_PREFIX, DEFAULT_PROGRAM_CONTENTS
+    CONTACT_FORM_PREFIX, SPEAKER_APPLICATION_FORM_PREFIX,
+    REGISTER_FORM_PREFIX, DEFAULT_PROGRAM_CONTENTS
 )
 
 
@@ -124,7 +125,8 @@ class IndexView(TemplateView):
                 'contact_form': ContactForm(prefix=CONTACT_FORM_PREFIX),
                 'speaker_application_form': SpeakerApplicationForm(
                     prefix=SPEAKER_APPLICATION_FORM_PREFIX
-                )
+                ),
+                'register_form': RegisterForm(prefix=REGISTER_FORM_PREFIX)
             })
 
         return context
@@ -187,6 +189,37 @@ class IndexView(TemplateView):
 
             messages.error(
                 request, _('Your application could not be sent. Try again.')
+            )
+
+        if REGISTER_FORM_PREFIX in request.POST:
+            register_form = RegisterForm(request.POST, prefix=REGISTER_FORM_PREFIX)
+            context.update({
+                'register_form': register_form
+            })
+
+            if register_form.is_valid() and self.activity:
+                register, created = register_form.save(self.activity)
+
+                if register:
+                    if created:
+                        messages.success(
+                            request, _('Your register has been sent. Thank you.')
+                        )
+
+                        context.update({
+                            'register_form': RegisterForm(
+                                prefix=REGISTER_FORM_PREFIX
+                            )
+                        })
+                    else:
+                        messages.error(
+                            request, _('Your register already exists!')
+                        )
+
+                    return super(IndexView, self).render_to_response(context)
+
+            messages.error(
+                request, _('Your register could not be sent. Try again.')
             )
 
         return super(IndexView, self).render_to_response(context)
@@ -251,7 +284,8 @@ class HackathonView(TemplateView):
                 'contact_form': ContactForm(prefix=CONTACT_FORM_PREFIX),
                 'speaker_application_form': SpeakerApplicationForm(
                     prefix=SPEAKER_APPLICATION_FORM_PREFIX
-                )
+                ),
+                'register_form': RegisterForm(prefix=REGISTER_FORM_PREFIX)
             })
 
         return context
@@ -314,6 +348,37 @@ class HackathonView(TemplateView):
 
             messages.error(
                 request, _('Your application could not be sent. Try again.')
+            )
+
+        if REGISTER_FORM_PREFIX in request.POST:
+            register_form = RegisterForm(request.POST, prefix=REGISTER_FORM_PREFIX)
+            context.update({
+                'register_form': register_form
+            })
+
+            if register_form.is_valid() and self.activity:
+                register, created = register_form.save(self.activity)
+
+                if register:
+                    if created:
+                        messages.success(
+                            request, _('Your register has been sent. Thank you.')
+                        )
+
+                        context.update({
+                            'register_form': RegisterForm(
+                                prefix=REGISTER_FORM_PREFIX
+                            )
+                        })
+                    else:
+                        messages.error(
+                            request, _('Your register already exists!')
+                        )
+
+                    return super(HackathonView, self).render_to_response(context)
+
+            messages.error(
+                request, _('Your register could not be sent. Try again.')
             )
 
         return super(HackathonView, self).render_to_response(context)

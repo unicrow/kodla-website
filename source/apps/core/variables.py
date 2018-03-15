@@ -1,6 +1,7 @@
 # Form
-CONTACT_FORM_PREFIX = "contact_form"
-SPEAKER_APPLICATION_FORM_PREFIX = "speaker_application_form"
+CONTACT_FORM_PREFIX = 'contact_form'
+SPEAKER_APPLICATION_FORM_PREFIX = 'speaker_application_form'
+REGISTER_FORM_PREFIX = 'register_form'
 
 # Default Program Contents
 DEFAULT_PROGRAM_CONTENTS = [

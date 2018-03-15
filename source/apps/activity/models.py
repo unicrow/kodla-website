@@ -21,6 +21,7 @@ class Activity(DateModel):
     has_speaker_application = models.BooleanField(
         verbose_name=_('Speaker Application'), default=False
     )
+    has_register = models.BooleanField(verbose_name=_('Register'), default=False)
     has_comment = models.BooleanField(verbose_name=_('Comment'), default=False)
 
     # Extra
