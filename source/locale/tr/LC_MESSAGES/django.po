@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 12:34+0300\n"
+"POT-Creation-Date: 2018-03-16 15:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/apps.py:8 source/apps/activity/models.py:74
 #: source/apps/activity/models.py:105 source/apps/activity/models.py:161
 #: source/apps/activity/models.py:197 source/apps/activity/models.py:224
-#: source/apps/form/models.py:15 source/apps/form/models.py:33
+#: source/apps/form/models.py:15 source/apps/form/models.py:34
 #: source/apps/gallery/models.py:19 source/apps/hackathon/models.py:52
 #: source/apps/program/models.py:13 source/apps/speaker/models.py:160
 msgid "Activity"
@@ -113,8 +113,8 @@ msgstr "E-posta"
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
-#: source/apps/activity/models.py:24 source/apps/form/models.py:37
-#: source/apps/form/models.py:38
+#: source/apps/activity/models.py:24 source/apps/form/models.py:38
+#: source/apps/form/models.py:39
 msgid "Register"
 msgstr "Kayıt"
 
@@ -351,6 +351,10 @@ msgstr "Ad"
 #: source/apps/form/models.py:29 source/apps/speaker/models.py:28
 msgid "Last Name"
 msgstr "Soyad"
+
+#: source/apps/form/models.py:32
+msgid "Completed"
+msgstr "Tamamlandı"
 
 #: source/apps/gallery/admin.py:18 source/apps/gallery/models.py:70
 msgid "Gallery Content"

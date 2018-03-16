@@ -29,6 +29,7 @@ class Register(DateModel):
     last_name = models.CharField(verbose_name=_('Last Name'), max_length=100)
     email = models.EmailField(verbose_name=_('Email'))
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    is_completed = models.BooleanField(verbose_name=_('Completed'), default=False)
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to='activity.Activity'
     )
