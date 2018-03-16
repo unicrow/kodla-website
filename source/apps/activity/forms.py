@@ -14,6 +14,8 @@ class ActivityAdminForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
            'description': RedactorEditor(),
+           'contact_info': RedactorEditor(),
+           'register_info': RedactorEditor(),
            'address': RedactorEditor(),
            'transportation': RedactorEditor(),
            'accommodation': RedactorEditor(),

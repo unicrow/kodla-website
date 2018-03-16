@@ -38,6 +38,12 @@ class Activity(DateModel):
     description = models.TextField(
         verbose_name=_('Description'), null=True, blank=True
     )
+    contact_info = models.TextField(
+        verbose_name=_('Contact Information'), null=True, blank=True
+    )
+    register_info = models.TextField(
+        verbose_name=_('Register Information'), null=True, blank=True
+    )
     register_url = models.URLField(
         verbose_name=_('Register URL'), null=True, blank=True
     )

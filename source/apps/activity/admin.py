@@ -64,13 +64,14 @@ class ActivityAdmin(NonSortableParentAdmin):
         }),
         (_(u'Feature'), {
             'fields' : (
-                'has_comment', 'has_speaker_application', 'has_register'
-                'has_register_url', 'has_activity_document',
+                'has_comment', 'has_speaker_application', 'has_register',
+                'has_register_url', 'has_activity_document'
             ),
         }),
         (_(u'Detail'), {
             'fields' : (
-                'email', 'short_description', 'register_url', 'description',
+                'email', 'short_description', 'register_url',
+                'description', 'contact_info', 'register_info',
                 'meta_tags', 'logo', ('create_date', 'update_date')
             ),
         }),

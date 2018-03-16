@@ -25,7 +25,7 @@
           {% if activity.has_register %}
             <div class="tab-content{% if register_form.prefix == active_form %} active{% endif %}">
               <form action="{{ request.path }}#contact" method="POST"
-                    class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
+                    class="contact-form{% if not activity.register_info %} contact-form-center{% endif %}">
                 {% csrf_token %}
                 <div {% if register_form.first_name.errors %}class="error"{% endif %}>
                   <label for="name">
@@ -56,16 +56,11 @@
                 </div>
               </form>
 
-              <div class="contact-info">
-                {% if activity.email %}
-                  <div>
-                    <h2>{% trans "Communicate Now" %}</h2>
-                    <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
-                      <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
-                    </p>
-                  </div>
-                {% endif %}
-              </div>
+              {% if activity.register_info %}
+                <div class="contact-info">
+                  {{ activity.register_info|safe }}
+                </div>
+              {% endif %}
             </div>
           {% endif %}
 
@@ -163,7 +158,7 @@
 
           <div class="tab-content{% if contact_form.prefix == active_form %} active{% endif %}">
             <form action="{{ request.path }}#contact" method="POST"
-                  class="contact-form{% if not activity.email%} contact-form-center{% endif %}">
+                  class="contact-form{% if not activity.contact_info %} contact-form-center{% endif %}">
               {% csrf_token %}
               <div {% if contact_form.full_name.errors %}class="error"{% endif %}>
                 <label for="name">
@@ -193,16 +188,11 @@
               </div>
             </form>
 
-            <div class="contact-info">
-              {% if activity.email %}
-                <div>
-                  <h2>{% trans "Communicate Now" %}</h2>
-                  <p>{% trans "If you don't want to use the contact form, you can contact us with email." %}
-                    <a href="mailto:{{ activity.email }};">{{ activity.email }}</a>
-                  </p>
-                </div>
-              {% endif %}
-            </div>
+            {% if activity.contact_info %}
+              <div class="contact-info">
+                {{ activity.contact_info|safe }}
+              </div>
+            {% endif %}
           </div>
         {% else %}
           <div class="coming-soon">{% trans "Coming Soon" %}</div>
