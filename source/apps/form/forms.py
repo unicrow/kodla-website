@@ -65,6 +65,7 @@ class RegisterForm(forms.ModelForm):
                     first_name=self.cleaned_data.get('first_name'),
                     last_name=self.cleaned_data.get('last_name'),
                     email=self.cleaned_data.get('email'),
+                    phone_number=self.cleaned_data.get('phone_number'),
                     activity=activity
                 )
                 register.save()
