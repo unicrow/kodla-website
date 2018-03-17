@@ -46,7 +46,8 @@
           {{ activity.description|safe }}
 
           {% if activity.has_register_url and activity.register_url %}
-            <a href="{{ activity.register_url }}" class="btn" target="_blank">
+            <a href="{{ activity.register_url }}" class="btn"
+               {% if request.get_host not in activity.register_url %} target="_blank"{% endif %}>
               <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
             </a>
           {% endif %}
