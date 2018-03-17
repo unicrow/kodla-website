@@ -49,7 +49,7 @@ $(function() {
     window.w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) // Get Viewport Width
 
     if ( w < 769) {
-      $('body').addClass('no-scroll');
+      $('body').toggleClass('no-scroll');
       $('.main-nav').toggle();
     }
   }
