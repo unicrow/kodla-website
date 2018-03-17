@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 21:21+0300\n"
+"POT-Creation-Date: 2018-03-17 22:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,12 @@ msgstr "Doküman"
 msgid "Documents"
 msgstr "Dokümanlar"
 
-#: source/apps/activity/admin.py:29 source/apps/core/models.py:37
+#: source/apps/activity/admin.py:29 source/apps/core/models.py:52
 #: source/apps/speaker/admin.py:18 source/apps/speaker/admin.py:70
 msgid "Social Account"
 msgstr "Sosyal Hesap"
 
-#: source/apps/activity/admin.py:30 source/apps/core/models.py:38
+#: source/apps/activity/admin.py:30 source/apps/core/models.py:53
 #: source/apps/speaker/admin.py:19 source/apps/speaker/models.py:109
 msgid "Social Accounts"
 msgstr "Sosyal Hesaplar"
@@ -93,7 +93,7 @@ msgstr "Yıl"
 
 #: source/apps/activity/models.py:17 source/apps/activity/models.py:103
 #: source/apps/activity/models.py:159 source/apps/activity/models.py:185
-#: source/apps/activity/models.py:222 source/apps/core/models.py:29
+#: source/apps/activity/models.py:222 source/apps/core/models.py:44
 #: source/apps/form/models.py:13 source/apps/form/models.py:31
 #: source/apps/gallery/models.py:17 source/apps/gallery/models.py:59
 #: source/apps/hackathon/models.py:50 source/apps/hackathon/models.py:107
@@ -253,25 +253,33 @@ msgstr "Etkinlik Haritaları"
 msgid "Core"
 msgstr "Genel"
 
-#: source/apps/core/models.py:11
+#: source/apps/core/models.py:12
 msgid "Create Date"
 msgstr "Oluşturma Tarihi"
 
-#: source/apps/core/models.py:14
+#: source/apps/core/models.py:15
 msgid "Update Date"
 msgstr "Güncelleme Tarihi"
 
-#: source/apps/core/models.py:22 source/apps/gallery/models.py:14
+#: source/apps/core/models.py:25
+msgid "Phone number must be entered 9 Up to 20 digits"
+msgstr "Telefon numarası 9 ile 20 hane arası girilmelidir."
+
+#: source/apps/core/models.py:28 source/apps/form/forms.py:46
+msgid "Phone Number"
+msgstr "Telefon Numarası"
+
+#: source/apps/core/models.py:37 source/apps/gallery/models.py:14
 #: source/apps/hackathon/models.py:93 source/apps/speaker/models.py:134
 #: source/apps/sponsor/models.py:14 source/apps/sponsor/models.py:39
 msgid "Name"
 msgstr "İsim"
 
-#: source/apps/core/models.py:24
+#: source/apps/core/models.py:39
 msgid "Style Id"
 msgstr "Style Id"
 
-#: source/apps/core/models.py:27
+#: source/apps/core/models.py:42
 msgid "Style Class"
 msgstr "Style Class"
 
@@ -594,7 +602,7 @@ msgstr "HACKATHON HAKKINDA"
 
 #: source/templates/hackathon.html:54 source/templates/hackathon.html:80
 #: source/templates/hackathon.html:92 source/templates/index.html:70
-#: source/templates/modules/contact.html:198
+#: source/templates/modules/contact.html:205
 #: source/templates/modules/sponsors.html:27
 #: source/templates/modules/transportation.html:84
 msgid "Coming Soon"
@@ -653,15 +661,15 @@ msgstr "Konuşmacı Başvuru Formu"
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/modules/contact.html:54
+#: source/templates/modules/contact.html:61
 msgid "Send"
 msgstr "Gönder"
 
-#: source/templates/modules/contact.html:152
+#: source/templates/modules/contact.html:159
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/modules/contact.html:186
+#: source/templates/modules/contact.html:193
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 

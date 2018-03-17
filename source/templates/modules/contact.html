@@ -48,6 +48,13 @@
                   {% add_attrs register_form.email %}
                   <span class="input-edges"></span>
                 </div>
+                <div {% if register_form.phone_number.errors %}class="error"{% endif %}>
+                  <label for="phone_number">
+                    {{ register_form.phone_number.label }}: {% if register_form.phone_number.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs register_form.phone_number %}
+                  <span class="input-edges"></span>
+                </div>
                 {% add_attrs register_form.recaptcha %}
                 <div>
                   <button name="{{ register_form.prefix }}" type="submit">

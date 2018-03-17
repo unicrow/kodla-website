@@ -43,11 +43,12 @@ class RegisterForm(forms.ModelForm):
     first_name = forms.CharField(label=_('Your Name'), max_length=100)
     last_name = forms.CharField(label=_('Your Surname'), max_length=100)
     email = forms.EmailField(label=_('Email Address'))
+    phone_number = forms.CharField(label=_('Phone Number'), required=True)
     recaptcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=True))
 
     class Meta:
         model = Register
-        fields = ('first_name', 'last_name', 'email', 'recaptcha')
+        fields = ('first_name', 'last_name', 'email', 'phone_number', 'recaptcha')
 
     def save(self, activity=None, commit=True):
         register = super(RegisterForm, self).save(commit=False)
@@ -56,8 +57,6 @@ class RegisterForm(forms.ModelForm):
         if commit and activity:
             try:
                 register = Register.objects.get(
-                    first_name=self.cleaned_data.get('first_name'),
-                    last_name=self.cleaned_data.get('last_name'),
                     email=self.cleaned_data.get('email'),
                     activity=activity
                 )
@@ -70,5 +69,7 @@ class RegisterForm(forms.ModelForm):
                 )
                 register.save()
                 created = True
+            except Register.MultipleObjectsReturned:
+                pass
 
         return register, created

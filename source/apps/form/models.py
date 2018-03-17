@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
-from core.models import DateModel
+from core.models import DateModel, PhoneModel
 
 
 class Contact(DateModel):
@@ -24,7 +24,7 @@ class Contact(DateModel):
         return '{full_name}'.format(full_name=self.full_name)
 
 
-class Register(DateModel):
+class Register(DateModel, PhoneModel):
     first_name = models.CharField(verbose_name=_('First Name'), max_length=100)
     last_name = models.CharField(verbose_name=_('Last Name'), max_length=100)
     email = models.EmailField(verbose_name=_('Email'))

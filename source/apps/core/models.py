@@ -3,6 +3,7 @@ from adminsortable.models import SortableMixin
 
 # Django
 from django.db import models
+from django.core.validators import RegexValidator
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -12,6 +13,20 @@ class DateModel(models.Model):
     )
     update_date = models.DateTimeField(
         verbose_name=_('Update Date'), auto_now=True, editable=False
+    )
+
+    class Meta:
+        abstract = True
+
+
+class PhoneModel(models.Model):
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,15}$',
+        message=_('Phone number must be entered 9 Up to 20 digits')
+    )
+    phone_number = models.CharField(
+        verbose_name=_('Phone Number'),
+        validators=[phone_regex], max_length=20, blank=True
     )
 
     class Meta:

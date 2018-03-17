@@ -7,7 +7,12 @@ from form.models import Contact, Register
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
+    fields = (
+        'activity', 'full_name', 'email',
+        'message', 'is_active', 'create_date', 'update_date'
+    )
     readonly_fields = ('create_date', 'update_date')
+
     list_display = (
         'activity', 'full_name', 'email', 'create_date', 'update_date', 'is_active'
     )
@@ -18,9 +23,14 @@ class ContactAdmin(admin.ModelAdmin):
 
 @admin.register(Register)
 class RegisterAdmin(admin.ModelAdmin):
+    fields = (
+        'activity', 'first_name', 'last_name', 'email', 'phone_number',
+        'is_active', 'is_completed', 'create_date', 'update_date'
+    )
     readonly_fields = ('create_date', 'update_date')
+
     list_display = (
-        'activity', 'first_name', 'last_name', 'email',
+        'activity', 'first_name', 'last_name', 'email', 'phone_number',
         'create_date', 'update_date', 'is_active', 'is_completed'
     )
     list_filter = (
