@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 15:54+0300\n"
+"POT-Creation-Date: 2018-03-17 21:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Detail"
 msgstr "Detay"
 
 #: source/apps/activity/admin.py:78 source/apps/activity/models.py:62
-#: source/templates/modules/transportation.html:74
+#: source/templates/modules/transportation.html:66
 msgid "Transportation"
 msgstr "Ulaşım"
 
@@ -163,7 +163,7 @@ msgid "Address"
 msgstr "Adres"
 
 #: source/apps/activity/models.py:65
-#: source/templates/modules/transportation.html:66
+#: source/templates/modules/transportation.html:74
 msgid "Accommodation"
 msgstr "Konaklama"
 
