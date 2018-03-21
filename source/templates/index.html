@@ -18,9 +18,12 @@
         <li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
         <li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
         <li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
-        <li><a href="#transportation" data-scroll-nav="3">{% trans "TRANSPORTATION" %}</a></li>
-        <li><a href="#sponsors" data-scroll-nav="4">{% trans "SPONSORS" %}</a></li>
-        <li><a href="#contact" data-scroll-nav="5">{% trans "CONTACT" %}</a></li>
+        {% if activity_galleries %}
+          <li><a href="#photos" data-scroll-nav="3">{% trans "PHOTOS" %}</a></li>
+        {% endif %}
+        <li><a href="#transportation" data-scroll-nav="4">{% trans "TRANSPORTATION" %}</a></li>
+        <li><a href="#sponsors" data-scroll-nav="5">{% trans "SPONSORS" %}</a></li>
+        <li><a href="#contact" data-scroll-nav="6">{% trans "CONTACT" %}</a></li>
         {% if activities %}
           <li class="archive-list">
             <a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
@@ -81,14 +84,14 @@
   {% include "modules/speakers.html" with data_scroll_index="2" %}
 
   {% for gallery, contents in activity_galleries.items %}
-    {% include "modules/gallery.html" %}
+    {% include "modules/gallery.html" with data_scroll_index="3" %}
   {% endfor %}
 
-  {% include "modules/transportation.html" with data_scroll_index="3" %}
+  {% include "modules/transportation.html" with data_scroll_index="4" %}
 
-  {% include "modules/sponsors.html" with data_scroll_index="4" %}
+  {% include "modules/sponsors.html" with data_scroll_index="5" %}
 
-  {% include "modules/contact.html" with data_scroll_index="5" %}
+  {% include "modules/contact.html" with data_scroll_index="6" %}
 
   {% if activity.has_comment %}
     {% include "modules/comment.html" %}

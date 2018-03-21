@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load thumbnail %}
 
-<section id="photos">
+<section id="photos" {% if data_scroll_index %}data-scroll-index={{ data_scroll_index }}{% endif %}>
   <div class="wrap1">
     <h1>{{ gallery.name|upper }}</h1>
     <div class="photos">
@@ -9,12 +9,12 @@
         <a class="all-photo-link" href="{{ gallery.url }}" target="_blank">{% trans 'SEE ALL PHOTOS' %}</a>
       {% endif %}
       <div class="container">
-        {% thumbnail contents.0.image 600x600 crop upscale as content_0 %}
-        {% thumbnail contents.1.image 600x600 crop upscale as content_1 %}
-        {% thumbnail contents.2.image 600x600 crop upscale as content_2 %}
-        {% thumbnail contents.3.image 600x600 crop upscale as content_3 %}
-        {% thumbnail contents.4.image 600x600 crop upscale as content_4 %}
-        {% thumbnail contents.5.image 600x600 crop upscale as content_5 %}
+        {% thumbnail contents.0.image 1200x1200 upscale as content_0 %}
+        {% thumbnail contents.1.image 1200x1200 upscale as content_1 %}
+        {% thumbnail contents.2.image 1200x1200 upscale as content_2 %}
+        {% thumbnail contents.3.image 1200x1200 upscale as content_3 %}
+        {% thumbnail contents.4.image 1200x1200 upscale as content_4 %}
+        {% thumbnail contents.5.image 1200x1200 upscale as content_5 %}
 
         <div class="col1" style="background-image: url('{{ content_0.url }}');"></div>
         <div class="col2">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 23:30+0300\n"
+"POT-Creation-Date: 2018-03-21 14:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -592,7 +592,7 @@ msgstr "Konuşmacı Başvuruları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/hackathon.html:41 source/templates/index.html:51
+#: source/templates/hackathon.html:41 source/templates/index.html:54
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
@@ -601,7 +601,7 @@ msgid "ABOUT HACKATHON"
 msgstr "HACKATHON HAKKINDA"
 
 #: source/templates/hackathon.html:54 source/templates/hackathon.html:80
-#: source/templates/hackathon.html:92 source/templates/index.html:71
+#: source/templates/hackathon.html:92 source/templates/index.html:74
 #: source/templates/modules/contact.html:205
 #: source/templates/modules/sponsors.html:27
 #: source/templates/modules/transportation.html:84
@@ -632,20 +632,24 @@ msgstr "PROGRAM"
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:21
+#: source/templates/index.html:22
+msgid "PHOTOS"
+msgstr "FOTOĞRAFLAR"
+
+#: source/templates/index.html:24
 #: source/templates/modules/transportation.html:5
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:22 source/templates/modules/sponsors.html:6
+#: source/templates/index.html:25 source/templates/modules/sponsors.html:6
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:23 source/templates/modules/contact.html:8
+#: source/templates/index.html:26 source/templates/modules/contact.html:8
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/index.html:67 source/templates/modules/sponsors.html:33
+#: source/templates/index.html:70 source/templates/modules/sponsors.html:33
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
@@ -692,7 +696,7 @@ msgstr ""
 "      </p>\n"
 "    "
 
-#: source/templates/modules/gallery.html:8
+#: source/templates/modules/gallery.html:9
 msgid "SEE ALL PHOTOS"
 msgstr "TÜM FOTOĞRAFLARA BAK"
 
