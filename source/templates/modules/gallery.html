@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load thumbnail %}
 
 <section id="photos">
   <div class="wrap1">
@@ -8,13 +9,20 @@
         <a class="all-photo-link" href="{{ gallery.url }}" target="_blank">{% trans 'SEE ALL PHOTOS' %}</a>
       {% endif %}
       <div class="container">
-        <div class="col1" style="background-image: url('{{ contents.0.image.url }}');"></div>
+        {% thumbnail contents.0.image 600x600 crop upscale as content_0 %}
+        {% thumbnail contents.1.image 600x600 crop upscale as content_1 %}
+        {% thumbnail contents.2.image 600x600 crop upscale as content_2 %}
+        {% thumbnail contents.3.image 600x600 crop upscale as content_3 %}
+        {% thumbnail contents.4.image 600x600 crop upscale as content_4 %}
+        {% thumbnail contents.5.image 600x600 crop upscale as content_5 %}
+
+        <div class="col1" style="background-image: url('{{ content_0.url }}');"></div>
         <div class="col2">
-          <div class="col50" style="background-image: url('{{ contents.1.image.url }}');"></div>
-          <div class="col50" style="background-image: url('{{ contents.2.image.url }}');"></div>
-          <div class="col25" style="background-image: url('{{ contents.3.image.url }}');"></div>
-          <div class="col50" style="background-image: url('{{ contents.4.image.url }}');"></div>
-          <div class="col25" style="background-image: url('{{ contents.5.image.url }}');"></div>
+          <div class="col50" style="background-image: url('{{ content_1.url }}');"></div>
+          <div class="col50" style="background-image: url('{{ content_2.url }}');"></div>
+          <div class="col25" style="background-image: url('{{ content_3.url }}');"></div>
+          <div class="col50" style="background-image: url('{{ content_4.url }}');"></div>
+          <div class="col25" style="background-image: url('{{ content_5.url }}');"></div>
         </div>
       </div>
     </div>
