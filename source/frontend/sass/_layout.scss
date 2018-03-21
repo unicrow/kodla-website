@@ -408,7 +408,7 @@ header {
 		max-width: 100%;
 		max-height: 100%;
 		border-radius: 2px;
-		//@include filter(grayscale(100%));
+		@include filter(grayscale(100%));
 		@include transition(filter 150ms ease-in-out);
 	}
 	p {
