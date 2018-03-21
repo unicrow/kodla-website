@@ -18,7 +18,7 @@ class ContactAdmin(admin.ModelAdmin):
     )
     list_filter = ('activity', 'is_active', 'create_date', 'update_date')
     list_editable = ('is_active',)
-    search_fields = ('activity__name', 'full_name', 'email')
+    search_fields = ('full_name', 'email')
 
 
 @admin.register(Register)
@@ -37,4 +37,4 @@ class RegisterAdmin(admin.ModelAdmin):
         'activity', 'is_active', 'is_completed', 'create_date', 'update_date'
     )
     list_editable = ('is_active', 'is_completed')
-    search_fields = ('activity__name', 'first_name', 'last_name', 'email')
+    search_fields = ('first_name', 'last_name', 'email')
