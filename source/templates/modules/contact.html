@@ -55,6 +55,13 @@
                   {% add_attrs register_form.phone_number %}
                   <span class="input-edges"></span>
                 </div>
+                <div {% if register_form.tshirt_size.errors %}class="error"{% endif %}>
+                  <label for="tshirt_size">
+                    {{ register_form.tshirt_size.label }}: {% if register_form.tshirt_size.field.required %}*{% endif %}
+                  </label>
+                  {% add_attrs register_form.tshirt_size %}
+                  <span class="input-edges"></span>
+                </div>
                 {% add_attrs register_form.recaptcha %}
                 <div>
                   <button name="{{ register_form.prefix }}" type="submit">

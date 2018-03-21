@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-21 14:58+0300\n"
+"POT-Creation-Date: 2018-03-21 21:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/apps.py:8 source/apps/activity/models.py:74
 #: source/apps/activity/models.py:105 source/apps/activity/models.py:161
 #: source/apps/activity/models.py:197 source/apps/activity/models.py:224
-#: source/apps/form/models.py:15 source/apps/form/models.py:34
+#: source/apps/form/models.py:16 source/apps/form/models.py:38
 #: source/apps/gallery/models.py:19 source/apps/hackathon/models.py:52
 #: source/apps/program/models.py:13 source/apps/speaker/models.py:160
 msgid "Activity"
@@ -94,7 +94,7 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:17 source/apps/activity/models.py:103
 #: source/apps/activity/models.py:159 source/apps/activity/models.py:185
 #: source/apps/activity/models.py:222 source/apps/core/models.py:44
-#: source/apps/form/models.py:13 source/apps/form/models.py:31
+#: source/apps/form/models.py:14 source/apps/form/models.py:35
 #: source/apps/gallery/models.py:17 source/apps/gallery/models.py:59
 #: source/apps/hackathon/models.py:50 source/apps/hackathon/models.py:107
 #: source/apps/program/models.py:11 source/apps/program/models.py:52
@@ -104,8 +104,8 @@ msgstr "Yıl"
 msgid "Active"
 msgstr "Aktif"
 
-#: source/apps/activity/models.py:18 source/apps/form/models.py:11
-#: source/apps/form/models.py:30 source/apps/speaker/models.py:29
+#: source/apps/activity/models.py:18 source/apps/form/models.py:12
+#: source/apps/form/models.py:31 source/apps/speaker/models.py:29
 msgid "Email"
 msgstr "E-posta"
 
@@ -113,8 +113,8 @@ msgstr "E-posta"
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
-#: source/apps/activity/models.py:24 source/apps/form/models.py:38
-#: source/apps/form/models.py:39
+#: source/apps/activity/models.py:24 source/apps/form/models.py:42
+#: source/apps/form/models.py:43
 msgid "Register"
 msgstr "Kayıt"
 
@@ -340,27 +340,31 @@ msgstr "Adınız"
 msgid "Your Surname"
 msgstr "Soyadınız"
 
-#: source/apps/form/models.py:10
+#: source/apps/form/models.py:11
 msgid "Full Name"
 msgstr "Ad Soyad"
 
-#: source/apps/form/models.py:12
+#: source/apps/form/models.py:13
 msgid "Message"
 msgstr "Mesajınız"
 
-#: source/apps/form/models.py:19 source/apps/form/models.py:20
+#: source/apps/form/models.py:20 source/apps/form/models.py:21
 msgid "Contact"
 msgstr "İletişim"
 
-#: source/apps/form/models.py:28 source/apps/speaker/models.py:27
+#: source/apps/form/models.py:29 source/apps/speaker/models.py:27
 msgid "First Name"
 msgstr "Ad"
 
-#: source/apps/form/models.py:29 source/apps/speaker/models.py:28
+#: source/apps/form/models.py:30 source/apps/speaker/models.py:28
 msgid "Last Name"
 msgstr "Soyad"
 
-#: source/apps/form/models.py:32
+#: source/apps/form/models.py:33
+msgid "T-shirt Size"
+msgstr "T-shirt Bedeni"
+
+#: source/apps/form/models.py:36
 msgid "Completed"
 msgstr "Tamamlandı"
 
@@ -602,7 +606,7 @@ msgstr "HACKATHON HAKKINDA"
 
 #: source/templates/hackathon.html:54 source/templates/hackathon.html:80
 #: source/templates/hackathon.html:92 source/templates/index.html:74
-#: source/templates/modules/contact.html:205
+#: source/templates/modules/contact.html:212
 #: source/templates/modules/sponsors.html:27
 #: source/templates/modules/transportation.html:84
 msgid "Coming Soon"
@@ -665,15 +669,15 @@ msgstr "Konuşmacı Başvuru Formu"
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/modules/contact.html:61
+#: source/templates/modules/contact.html:68
 msgid "Send"
 msgstr "Gönder"
 
-#: source/templates/modules/contact.html:159
+#: source/templates/modules/contact.html:166
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/modules/contact.html:193
+#: source/templates/modules/contact.html:200
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 

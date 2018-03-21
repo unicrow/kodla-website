@@ -48,7 +48,14 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = Register
-        fields = ('first_name', 'last_name', 'email', 'phone_number', 'recaptcha')
+        fields = (
+            'first_name', 'last_name', 'email',
+            'phone_number', 'tshirt_size', 'recaptcha'
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm, self).__init__(*args, **kwargs)
+        self.fields['tshirt_size'].required = True
 
     def save(self, activity=None, commit=True):
         register = super(RegisterForm, self).save(commit=False)
@@ -66,6 +73,7 @@ class RegisterForm(forms.ModelForm):
                     last_name=self.cleaned_data.get('last_name'),
                     email=self.cleaned_data.get('email'),
                     phone_number=self.cleaned_data.get('phone_number'),
+                    tshirt_size=self.cleaned_data.get('tshirt_size'),
                     activity=activity
                 )
                 register.save()

@@ -34,3 +34,14 @@ DEFAULT_PROGRAM_CONTENTS = [
         'subject': 'Letraset sheets containing'
     }
 ]
+
+# T-shirt
+
+TSHIRT_S, TSHIRT_M, TSHIRT_L, TSHIRT_XL, TSHIRT_XXL = (1, 2, 3, 4, 5)
+TSHIRT_SIZES = (
+    (TSHIRT_S, 'S'),
+    (TSHIRT_M, 'M'),
+    (TSHIRT_L, 'L'),
+    (TSHIRT_XL, 'XL'),
+    (TSHIRT_XXL, 'XXL'),
+)

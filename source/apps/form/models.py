@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
+from core.variables import TSHIRT_SIZES
 from core.models import DateModel, PhoneModel
 
 
@@ -28,7 +29,10 @@ class Register(DateModel, PhoneModel):
     first_name = models.CharField(verbose_name=_('First Name'), max_length=100)
     last_name = models.CharField(verbose_name=_('Last Name'), max_length=100)
     email = models.EmailField(verbose_name=_('Email'))
-    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    tshirt_size = models.PositiveSmallIntegerField(
+        verbose_name=_('T-shirt Size'), choices=TSHIRT_SIZES, null=True, blank=True
+    )
+    is_active = models.BooleanField(verbose_name=_('Active'), default=False)
     is_completed = models.BooleanField(verbose_name=_('Completed'), default=False)
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to='activity.Activity'
