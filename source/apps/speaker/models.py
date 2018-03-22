@@ -34,6 +34,9 @@ class SpeakerModel(DateModel):
     company = models.CharField(
         verbose_name=_('Company'), max_length=255, null=True, blank=True
     )
+    company_url = models.URLField(
+        verbose_name=_('Company URL'), null=True, blank=True
+    )
     position = models.CharField(
         verbose_name=_('Position'), null=True, blank=True, max_length=255
     )

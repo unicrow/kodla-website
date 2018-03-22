@@ -30,7 +30,7 @@ class SpeakerAdmin(SortableAdmin):
             ),
         }),
         (_(u'Company'), {
-            'fields' : (('company', 'position')),
+            'fields' : ((('company', 'company_url'), 'position')),
         }),
         (_(u'Detail'), {
             'fields' : ('is_active', ('create_date', 'update_date')),
@@ -65,7 +65,7 @@ class SpeakerApplicationAdmin(admin.ModelAdmin):
             ),
         }),
         (_(u'Company'), {
-            'fields' : (('company', 'position')),
+            'fields' : ((('company', 'company_url'), 'position')),
         }),
         (_(u'Social Account'), {
             'fields' : ((

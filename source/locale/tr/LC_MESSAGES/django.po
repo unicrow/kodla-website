@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 14:45+0300\n"
+"POT-Creation-Date: 2018-03-22 16:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgid "Social Account"
 msgstr "Sosyal Hesap"
 
 #: source/apps/activity/admin.py:30 source/apps/core/models.py:53
-#: source/apps/speaker/admin.py:19 source/apps/speaker/models.py:109
+#: source/apps/speaker/admin.py:19 source/apps/speaker/models.py:112
 msgid "Social Accounts"
 msgstr "Sosyal Hesaplar"
 
@@ -73,8 +73,8 @@ msgid "Transportation"
 msgstr "Ulaşım"
 
 #: source/apps/activity/admin.py:81 source/apps/program/models.py:57
-#: source/apps/speaker/apps.py:8 source/apps/speaker/models.py:92
-#: source/apps/speaker/models.py:114
+#: source/apps/speaker/apps.py:8 source/apps/speaker/models.py:95
+#: source/apps/speaker/models.py:117
 msgid "Speaker"
 msgstr "Konuşmacı"
 
@@ -83,7 +83,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/models.py:200 source/apps/activity/models.py:227
 #: source/apps/form/models.py:16 source/apps/form/models.py:38
 #: source/apps/gallery/models.py:19 source/apps/hackathon/models.py:52
-#: source/apps/program/models.py:13 source/apps/speaker/models.py:160
+#: source/apps/program/models.py:13 source/apps/speaker/models.py:163
 msgid "Activity"
 msgstr "Etkinlik"
 
@@ -98,8 +98,8 @@ msgstr "Yıl"
 #: source/apps/gallery/models.py:17 source/apps/gallery/models.py:59
 #: source/apps/hackathon/models.py:50 source/apps/hackathon/models.py:107
 #: source/apps/program/models.py:11 source/apps/program/models.py:52
-#: source/apps/speaker/models.py:40 source/apps/speaker/models.py:76
-#: source/apps/speaker/models.py:135 source/apps/sponsor/models.py:18
+#: source/apps/speaker/models.py:43 source/apps/speaker/models.py:79
+#: source/apps/speaker/models.py:138 source/apps/sponsor/models.py:18
 #: source/apps/sponsor/models.py:41
 msgid "Active"
 msgstr "Aktif"
@@ -113,7 +113,7 @@ msgstr "E-posta"
 msgid "Comment"
 msgstr "Yorum"
 
-#: source/apps/activity/models.py:23 source/apps/speaker/models.py:164
+#: source/apps/activity/models.py:23 source/apps/speaker/models.py:167
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
@@ -171,7 +171,7 @@ msgstr "Adres"
 msgid "Accommodation"
 msgstr "Konaklama"
 
-#: source/apps/activity/models.py:73 source/apps/speaker/models.py:93
+#: source/apps/activity/models.py:73 source/apps/speaker/models.py:96
 msgid "Speakers"
 msgstr "Konuşmacılar"
 
@@ -204,12 +204,12 @@ msgid "Show"
 msgstr "Göster"
 
 #: source/apps/activity/models.py:161 source/apps/gallery/models.py:16
-#: source/apps/gallery/models.py:45 source/apps/speaker/models.py:75
+#: source/apps/gallery/models.py:45 source/apps/speaker/models.py:78
 #: source/apps/sponsor/models.py:40
 msgid "URL"
 msgstr "URL"
 
-#: source/apps/activity/models.py:167 source/apps/speaker/models.py:78
+#: source/apps/activity/models.py:167 source/apps/speaker/models.py:81
 msgid "Account"
 msgstr "Hesap"
 
@@ -274,7 +274,7 @@ msgid "Phone Number"
 msgstr "Telefon Numarası"
 
 #: source/apps/core/models.py:37 source/apps/gallery/models.py:14
-#: source/apps/hackathon/models.py:93 source/apps/speaker/models.py:134
+#: source/apps/hackathon/models.py:93 source/apps/speaker/models.py:137
 #: source/apps/sponsor/models.py:14 source/apps/sponsor/models.py:39
 msgid "Name"
 msgstr "İsim"
@@ -398,13 +398,13 @@ msgid "Image"
 msgstr "Resim"
 
 #: source/apps/gallery/models.py:93 source/apps/hackathon/models.py:80
-#: source/apps/hackathon/models.py:141 source/apps/speaker/models.py:69
+#: source/apps/hackathon/models.py:141 source/apps/speaker/models.py:72
 #: source/apps/sponsor/models.py:71
 msgid "Not Found!"
 msgstr "Bulunamadı!"
 
 #: source/apps/gallery/models.py:94 source/apps/hackathon/models.py:81
-#: source/apps/hackathon/models.py:142 source/apps/speaker/models.py:70
+#: source/apps/hackathon/models.py:142 source/apps/speaker/models.py:73
 #: source/apps/sponsor/models.py:72
 msgid "Preview"
 msgstr "Önizleme"
@@ -504,7 +504,7 @@ msgstr "Bitiş Zamanı"
 msgid "Company"
 msgstr "Firma"
 
-#: source/apps/speaker/forms.py:17 source/apps/speaker/models.py:156
+#: source/apps/speaker/forms.py:17 source/apps/speaker/models.py:159
 msgid "Application Type"
 msgstr "Başvuru Türü"
 
@@ -549,50 +549,54 @@ msgid "Your Note"
 msgstr "Notunuz"
 
 #: source/apps/speaker/models.py:38
+msgid "Company URL"
+msgstr "Firma Linki"
+
+#: source/apps/speaker/models.py:41
 msgid "Position"
 msgstr "Pozisyon"
 
-#: source/apps/speaker/models.py:122
+#: source/apps/speaker/models.py:125
 msgid "Speaker Social Account"
 msgstr "Konuşmacı Sosyal Hesabı"
 
-#: source/apps/speaker/models.py:123
+#: source/apps/speaker/models.py:126
 msgid "Speaker Social Accounts"
 msgstr "Konuşmacı Sosyal Hesapları"
 
-#: source/apps/speaker/models.py:138
+#: source/apps/speaker/models.py:141
 msgid "Speaker Application Type"
 msgstr "Konuşmacı Başvuru Türü"
 
-#: source/apps/speaker/models.py:139
+#: source/apps/speaker/models.py:142
 msgid "Speaker Application Types"
 msgstr "Konuşmacı Başvuru Türleri"
 
-#: source/apps/speaker/models.py:147
+#: source/apps/speaker/models.py:150
 msgid "Website"
 msgstr "Web Sitesi"
 
-#: source/apps/speaker/models.py:148
+#: source/apps/speaker/models.py:151
 msgid "Twitter"
 msgstr "Twitter"
 
-#: source/apps/speaker/models.py:149
+#: source/apps/speaker/models.py:152
 msgid "Github"
 msgstr "Github"
 
-#: source/apps/speaker/models.py:150
+#: source/apps/speaker/models.py:153
 msgid "Linkedin"
 msgstr "Linkedin"
 
-#: source/apps/speaker/models.py:152
+#: source/apps/speaker/models.py:155
 msgid "Other Social Account"
 msgstr "Diğer Sosyal Medya Hesabı"
 
-#: source/apps/speaker/models.py:154
+#: source/apps/speaker/models.py:157
 msgid "Note"
 msgstr "Not"
 
-#: source/apps/speaker/models.py:165
+#: source/apps/speaker/models.py:168
 msgid "Speaker Applications"
 msgstr "Konuşmacı Başvuruları"
 
@@ -721,7 +725,7 @@ msgstr "Sunumu İncele"
 msgid "Program Not Yet Announced"
 msgstr "Program Henüz Açıklanmadı"
 
-#: source/templates/modules/speakers.html:57
+#: source/templates/modules/speakers.html:63
 msgid "Speakers Not Yet Announced"
 msgstr "Konuşmacılar Henüz Açıklanmadı"
 

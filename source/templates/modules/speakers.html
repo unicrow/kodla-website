@@ -18,7 +18,13 @@
             {% endif %}
             <p>{{ speaker.get_full_name }}</p>
             {% if activity.has_speaker_company %}
-              <span>{{ speaker.company|default:"" }}</span>
+              {% if speaker.company_url %}
+                <a href="{{ speaker.company_url }}" target="_blank">
+                  <span>{{ speaker.company|default:"" }}</span>
+                </a>
+              {% else %}
+                <span>{{ speaker.company|default:"" }}</span>
+              {% endif %}
             {% endif %}
 
             {% if speaker_social_accounts %}
