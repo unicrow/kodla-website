@@ -18,11 +18,20 @@ class Activity(DateModel):
     email = models.EmailField(verbose_name=_('Email'), null=True, blank=True)
 
     # Features
+    has_comment = models.BooleanField(verbose_name=_('Comment'), default=False)
     has_speaker_application = models.BooleanField(
         verbose_name=_('Speaker Application'), default=False
     )
     has_register = models.BooleanField(verbose_name=_('Register'), default=False)
-    has_comment = models.BooleanField(verbose_name=_('Comment'), default=False)
+    has_register_url = models.BooleanField(
+        verbose_name=_('Register URL'), default=False
+    )
+    has_activity_document = models.BooleanField(
+        verbose_name=_('Activity Document'), default=False
+    )
+    has_speaker_company = models.BooleanField(
+        verbose_name=_('Speaker Company'), default=False
+    )
 
     # Extra
     meta_tags = models.TextField(
@@ -46,12 +55,6 @@ class Activity(DateModel):
     )
     register_url = models.URLField(
         verbose_name=_('Register URL'), null=True, blank=True
-    )
-    has_register_url = models.BooleanField(
-        verbose_name=_('Register URL'), default=True
-    )
-    has_activity_document = models.BooleanField(
-        verbose_name=_('Activity Document'), default=True
     )
 
     # Transportation

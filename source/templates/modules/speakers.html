@@ -17,6 +17,9 @@
               <figure><img src="{% static 'img/speakers/anonymous-speaker.png' %}"></figure>
             {% endif %}
             <p>{{ speaker.get_full_name }}</p>
+            {% if activity.has_speaker_company %}
+              <span>{{ speaker.company|default:"" }}</span>
+            {% endif %}
 
             {% if speaker_social_accounts %}
               <div class="speaker-info">

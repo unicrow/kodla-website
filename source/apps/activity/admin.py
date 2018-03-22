@@ -65,7 +65,7 @@ class ActivityAdmin(NonSortableParentAdmin):
         (_(u'Feature'), {
             'fields' : (
                 'has_comment', 'has_speaker_application', 'has_register',
-                'has_register_url', 'has_activity_document'
+                'has_register_url', 'has_activity_document', 'has_speaker_company'
             ),
         }),
         (_(u'Detail'), {
@@ -90,7 +90,7 @@ class ActivityAdmin(NonSortableParentAdmin):
     list_display = (
         'year', 'show_register_url', 'short_description',
         'has_comment', 'has_speaker_application', 'has_register',
-        'has_register_url', 'has_activity_document', 'is_active'
+        'has_register_url', 'has_activity_document', 'has_speaker_company', 'is_active'
     )
     # list_filter = (
     #     'has_comment', 'has_speaker_application', 'has_register_url',
@@ -98,7 +98,7 @@ class ActivityAdmin(NonSortableParentAdmin):
     # )
     list_editable = (
         'has_comment', 'has_speaker_application', 'has_register',
-        'has_register_url', 'has_activity_document', 'is_active'
+        'has_register_url', 'has_activity_document', 'has_speaker_company', 'is_active'
     )
     search_fields = ('year',)
     inlines = (
