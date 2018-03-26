@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-26 12:37+0300\n"
+"POT-Creation-Date: 2018-03-26 14:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,7 +95,7 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:162 source/apps/activity/models.py:188
 #: source/apps/activity/models.py:225 source/apps/core/models.py:44
 #: source/apps/form/models.py:14 source/apps/form/models.py:35
-#: source/apps/form/resources.py:24 source/apps/gallery/models.py:17
+#: source/apps/form/resources.py:22 source/apps/gallery/models.py:17
 #: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:50
 #: source/apps/hackathon/models.py:107 source/apps/program/models.py:11
 #: source/apps/program/models.py:52 source/apps/speaker/models.py:43
@@ -105,7 +105,7 @@ msgid "Active"
 msgstr "Aktif"
 
 #: source/apps/activity/models.py:18 source/apps/form/models.py:12
-#: source/apps/form/models.py:31 source/apps/form/resources.py:17
+#: source/apps/form/models.py:31 source/apps/form/resources.py:15
 #: source/apps/speaker/models.py:29
 msgid "Email"
 msgstr "E-posta"
@@ -271,7 +271,7 @@ msgid "Phone number must be entered 9 Up to 20 digits"
 msgstr "Telefon numarası 9 ile 20 hane arası girilmelidir."
 
 #: source/apps/core/models.py:28 source/apps/form/forms.py:46
-#: source/apps/form/resources.py:19
+#: source/apps/form/resources.py:17
 msgid "Phone Number"
 msgstr "Telefon Numarası"
 
@@ -358,21 +358,21 @@ msgstr "Mesajınız"
 msgid "Contact"
 msgstr "İletişim"
 
-#: source/apps/form/models.py:29 source/apps/form/resources.py:14
+#: source/apps/form/models.py:29 source/apps/form/resources.py:13
 #: source/apps/speaker/models.py:27
 msgid "First Name"
 msgstr "Ad"
 
-#: source/apps/form/models.py:30 source/apps/form/resources.py:16
+#: source/apps/form/models.py:30 source/apps/form/resources.py:14
 #: source/apps/speaker/models.py:28
 msgid "Last Name"
 msgstr "Soyad"
 
-#: source/apps/form/models.py:33 source/apps/form/resources.py:22
+#: source/apps/form/models.py:33 source/apps/form/resources.py:20
 msgid "T-shirt Size"
 msgstr "T-shirt Bedeni"
 
-#: source/apps/form/models.py:36 source/apps/form/resources.py:25
+#: source/apps/form/models.py:36 source/apps/form/resources.py:23
 msgid "Completed"
 msgstr "Tamamlandı"
 

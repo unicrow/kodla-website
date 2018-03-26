@@ -25,7 +25,8 @@ class RegisterResource(resources.ModelResource):
     class Meta:
         model = Register
         fields = (
-            'first_name', 'last_name'
+            'first_name', 'last_name', 'email', 'phone_number',
+            'tshirt_size', 'is_active', 'is_completed'
         )
         export_order = fields
 
