@@ -1,8 +1,12 @@
+# Third-Party
+from import_export.admin import ExportMixin
+
 # Django
 from django.contrib import admin
 
 # Local Django
 from form.models import Contact, Register
+from form.resources import RegisterResource
 
 
 @admin.register(Contact)
@@ -22,7 +26,9 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(Register)
-class RegisterAdmin(admin.ModelAdmin):
+class RegisterAdmin(ExportMixin, admin.ModelAdmin):
+    resource_class = RegisterResource
+
     fields = (
         'activity', 'first_name', 'last_name', 'email', 'phone_number',
         'tshirt_size', 'is_active', 'is_completed', 'create_date', 'update_date'

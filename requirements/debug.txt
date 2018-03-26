@@ -1,20 +1,20 @@
 # Django Debug Toolbar
 django-debug-toolbar==1.6
-#sqlparse==0.2.2
+# sqlparse==0.2.2
 
 # Ipython
 ipython==5.3.0
-#appnope==0.1.0
-#decorator==4.0.11
-#ipython-genutils==0.1.0
-#pexpect==4.2.1
-#pickleshare==0.7.4
-#prompt-toolkit==1.0.13
-#ptyprocess==0.5.1
-#pygments==2.2.0
-#simplegeneric==0.8.1
-#traitlets==4.3.2
-#wcwidth==0.1.7
+# appnope==0.1.0
+# decorator==4.0.11
+# ipython-genutils==0.1.0
+# pexpect==4.2.1
+# pickleshare==0.7.4
+# prompt-toolkit==1.0.13
+# ptyprocess==0.5.1
+# pygments==2.2.0
+# simplegeneric==0.8.1
+# traitlets==4.3.2
+# wcwidth==0.1.7
 
 # Ipdb
 ipdb==0.10.2

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'redactor',
     'geoposition',
     'adminsortable',
+    'import_export',
     'easy_thumbnails',
     'snowpenguin.django.recaptcha2',
 
