@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-26 14:51+0300\n"
+"POT-Creation-Date: 2018-03-30 14:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr "Konuşmacı"
 #: source/apps/activity/apps.py:8 source/apps/activity/models.py:77
 #: source/apps/activity/models.py:108 source/apps/activity/models.py:164
 #: source/apps/activity/models.py:200 source/apps/activity/models.py:227
-#: source/apps/form/models.py:16 source/apps/form/models.py:38
+#: source/apps/form/models.py:16 source/apps/form/models.py:39
 #: source/apps/gallery/models.py:19 source/apps/hackathon/models.py:52
 #: source/apps/program/models.py:13 source/apps/speaker/models.py:163
 msgid "Activity"
@@ -94,8 +94,8 @@ msgstr "Yıl"
 #: source/apps/activity/models.py:17 source/apps/activity/models.py:106
 #: source/apps/activity/models.py:162 source/apps/activity/models.py:188
 #: source/apps/activity/models.py:225 source/apps/core/models.py:44
-#: source/apps/form/models.py:14 source/apps/form/models.py:35
-#: source/apps/form/resources.py:22 source/apps/gallery/models.py:17
+#: source/apps/form/models.py:14 source/apps/form/models.py:36
+#: source/apps/form/resources.py:23 source/apps/gallery/models.py:17
 #: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:50
 #: source/apps/hackathon/models.py:107 source/apps/program/models.py:11
 #: source/apps/program/models.py:52 source/apps/speaker/models.py:43
@@ -118,8 +118,8 @@ msgstr "Yorum"
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
-#: source/apps/activity/models.py:25 source/apps/form/models.py:42
-#: source/apps/form/models.py:43
+#: source/apps/activity/models.py:25 source/apps/form/models.py:43
+#: source/apps/form/models.py:44
 msgid "Register"
 msgstr "Kayıt"
 
@@ -372,7 +372,11 @@ msgstr "Soyad"
 msgid "T-shirt Size"
 msgstr "T-shirt Bedeni"
 
-#: source/apps/form/models.py:36 source/apps/form/resources.py:23
+#: source/apps/form/models.py:35 source/apps/form/resources.py:22
+msgid "Same City"
+msgstr "Aynı Şehir"
+
+#: source/apps/form/models.py:37 source/apps/form/resources.py:24
 msgid "Completed"
 msgstr "Tamamlandı"
 

@@ -19,6 +19,7 @@ class RegisterResource(resources.ModelResource):
     tshirt_size = fields.Field(
         attribute='get_tshirt_size_display', column_name=_('T-shirt Size')
     )
+    is_same_city = fields.Field(column_name=_('Same City'))
     is_active = fields.Field(column_name=_('Active'))
     is_completed = fields.Field(column_name=_('Completed'))
 
@@ -26,7 +27,7 @@ class RegisterResource(resources.ModelResource):
         model = Register
         fields = (
             'first_name', 'last_name', 'email', 'phone_number',
-            'tshirt_size', 'is_active', 'is_completed'
+            'tshirt_size', 'is_same_city', 'is_active', 'is_completed'
         )
         export_order = fields
 
@@ -35,6 +36,9 @@ class RegisterResource(resources.ModelResource):
 
     def dehydrate_last_name(self, obj):
         return obj.last_name.title()
+
+    def dehydrate_is_same_city(self, obj):
+        return '+' if obj.is_same_city else ''
 
     def dehydrate_is_active(self, obj):
         return '+' if obj.is_active else ''

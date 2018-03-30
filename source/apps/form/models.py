@@ -32,6 +32,7 @@ class Register(DateModel, PhoneModel):
     tshirt_size = models.PositiveSmallIntegerField(
         verbose_name=_('T-shirt Size'), choices=TSHIRT_SIZES, null=True, blank=True
     )
+    is_same_city = models.BooleanField(verbose_name=_('Same City'), default=False)
     is_active = models.BooleanField(verbose_name=_('Active'), default=False)
     is_completed = models.BooleanField(verbose_name=_('Completed'), default=False)
     activity = models.ForeignKey(
