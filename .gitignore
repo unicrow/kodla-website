@@ -96,7 +96,7 @@ email.py
 # Database, Media, Static
 *.sqlite3
 media/
-source/static/admin/
+static/admin/
 
 
 # Default

@@ -1,0 +1,10 @@
+-r base.txt
+
+
+# PostgreSql
+psycopg2
+psycopg2-binary
+
+
+# Gunicorn
+gunicorn
