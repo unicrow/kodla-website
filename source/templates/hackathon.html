@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-  <header id="home-hackathon" {% if not hackathon_prizes %}class="single-mode"{% endif %}>
+  <header id="home-hackathon" {% if not hackathon.has_prize or not hackathon_prizes %}class="single-mode"{% endif %}>
     <div class="wrap">
       <div class="logo">
         {% if activity == activities.first %}
