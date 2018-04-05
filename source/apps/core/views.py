@@ -114,7 +114,7 @@ class IndexView(TemplateView):
                     .filter(is_active=True).first(),
                 'activity_map': self.activity.activitymap_set \
                     .filter(is_active=True).first(),
-                'activity_map_key': settings.GOOGLE_MAP_API_KEY,
+                'activity_map_key': settings.GOOGLE_MAPS_API_KEY,
                 'activity_social_accounts': self.activity \
                     .activitysocialaccount_set.filter(is_active=True),
                 'activity_galleries': activity_galleries,
@@ -277,7 +277,7 @@ class HackathonView(TemplateView):
                     .filter(is_active=True).first(),
                 'activity_map': self.activity.activitymap_set \
                     .filter(is_active=True).first(),
-                'activity_map_key': settings.GOOGLE_MAP_API_KEY,
+                'activity_map_key': settings.GOOGLE_MAPS_API_KEY,
                 'activity_social_accounts': self.activity \
                     .activitysocialaccount_set.filter(is_active=True),
                 'activity_sponsors': activity_sponsors,

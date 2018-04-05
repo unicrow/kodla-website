@@ -54,4 +54,4 @@ DATABASES = {
 }
 
 
-from .extra import *
+from .local import *

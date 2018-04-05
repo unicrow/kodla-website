@@ -6,8 +6,6 @@ from source.settings.base import *
 
 
 if getpass.getuser() in ['root']:
-    from source.settings.prod import *
-elif getpass.getuser() in ['vagrant', 'ubuntu', 'kodla', 'kenan']:
-    from source.settings.staging import *
+    from source.settings.production import *
 else:
-    from source.settings.dev import *
+    from source.settings.staging import *

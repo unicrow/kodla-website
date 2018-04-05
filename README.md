@@ -56,7 +56,7 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 
 
   # Google Map (https://github.com/philippbosch/django-geoposition)
-  GOOGLE_MAP_API_KEY = 'blabla'
+  GOOGLE_MAPS_API_KEY = 'blabla'
 
 
   # ReCaptcha (https://github.com/praekelt/django-recaptcha)
@@ -80,9 +80,7 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 
 
   if getpass.getuser() in ['root']:
-      from source.settings.prod import *
-  elif getpass.getuser() in ['vagrant', 'ubuntu', 'kodla', 'kenan']:
-      from source.settings.staging import *
+      from source.settings.production import *
   else:
-      from source.settings.dev import *
+      from source.settings.staging import *
 ```

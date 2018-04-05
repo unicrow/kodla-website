@@ -15,13 +15,7 @@ import os
 import sys
 
 # Local Django
-from .secret import (
-    SECRET_KEY, GOOGLE_MAP_API_KEY,
-    RECAPTCHA_PUBLIC_KEY, RECAPTCHA_PRIVATE_KEY,
-    TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET,
-    TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET,
-    DISQUS_API_KEY, DISQUS_WEBSITE_SHORTNAME
-)
+from .secrets import SECRET_KEY
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -107,34 +101,6 @@ WSGI_APPLICATION = 'source.wsgi.application'
 SITE_ID = 1
 
 
-# Django Geoposition
-GEOPOSITION_GOOGLE_MAPS_API_KEY = GOOGLE_MAP_API_KEY
-GEOPOSITION_MAP_OPTIONS = {
-    'minZoom': 6,
-    'center': {'lat': 41, 'lng': 39.71}
-}
-GEOPOSITION_MARKER_OPTIONS = {
-    'position': {'lat': 41, 'lng': 39.71}
-}
-
-
-# ReCaptcha
-RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY
-RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY
-
-
-# Twitter
-TWITTER_CONSUMER_KEY = TWITTER_CONSUMER_KEY
-TWITTER_CONSUMER_SECRET = TWITTER_CONSUMER_SECRET
-TWITTER_ACCESS_TOKEN = TWITTER_ACCESS_TOKEN
-TWITTER_ACCESS_TOKEN_SECRET = TWITTER_ACCESS_TOKEN_SECRET
-
-
-# Disqus
-DISQUS_API_KEY = DISQUS_API_KEY
-DISQUS_WEBSITE_SHORTNAME = DISQUS_WEBSITE_SHORTNAME
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -167,3 +133,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Easy Thumbnails
 THUMBNAIL_MEDIA_URL = "/media/thumbnail/"
 THUMBNAIL_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'thumbnail/')
+
+
+from .app_settings import *

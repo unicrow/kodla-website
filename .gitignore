@@ -90,7 +90,7 @@ ENV/
 .ropeproject
 
 # Secret Values
-secret.py
+secrets.py
 email.py
 
 # Database, Media, Static
