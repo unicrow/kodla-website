@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'kodla.apps.core.urls'
+ROOT_URLCONF = 'kodla.urls'
 
 TEMPLATES = [
     {

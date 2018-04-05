@@ -2,6 +2,15 @@
 Django==1.9.12
 
 
+# Celery
+celery==4.1.0
+# amqp==2.2.2
+# billiard==3.5.0.3
+# kombu==4.1.0
+# pytz==2018.3
+# vine==1.1.4
+
+
 # Editor
 django-wysiwyg-redactor==0.4.9.1
 

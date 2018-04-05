@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
-from core.variables import TSHIRT_SIZES
+from kodla.variables import TSHIRT_SIZES
 from core.models import DateModel, PhoneModel
 
 

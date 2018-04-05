@@ -21,7 +21,7 @@ from django.views.static import serve
 from django.conf.urls import url, include
 
 # Local Django
-from core.views import get_tweets, IndexView, HackathonView
+from kodla.views import get_tweets, IndexView, HackathonView
 
 
 urlpatterns = [

@@ -2,7 +2,7 @@
 from django import template
 
 # Local Django
-from core.variables import (
+from kodla.variables import (
     CONTACT_FORM_PREFIX, SPEAKER_APPLICATION_FORM_PREFIX, REGISTER_FORM_PREFIX
 )
 
