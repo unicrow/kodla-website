@@ -11,7 +11,7 @@ class Contact(DateModel):
     full_name = models.CharField(verbose_name=_('Full Name'), max_length=100)
     email = models.EmailField(verbose_name=_('Email'))
     message = models.TextField(verbose_name=_('Message'))
-    is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    is_active = models.BooleanField(verbose_name=_('Active'), default=False)
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to='activity.Activity'
     )

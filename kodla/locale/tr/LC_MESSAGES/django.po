@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-05 14:29+0300\n"
+"POT-Creation-Date: 2018-04-06 16:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,690 +18,657 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: source/apps/activity/admin.py:20 source/apps/activity/models.py:104
+#: kodla/apps/activity/admin.py:20 kodla/apps/activity/models.py:104
 msgid "Document"
 msgstr "Doküman"
 
-#: source/apps/activity/admin.py:21
+#: kodla/apps/activity/admin.py:21
 msgid "Documents"
 msgstr "Dokümanlar"
 
-#: source/apps/activity/admin.py:29 source/apps/core/models.py:52
-#: source/apps/speaker/admin.py:18 source/apps/speaker/admin.py:70
+#: kodla/apps/activity/admin.py:29 kodla/apps/core/models.py:52
+#: kodla/apps/speaker/admin.py:18 kodla/apps/speaker/admin.py:70
 msgid "Social Account"
 msgstr "Sosyal Hesap"
 
-#: source/apps/activity/admin.py:30 source/apps/core/models.py:53
-#: source/apps/speaker/admin.py:19 source/apps/speaker/models.py:112
+#: kodla/apps/activity/admin.py:30 kodla/apps/core/models.py:53
+#: kodla/apps/speaker/admin.py:19 kodla/apps/speaker/models.py:112
 msgid "Social Accounts"
 msgstr "Sosyal Hesaplar"
 
-#: source/apps/activity/admin.py:38 source/apps/activity/models.py:198
-#: source/apps/sponsor/apps.py:8 source/apps/sponsor/models.py:48
+#: kodla/apps/activity/admin.py:38 kodla/apps/activity/models.py:198
+#: kodla/apps/sponsor/apps.py:8 kodla/apps/sponsor/models.py:48
 msgid "Sponsor"
 msgstr "Sponsor"
 
-#: source/apps/activity/admin.py:39 source/apps/sponsor/models.py:49
+#: kodla/apps/activity/admin.py:39 kodla/apps/sponsor/models.py:49
 msgid "Sponsors"
 msgstr "Sponsorlar"
 
-#: source/apps/activity/admin.py:51
+#: kodla/apps/activity/admin.py:51
 msgid "Map"
 msgstr "Harita"
 
-#: source/apps/activity/admin.py:52
+#: kodla/apps/activity/admin.py:52
 msgid "Maps"
 msgstr "Haritalar"
 
-#: source/apps/activity/admin.py:62 source/apps/hackathon/admin.py:30
-#: source/apps/speaker/admin.py:27 source/apps/speaker/admin.py:61
+#: kodla/apps/activity/admin.py:62 kodla/apps/hackathon/admin.py:30
+#: kodla/apps/speaker/admin.py:27 kodla/apps/speaker/admin.py:61
 msgid "Base"
 msgstr "Temel"
 
-#: source/apps/activity/admin.py:65 source/apps/hackathon/admin.py:33
+#: kodla/apps/activity/admin.py:65 kodla/apps/hackathon/admin.py:33
 msgid "Feature"
 msgstr "Özellik"
 
-#: source/apps/activity/admin.py:71 source/apps/hackathon/admin.py:46
-#: source/apps/speaker/admin.py:35 source/apps/speaker/admin.py:75
+#: kodla/apps/activity/admin.py:71 kodla/apps/hackathon/admin.py:46
+#: kodla/apps/speaker/admin.py:35 kodla/apps/speaker/admin.py:75
 msgid "Detail"
 msgstr "Detay"
 
-#: source/apps/activity/admin.py:78 source/apps/activity/models.py:65
-#: source/templates/modules/transportation.html:66
+#: kodla/apps/activity/admin.py:78 kodla/apps/activity/models.py:65
+#: kodla/templates/modules/transportation.html:66
 msgid "Transportation"
 msgstr "Ulaşım"
 
-#: source/apps/activity/admin.py:81 source/apps/program/models.py:57
-#: source/apps/speaker/apps.py:8 source/apps/speaker/models.py:95
-#: source/apps/speaker/models.py:117
+#: kodla/apps/activity/admin.py:81 kodla/apps/program/models.py:57
+#: kodla/apps/speaker/apps.py:8 kodla/apps/speaker/models.py:95
+#: kodla/apps/speaker/models.py:117
 msgid "Speaker"
 msgstr "Konuşmacı"
 
-#: source/apps/activity/apps.py:8 source/apps/activity/models.py:77
-#: source/apps/activity/models.py:108 source/apps/activity/models.py:164
-#: source/apps/activity/models.py:200 source/apps/activity/models.py:227
-#: source/apps/form/models.py:16 source/apps/form/models.py:40
-#: source/apps/gallery/models.py:19 source/apps/hackathon/models.py:52
-#: source/apps/program/models.py:13 source/apps/speaker/models.py:163
+#: kodla/apps/activity/apps.py:8 kodla/apps/activity/models.py:77
+#: kodla/apps/activity/models.py:108 kodla/apps/activity/models.py:164
+#: kodla/apps/activity/models.py:200 kodla/apps/activity/models.py:227
+#: kodla/apps/form/models.py:16 kodla/apps/form/models.py:40
+#: kodla/apps/gallery/models.py:19 kodla/apps/hackathon/models.py:52
+#: kodla/apps/program/models.py:13 kodla/apps/speaker/models.py:163
 msgid "Activity"
 msgstr "Etkinlik"
 
-#: source/apps/activity/models.py:16
+#: kodla/apps/activity/models.py:16
 msgid "Year"
 msgstr "Yıl"
 
-#: source/apps/activity/models.py:17 source/apps/activity/models.py:106
-#: source/apps/activity/models.py:162 source/apps/activity/models.py:188
-#: source/apps/activity/models.py:225 source/apps/core/models.py:44
-#: source/apps/form/models.py:14 source/apps/form/models.py:37
-#: source/apps/form/resources.py:23 source/apps/gallery/models.py:17
-#: source/apps/gallery/models.py:59 source/apps/hackathon/models.py:50
-#: source/apps/hackathon/models.py:107 source/apps/program/models.py:11
-#: source/apps/program/models.py:52 source/apps/speaker/models.py:43
-#: source/apps/speaker/models.py:79 source/apps/speaker/models.py:138
-#: source/apps/sponsor/models.py:18 source/apps/sponsor/models.py:41
+#: kodla/apps/activity/models.py:17 kodla/apps/activity/models.py:106
+#: kodla/apps/activity/models.py:162 kodla/apps/activity/models.py:188
+#: kodla/apps/activity/models.py:225 kodla/apps/core/models.py:44
+#: kodla/apps/form/models.py:14 kodla/apps/form/models.py:37
+#: kodla/apps/form/resources.py:23 kodla/apps/gallery/models.py:17
+#: kodla/apps/gallery/models.py:59 kodla/apps/hackathon/models.py:50
+#: kodla/apps/hackathon/models.py:107 kodla/apps/program/models.py:11
+#: kodla/apps/program/models.py:52 kodla/apps/speaker/models.py:43
+#: kodla/apps/speaker/models.py:79 kodla/apps/speaker/models.py:138
+#: kodla/apps/sponsor/models.py:18 kodla/apps/sponsor/models.py:41
 msgid "Active"
 msgstr "Aktif"
 
-#: source/apps/activity/models.py:18 source/apps/form/models.py:12
-#: source/apps/form/models.py:31 source/apps/form/resources.py:15
-#: source/apps/speaker/models.py:29
+#: kodla/apps/activity/models.py:18 kodla/apps/form/models.py:12
+#: kodla/apps/form/models.py:31 kodla/apps/form/resources.py:15
+#: kodla/apps/speaker/models.py:29
 msgid "Email"
 msgstr "E-posta"
 
-#: source/apps/activity/models.py:21 source/apps/hackathon/models.py:38
+#: kodla/apps/activity/models.py:21 kodla/apps/hackathon/models.py:38
 msgid "Comment"
 msgstr "Yorum"
 
-#: source/apps/activity/models.py:23 source/apps/speaker/models.py:167
+#: kodla/apps/activity/models.py:23 kodla/apps/speaker/models.py:167
 msgid "Speaker Application"
 msgstr "Konuşmacı Başvurusu"
 
-#: source/apps/activity/models.py:25 source/apps/form/models.py:44
-#: source/apps/form/models.py:45
+#: kodla/apps/activity/models.py:25 kodla/apps/form/models.py:44
+#: kodla/apps/form/models.py:45
 msgid "Register"
 msgstr "Kayıt"
 
-#: source/apps/activity/models.py:27 source/apps/activity/models.py:57
-#: source/apps/activity/models.py:92 source/apps/hackathon/models.py:21
-#: source/apps/hackathon/models.py:24 source/apps/hackathon/models.py:71
+#: kodla/apps/activity/models.py:27 kodla/apps/activity/models.py:57
+#: kodla/apps/activity/models.py:92 kodla/apps/hackathon/models.py:21
+#: kodla/apps/hackathon/models.py:24 kodla/apps/hackathon/models.py:71
 msgid "Register URL"
 msgstr "Kayıt Linki"
 
-#: source/apps/activity/models.py:30 source/apps/activity/models.py:112
+#: kodla/apps/activity/models.py:30 kodla/apps/activity/models.py:112
 msgid "Activity Document"
 msgstr "Etkinlik Dokümanı"
 
-#: source/apps/activity/models.py:33
+#: kodla/apps/activity/models.py:33
 msgid "Speaker Company"
 msgstr "Konuşmacı Firması"
 
-#: source/apps/activity/models.py:38
+#: kodla/apps/activity/models.py:38
 msgid "Meta Tags"
 msgstr "Meta Etiketleri"
 
-#: source/apps/activity/models.py:41 source/apps/sponsor/models.py:43
+#: kodla/apps/activity/models.py:41 kodla/apps/sponsor/models.py:43
 msgid "Logo"
 msgstr "Logo"
 
-#: source/apps/activity/models.py:44
+#: kodla/apps/activity/models.py:44
 msgid "Short Description"
 msgstr "Kısa Açıklama"
 
-#: source/apps/activity/models.py:48 source/apps/activity/models.py:222
-#: source/apps/hackathon/models.py:27 source/apps/hackathon/models.py:30
-#: source/apps/hackathon/models.py:95 source/apps/sponsor/models.py:16
+#: kodla/apps/activity/models.py:48 kodla/apps/activity/models.py:222
+#: kodla/apps/hackathon/models.py:27 kodla/apps/hackathon/models.py:30
+#: kodla/apps/hackathon/models.py:95 kodla/apps/sponsor/models.py:16
 msgid "Description"
 msgstr "Açıklama"
 
-#: source/apps/activity/models.py:51
+#: kodla/apps/activity/models.py:51
 msgid "Contact Information"
 msgstr "İletişim Bilgileri"
 
-#: source/apps/activity/models.py:54
+#: kodla/apps/activity/models.py:54
 msgid "Register Information"
 msgstr "Kayıt Bilgileri"
 
-#: source/apps/activity/models.py:62
+#: kodla/apps/activity/models.py:62
 msgid "Address"
 msgstr "Adres"
 
-#: source/apps/activity/models.py:68
-#: source/templates/modules/transportation.html:74
+#: kodla/apps/activity/models.py:68
+#: kodla/templates/modules/transportation.html:74
 msgid "Accommodation"
 msgstr "Konaklama"
 
-#: source/apps/activity/models.py:73 source/apps/speaker/models.py:96
+#: kodla/apps/activity/models.py:73 kodla/apps/speaker/models.py:96
 msgid "Speakers"
 msgstr "Konuşmacılar"
 
-#: source/apps/activity/models.py:78
+#: kodla/apps/activity/models.py:78
 msgid "Activities"
 msgstr "Etkinlikler"
 
-#: source/apps/activity/models.py:113
+#: kodla/apps/activity/models.py:113
 msgid "Activity Documents"
 msgstr "Etkinlik Dokümanları"
 
-#: source/apps/activity/models.py:126
+#: kodla/apps/activity/models.py:126
 msgid "Size"
 msgstr "Boyut"
 
-#: source/apps/activity/models.py:137
+#: kodla/apps/activity/models.py:137
 msgid "Size(Humanize)"
 msgstr "Boyut(İnsanlaştırılmış)"
 
-#: source/apps/activity/models.py:145 source/apps/activity/models.py:155
+#: kodla/apps/activity/models.py:145 kodla/apps/activity/models.py:155
 msgid "Document not found!"
 msgstr "Doküman bulunamadı!"
 
-#: source/apps/activity/models.py:147
+#: kodla/apps/activity/models.py:147
 msgid "Download"
 msgstr "İndir"
 
-#: source/apps/activity/models.py:157
+#: kodla/apps/activity/models.py:157
 msgid "Show"
 msgstr "Göster"
 
-#: source/apps/activity/models.py:161 source/apps/gallery/models.py:16
-#: source/apps/gallery/models.py:45 source/apps/speaker/models.py:78
-#: source/apps/sponsor/models.py:40
+#: kodla/apps/activity/models.py:161 kodla/apps/gallery/models.py:16
+#: kodla/apps/gallery/models.py:45 kodla/apps/speaker/models.py:78
+#: kodla/apps/sponsor/models.py:40
 msgid "URL"
 msgstr "URL"
 
-#: source/apps/activity/models.py:167 source/apps/speaker/models.py:81
+#: kodla/apps/activity/models.py:167 kodla/apps/speaker/models.py:81
 msgid "Account"
 msgstr "Hesap"
 
-#: source/apps/activity/models.py:176
+#: kodla/apps/activity/models.py:176
 msgid "Activity Social Account"
 msgstr "Etkinlik Sosyal Hesabı"
 
-#: source/apps/activity/models.py:177
+#: kodla/apps/activity/models.py:177
 msgid "Activity Social Accounts"
 msgstr "Etkinlik Sosyal Hesapları"
 
-#: source/apps/activity/models.py:190
+#: kodla/apps/activity/models.py:190
 msgid "Logo Height"
 msgstr "Logo Yüksekliği"
 
-#: source/apps/activity/models.py:193
+#: kodla/apps/activity/models.py:193
 msgid "Logo Width"
 msgstr "Logo Genişliği"
 
-#: source/apps/activity/models.py:196 source/apps/sponsor/models.py:26
+#: kodla/apps/activity/models.py:196 kodla/apps/sponsor/models.py:26
 msgid "Sponsor Type"
 msgstr "Sponsor Türü"
 
-#: source/apps/activity/models.py:209
+#: kodla/apps/activity/models.py:209
 msgid "Activity Sponsor"
 msgstr "Etkinlik Sponsoru"
 
-#: source/apps/activity/models.py:210
+#: kodla/apps/activity/models.py:210
 msgid "Activity Sponsors"
 msgstr "Etkinlik Sponsorları"
 
-#: source/apps/activity/models.py:224
+#: kodla/apps/activity/models.py:224
 msgid "Coordinates"
 msgstr "Koordinatlar"
 
-#: source/apps/activity/models.py:231
+#: kodla/apps/activity/models.py:231
 msgid "Activity Map"
 msgstr "Etkinlik Haritası"
 
-#: source/apps/activity/models.py:232
+#: kodla/apps/activity/models.py:232
 msgid "Activity Maps"
 msgstr "Etkinlik Haritaları"
 
-#: source/apps/core/apps.py:8
+#: kodla/apps/core/apps.py:8
 msgid "Core"
 msgstr "Genel"
 
-#: source/apps/core/models.py:12
+#: kodla/apps/core/models.py:12
 msgid "Create Date"
 msgstr "Oluşturma Tarihi"
 
-#: source/apps/core/models.py:15
+#: kodla/apps/core/models.py:15
 msgid "Update Date"
 msgstr "Güncelleme Tarihi"
 
-#: source/apps/core/models.py:25
+#: kodla/apps/core/models.py:25
 msgid "Phone number must be entered 9 Up to 20 digits"
 msgstr "Telefon numarası 9 ile 20 hane arası girilmelidir."
 
-#: source/apps/core/models.py:28 source/apps/form/forms.py:46
-#: source/apps/form/resources.py:17
+#: kodla/apps/core/models.py:28 kodla/apps/form/forms.py:46
+#: kodla/apps/form/resources.py:17
 msgid "Phone Number"
 msgstr "Telefon Numarası"
 
-#: source/apps/core/models.py:37 source/apps/gallery/models.py:14
-#: source/apps/hackathon/models.py:93 source/apps/speaker/models.py:137
-#: source/apps/sponsor/models.py:14 source/apps/sponsor/models.py:39
+#: kodla/apps/core/models.py:37 kodla/apps/gallery/models.py:14
+#: kodla/apps/hackathon/models.py:93 kodla/apps/speaker/models.py:137
+#: kodla/apps/sponsor/models.py:14 kodla/apps/sponsor/models.py:39
 msgid "Name"
 msgstr "İsim"
 
-#: source/apps/core/models.py:39
+#: kodla/apps/core/models.py:39
 msgid "Style Id"
 msgstr "Style Id"
 
-#: source/apps/core/models.py:42
+#: kodla/apps/core/models.py:42
 msgid "Style Class"
 msgstr "Style Class"
 
-#: source/apps/core/views.py:146 source/apps/core/views.py:305
-msgid "Your message has been sent. Thank you."
-msgstr "Mesajınız gönderildi. Teşekkür ederiz."
-
-#: source/apps/core/views.py:155 source/apps/core/views.py:314
-msgid "Your message could not be sent. Try again."
-msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
-
-#: source/apps/core/views.py:175 source/apps/core/views.py:334
-msgid "Your application has been sent. Thank you."
-msgstr "Başvurunuz gönderildi. Teşekkür ederiz."
-
-#: source/apps/core/views.py:185 source/apps/core/views.py:344
-msgid "Your application already exists!"
-msgstr "Başvuru zaten mevcut!"
-
-#: source/apps/core/views.py:191 source/apps/core/views.py:350
-msgid "Your application could not be sent. Try again."
-msgstr "Başvurunuz gönderilemedi. Tekrar deneyin."
-
-#: source/apps/core/views.py:206 source/apps/core/views.py:365
-msgid "Your register has been sent. Thank you."
-msgstr "Kaydınız gönderildi. Teşekkür ederiz."
-
-#: source/apps/core/views.py:216 source/apps/core/views.py:375
-msgid "Your register already exists!"
-msgstr "Başvuru zaten mevcut!"
-
-#: source/apps/core/views.py:222 source/apps/core/views.py:381
-msgid "Your register could not be sent. Try again."
-msgstr "Kaydınız gönderilemedi. Tekrar deneyin."
-
-#: source/apps/form/apps.py:8
+#: kodla/apps/form/apps.py:8
 msgid "Form"
 msgstr "Form"
 
-#: source/apps/form/forms.py:14
+#: kodla/apps/form/forms.py:14
 msgid "Name and Surname"
 msgstr "Adınız ve Soyadınız"
 
-#: source/apps/form/forms.py:15 source/apps/form/forms.py:45
-#: source/apps/speaker/forms.py:22
+#: kodla/apps/form/forms.py:15 kodla/apps/form/forms.py:45
+#: kodla/apps/speaker/forms.py:22
 msgid "Email Address"
 msgstr "E-posta Adresiniz"
 
-#: source/apps/form/forms.py:16
+#: kodla/apps/form/forms.py:16
 msgid "Your Message"
 msgstr "Mesajınız"
 
-#: source/apps/form/forms.py:43 source/apps/speaker/forms.py:20
+#: kodla/apps/form/forms.py:43 kodla/apps/speaker/forms.py:20
 msgid "Your Name"
 msgstr "Adınız"
 
-#: source/apps/form/forms.py:44 source/apps/speaker/forms.py:21
+#: kodla/apps/form/forms.py:44 kodla/apps/speaker/forms.py:21
 msgid "Your Surname"
 msgstr "Soyadınız"
 
-#: source/apps/form/models.py:11
+#: kodla/apps/form/models.py:11
 msgid "Full Name"
 msgstr "Ad Soyad"
 
-#: source/apps/form/models.py:13
+#: kodla/apps/form/models.py:13
 msgid "Message"
 msgstr "Mesajınız"
 
-#: source/apps/form/models.py:20 source/apps/form/models.py:21
+#: kodla/apps/form/models.py:20 kodla/apps/form/models.py:21
 msgid "Contact"
 msgstr "İletişim"
 
-#: source/apps/form/models.py:29 source/apps/form/resources.py:13
-#: source/apps/speaker/models.py:27
+#: kodla/apps/form/models.py:29 kodla/apps/form/resources.py:13
+#: kodla/apps/speaker/models.py:27
 msgid "First Name"
 msgstr "Ad"
 
-#: source/apps/form/models.py:30 source/apps/form/resources.py:14
-#: source/apps/speaker/models.py:28
+#: kodla/apps/form/models.py:30 kodla/apps/form/resources.py:14
+#: kodla/apps/speaker/models.py:28
 msgid "Last Name"
 msgstr "Soyad"
 
-#: source/apps/form/models.py:33 source/apps/form/resources.py:20
+#: kodla/apps/form/models.py:33 kodla/apps/form/resources.py:20
 msgid "T-shirt Size"
 msgstr "T-shirt Bedeni"
 
-#: source/apps/form/models.py:35 source/apps/form/resources.py:22
+#: kodla/apps/form/models.py:35 kodla/apps/form/resources.py:22
 msgid "Same City"
 msgstr "Aynı Şehir"
 
-#: source/apps/form/models.py:36
+#: kodla/apps/form/models.py:36
 msgid "Coming"
 msgstr "Geliyor"
 
-#: source/apps/form/models.py:38 source/apps/form/resources.py:24
+#: kodla/apps/form/models.py:38 kodla/apps/form/resources.py:24
 msgid "Completed"
 msgstr "Tamamlandı"
 
-#: source/apps/gallery/admin.py:18 source/apps/gallery/models.py:70
+#: kodla/apps/gallery/admin.py:18 kodla/apps/gallery/models.py:70
 msgid "Gallery Content"
 msgstr "Galeri İçeriği"
 
-#: source/apps/gallery/admin.py:19 source/apps/gallery/models.py:71
+#: kodla/apps/gallery/admin.py:19 kodla/apps/gallery/models.py:71
 msgid "Gallery Contents"
 msgstr "Galeri İçeriği"
 
-#: source/apps/gallery/apps.py:8 source/apps/gallery/models.py:28
-#: source/apps/gallery/models.py:61
+#: kodla/apps/gallery/apps.py:8 kodla/apps/gallery/models.py:28
+#: kodla/apps/gallery/models.py:61
 msgid "Gallery"
 msgstr "Galeri"
 
-#: source/apps/gallery/models.py:15
+#: kodla/apps/gallery/models.py:15
 msgid "Tag"
 msgstr "Etiket"
 
-#: source/apps/gallery/models.py:29
+#: kodla/apps/gallery/models.py:29
 msgid "Galleries"
 msgstr "Galeriler"
 
-#: source/apps/gallery/models.py:57 source/apps/speaker/models.py:31
+#: kodla/apps/gallery/models.py:57 kodla/apps/speaker/models.py:31
 msgid "Image"
 msgstr "Resim"
 
-#: source/apps/gallery/models.py:93 source/apps/hackathon/models.py:80
-#: source/apps/hackathon/models.py:141 source/apps/speaker/models.py:72
-#: source/apps/sponsor/models.py:71
+#: kodla/apps/gallery/models.py:93 kodla/apps/hackathon/models.py:80
+#: kodla/apps/hackathon/models.py:141 kodla/apps/speaker/models.py:72
+#: kodla/apps/sponsor/models.py:71
 msgid "Not Found!"
 msgstr "Bulunamadı!"
 
-#: source/apps/gallery/models.py:94 source/apps/hackathon/models.py:81
-#: source/apps/hackathon/models.py:142 source/apps/speaker/models.py:73
-#: source/apps/sponsor/models.py:72
+#: kodla/apps/gallery/models.py:94 kodla/apps/hackathon/models.py:81
+#: kodla/apps/hackathon/models.py:142 kodla/apps/speaker/models.py:73
+#: kodla/apps/sponsor/models.py:72
 msgid "Preview"
 msgstr "Önizleme"
 
-#: source/apps/hackathon/admin.py:16 source/apps/hackathon/models.py:118
+#: kodla/apps/hackathon/admin.py:16 kodla/apps/hackathon/models.py:118
 msgid "Hackathon Prize"
 msgstr "Hackathon Ödül"
 
-#: source/apps/hackathon/admin.py:17 source/apps/hackathon/models.py:119
+#: kodla/apps/hackathon/admin.py:17 kodla/apps/hackathon/models.py:119
 msgid "Hackathon Prizes"
 msgstr "Hackathon Ödülleri"
 
-#: source/apps/hackathon/admin.py:39
+#: kodla/apps/hackathon/admin.py:39
 msgid "Content"
 msgstr "İçerik"
 
-#: source/apps/hackathon/apps.py:8 source/apps/hackathon/models.py:56
-#: source/apps/hackathon/models.py:109
+#: kodla/apps/hackathon/apps.py:8 kodla/apps/hackathon/models.py:56
+#: kodla/apps/hackathon/models.py:109
 msgid "Hackathon"
 msgstr "Hackathon"
 
-#: source/apps/hackathon/forms.py:37
+#: kodla/apps/hackathon/forms.py:37
 msgid "Activity hackathon already exist."
 msgstr "Etkinlik hackathon'u zaten mevcut!"
 
-#: source/apps/hackathon/models.py:33 source/apps/hackathon/models.py:36
+#: kodla/apps/hackathon/models.py:33 kodla/apps/hackathon/models.py:36
 msgid "Team Description"
 msgstr "Takım Açıklaması"
 
-#: source/apps/hackathon/models.py:39
+#: kodla/apps/hackathon/models.py:39
 msgid "Prize"
 msgstr "Ödül"
 
-#: source/apps/hackathon/models.py:41 source/apps/hackathon/models.py:98
+#: kodla/apps/hackathon/models.py:41 kodla/apps/hackathon/models.py:98
 msgid "Main Image"
 msgstr "Ana Resim"
 
-#: source/apps/hackathon/models.py:45 source/apps/hackathon/models.py:102
+#: kodla/apps/hackathon/models.py:45 kodla/apps/hackathon/models.py:102
 msgid "Main Image Height"
 msgstr "Ana Resim Yüksekliği"
 
-#: source/apps/hackathon/models.py:48 source/apps/hackathon/models.py:105
+#: kodla/apps/hackathon/models.py:48 kodla/apps/hackathon/models.py:105
 msgid "Main Image Width"
 msgstr "Ana Resim Genişliği"
 
-#: source/apps/hackathon/models.py:57
+#: kodla/apps/hackathon/models.py:57
 msgid "Hackathons"
 msgstr "Hackathonlar"
 
-#: source/apps/program/admin.py:12 source/apps/program/models.py:61
+#: kodla/apps/program/admin.py:12 kodla/apps/program/models.py:61
 msgid "Program Content"
 msgstr "Program İçeriği"
 
-#: source/apps/program/admin.py:13 source/apps/program/models.py:62
+#: kodla/apps/program/admin.py:13 kodla/apps/program/models.py:62
 msgid "Program Contents"
 msgstr "Program İçeriği"
 
-#: source/apps/program/apps.py:8 source/apps/program/models.py:17
-#: source/apps/program/models.py:54
+#: kodla/apps/program/apps.py:8 kodla/apps/program/models.py:17
+#: kodla/apps/program/models.py:54
 msgid "Program"
 msgstr "Program"
 
-#: source/apps/program/models.py:10
+#: kodla/apps/program/models.py:10
 msgid "Date"
 msgstr "Tarih"
 
-#: source/apps/program/models.py:18
+#: kodla/apps/program/models.py:18
 msgid "Programs"
 msgstr "Programlar"
 
-#: source/apps/program/models.py:36
+#: kodla/apps/program/models.py:36
 msgid "Subject"
 msgstr "Konu"
 
-#: source/apps/program/models.py:39
+#: kodla/apps/program/models.py:39
 msgid "Annotation"
 msgstr "Dipnot"
 
-#: source/apps/program/models.py:42
+#: kodla/apps/program/models.py:42
 msgid "Presentation URL"
 msgstr "Sunum Linki"
 
-#: source/apps/program/models.py:45
+#: kodla/apps/program/models.py:45
 msgid "Presentation Document"
 msgstr "Sunum Dosyası"
 
-#: source/apps/program/models.py:48
+#: kodla/apps/program/models.py:48
 msgid "Start Time"
 msgstr "Başlangıç Zamanı"
 
-#: source/apps/program/models.py:50
+#: kodla/apps/program/models.py:50
 msgid "End Time"
 msgstr "Bitiş Zamanı"
 
-#: source/apps/speaker/admin.py:32 source/apps/speaker/admin.py:67
-#: source/apps/speaker/models.py:35
+#: kodla/apps/speaker/admin.py:32 kodla/apps/speaker/admin.py:67
+#: kodla/apps/speaker/models.py:35
 msgid "Company"
 msgstr "Firma"
 
-#: source/apps/speaker/forms.py:17 source/apps/speaker/models.py:159
+#: kodla/apps/speaker/forms.py:17 kodla/apps/speaker/models.py:159
 msgid "Application Type"
 msgstr "Başvuru Türü"
 
-#: source/apps/speaker/forms.py:23
+#: kodla/apps/speaker/forms.py:23
 msgid "Your Image"
 msgstr "Resminiz"
 
-#: source/apps/speaker/forms.py:25
+#: kodla/apps/speaker/forms.py:25
 msgid "Your working company"
 msgstr "Çalıştığınız Firma"
 
-#: source/apps/speaker/forms.py:28
+#: kodla/apps/speaker/forms.py:28
 msgid "Your working position"
 msgstr "Çalıştığınız Pozisyon"
 
-#: source/apps/speaker/forms.py:33
+#: kodla/apps/speaker/forms.py:33
 msgid "Your Website/Your Blog"
 msgstr "Web Siteniz/Blogunuz"
 
-#: source/apps/speaker/forms.py:35
+#: kodla/apps/speaker/forms.py:35
 msgid "Your Twitter Account"
 msgstr "Twitter Hesabınız"
 
-#: source/apps/speaker/forms.py:41
+#: kodla/apps/speaker/forms.py:41
 msgid "Your Github Account"
 msgstr "Github Hesabınız"
 
-#: source/apps/speaker/forms.py:47
+#: kodla/apps/speaker/forms.py:47
 msgid "Your Linkedin Account"
 msgstr "Linkedin Hesabınız"
 
-#: source/apps/speaker/forms.py:53
+#: kodla/apps/speaker/forms.py:53
 msgid "Your Other Social Account"
 msgstr "Diğer Sosyal Medya Hesabınız"
 
-#: source/apps/speaker/forms.py:56
+#: kodla/apps/speaker/forms.py:56
 msgid "You Can Enter If You Have Another Social Media Account"
 msgstr "Başka Bir Sosyal Medya Hesabınız Varsa Girebilirsiniz"
 
-#: source/apps/speaker/forms.py:61
+#: kodla/apps/speaker/forms.py:61
 msgid "Your Note"
 msgstr "Notunuz"
 
-#: source/apps/speaker/models.py:38
+#: kodla/apps/speaker/models.py:38
 msgid "Company URL"
 msgstr "Firma Linki"
 
-#: source/apps/speaker/models.py:41
+#: kodla/apps/speaker/models.py:41
 msgid "Position"
 msgstr "Pozisyon"
 
-#: source/apps/speaker/models.py:125
+#: kodla/apps/speaker/models.py:125
 msgid "Speaker Social Account"
 msgstr "Konuşmacı Sosyal Hesabı"
 
-#: source/apps/speaker/models.py:126
+#: kodla/apps/speaker/models.py:126
 msgid "Speaker Social Accounts"
 msgstr "Konuşmacı Sosyal Hesapları"
 
-#: source/apps/speaker/models.py:141
+#: kodla/apps/speaker/models.py:141
 msgid "Speaker Application Type"
 msgstr "Konuşmacı Başvuru Türü"
 
-#: source/apps/speaker/models.py:142
+#: kodla/apps/speaker/models.py:142
 msgid "Speaker Application Types"
 msgstr "Konuşmacı Başvuru Türleri"
 
-#: source/apps/speaker/models.py:150
+#: kodla/apps/speaker/models.py:150
 msgid "Website"
 msgstr "Web Sitesi"
 
-#: source/apps/speaker/models.py:151
+#: kodla/apps/speaker/models.py:151
 msgid "Twitter"
 msgstr "Twitter"
 
-#: source/apps/speaker/models.py:152
+#: kodla/apps/speaker/models.py:152
 msgid "Github"
 msgstr "Github"
 
-#: source/apps/speaker/models.py:153
+#: kodla/apps/speaker/models.py:153
 msgid "Linkedin"
 msgstr "Linkedin"
 
-#: source/apps/speaker/models.py:155
+#: kodla/apps/speaker/models.py:155
 msgid "Other Social Account"
 msgstr "Diğer Sosyal Medya Hesabı"
 
-#: source/apps/speaker/models.py:157
+#: kodla/apps/speaker/models.py:157
 msgid "Note"
 msgstr "Not"
 
-#: source/apps/speaker/models.py:168
+#: kodla/apps/speaker/models.py:168
 msgid "Speaker Applications"
 msgstr "Konuşmacı Başvuruları"
 
-#: source/apps/sponsor/models.py:27
+#: kodla/apps/sponsor/models.py:27
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
-#: source/templates/hackathon.html:41 source/templates/index.html:54
+#: kodla/templates/hackathon.html:41 kodla/templates/index.html:54
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
 
-#: source/templates/hackathon.html:49
+#: kodla/templates/hackathon.html:49
 msgid "ABOUT HACKATHON"
 msgstr "HACKATHON HAKKINDA"
 
-#: source/templates/hackathon.html:54 source/templates/hackathon.html:80
-#: source/templates/hackathon.html:92 source/templates/index.html:74
-#: source/templates/modules/contact.html:212
-#: source/templates/modules/sponsors.html:27
-#: source/templates/modules/transportation.html:84
+#: kodla/templates/hackathon.html:54 kodla/templates/hackathon.html:80
+#: kodla/templates/hackathon.html:92 kodla/templates/index.html:74
+#: kodla/templates/modules/contact.html:212
+#: kodla/templates/modules/sponsors.html:27
+#: kodla/templates/modules/transportation.html:84
 msgid "Coming Soon"
 msgstr "Çok Yakında"
 
-#: source/templates/hackathon.html:61
+#: kodla/templates/hackathon.html:61
 msgid "PRIZES"
 msgstr "ÖDÜLLER"
 
-#: source/templates/hackathon.html:87
+#: kodla/templates/hackathon.html:87
 msgid "TEAMS"
 msgstr "TAKIMLAR"
 
-#: source/templates/index.html:15
+#: kodla/templates/index.html:15
 msgid "MENU"
 msgstr "MENÜ"
 
-#: source/templates/index.html:18
+#: kodla/templates/index.html:18
 msgid "HOME"
 msgstr "ANA SAYFA"
 
-#: source/templates/index.html:19 source/templates/modules/program.html:6
+#: kodla/templates/index.html:19 kodla/templates/modules/program.html:6
 msgid "PROGRAM"
 msgstr "PROGRAM"
 
-#: source/templates/index.html:20 source/templates/modules/speakers.html:8
+#: kodla/templates/index.html:20 kodla/templates/modules/speakers.html:8
 msgid "SPEAKERS"
 msgstr "KONUŞMACILAR"
 
-#: source/templates/index.html:22
+#: kodla/templates/index.html:22
 msgid "PHOTOS"
 msgstr "FOTOĞRAFLAR"
 
-#: source/templates/index.html:24
-#: source/templates/modules/transportation.html:5
+#: kodla/templates/index.html:24 kodla/templates/modules/transportation.html:5
 msgid "TRANSPORTATION"
 msgstr "ULAŞIM"
 
-#: source/templates/index.html:25 source/templates/modules/sponsors.html:6
+#: kodla/templates/index.html:25 kodla/templates/modules/sponsors.html:6
 msgid "SPONSORS"
 msgstr "SPONSORLAR"
 
-#: source/templates/index.html:26 source/templates/modules/contact.html:8
+#: kodla/templates/index.html:26 kodla/templates/modules/contact.html:8
 msgid "CONTACT"
 msgstr "İLETİŞİM"
 
-#: source/templates/index.html:70 source/templates/modules/sponsors.html:33
+#: kodla/templates/index.html:70 kodla/templates/modules/sponsors.html:33
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
 
-#: source/templates/modules/contact.html:14
+#: kodla/templates/modules/contact.html:14
 msgid "Register Form"
 msgstr "Kayıt Formu"
 
-#: source/templates/modules/contact.html:17
+#: kodla/templates/modules/contact.html:17
 msgid "Speaker Application Form"
 msgstr "Konuşmacı Başvuru Formu"
 
-#: source/templates/modules/contact.html:19
+#: kodla/templates/modules/contact.html:19
 msgid "Contact Form"
 msgstr "İletişim Formu"
 
-#: source/templates/modules/contact.html:68
+#: kodla/templates/modules/contact.html:68
 msgid "Send"
 msgstr "Gönder"
 
-#: source/templates/modules/contact.html:166
+#: kodla/templates/modules/contact.html:166
 msgid "Send Application"
 msgstr "Başvuruyu Gönder"
 
-#: source/templates/modules/contact.html:200
+#: kodla/templates/modules/contact.html:200
 msgid "Send Message"
 msgstr "Mesajı Gönder"
 
-#: source/templates/modules/footer.html:15
+#: kodla/templates/modules/footer.html:15
 msgid ""
 "\n"
 "    <p class=\"footer-desc\">This website has been developed by\n"
@@ -720,30 +687,62 @@ msgstr ""
 "      </p>\n"
 "    "
 
-#: source/templates/modules/gallery.html:9
+#: kodla/templates/modules/gallery.html:9
 msgid "SEE ALL PHOTOS"
 msgstr "TÜM FOTOĞRAFLARA BAK"
 
-#: source/templates/modules/program.html:49
+#: kodla/templates/modules/program.html:49
 msgid "Download Presentation"
 msgstr "Sunumu İndir"
 
-#: source/templates/modules/program.html:54
+#: kodla/templates/modules/program.html:54
 msgid "Review Presentation"
 msgstr "Sunumu İncele"
 
-#: source/templates/modules/program.html:78
-#: source/templates/modules/program.html:103
+#: kodla/templates/modules/program.html:78
+#: kodla/templates/modules/program.html:103
 msgid "Program Not Yet Announced"
 msgstr "Program Henüz Açıklanmadı"
 
-#: source/templates/modules/speakers.html:63
+#: kodla/templates/modules/speakers.html:63
 msgid "Speakers Not Yet Announced"
 msgstr "Konuşmacılar Henüz Açıklanmadı"
 
-#: source/templates/modules/transportation.html:60
+#: kodla/templates/modules/transportation.html:60
 msgid "Event Location"
 msgstr "Etkinlik Yeri"
+
+#: kodla/views.py:146 kodla/views.py:305
+msgid "Your message has been sent. Thank you."
+msgstr "Mesajınız gönderildi. Teşekkür ederiz."
+
+#: kodla/views.py:155 kodla/views.py:314
+msgid "Your message could not be sent. Try again."
+msgstr "Mesajınız gönderilemedi. Tekrar deneyin."
+
+#: kodla/views.py:175 kodla/views.py:334
+msgid "Your application has been sent. Thank you."
+msgstr "Başvurunuz gönderildi. Teşekkür ederiz."
+
+#: kodla/views.py:185 kodla/views.py:344
+msgid "Your application already exists!"
+msgstr "Başvuru zaten mevcut!"
+
+#: kodla/views.py:191 kodla/views.py:350
+msgid "Your application could not be sent. Try again."
+msgstr "Başvurunuz gönderilemedi. Tekrar deneyin."
+
+#: kodla/views.py:206 kodla/views.py:365
+msgid "Your register has been sent. Thank you."
+msgstr "Kaydınız gönderildi. Teşekkür ederiz."
+
+#: kodla/views.py:216 kodla/views.py:375
+msgid "Your register already exists!"
+msgstr "Başvuru zaten mevcut!"
+
+#: kodla/views.py:222 kodla/views.py:381
+msgid "Your register could not be sent. Try again."
+msgstr "Kaydınız gönderilemedi. Tekrar deneyin."
 
 #~ msgid "Communicate Now"
 #~ msgstr "Hemen İletişime Geçin"
