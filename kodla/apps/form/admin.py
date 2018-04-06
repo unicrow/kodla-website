@@ -18,7 +18,7 @@ class ContactAdmin(admin.ModelAdmin):
     readonly_fields = ('create_date', 'update_date')
 
     list_display = (
-        'activity', 'full_name', 'email', 'create_date', 'update_date', 'is_active'
+        'full_name', 'email', 'create_date', 'update_date', 'is_active', 'activity'
     )
     list_filter = ('activity', 'is_active', 'create_date', 'update_date')
     search_fields = ('full_name', 'email')

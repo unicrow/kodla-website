@@ -1,8 +1,12 @@
 #header{
-  background-color: rgba(119, 124, 144, 0.75);
-  padding: 15px !important;
+  background-color: rgb(0, 0, 0);
+  padding: 20px !important;
 }
 
 #branding {
   float: none;
+}
+
+#footer a {
+  text-decoration: none;
 }

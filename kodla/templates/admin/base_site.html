@@ -18,13 +18,13 @@
   {% if not request.user.is_authenticated %}
     <div style="float: none; text-align:center; line-height: normal;">
       <a href="{% url 'admin:index' %}">
-        <img src="{% static 'img/logos/kodla.png' %}" alt="logo" style="height: 100%;">
+        <img src="{% static 'img/logos/kodla.png' %}" alt="logo" style="margin-top: -10px; margin-bottom: -10px; height: 64px;">
       </a>
     </div>
   {% else %}
     <div style="float: left;">
       <a style="display: inline-block; vertical-align: middle;" href="{% url 'admin:index' %}">
-        <img src="{% static 'img/logos/kodla.png' %}" alt="logo" style="margin-top: -5px; height: 100%;">
+        <img src="{% static 'img/logos/kodla.png' %}" alt="logo" style="margin-top: -10px; height: 64px;">
       </a>
     </div>
   {% endif %}
