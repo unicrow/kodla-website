@@ -90,6 +90,7 @@ ENV/
 .ropeproject
 
 # Secret Values
+local.py
 secrets.py
 email.py
 
