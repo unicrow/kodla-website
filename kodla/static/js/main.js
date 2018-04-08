@@ -79,10 +79,10 @@ $(function() {
 });
 
 // If Browser Window Width Has Changed Then Bring Navigation Bar Back
-window.onresize = function(event) {
-  if ( window.w < 769) {
-    $('body').addClass('no-scroll');
-    $('.main-nav').show();
-  }
-  // setTimelineHeight();
-};
+// window.onresize = function(event) {
+//   if ( window.w < 769) {
+//     $('body').addClass('no-scroll');
+//     $('.main-nav').show();
+//   }
+//   // setTimelineHeight();
+// };
