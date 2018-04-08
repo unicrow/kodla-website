@@ -4,9 +4,11 @@ from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 # Django
 from django import forms
+from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
 # Local Django
+from kodla.modules import MailModule
 from form.models import Contact, Register
 
 
@@ -20,7 +22,7 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ('full_name', 'email', 'message', 'recaptcha')
 
-    def save(self, activity=None, commit=True):
+    def save(self, activity=None, request=None, commit=True):
         contact = super(ContactForm, self).save(commit=False)
 
         if commit and activity:
@@ -33,6 +35,12 @@ class ContactForm(forms.ModelForm):
                 )
 
                 contact.save()
+
+                # Send Contact Mail
+                domain = request.META.get('HTTP_ORIGIN', None)
+                users = User.objects.filter(is_superuser=True)
+                for user in users:
+                    MailModule.send_contact_mail(contact, user, domain)
             except:
                 contact = None
 

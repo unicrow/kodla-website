@@ -139,7 +139,7 @@ class IndexView(TemplateView):
             context.update({'contact_form': contact_form})
 
             if contact_form.is_valid() and self.activity:
-                contact = contact_form.save(self.activity)
+                contact = contact_form.save(self.activity, request)
 
                 if contact:
                     messages.success(
@@ -298,7 +298,7 @@ class HackathonView(TemplateView):
             context.update({'contact_form': contact_form})
 
             if contact_form.is_valid() and self.activity:
-                contact = contact_form.save(self.activity)
+                contact = contact_form.save(self.activity, request)
 
                 if contact:
                     messages.success(

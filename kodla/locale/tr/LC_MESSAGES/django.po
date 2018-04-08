@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 16:48+0300\n"
+"POT-Creation-Date: 2018-04-08 11:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,7 +270,7 @@ msgstr "Güncelleme Tarihi"
 msgid "Phone number must be entered 9 Up to 20 digits"
 msgstr "Telefon numarası 9 ile 20 hane arası girilmelidir."
 
-#: kodla/apps/core/models.py:28 kodla/apps/form/forms.py:46
+#: kodla/apps/core/models.py:28 kodla/apps/form/forms.py:54
 #: kodla/apps/form/resources.py:17
 msgid "Phone Number"
 msgstr "Telefon Numarası"
@@ -293,24 +293,24 @@ msgstr "Style Class"
 msgid "Form"
 msgstr "Form"
 
-#: kodla/apps/form/forms.py:14
+#: kodla/apps/form/forms.py:16
 msgid "Name and Surname"
 msgstr "Adınız ve Soyadınız"
 
-#: kodla/apps/form/forms.py:15 kodla/apps/form/forms.py:45
+#: kodla/apps/form/forms.py:17 kodla/apps/form/forms.py:53
 #: kodla/apps/speaker/forms.py:22
 msgid "Email Address"
 msgstr "E-posta Adresiniz"
 
-#: kodla/apps/form/forms.py:16
+#: kodla/apps/form/forms.py:18
 msgid "Your Message"
 msgstr "Mesajınız"
 
-#: kodla/apps/form/forms.py:43 kodla/apps/speaker/forms.py:20
+#: kodla/apps/form/forms.py:51 kodla/apps/speaker/forms.py:20
 msgid "Your Name"
 msgstr "Adınız"
 
-#: kodla/apps/form/forms.py:44 kodla/apps/speaker/forms.py:21
+#: kodla/apps/form/forms.py:52 kodla/apps/speaker/forms.py:21
 msgid "Your Surname"
 msgstr "Soyadınız"
 
@@ -584,6 +584,21 @@ msgstr "Konuşmacı Başvuruları"
 msgid "Sponsor Types"
 msgstr "Sponsor Türleri"
 
+#: kodla/modules.py:26
+msgid "New Contact"
+msgstr "Yeni İletişim"
+
+#: kodla/modules.py:28
+#, python-brace-format
+msgid ""
+"Kodla\n"
+"Hello, {username}\n"
+"See Detail = {contact_url}\n"
+msgstr ""
+"Kodla\n"
+"Merhaba, {username}\n"
+"Ayrıntıları Gör = {contact_url}\n"
+
 #: kodla/templates/hackathon.html:41 kodla/templates/index.html:54
 msgid "Sign Up Now"
 msgstr "Hemen Kaydol"
@@ -643,6 +658,14 @@ msgstr "İLETİŞİM"
 #: kodla/templates/index.html:70 kodla/templates/modules/sponsors.html:33
 msgid "Become a Sponsor"
 msgstr "Sponsor Ol"
+
+#: kodla/templates/mail/contact-mail.html:136
+msgid "Hello"
+msgstr "Merhaba"
+
+#: kodla/templates/mail/contact-mail.html:148
+msgid "See Detail"
+msgstr "Ayrıntıları Gör"
 
 #: kodla/templates/modules/contact.html:14
 msgid "Register Form"
