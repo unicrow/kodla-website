@@ -1,6 +1,7 @@
 # Kodla
 
-http://www.kodla.co
+Production : https://www.kodla.co
+Staging    : https://www.kodla.unicrow.com
 
 
 ### Kodla nedir?
@@ -27,6 +28,9 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 * Twitter'da etkinlik ile ilgili atılan tweetler gösteriliyor.
 * Program içeriğine sunum linki ve sunum dosyası eklendi.
 * Konuşmacı olmak istiyorum özelliği.
+* Etkinliğe kayıt olma özelliği eklendi.
+* İletişim formu doldurulduğunda sistem yöneticilerine email gönderiliyor.
+* Kayıt formu duldurulduğunda sistem yöneticilerine email gönderiliyor.
 
 
 ### Gelecekte Eklenecek Özellikler
@@ -36,14 +40,15 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 
 ### Projenin yerelde çalışır hale getirilmesi
 ```
-  $ virtualenv -p python3 Kodla/env
-  $ cd Kodla
+  $ virtualenv -p python3 kodla/env
+  $ cd kodla
   $ source env/bin/activate
   $ git clone https://github.com/unicrow/kodla.git source
   $ cd source
-  $ pip install -r requirements/base.txt
-  $ pip install -r requirements/debug.txt (opsiyonel)
-  $ pip install -r requirements/prod.txt  (Eğer postgresql kullanıyorsanız.)  
+  $ touch kodla/settings/secrets.py (Detayları aşağıda belirtilmiştir.)
+  $ cp kodla/settings/local-dist.py kodla/settings/local.py
+  $ pip install -r requirements/production.txt (ya da requirements/staging.txt)
+  $ pip install -r requirements/extra.txt
   $ python manage.py migrate
   $ python manage.py compilemessages
 ```
@@ -53,6 +58,13 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 ```python
   # Django
   SECRET_KEY = 'blabla'
+
+
+  # Email
+
+  EMAIL_HOST_USER = 'blabla'
+  DEFAULT_FROM_EMAIL = 'blabla'
+  EMAIL_HOST_PASSWORD = 'blabla'
 
 
   # Google Map (https://github.com/philippbosch/django-geoposition)
@@ -69,7 +81,13 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
   TWITTER_CONSUMER_SECRET = 'blabla'
   TWITTER_ACCESS_TOKEN = 'blabla'
   TWITTER_ACCESS_TOKEN_SECRET = 'blabla'
+
+
+  # Disqus
+  DISQUS_API_KEY = 'blabla'
+  DISQUS_WEBSITE_SHORTNAME = 'blabla'
 ```
+
 * istediğiniz settings ayarının çalışması için settings dizini altında **__ init __.py** dosyasını değiştirebilirsiniz.
 ```python
   # Standard Library
