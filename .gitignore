@@ -93,6 +93,7 @@ ENV/
 local.py
 secrets.py
 email.py
+worker.state
 
 # Database, Media, Static
 *.sqlite3
