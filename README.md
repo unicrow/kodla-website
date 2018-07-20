@@ -1,6 +1,6 @@
 # Kodla
 
-Production : https://www.kodla.co
+Production : https://www.kodla.co <br>
 Staging    : https://www.kodla.unicrow.com
 
 
@@ -61,7 +61,6 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 
 
   # Email
-
   EMAIL_HOST_USER = 'blabla'
   DEFAULT_FROM_EMAIL = 'blabla'
   EMAIL_HOST_PASSWORD = 'blabla'
