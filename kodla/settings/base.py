@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'import_export',
     'easy_thumbnails',
     'snowpenguin.django.recaptcha2',
+    'corsheaders',
+    'rest_framework',
 
     # Internal Applications
     'core',
@@ -68,6 +70,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -133,6 +136,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Easy Thumbnails
 THUMBNAIL_MEDIA_URL = "/media/thumbnail/"
 THUMBNAIL_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'thumbnail/')
+
+
+# Django Cors Headers
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 from .app_settings import *

@@ -11,6 +11,14 @@ kombu==4.1.0
 # vine==1.1.4
 
 
+# Django Rest Framework
+djangorestframework==3.7.3
+
+
+# Cors Headers
+django-cors-headers==2.1.0
+
+
 # Editor
 django-wysiwyg-redactor==0.4.9.1
 

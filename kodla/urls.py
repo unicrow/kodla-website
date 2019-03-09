@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
+# Third-Party
+from rest_framework import routers
+
 # Django
 from django.contrib import admin
 from django.conf import settings
@@ -21,12 +24,20 @@ from django.views.static import serve
 from django.conf.urls import url, include
 
 # Local Django
+from activity.api_views import ActivityViewSet
 from kodla.views import get_tweets, IndexView, HackathonView
+
+
+router = routers.DefaultRouter()
+router.register('activities', ActivityViewSet, 'activities')
 
 
 urlpatterns = [
     # Admin
     url(r'^admin/', admin.site.urls),
+
+    # Api
+    url(r'^api/', include(router.urls)),
 
     # Editor
     url(r'^redactor/', include('redactor.urls')),
