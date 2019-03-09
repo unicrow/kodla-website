@@ -31,4 +31,4 @@ class ProgramSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Program
-        fields = ('date', 'contents', 'is_active')
+        fields = ('date', 'description', 'contents', 'is_active')

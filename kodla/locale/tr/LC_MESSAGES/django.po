@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 11:13+0300\n"
+"POT-Creation-Date: 2019-03-09 17:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgstr "Detay"
 msgid "Transportation"
 msgstr "Ulaşım"
 
-#: kodla/apps/activity/admin.py:81 kodla/apps/program/models.py:57
+#: kodla/apps/activity/admin.py:81 kodla/apps/program/models.py:58
 #: kodla/apps/speaker/apps.py:8 kodla/apps/speaker/models.py:95
 #: kodla/apps/speaker/models.py:117
 msgid "Speaker"
@@ -83,7 +83,7 @@ msgstr "Konuşmacı"
 #: kodla/apps/activity/models.py:200 kodla/apps/activity/models.py:227
 #: kodla/apps/form/models.py:16 kodla/apps/form/models.py:40
 #: kodla/apps/gallery/models.py:19 kodla/apps/hackathon/models.py:52
-#: kodla/apps/program/models.py:13 kodla/apps/speaker/models.py:163
+#: kodla/apps/program/models.py:14 kodla/apps/speaker/models.py:163
 msgid "Activity"
 msgstr "Etkinlik"
 
@@ -97,8 +97,8 @@ msgstr "Yıl"
 #: kodla/apps/form/models.py:14 kodla/apps/form/models.py:37
 #: kodla/apps/form/resources.py:23 kodla/apps/gallery/models.py:17
 #: kodla/apps/gallery/models.py:59 kodla/apps/hackathon/models.py:50
-#: kodla/apps/hackathon/models.py:107 kodla/apps/program/models.py:11
-#: kodla/apps/program/models.py:52 kodla/apps/speaker/models.py:43
+#: kodla/apps/hackathon/models.py:107 kodla/apps/program/models.py:12
+#: kodla/apps/program/models.py:53 kodla/apps/speaker/models.py:43
 #: kodla/apps/speaker/models.py:79 kodla/apps/speaker/models.py:138
 #: kodla/apps/sponsor/models.py:18 kodla/apps/sponsor/models.py:41
 msgid "Active"
@@ -151,7 +151,8 @@ msgstr "Kısa Açıklama"
 
 #: kodla/apps/activity/models.py:48 kodla/apps/activity/models.py:222
 #: kodla/apps/hackathon/models.py:27 kodla/apps/hackathon/models.py:30
-#: kodla/apps/hackathon/models.py:95 kodla/apps/sponsor/models.py:16
+#: kodla/apps/hackathon/models.py:95 kodla/apps/program/models.py:11
+#: kodla/apps/sponsor/models.py:16
 msgid "Description"
 msgstr "Açıklama"
 
@@ -434,16 +435,16 @@ msgstr "Ana Resim Genişliği"
 msgid "Hackathons"
 msgstr "Hackathonlar"
 
-#: kodla/apps/program/admin.py:12 kodla/apps/program/models.py:61
+#: kodla/apps/program/admin.py:12 kodla/apps/program/models.py:62
 msgid "Program Content"
 msgstr "Program İçeriği"
 
-#: kodla/apps/program/admin.py:13 kodla/apps/program/models.py:62
+#: kodla/apps/program/admin.py:13 kodla/apps/program/models.py:63
 msgid "Program Contents"
 msgstr "Program İçeriği"
 
-#: kodla/apps/program/apps.py:8 kodla/apps/program/models.py:17
-#: kodla/apps/program/models.py:54
+#: kodla/apps/program/apps.py:8 kodla/apps/program/models.py:18
+#: kodla/apps/program/models.py:55
 msgid "Program"
 msgstr "Program"
 
@@ -451,31 +452,31 @@ msgstr "Program"
 msgid "Date"
 msgstr "Tarih"
 
-#: kodla/apps/program/models.py:18
+#: kodla/apps/program/models.py:19
 msgid "Programs"
 msgstr "Programlar"
 
-#: kodla/apps/program/models.py:36
+#: kodla/apps/program/models.py:37
 msgid "Subject"
 msgstr "Konu"
 
-#: kodla/apps/program/models.py:39
+#: kodla/apps/program/models.py:40
 msgid "Annotation"
 msgstr "Dipnot"
 
-#: kodla/apps/program/models.py:42
+#: kodla/apps/program/models.py:43
 msgid "Presentation URL"
 msgstr "Sunum Linki"
 
-#: kodla/apps/program/models.py:45
+#: kodla/apps/program/models.py:46
 msgid "Presentation Document"
 msgstr "Sunum Dosyası"
 
-#: kodla/apps/program/models.py:48
+#: kodla/apps/program/models.py:49
 msgid "Start Time"
 msgstr "Başlangıç Zamanı"
 
-#: kodla/apps/program/models.py:50
+#: kodla/apps/program/models.py:51
 msgid "End Time"
 msgstr "Bitiş Zamanı"
 
