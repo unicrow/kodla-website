@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    environment:
+      POSTGRES_USER: kodla
+      POSTGRES_PASSWORD: secret
+    ports:
+      - 5432:5432  # for pycharm db access
+  amqp:
+    ports:
+      - 15672:15672  # for rabbitmq management
+  backend:
+    command: python manage.py runserver 0:8000
+    entrypoint: /code/docker/entrypoint.sh
+    volumes:
+      - ..:/code
+    ports:
+      - 8000:8000
+    environment:
+      WAIT_HOSTS: postgres:5432
+  celery-worker:
+    volumes:
+      - ..:/code
