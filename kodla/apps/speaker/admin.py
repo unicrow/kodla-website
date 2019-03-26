@@ -26,7 +26,7 @@ class SpeakerAdmin(SortableAdmin):
     fieldsets = (
         (_(u'Base'), {
             'fields' : (
-                'first_name', 'last_name', 'email', ('image', 'image_prev')
+                'first_name', 'last_name', 'email', ('image', 'image_prev'), 'bio'
             ),
         }),
         (_(u'Company'), {

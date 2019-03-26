@@ -40,7 +40,11 @@ class SpeakerModel(DateModel):
     position = models.CharField(
         verbose_name=_('Position'), null=True, blank=True, max_length=255
     )
+    bio = models.TextField(
+        verbose_name=_('Bio'), null=True, blank=True
+    )
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
+    
 
     class Meta:
         abstract = True

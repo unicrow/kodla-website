@@ -47,6 +47,9 @@ class Activity(DateModel):
     description = models.TextField(
         verbose_name=_('Description'), null=True, blank=True
     )
+    history_note = models.TextField(
+        verbose_name=_('History Note'), null=True, blank=True
+    )
     contact_info = models.TextField(
         verbose_name=_('Contact Information'), null=True, blank=True
     )
@@ -215,6 +218,26 @@ class ActivitySponsor(DateModel, SortableMixin):
         return '{activity} - {sponsor}'.format(
             activity=self.activity.__str__(), sponsor=self.sponsor.__str__()
         )
+
+class ActivityTweet(DateModel, SortableMixin):
+    text = models.TextField(verbose_name=_("Text"))
+    username = models.CharField(verbose_name=_("Username"), max_length=250)
+    user_screenname = models.CharField(verbose_name=_("Fullname"), max_length=250)
+    tweet_create_date = models.DateTimeField(
+        verbose_name=_('Create Date')
+    )
+    user_id = models.PositiveSmallIntegerField(verbose_name=_('userid'), unique=True)
+    user_avatar = models.FileField(verbose_name=_("User Avatar"), upload_to="")
+    
+    # ordering field
+    order_id = models.PositiveSmallIntegerField(
+        default=0, editable=False, db_index=True
+    )
+
+    class Meta:
+        verbose_name = _('Activity Tweet')
+        verbose_name_plural = _('Activity Tweets')
+        ordering = ('order_id',)
 
 
 class ActivityMap(DateModel):
