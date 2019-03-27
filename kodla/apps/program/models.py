@@ -8,6 +8,15 @@ from core.models import DateModel
 
 class Program(DateModel):
     date = models.DateField(verbose_name=_('Date'))
+    icon = models.CharField(
+        verbose_name=_('Title'),
+        max_length=20,
+        choices=(
+            ('party', 'Eğlence'),
+            ('story', 'Hikaye'),
+            ('technical', 'teknik')
+        )
+    )
     title = models.CharField(
         verbose_name=_('Title'), max_length=255, null=True, blank=True
     )

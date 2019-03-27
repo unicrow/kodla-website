@@ -103,3 +103,4 @@ static/admin/
 
 # Default
 .DS_Store
+.vscode

@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 # Local Django
 from activity.forms import ActivityAdminForm
 from activity.models import (
-    Activity, ActivityDocument,
+    Activity, ActivityDocument, ActivityTweet,
     ActivitySocialAccount, ActivitySponsor, ActivityMap
 )
 
@@ -55,6 +55,10 @@ class ActivityMapInline(admin.StackedInline):
         'description', 'is_active', ('create_date', 'update_date'), 'coordinates'
     )
 
+
+@admin.register(ActivityTweet)
+class ActivityTweetAdmin(NonSortableParentAdmin):
+    pass
 
 @admin.register(Activity)
 class ActivityAdmin(NonSortableParentAdmin):

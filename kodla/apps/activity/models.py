@@ -228,6 +228,9 @@ class ActivityTweet(DateModel, SortableMixin):
     )
     user_id = models.PositiveSmallIntegerField(verbose_name=_('userid'), unique=True)
     user_avatar = models.FileField(verbose_name=_("User Avatar"), upload_to="")
+    activity = models.ForeignKey(
+        verbose_name=_('Activity'), to='activity.Activity'
+    )
     
     # ordering field
     order_id = models.PositiveSmallIntegerField(
