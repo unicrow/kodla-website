@@ -11,91 +11,93 @@
 {% endblock %}
 
 {% block content %}
-  <header id="home" data-scroll-index="0">
-    <a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans "MENU" %}</a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
-        <li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
-        <li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
-        {% if activity_galleries %}
-          <li><a href="#photos" data-scroll-nav="3">{% trans "PHOTOS" %}</a></li>
-        {% endif %}
-        <li><a href="#transportation" data-scroll-nav="4">{% trans "TRANSPORTATION" %}</a></li>
-        <li><a href="#sponsors" data-scroll-nav="5">{% trans "SPONSORS" %}</a></li>
-        <li><a href="#contact" data-scroll-nav="6">{% trans "CONTACT" %}</a></li>
-        {% if activities %}
-          <li class="archive-list">
-            <a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
-            <ul class="sub-nav">
-              {% for i in activities %}
-                {% if forloop.first %}
-                  <li><a href="{% url 'index' %}">KODLA {{ i.year }}</a></li>
-                {% else %}
-                  <li><a href="{% url 'index-year' i.year %}">KODLA {{ i.year }}</a></li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        {% endif %}
-      </ul>
-    </nav>
-
-    <div class="wrap">
-      <div class="intro">
-
-        {% if activity.logo or activity.description or activity.register_url or activity_document %}
-          {{ activity.logo|safe }}
-          {{ activity.description|safe }}
-
-          {% if activity.has_register_url and activity.register_url %}
-            <a href="{{ activity.register_url }}" class="btn"
-               {% if request.get_host not in activity.register_url %} target="_blank"{% endif %}>
-              <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
-            </a>
+  {% if activity %}
+    <header id="home" data-scroll-index="0">
+      <a href="#" class="toggle-mobile-nav"><i class="icon-toggle-mobile-nav"></i>{% trans "MENU" %}</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#home" data-scroll-nav="0">{% trans "HOME" %}</a></li>
+          <li><a href="#program" data-scroll-nav="1">{% trans "PROGRAM" %}</a></li>
+          <li><a href="#speakers" data-scroll-nav="2">{% trans "SPEAKERS" %}</a></li>
+          {% if activity_galleries %}
+            <li><a href="#photos" data-scroll-nav="3">{% trans "PHOTOS" %}</a></li>
           {% endif %}
+          <li><a href="#transportation" data-scroll-nav="4">{% trans "TRANSPORTATION" %}</a></li>
+          <li><a href="#sponsors" data-scroll-nav="5">{% trans "SPONSORS" %}</a></li>
+          <li><a href="#contact" data-scroll-nav="6">{% trans "CONTACT" %}</a></li>
+          {% if activities %}
+            <li class="archive-list">
+              <a href="javascript:;">KODLA {{ activity.year }} <i class="icon-down"></i></a>
+              <ul class="sub-nav">
+                {% for i in activities %}
+                  {% if forloop.first %}
+                    <li><a href="{% url 'index' %}">KODLA {{ i.year }}</a></li>
+                  {% else %}
+                    <li><a href="{% url 'index-year' i.year %}">KODLA {{ i.year }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
 
-          {% if hackathon %}
-            {% if activity == activities.first %}
-              <a href="{% url 'hackathon' %}" class="btn">
-            {% else %}
-              <a href="{% url 'hackathon-year' activity.year %}" class="btn">
+      <div class="wrap">
+        <div class="intro">
+
+          {% if activity.logo or activity.description or activity.register_url or activity_document %}
+            {{ activity.logo|safe }}
+            {{ activity.description|safe }}
+
+            {% if activity.has_register_url and activity.register_url %}
+              <a href="{{ activity.register_url }}" class="btn"
+                 {% if request.get_host not in activity.register_url %} target="_blank"{% endif %}>
+                <i class="icon-ticket"></i>{% trans "Sign Up Now" %}
+              </a>
             {% endif %}
-              <i class="fa fa-code"></i>Hackathon
-            </a>
-          {% endif %}
 
-          {% if activity.has_activity_document and activity_document %}
-            <a href="{{ activity_document.document.url }}" class="btn" target="_blank">
-              <i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
-            </a>
+            {% if hackathon %}
+              {% if activity == activities.first %}
+                <a href="{% url 'hackathon' %}" class="btn">
+              {% else %}
+                <a href="{% url 'hackathon-year' activity.year %}" class="btn">
+              {% endif %}
+                <i class="fa fa-code"></i>Hackathon
+              </a>
+            {% endif %}
+
+            {% if activity.has_activity_document and activity_document %}
+              <a href="{{ activity_document.document.url }}" class="btn" target="_blank">
+                <i class="icon-file-pdf-o"></i>{% trans "Become a Sponsor" %}
+              </a>
+            {% endif %}
+          {% else %}
+            <br><div class="coming-soon">{% trans "Coming Soon" %}</div>
           {% endif %}
-        {% else %}
-          <br><div class="coming-soon">{% trans "Coming Soon" %}</div>
-        {% endif %}
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  {% include "modules/twitter.html" %}
+    {% include "modules/twitter.html" %}
 
-  {% include "modules/program.html" with data_scroll_index="1" %}
+    {% include "modules/program.html" with data_scroll_index="1" %}
 
-  {% include "modules/speakers.html" with data_scroll_index="2" %}
+    {% include "modules/speakers.html" with data_scroll_index="2" %}
 
-  {% for gallery, contents in activity_galleries.items %}
-    {% include "modules/gallery.html" with data_scroll_index="3" %}
-  {% endfor %}
+    {% for gallery, contents in activity_galleries.items %}
+      {% include "modules/gallery.html" with data_scroll_index="3" %}
+    {% endfor %}
 
-  {% include "modules/transportation.html" with data_scroll_index="4" %}
+    {% include "modules/transportation.html" with data_scroll_index="4" %}
 
-  {% include "modules/sponsors.html" with data_scroll_index="5" %}
+    {% include "modules/sponsors.html" with data_scroll_index="5" %}
 
-  {% include "modules/contact.html" with data_scroll_index="6" %}
+    {% include "modules/contact.html" with data_scroll_index="6" %}
 
-  {% if activity.has_comment %}
-    {% include "modules/comment.html" %}
+    {% if activity.has_comment %}
+      {% include "modules/comment.html" %}
+    {% endif %}
+
+    {% include "modules/footer.html" %}
   {% endif %}
-
-  {% include "modules/footer.html" %}
 {% endblock %}

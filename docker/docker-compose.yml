@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: postgres
+  amqp:
+    image: rabbitmq:3-management
+  celery-worker:
+    build:
+      context: ..
+      dockerfile: docker/backend/Dockerfile
+    command: celery worker -l info -A kodla
+    depends_on:
+      - amqp
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/backend/Dockerfile
+    depends_on:
+      - db
+      - celery-worker

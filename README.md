@@ -33,28 +33,52 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
 * Kayıt formu duldurulduğunda sistem yöneticilerine email gönderiliyor.
 
 
-### Gelecekte Eklenecek Özellikler
-* Hackathon başvuru özelliği.
-* Hackathon için api.
-
-
 ### Projenin yerelde çalışır hale getirilmesi
+* Setup
 ```
-  $ virtualenv -p python3 kodla/env
-  $ cd kodla
-  $ source env/bin/activate
-  $ git clone https://github.com/unicrow/kodla.git source
-  $ cd source
-  $ touch kodla/settings/secrets.py (Detayları aşağıda belirtilmiştir.)
-  $ cp kodla/settings/local-dist.py kodla/settings/local.py
-  $ pip install -r requirements/production.txt (ya da requirements/staging.txt)
-  $ pip install -r requirements/extra.txt
-  $ python manage.py migrate
-  $ python manage.py compilemessages
+  cp kodla/settings/local-dist.py kodla/settings/local.py
+  touch kodla/settings/secrets.py # secret.py içeriği aşağıda mevcut.
 ```
+
+* Build
+```
+  docker-compose -p kodla -f docker/docker-compose.yml -f docker/docker-compose.dev.yml build
+```
+
+* Start
+```
+  docker-compose -p kodla -f docker/docker-compose.yml -f docker/docker-compose.dev.yml up -d
+```
+
+* Logs
+```
+  docker-compose -p kodla -f docker/docker-compose.yml -f docker/docker-compose.dev.yml logs -f --tail 50
+```
+
+* Status
+```
+  docker-compose -p kodla -f docker/docker-compose.yml -f docker/docker-compose.dev.yml ps
+```
+
+* Restart
+```
+  docker-compose -p kodla -f docker/docker-compose.yml -f docker/docker-compose.dev.yml restart
+```
+
+* Stop
+```
+  docker-compose -p kodla -f docker/docker-compose.yml -f docker/docker-compose.dev.yml stop
+```
+
+* Container
+```
+  docker exec -it kodla_backend_1 /bin/bash
+  > python manage.py migrate
+```
+
 
 **Not**:
-* settings dizini altında **secret.py** adında bir dosya oluşturmanız gerekmektedir.
+* settings dizini altında **secrets.py** adında bir dosya oluşturmanız gerekmektedir.
 ```python
   # Django
   SECRET_KEY = 'blabla'
@@ -85,19 +109,4 @@ Popüler yazılım dilleri ve popüler donanımlar hakkında teknik seminerlerin
   # Disqus
   DISQUS_API_KEY = 'blabla'
   DISQUS_WEBSITE_SHORTNAME = 'blabla'
-```
-
-* istediğiniz settings ayarının çalışması için settings dizini altında **__ init __.py** dosyasını değiştirebilirsiniz.
-```python
-  # Standard Library
-  import getpass
-
-  # Local Django
-  from source.settings.base import *
-
-
-  if getpass.getuser() in ['root']:
-      from source.settings.production import *
-  else:
-      from source.settings.staging import *
 ```
