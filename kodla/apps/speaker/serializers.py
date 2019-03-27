@@ -40,6 +40,6 @@ class SpeakerRetrieveSerializer(SpeakerSerializer):
     class Meta:
         model = Speaker
         fields = (
-            'first_name', 'last_name', 'email', 'image', 'company', 'company_url', 'position',
+            'first_name', 'last_name', 'bio', 'email', 'image', 'company', 'company_url', 'position',
             'social_accounts' ,'is_active'
         )

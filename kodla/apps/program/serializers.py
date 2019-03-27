@@ -3,12 +3,12 @@ from rest_framework import serializers
 
 # Local Django
 from program.models import Program, ProgramContent
-from speaker.serializers import SpeakerListSerializer
+from speaker.serializers import SpeakerRetrieveSerializer
 
 
 class ProgramContentSerializer(serializers.ModelSerializer):
     presentation_document = serializers.SerializerMethodField()
-    speakers = SpeakerListSerializer(read_only=True, many=True)
+    speakers = SpeakerRetrieveSerializer(read_only=True, many=True)
 
     class Meta:
         model = ProgramContent
@@ -31,4 +31,4 @@ class ProgramSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Program
-        fields = ('date', 'description', 'contents', 'is_active')
+        fields = ('date', 'description', 'title', 'contents', 'is_active')

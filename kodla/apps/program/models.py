@@ -8,7 +8,19 @@ from core.models import DateModel
 
 class Program(DateModel):
     date = models.DateField(verbose_name=_('Date'))
-    description = models.CharField(verbose_name=_('Description'), max_length=256, blank=True)
+    icon = models.CharField(
+        verbose_name=_('Title'),
+        max_length=20,
+        choices=(
+            ('party', 'Eğlence'),
+            ('story', 'Hikaye'),
+            ('technical', 'teknik')
+        )
+    )
+    title = models.CharField(
+        verbose_name=_('Title'), max_length=255, null=True, blank=True
+    )
+    description = models.TextField(verbose_name=_('Description'), blank=True)
     is_active = models.BooleanField(verbose_name=_('Active'), default=True)
     activity = models.ForeignKey(
         verbose_name=_('Activity'), to='activity.Activity'
